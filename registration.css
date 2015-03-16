@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+.header > img {
+	float:left;
+	margin-right:10px;
+}
+.header > h1 {
+	margin:8px 0 0 0;
+	padding:0;
+	color:white;
+	font-size:22px;
+	font-weight:normal;
+}
+#income-me {
+	width:65%;
+}
+#income-pref {
+	width:50%;
+}
+#age-from, #age-to, #height-from, #height-to {
+	width:33%;
+}
+#self-descrp {
+	height:100px;
+}
+#submit-now {
+	width:40%;
+	margin:20px 30%;
+	padding:10px 0;
+}

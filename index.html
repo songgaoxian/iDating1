@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon"href="icon.png">
+<link rel="stylesheet" href="shared-frame.css">
+<link rel="stylesheet" href="pink-theme.css">
+<link rel="stylesheet" href="index.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#tab-signin").click(function() {
+		$("#tab-signup").css("color","black");
+		$(this).css("color","#eb6877");
+		$("#signup-form").hide();
+	    $("#signin-form").fadeIn();
+	});
+	
+	$("#tab-signup").click(function() {
+		$("#tab-signin").css("color","black");
+		$(this).css("color","#eb6877");
+		$("#signin-form").hide();
+	    $("#signup-form").fadeIn();
+	});
+	
+	$("#forget-link").click(function() {
+		$("#tabs").hide();
+		$("#signin-form").hide();
+	    $("#forget-form").fadeIn();
+	});
+	
+	$("#forget-back").click(function() {
+		$("#tabs").show();
+		 $("#signin-form").fadeIn();
+	    $("#forget-form").hide();
+	});
+	
+	$("#back2top").click(function() {
+		$("body").animate({scrollTop:0}, "slow");
+		event.preventDefault();
+	});
+	
+	$("#about").click(function() {
+		$("body").animate({scrollTop:640}, "slow");
+		event.preventDefault();
+	});
+	
+	$("#contact").click(function() {
+		$("body").animate({scrollTop:1300}, "slow");
+		event.preventDefault();
+	});
+});
+</script>
+<title>Welcome to iDating</title>
+</head>
+
+<body>
+<!--header-start-->
+<div class="header">
+<ul id="topnav">
+  <li><a id="contact" href="#contact-us">CONTACT</a></li>
+  <li><a id="about" href="#about-us">ABOUT</a></li>
+</ul>
+<img src="img/logo_small.png" alt="iDating logo">
+</div>
+<!--header-end-->
+
+<!--main-banner-start-->
+<div class="banner">
+<div id="banner-content">
+<p>You're Not Alone.<br>From Today.</p>
+<div id="sign-box">
+<div id="tabs">
+<button id="tab-signup" class="link-btn no-line" type="button">Sign Up</button>|
+<button id="tab-signin" class="link-btn no-line" type="button">Sign In</button>
+</div>
+
+<form id="signup-form">
+<input id="email-adr" class="txtbox txtbox-fill"  type="email" placeholder="Your Email" name="email" required><br>
+<input id="pwd" class="txtbox txtbox-fill" type="password" placeholder="Your Password" name="password" required><br>
+<input id="pwd-confirm" class="txtbox txtbox-fill" type="password" placeholder="Enter Password Again" name="password-confirm" required><br>
+<button id="signup" class="btn btn-fill" onClick="logup()" type="button">SIGN UP NOW</button>
+</form>
+
+<form id="signin-form">
+<input id="email-adr-2" class="txtbox txtbox-fill"  type="email" placeholder="Your Email" name="email" required value="bbq@gmail.com"><br>
+<input id="pwd-2" class="txtbox txtbox-fill" type="password" placeholder="Your Password" name="password" required value="bbq"><br>
+<button id="forget-link"  class="link-btn"  type="button">Forget your password?</button>
+<button id="signin" class="btn btn-fill" onClick="login()" type="button">SIGN IN</button>
+</form>
+
+<form id="forget-form" action="forget.php" method="post">
+Please enter your email address:
+<input id="email-adr-3" class="txtbox txtbox-fill"  type="email" placeholder="Your Email" name="email" required><br><br>
+A randomly generated password will be sent to you after verification. You can modify it later on.<br>
+<button id="forget-back" class="btn btn-fill" type="button" >Back</button>
+<input id="forget-send" class="btn btn-fill"  type="submit" value="Send Email">
+</form>
+</div>
+</div>
+</div>
+<!--main-banner-end-->
+
+<!--about-us-start-->
+<div id="about-us">
+<h2>ABOUT OUR TEAM</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+<!--author-holder-start-->
+<div id="author-holder">
+  <div class="author-box">
+    <div id="author-pic-1"></div>
+    <p>Kelly Xing</p>
+  </div>
+  <div class="author-box">
+    <div id="author-pic-2"></div>
+    <p>Roy Pan</p>
+  </div>
+  <div class="author-box">
+    <div id="author-pic-3"></div>
+    <p>Gaoxian Song</p>
+  </div>
+  <div class="author-box">
+    <div id="author-pic-4" ></div>
+    <p>Frank Xu</p>
+  </div>
+</div>
+<!--author-holder-end-->
+</div>
+<!--about-us-end-->
+
+<!--footer-start-->
+<div id="contact-us">
+<h2>CONTACT US</h2>
+<form id="feedback" action="accountmgt.php">
+<textarea id="feedback-msg" class="txtbox" rows="10" cols="30" placeholder="Leave Your Message Here..." name="msg" required></textarea>
+<input id="feedback-name" class="txtbox" type="text" placeholder="Your Name" name="name" required>
+<input id="feedback-email" class="txtbox" type="text" placeholder="Your E-mail" name="email" required>
+<input id="feedback-send" class="btn btn-fill" type="submit" value="Send" required>
+</form>
+</div>
+<!--footer-end-->
+
+<a href="#"><img id="back2top" src="img/back2top.png" alt="back to top"></a>
+
+<div class="footer">
+Copyright &copy; 2015 All Rights Reserved.
+</div>
+<script type="application/javascript">
+var record;
+function logup(){
+	var email=document.getElementById("email-adr").value.trim();
+	var pwd=document.getElementById("pwd").value;
+	var pwd1=document.getElementById("pwd-confirm").value;
+	if(email.length==0 || pwd.length==0){return;}
+	else if(!(pwd==pwd1)){alert("passwords should be the same!");}
+	else{
+		xmlhttp=new XMLHttpRequest(); 
+			//may be not secure......
+		content='{"email":"'+email+'","password":"'+pwd+'"}';
+		xmlhttp.open("POST","logup.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(content);
+	//get response from login.php
+		console.log(xmlhttp);
+		record=xmlhttp;
+		response=JSON.parse(xmlhttp.response);
+		if(response['check']=='true'){
+			window.location='registration.php?sid='+response['sid'];
+		}
+		else if(response['check']=='false'){
+			//error message needs modification
+			alert("Email or password is wrong!");
+		}
+		else{
+			//if !$conn in login.php
+			alert("System is busy. Please try again!");
+		}
+	}
+}
+function login(){
+//get login information from user input
+	var email=document.getElementById("email-adr-2").value.trim();
+		//can input password be contraint without ' '?
+	var pwd=document.getElementById("pwd-2").value;
+//check whether empty, error message needs modification
+	if(email.length==0 || pwd.length==0){alert("Input should not be empty!");}
+	else{
+	//create xmlHttpRequest and send info to login.php
+		xmlhttp=new XMLHttpRequest(); 
+			//may be not secure......
+		content='{"email":"'+email+'","password":"'+pwd+'"}';
+		xmlhttp.open("POST","login.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(content);
+	//get response from login.php
+		console.log(xmlhttp);
+		record=xmlhttp;
+		response=JSON.parse(xmlhttp.response);
+		if(response['check']=='true'){
+			window.location='accountmgt.php?sid='+response['sid'];
+		}
+		else if(response['check']=='false'){
+			//error message needs modification
+			alert("Email or password is wrong!");
+		}
+		else{
+			//if !$conn in login.php
+			alert("System is busy. Please try again!");
+		}
+	}
+}
+</script>
+</body>
+</html>

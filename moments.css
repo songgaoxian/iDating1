@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* CSS Document */
+#moment-wall {
+	width:100%;
+}
+table {
+	border-collapse:collapse;
+	border:none;
+}
+.moment {
+	position:relative;
+	margin:0;
+	padding:0;
+	background-color:black;
+	text-align:center;
+	border:none;
+	background-image:url(portrait/doge1.png);
+	background-position:center;
+	background-size:cover;
+}
+.moment-sml {
+	width:195px;
+	height:195px;
+}
+.moment-big {
+	width:390px;
+	width:390px;
+}
+.moment > img {
+	width:100%;
+	height:auto;
+	transition:width 0.5s height 0.5s ease-out;
+}
+.pic-mask {
+	width:100%;
+	height:100%;
+	background-color:black;
+	opacity:0.3;
+}
+.moment:hover {
+	cursor:pointer;
+}
+.moment > p {
+	position:absolute;
+	bottom:0;
+	padding-top:2px;
+	padding-bottom:2px;
+	margin:0 5% 15px;
+	width:90%;	
+	border-radius:15px;
+	background-color:black;
+	color:white;
+	opacity:0.8;
+	display:none;
+}
+#moment-btns {
+	clear:both;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin-left:auto;
+	margin-right:auto;
+	width:95%;	
+}
+#previous {
+	float:right;
+	height:35px;
+	width:60px;
+	font-size:24px;
+	border-radius:3px 0px 0px 3px;
+	margin:10px 1px;
+}
+#next {
+	float:right;
+	height:35px;
+	width:60px;
+	font-size:24px;
+	border-radius:0px 3px 3px 0px;
+	margin:10px 0;
+}
+#pic-detail-box img {
+	float:left;
+	margin-right:20px;
+	width:500px;
+}
+#pic-detail-box > table {
+	line-height:150%;
+}
+#pic-detail-box {
+	max-width:100%;
+}
