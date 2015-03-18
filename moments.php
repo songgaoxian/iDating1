@@ -26,16 +26,46 @@
 <table>
 <tr>
 <td class="colored-txt">Taken Date: </td>
-<td>1990-01-01</td>
+<td id="tokendate"></td>
 </tr>
 <tr>
 <td class="colored-txt">Upload Date: </td>
-<td>2015-03-15</td>
+<td id="update"></td>
 </tr>
 </table>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<p id="p_content"></p>
 </div>
-
+<script type="application/javascript">
+function get_info(id){
+	var p=document.getElementById("p_content");
+	var update=document.getElementById("update");
+	var tokendate=document.getElementById("tokendate");
+	//create xmlHttpRequest and send info to login.php
+	xmlhttp=new XMLHttpRequest(); 
+		//may be not secure......
+	content='{"pic_id":"'+id+'"}';
+	console.log(content);
+	xmlhttp.open("POST","pic_info.php",false);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send(content);
+//get response from login.php
+	console.log(xmlhttp);
+	record=xmlhttp;
+	response=JSON.parse(xmlhttp.response);
+	if(response['check']=='true'){
+		p.textContent=response['summary'];
+		update.textContent=response['upload_date'];
+		tokendate.textContent=response['take_date'];
+	}
+	else if(response['check']=='false'){
+		//error message needs modification
+		alert("Email or password is wrong!");
+	}
+	else{//if !$conn in login.php
+		alert("System is busy. Please try again!");
+	}
+}
+</script>
 <!--footer-start-->
 <div class="footer">
 <a href="index.html#about-us">About Us</a>

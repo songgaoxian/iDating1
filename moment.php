@@ -23,10 +23,12 @@
 				$sql='SELECT * FROM moment WHERE pic_id="'.$this->pic_id.'"';
 				$result=mysqli_query($conn,$sql);
 				if(mysqli_num_rows($result)>0){
+					$a=mysqli_fetch_array($result);
 					mysqli_close($conn);
-					return(mysqli_fetch_array($result));
+					return($a);
 				}
 				mysqli_close($conn);
+				echo $sql;
 			}
 			return(NULL);
 		}
@@ -159,9 +161,6 @@ $(document).ready(function() {
 </div>
 </div>
 ';}
-		public function show_picture($pic_info){
-			
-		}
 	}
 	class PictureViewController{
 		public function upload_picture(){
@@ -234,7 +233,7 @@ $(document).ready(function() {
 					if($row==false){
 						$content[$count]='"><p></p>';
 					}
-					else{$content[$count]='style="background-image:url(portrait/'.$row['pic_id'].')"><p>'.$row['summary'].'</p>';}
+					else{$content[$count]=' onclick="get_info(\''.$row['pic_id'].'\')" style="background-image:url(portrait/'.$row['pic_id'].')"><p>'.$row['summary'].'</p>';}
 					$count+=1;
 				}
 				mysqli_close($conn);
