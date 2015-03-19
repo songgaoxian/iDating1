@@ -188,11 +188,7 @@ if(isset($_GET['nickname'])){
                 while($row=mysqli_fetch_array($result)){
                         $sname[$i]=$row['username'];
                         $_SESSION['sname'][$i]=$sname[$i];
-                        $temp=$row['user_id'];
-                        $q2="select sid from session where user_id='$temp'";
-                        $result2=mysqli_query($dbc, $q2);
-                        $row2=mysqli_fetch_array($result2);
-                        $suid[$i]=$row2['sid'];
+                        $suid[$i]=$row['user_id'];;
                         $_SESSION['suid'][$i]=$suid[$i];
                         $sphoto[$i]=$row['photo'];
                         $_SESSION['sphoto'][$i]=$sphoto[$i];
@@ -302,11 +298,7 @@ else
                 while($row=mysqli_fetch_array($result)) {
                         $sname[$i]=$row['username'];
                         $_SESSION['sname'][$i]=$sname[$i];
-                        $temp=$row['user_id'];
-                        $q2="select sid from session where user_id='$temp'";
-                        $result2=mysqli_query($dbc,$q2);
-                        $row2=mysqli_fetch_array($result2);
-                        $suid[$i]=$row2['sid'];
+                        $suid[$i]=$row['user_id'];
                         $_SESSION['suid'][$i]=$suid[$i];
                         $sphoto[$i]=$row['photo'];
                         $_SESSION['sphoto'][$i]=$sphoto[$i];
