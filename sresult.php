@@ -188,7 +188,11 @@ if(isset($_GET['nickname'])){
                 while($row=mysqli_fetch_array($result)){
                         $sname[$i]=$row['username'];
                         $_SESSION['sname'][$i]=$sname[$i];
-                        $suid[$i]=$row['user_id'];
+                        $temp=$row['user_id'];
+                        $q2="select sid from session where user_id='$temp'";
+                        $result2=mysqli_query($dbc, $q2);
+                        $row2=mysqli_fetch_array($result2);
+                        $suid[$i]=$row2['sid'];
                         $_SESSION['suid'][$i]=$suid[$i];
                         $sphoto[$i]=$row['photo'];
                         $_SESSION['sphoto'][$i]=$sphoto[$i];
@@ -298,7 +302,11 @@ else
                 while($row=mysqli_fetch_array($result)) {
                         $sname[$i]=$row['username'];
                         $_SESSION['sname'][$i]=$sname[$i];
-                        $suid[$i]=$row['user_id'];
+                        $temp=$row['user_id'];
+                        $q2="select sid from session where user_id='$temp'";
+                        $result2=mysqli_query($dbc,$q2);
+                        $row2=mysqli_fetch_array($result2);
+                        $suid[$i]=$row2['sid'];
                         $_SESSION['suid'][$i]=$suid[$i];
                         $sphoto[$i]=$row['photo'];
                         $_SESSION['sphoto'][$i]=$sphoto[$i];
@@ -327,7 +335,7 @@ $length=$_SESSION['length'];
          if($length<=10){
                  for($j=1; $j<=$length;$j++){
                          $m=$j-1;
-                 echo "<div class='portrait'><img src='portrait/$sphoto[$m]'><a href='userpage.php?userid=$suid[$m]'>$sname[$m]</a></div>";}
+                 echo "<div class='portrait'><img src='portrait/$sphoto[$m]'><a href='accountmgt.php?sid=$suid[$m]'>$sname[$m]</a></div>";}
                  echo "</div>";
          }
          else{
@@ -350,7 +358,7 @@ $length=$_SESSION['length'];
                          $sphoto[$m]=$_SESSION['sphoto'][$m];
                          $sname[$m]=$_SESSION['sname'][$m];
                          $suid[$m]=$_SESSION['suid'][$m];
-                 echo "<div class='portrait'><img src='portrait/$sphoto[$m]'><a href='userpage.php?userid=$suid[$m]&order=$m'>$sname[$m]</a></div>";}
+                 echo "<div class='portrait'><img src='portrait/$sphoto[$m]'><a href='accountmgt.php?sid=$suid[$m]'>$sname[$m]</a></div>";}
                  echo "<br>";
                  echo "<span>Page:&nbsp";
                  for($k=1; $k<=$page;$k++)
