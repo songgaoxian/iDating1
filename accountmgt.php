@@ -5,6 +5,7 @@
 ?>
 
 <h2 class="subheading colored-txt">I'M LOOKING FOR</h2>
+
 <div class="section-box">
 <div class="section-box-content">
 <table>
@@ -51,14 +52,6 @@
 </table>
 </div>
 </div>
-
-<h2 class="subheading colored-txt">MY FRIENDS</h2>
-<div class="section-box">
-<div class="section-box-content">
-
-</div>
-</div>
-
 </div>
 <!--content-end-->
 
@@ -82,7 +75,7 @@ Copyright &copy; 2015 All Rights Reserved.
 <input id="save-pwd" class="btn btn-fill" type="button" value="Save" onClick="change_pwd()">
 </form>
 <script type="application/x-javascript">
-	var info=['self_intro','username','height','city','hometown','education','job','income'];
+	var info=['username','height','city','hometown','education','job','income'];
 	function edit(){	
 		i=0;
 		content='{"';
@@ -140,13 +133,10 @@ Copyright &copy; 2015 All Rights Reserved.
 </html>
 <?php
 $dbc=connect();
-session_start();
 $session=new Session();
 $currentid=$session->get_uid;
 $q="select * from calendar where user_id='$currentid'";
 $currenttime=date('Y-m-d H:i:s');
-$q1="delete from calendar where dat<'$currenttime'";
-mysqli_query($dbc, $q1);
 $i=0;
 $result=mysqli_query($dbc, $q);
 $dmateid=array();
@@ -157,8 +147,8 @@ if(!empty($result)){
 	$i=0;
 	while($row=mysqli_fetch_array($result)){
     $dat=$row['dat'];
-    $diff=round(abs($currenttime-$dat)/3600);
-    if($diff<=1){
+    $diff=round(($dat-$currenttime)/3600);
+    if($diff<=1 and $diff>=0){
      $dmateid[$i]=$row['mate_id'];
      $temp=$dmateid[$i];
      $dtime[$i]=$row['dat'];
