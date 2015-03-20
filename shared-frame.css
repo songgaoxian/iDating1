@@ -42,12 +42,14 @@ a {text-decoration:none;}
 }
 /*header-end*/
 
-
 .container {
 	margin:45px auto 0;
 	width:975px;
 	background-color:white;
 	box-shadow:0 0 3px #666;
+}
+@media screen and (max-width:1000px) {
+    .container {width:100%;}
 }
 .footer {
 	padding-bottom:20px;
@@ -56,7 +58,7 @@ a {text-decoration:none;}
 	text-align:center;
 }
 
-/*components-start*/
+/*shared-components-start*/
 .btn {
 	border:none;
 	border-radius:3px;
@@ -142,9 +144,9 @@ a {text-decoration:none;}
 	top:0;
 	opacity:0.5;
 }
-/*components-end*/
+/*shared-components-end*/
 
-/*accountmgt, register*/
+/*account-management, register*/
 .section-box {
 	width:100%;
 }
@@ -175,8 +177,4 @@ a {text-decoration:none;}
 	padding:15px 4% 2px;
 	margin:0;
 	display:inline-block;
-}
-/*accountmgt, register*/
-@media screen and (max-width:1000px) {
-    .container {width:100%;}
 }
