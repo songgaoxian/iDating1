@@ -1,0 +1,17 @@
+INDEX
+shortcut icon
+scrolling accuracy
+about content
+alert
+input control, length
+banner
+contact
+
+MOMENT
+<-,->
+overflow
+
+ACTMGT
+edit photo
+tag
+friends

@@ -25,7 +25,7 @@
 </div>
 <!--header-end-->
 
-<!--content-start-->
+<!--container-start-->
 <div class="container">
 <form method="post" enctype="multipart/form-data">
 <h2 class="subheading colored-txt">ABOUT ME</h2>
@@ -61,7 +61,7 @@
   <td class="item-content">
   <select name="education-me" class="txtbox" id="education">
     <option value="Unspecified" selected>Please Select</option>
-    <option value="High-school">High School</option>
+    <option value="High School">High School</option>
     <option value="Bachelor">Bachelor</option>
     <option value="Master">Master</option>
     <option value="PhD">PhD</option>
@@ -72,8 +72,29 @@
   <select name="job-me" class="txtbox" id="job">
     <option value="Unspecified" selected>Please Select</option>
   	<option value="Student">Student</option>
-    <option value="IT">IT / Web</option>
-    <option value="Telecommunication">Telecommunication</option>
+    <option value="Computer Software">Computer Software</option>
+	<option value="Computer Hardware">Computer Hardware</option>
+    <option value="Telecommunications">Telecommunications</option>
+	<option value="Internet/E-commerce">Internet/E-commerce</option>
+	<option value="Accounting/Auditing">Accounting/Auditing</option>
+	<option value="Banking">Banking</option>
+	<option value="Real Estate">Real Estate</option>
+	<option value="Insurance">Insurance</option>
+	<option value="Consulting">Consulting</option>
+	<option value="Legal">Legal</option>
+	<option value="Trading/Import & Export">Trading/Import & Export</option>
+	<option value="Wholesale/Retail">Wholesale/Retail</option>
+	<option value="Apparel/Textiles">Apparel/Textiles</option>
+	<option value="Furniture/Home Appliances">Furniture/Home Appliances</option>
+	<option value="Healthcare/Medicine/Public Health">Healthcare/Medicine/Public Health</option>
+	<option value="Public Relations/Marketing">Public Relations/Marketing</option>
+	<option value="Films/Media/Arts">Films/Media/Arts</option>
+	<option value="Education/Training">Education/Training</option>
+	<option value="Science/Research">Science/Research</option>
+	<option value="Transportation/Logistic">Transportation/Logistic</option>
+	<option value="Utilities/Energy">Utilities/Energy</option>
+	<option value="Agriculture/Fishing/Forestry">Agriculture/Fishing/Forestry</option>
+	<option value="Others">Others</option>
   </select>
   </td>
 </tr>
@@ -107,15 +128,40 @@
   <td class="item-name colored-txt">Education: </td>
   <td class="item-content">
   <select name="education-pref" class="txtbox">
-    <option value="unlimited" selected>Unlimited</option>
-    <option value="bachelor">Bachelor</option>
-    <option value="master">Master</option>
-    <option value="phd">PhD</option>
+    <option value="Unlimited" selected>Unlimited</option>
+    <option value="High School">High School</option>
+    <option value="Bachelor">Bachelor</option>
+    <option value="Master">Master</option>
+    <option value="PhD">PhD</option>
   </select></td>
   <td class="item-name colored-txt">Occupation: </td>
   <td class="item-content">
   <select name="job-pref" class="txtbox">
-  	<option value="unlimited" selected>Unlimited</option>
+  	<option value="Unlimited" selected>Unlimited</option>
+  	<option value="Student">Student</option>
+    <option value="Computer Software">Computer Software</option>
+	<option value="Computer Hardware">Computer Hardware</option>
+    <option value="Telecommunications">Telecommunications</option>
+	<option value="Internet/E-commerce">Internet/E-commerce</option>
+	<option value="Accounting/Auditing">Accounting/Auditing</option>
+	<option value="Banking">Banking</option>
+	<option value="Real Estate">Real Estate</option>
+	<option value="Insurance">Insurance</option>
+	<option value="Consulting">Consulting</option>
+	<option value="Legal">Legal</option>
+	<option value="Trading/Import & Export">Trading/Import & Export</option>
+	<option value="Wholesale/Retail">Wholesale/Retail</option>
+	<option value="Apparel/Textiles">Apparel/Textiles</option>
+	<option value="Furniture/Home Appliances">Furniture/Home Appliances</option>
+	<option value="Healthcare/Medicine/Public Health">Healthcare/Medicine/Public Health</option>
+	<option value="Public Relations/Marketing">Public Relations/Marketing</option>
+	<option value="Films/Media/Arts">Films/Media/Arts</option>
+	<option value="Education/Training">Education/Training</option>
+	<option value="Science/Research">Science/Research</option>
+	<option value="Transportation/Logistic">Transportation/Logistic</option>
+	<option value="Utilities/Energy">Utilities/Energy</option>
+	<option value="Agriculture/Fishing/Forestry">Agriculture/Fishing/Forestry</option>
+	<option value="Others">Others</option>
   </select></td>
 </tr>
 <tr>
@@ -161,10 +207,6 @@
 
 <!--footer-start-->
 <div class="footer">
-<a href="index.html#about-us">About Us</a>
-&nbsp;|&nbsp;
-<a href="index.html#contact-us">Contact Us</a>
-<br><br>
 Copyright &copy; 2015 All Rights Reserved.
 </div>
 

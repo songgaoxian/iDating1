@@ -43,8 +43,7 @@ table {
 .moment > p {
 	position:absolute;
 	bottom:0;
-	padding-top:2px;
-	padding-bottom:2px;
+	padding:2px 0;
 	margin:0 5% 15px;
 	width:90%;	
 	border-radius:15px;
@@ -78,13 +77,10 @@ table {
 	margin:10px 0;
 }
 #pic-detail-box img {
-	float:left;
-	margin-right:20px;
-	width:500px;
+	max-width:60%;
+	max-height:80%;
 }
-#pic-detail-box > table {
+#pic-detail-box div {
+	padding:10px 0 0 0;
 	line-height:150%;
-}
-#pic-detail-box {
-	max-width:100%;
 }

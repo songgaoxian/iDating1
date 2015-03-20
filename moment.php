@@ -70,6 +70,7 @@ $(document).ready(function() {
 	$(".moment-big").height($(".moment-big").width());
 	$(".moment-sml").height($(".moment-sml").width());
 	
+	//hover a moment picture
 	$(".moment").hover(function() {
 		$(this).children("p").fadeIn("fast");
 		$(this).prepend("<div class=\'pic-mask\'></div>");
@@ -79,34 +80,41 @@ $(document).ready(function() {
 		$(".pic-mask").remove();
 	});	
 	
+	//upload a picture
 	 $("#upload").click(function() {
 		$("body").append("<div class=\'mask\'></div>");
-		$("#upload-pic-box").slideDown();
-		$("#upload-pic-box").css("left",($(window).innerWidth()*0.94-$("#upload-pic-box").width())/2);		
+		$(".overlay-container").show();
+		$("#upload-pic-box").css("margin-top",($(".overlay-container").height()*0.95-$("#upload-pic-box").height())/2);		
+		$("#upload-pic-box").slideDown();		
 	});
 	
+	//close an overlay
 	$(".close-overlay").click(function() {
 		$(".mask").remove();
-	    $(this).parent().slideUp();		
+	    $(this).parent().slideUp();	
+		$(".overlay-container").hide();	
 	});	
 	
+	//show picture detail box
 	$(".moment").click(function() {
 		temp=$(this).css("background-image");
 		temp=temp.substr(4);
 		temp=temp.substr(0,temp.length-1);
 		$("body").append("<div class=\'mask\'></div>");
-	    $("#pic-detail-box").slideDown();
-		$("#pic-detail-box").css("left",($(window).innerWidth()*0.94-$("#pic-detail-box").width())/2);
-		$("#pic-detail-box").children("a").children("img").attr({"src":temp});
-		$("#pic-detail-box").children("a").attr({"href":temp});
-		$("#pic-detail-box").children("h2").text($(this).children("p").text());
+		$(".overlay-container").show();
+	    $("#pic-detail-box img").attr({"src":temp});
+		$("#pic-detail-box > a").attr({"href":temp});
+		$("#pic-detail-box > h2").text($(this).children("p").text());
+		$("#pic-detail-box").css("margin-top",($(".overlay-container").height()*0.95-$("#pic-detail-box").height())/2);
+		$("#pic-detail-box").slideDown();
 	});	
 	
+	//resize
 	$(window).resize(function() {
+		$("#upload-pic-box").css("margin-top",($(".overlay-container").height()*0.95-$("#upload-pic-box").height())/2);
+		$("#pic-detail-box").css("margin-top",($(".overlay-container").height()*0.95-$("#pic-detail-box").height())/2);
 		$(".moment-big").height($(".moment-big").width());
-	    $(".moment-sml").height($(".moment-sml").width());
-        $("#upload-pic-box").css("left",($(window).innerWidth()*0.94-$("#upload-pic-box").width())/2);
-		$("#pic-detail-box").css("left",($(window).innerWidth()*0.94-$("#upload-pic-box").width())/2);
+	    $(".moment-sml").height($(".moment-sml").width());	
     });
 });
 </script>
@@ -120,7 +128,7 @@ $(document).ready(function() {
   <li><a href="logout.php">Log Out</a>
   <li><a href="messages.php">Messages</a>
   <li><a href="moments.php">Moments</a>
-  <li><a href="calendar.html">Calendar</a>
+  <li><a href="calendar.php">Calendar</a>
   <li><a href="search.php">Search</a>
   <li><a href="accountmgt.php">My Page</a>  
 </ul>
@@ -128,31 +136,32 @@ $(document).ready(function() {
 </div>
 <!--header-end-->
 
-<!--content-start-->
+<!--container-start-->
 <div class="container">
-<!--momentWall-start-->
+<!--moment-wall-start-->
 <div id="moment-wall">
 <table>
-<tr>
-<td rowspan="2" colspan="2" class="moment moment-big"'.$content[0].'</td>
-<td class="moment moment-sml"'.$content[1].'</td>
-<td class="moment moment-sml"'.$content[2].'</td>
-<td class="moment moment-sml"'.$content[3].'</td>
-</tr>
-<tr>
-<td class="moment moment-sml"'.$content[4].'</td>
-<td class="moment moment-sml"'.$content[5].'</td>
-<td class="moment moment-sml"'.$content[6].'</td>
-</tr>
-<tr>
-<td class="moment moment-sml"'.$content[7].'</td>
-<td class="moment moment-sml"'.$content[8].'</td>
-<td class="moment moment-sml"'.$content[9].'</td>
-<td class="moment moment-sml"'.$content[10].'</td>
-<td class="moment moment-sml"'.$content[11].'</td>
-</tr>
+  <tr>
+    <td rowspan="2" colspan="2" class="moment moment-big"'.$content[0].'</td>
+    <td class="moment moment-sml"'.$content[1].'</td>
+    <td class="moment moment-sml"'.$content[2].'</td>
+    <td class="moment moment-sml"'.$content[3].'</td>
+  </tr>
+  <tr>
+    <td class="moment moment-sml"'.$content[4].'</td>
+    <td class="moment moment-sml"'.$content[5].'</td>
+    <td class="moment moment-sml"'.$content[6].'</td>
+  </tr>
+  <tr>
+    <td class="moment moment-sml"'.$content[7].'</td>
+    <td class="moment moment-sml"'.$content[8].'</td>
+    <td class="moment moment-sml"'.$content[9].'</td>
+    <td class="moment moment-sml"'.$content[10].'</td>
+    <td class="moment moment-sml"'.$content[11].'</td>
+  </tr>
 </table>
 </div>
+<!--moment-wall-end-->
 
 <div id="moment-btns">
 <button id="upload" type="button" class="btn btn-lg">Upload My Moment</button>
@@ -160,7 +169,11 @@ $(document).ready(function() {
 <a href="moments.php?page='.max($page-1,1).'"><div id="previous" type="button" class="btn" style="text-align:center">&lt;</div></a>
 </div>
 </div>
+<!--container-end-->
 ';}
+		public function show_picture($pic_info){
+			
+		}
 	}
 	class PictureViewController{
 		public function upload_picture(){
