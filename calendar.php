@@ -40,27 +40,31 @@ $(document).ready(function() {
         $("[name=day]").remove();
 		  $("#composer").append("<input type='hidden' name='month' value='"+month+"'>");
 		  $("#composer").append("<input type='hidden' name='day' value='"+date11+"'>");
-	      $("#add-event-box").slideDown();
-		  $("#add-event-box").css("left",($(window).innerWidth()*0.94-$("#add-event-box").width())/2);
+	      $(".overlay-container").show();
+		  $("#add-event-box").css("margin-top",($(".overlay-container").height()*0.95-$("#add-event-box").height())/2);
+		  $("#add-event-box").slideDown();
 		}
 	});
 	
 	$(".close-overlay").click(function() {
 		$(".mask").remove();
 	    $(this).parent().slideUp();
+		$(".overlay-container").hide();
 	});
 	
 	$(".event-box").click(function() {
 		$("body").append("<div class='mask'></div>");
+		$(".overlay-container").show();
+		$("#event-detail-box").css("margin-top",($(".overlay-container").height()*0.95-$("#event-detail-box").height())/2);
     $("#event-detail-box").slideDown();
-    $("#event-detail-box").css("left",($(window).innerWidth()*0.94-$("#event-detail-box").width())/2);
+
     dateid=$(this).attr('id');
    send(dateid);
 	    
 	});
 	
 	$(window).resize(function() {
-        $(".overlay").css("left",($(window).innerWidth()*0.94-$(".overlay").width())/2);
+        $(".overlay").css("margin-top",($(".overlay-container").height()*0.95-$(".overlay").height())/2);
     });
 });
 function send(dateid){
@@ -474,22 +478,17 @@ echo "<table class='$dmonth'>";
 </div>
 <!--calendar-end-->
 
-
 </div>
 <!--content-end-->
 
 <!--footer-start-->
 <div class="footer">
-<a href="index.html#about-us">About Us</a>
-&nbsp;|&nbsp;
-
-<a href="index.html#contact-us">Contact Us</a>
-<br><br>
 Copyright &copy; 2015 All Rights Reserved.
-
 </div>
 <!--footer-end-->
 
+<!--overlay-start-->
+<div class="overlay-container">
 <div id="add-event-box" class="overlay" >
 <button class="close-overlay btn" type="button">X</button>
 <h2 class="colored-txt">Add a Dating</h2>
@@ -509,7 +508,8 @@ Copyright &copy; 2015 All Rights Reserved.
   <input type='submit' value='Delete'><br>
   </form>
 </div>
-
+</div>
+<!--overlay-end-->
 </body>
 </html>
 
