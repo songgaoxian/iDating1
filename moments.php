@@ -4,8 +4,8 @@
 	$view->upload_picture();
 	$view->show_pictures();
 ?>
-<!--overlay-start-->
-<div class="overlay-container">
+<!--momentWall-end-->
+<!--content-end-->
 <div id="upload-pic-box" class="overlay" >
 <button class="close-overlay btn" type="button">X</button>
 <h2 class="colored-txt">Upload My Moment</h2>
@@ -34,8 +34,6 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 </div>
 </div>
-</div>
-<!--overlay-end-->
 
 <!--footer-start-->
 <div class="footer">
