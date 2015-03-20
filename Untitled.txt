@@ -1,0 +1,211 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.10
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:8889
+-- Generation Time: Mar 11, 2015 at 12:19 PM
+-- Server version: 5.5.38
+-- PHP Version: 5.6.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `project`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `calendar`
+--
+
+CREATE TABLE `calendar` (
+  `dating_id` int(50) NOT NULL primary key auto_increment,
+  `user_id` varchar(50) NOT NULL,
+  `mate_id` varchar(50) NOT NULL,
+  `dat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `content` varchar(1000) NOT NULL,
+  `location` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inbox`
+--
+
+CREATE TABLE `inbox` (
+  `user_id` varchar(50) NOT NULL,
+  `with_id` varchar(50) NOT NULL,
+  `dat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `preview` varchar(200) NOT NULL,
+  `type` varchar(1) NOT NULL,
+  `mess_id` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mess`
+--
+
+CREATE TABLE `mess` (
+  `from_id` varchar(50) NOT NULL,
+  `to_id` varchar(50) NOT NULL,
+  `type` varchar(1) NOT NULL,
+  `mess_id` varchar(20) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `dat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `content` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `moment`
+--
+
+CREATE TABLE `moment` (
+  `user_id` varchar(50) NOT NULL,
+  `pic_id` varchar(50) NOT NULL,
+  `summary` varchar(1000) NOT NULL,
+  `take_date` date NOT NULL,
+  `upload_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `moment`
+--
+
+INSERT INTO `moment` (`user_id`, `pic_id`, `summary`, `take_date`, `upload_date`) VALUES
+('3', '087264bd-4fdc-a829-f937-901a6393bb2b.png', '123', '0000-00-00', '2015-03-10 14:00:04'),
+('3', '10f9c2b0-0a65-1901-1c6e-d4edf6788180.jpg', '234', '0000-00-00', '2015-03-10 13:56:16'),
+('3', 'a2b82920-26ac-7155-f471-ef75f76f6e2a.png', 'wwr', '0000-00-00', '2015-03-10 14:02:22'),
+('3', 'c3b0dc82-bb9c-8724-7943-f6c71e52060b.png', '123', '0000-00-00', '2015-03-10 13:59:48'),
+('3', 'ffc88275-285a-338f-1f73-4f5c68434757.png', '123', '0000-00-00', '2015-03-10 13:57:03'),
+('3', 'pic.jpg', 'blablabla', '2015-03-02', '2015-03-01 04:44:20'),
+('3', 'pic1.jpg', 'blabla', '0000-00-00', '2015-03-01 04:44:20'),
+('3', 'pic2.jpg', 'wer', '2015-03-02', '2015-03-01 04:44:46'),
+('3', 'pic3.jpg', '', '0000-00-00', '2015-03-01 04:45:57'),
+('3', 'pic4.jpg', 'wer', '2015-03-03', '2015-03-01 04:45:39'),
+('3', 'pic5.jpg', '', '0000-00-00', '2015-03-01 04:45:39'),
+('3', 'pic6.jpg', '', '0000-00-00', '2015-03-01 04:45:39'),
+('3', 'pic7.jpg', '', '0000-00-00', '2015-03-01 04:45:39'),
+('3', 'pic8.jpg', '123', '2015-03-02', '2015-03-01 04:45:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `session`
+--
+
+CREATE TABLE `session` (
+  `user_id` varchar(50) NOT NULL,
+  `sid` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `session`
+--
+
+INSERT INTO `session` (`user_id`, `sid`) VALUES
+('1', ''),
+('1c58f526-b859-19d4-4221-8c487f060451', ''),
+('3', ''),
+('470733ad-2c3e-0a35-084b-abb1eb191776', '458a3029-7468-5de4-0975-571db1029d6a'),
+('75121c74-f126-bf22-9e3f-6feadd601f32', ''),
+('805c8be4-1098-0caf-9729-dffb0d0c0606', '5ee60af2-c97c-506d-0391-d2decaadf6cf'),
+('99f7c943-e971-e2d5-0ea8-0973f2b12da9', ''),
+('9e1a3bd8-7ce8-ef7d-5e45-93ef3ea7dcf1', '13359102-a4b8-3eba-12ca-6febb9891d3f'),
+('b05b19b4-c2e1-3c99-cf4e-c7688cfc7e0e', 'd0b45f65-fddc-a407-15ec-5e4836b2d662'),
+('bf7aa50c-4449-66d1-37bf-15a447b3ca24', 'd6ee160f-4ec1-711e-7e51-398a99ff459c');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tags`
+--
+
+CREATE TABLE `tags` (
+  `user_id` varchar(50) NOT NULL,
+  `tag` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_info`
+--
+
+CREATE TABLE `user_info` (
+  `user_id` varchar(50) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `theme` varchar(20) NOT NULL,
+  `photo` varchar(50) NOT NULL,
+  `sex` varchar(11) NOT NULL,
+  `hometown` varchar(20) NOT NULL,
+  `birthday` varchar(20) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `job` varchar(20) NOT NULL,
+  `income` varchar(11) NOT NULL,
+  `self_intro` varchar(300) NOT NULL,
+  `height` varchar(11) NOT NULL,
+  `education` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_info`
+--
+
+INSERT INTO `user_info` (`user_id`, `email`, `password`, `username`, `theme`, `photo`, `sex`, `hometown`, `birthday`, `city`, `job`, `income`, `self_intro`, `height`, `education`) VALUES
+('1', 'xingyue.kelly@gmail.com', '080d7e60-4', 'sheepfriend', 'pink', 'sheepfriend.jpg', '1', 'Beijing', '22', 'Hong Kong', 'student', '0', 'testing', '160', 'ug'),
+('1c58f526-b859-19d4-4221-8c487f060451', 'qwe@qq', 'qwe', '123', '', 'c634f273-d5d8-2fc5-f18b-886165165bb1.jpg', 'on', '123', '2015-03-04', '123', 'it', '123', '23', '155', 'master'),
+('1c5e773a-af76-e141-6', '', '123', '', '', '', '0', '', '0', '', '', '0', '', '0', ''),
+('2', 'orientpsy@hotmail.com', '1155014429', 'Roy', 'blue', 'roy.jpg', '0', 'Jiangsu', '22', 'Hong Kong', 'student', '0', 'testing', '0', ''),
+('3', 'bbq@gmail.com', '1', 'sheepfriend', 'pink', 'bbq.png', '1', 'Hong Kong', '12', 'Hong Kong', 'unspecified', '10000', 'blablabla', '', 'unspecified'),
+('470733ad-2c3e-0a35-084b-abb1eb191776', '12131@qq.com', '1', '', '', '', '', '', '', '', '', '', '', '', ''),
+('5f380e50-fdf9-0ae8-7', '', '123', '', '', '', '0', '', '0', '', '', '0', '', '0', ''),
+('75121c74-f126-bf22-9e3f-6feadd601f32', '1213@qq.com', '1', '', '', '', '', '', '', '', '', '', '', '', ''),
+('805c8be4-1098-0caf-9729-dffb0d0c0606', '123131@qq.com', '2', '', '', 'a529427b-2cb9-5e17-cd95-4d819b151db4.jpg', 'on', '', '', '', 'unspecified', '', '', '', 'unspecified'),
+('99f7c943-e971-e2d5-0ea8-0973f2b12da9', '123@qq.com', '123', '', '', '', '0', '', '0', '', '', '', '', '', ''),
+('9e1a3bd8-7ce8-ef7d-5e45-93ef3ea7dcf1', '', '123', '', '', '', '0', '', '0', '', '', '0', '', '0', ''),
+('b05b19b4-c2e1-3c99-cf4e-c7688cfc7e0e', 'bilibili@qq.com', '111', 'sheepfriend', '', '5431bbf7-de3a-09e6-5d26-2fdbfd85743e.jpg', 'on', 'Hong Kong', '1998-02-12', 'Beijing', 'telecommunication', '123', '123', '', 'high-school'),
+('b0ae2676-3e16-74bf-5', '', '', '', '', '', '0', '', '0', '', '', '0', '', '0', ''),
+('bf7aa50c-4449-66d1-37bf-15a447b3ca24', '', '123', '', '', '', '0', '', '0', '', '', '0', '', '0', '');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `calendar`
+--
+ALTER TABLE `calendar`
+ ADD PRIMARY KEY (`dating_id`);
+
+--
+-- Indexes for table `mess`
+--
+ALTER TABLE `mess`
+ ADD PRIMARY KEY (`mess_id`);
+
+--
+-- Indexes for table `moment`
+--
+ALTER TABLE `moment`
+ ADD PRIMARY KEY (`pic_id`);
+
+--
+-- Indexes for table `session`
+--
+ALTER TABLE `session`
+ ADD PRIMARY KEY (`user_id`);
+
+--
+-- Indexes for table `user_info`
+--
+ALTER TABLE `user_info`
+ ADD PRIMARY KEY (`user_id`,`email`), ADD KEY `password` (`password`), ADD KEY `password_2` (`password`), ADD KEY `username` (`username`), ADD KEY `sex` (`sex`), ADD KEY `hometown` (`hometown`), ADD KEY `age` (`birthday`), ADD KEY `city` (`city`), ADD KEY `job` (`job`), ADD KEY `income` (`income`);

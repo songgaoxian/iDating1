@@ -9,28 +9,6 @@
 <script>
 $(document).ready(function() {
         var conditionCount=2;
-    $(".item-delete").click(function() {
-                $("#more-condition-box").append($(this).parent());
-                conditionCount+=1;
-                if (conditionCount>0) $("#more-condition").show();
-                event.preventDefault();
-                //$(this).parent().remove();
-        });
-        
-         $(".item-add").click(function() {
-                $("#more-condition").before($(this).parent());
-                conditionCount-=1;
-                if (conditionCount==0) {
-                        $("#more-condition").hide();
-                        $("#more-condition-box").slideToggle();
-                }
-                event.preventDefault();
-                //$(this).parent().remove();
-        });
-        
-        $("#more-condition").click(function() {
-                $("#more-condition-box").slideToggle();
-        });
         
         $("#tab-by-name").click(function() {
                 $("#tab-by-condition").css("color","black");
@@ -63,7 +41,7 @@ $currentid=$session->get_uid();
 <li><a href="logout.php">Log Out</a>
   <li><a href="messages.php">Messages</a>
   <li><a href="moments.php">Moments</a>
-  <li><a href="calendar.html">Calendar</a>
+  <li><a href="calendar.php">Calendar</a>
   <li><a href="search.php">Search</a>
   <li><a href="accountmgt.php">My Page</a>
   
@@ -96,29 +74,21 @@ Gender:
   <option value="female">Female</option>
   <option value="unlimited" selected>Unlimited</option>
 </select>
-<button class="btn item-delete">X</button>
-<button class="btn item-add">Add</button>
 </div>
 
 <div class="search-item">
 Age:
 <input id="age-from" class="txtbox-embed" type="number" min="18" max="99" value="22" name="age-from"> ~ <input id="age-to" class="txtbox-embed" type="number"  min="18" max="99"  value="28" name="age-to">
-<button class="btn item-delete">X</button>
-<button class="btn item-add">Add</button>
 </div>
 
 <div class="search-item">
 Height (cm):
 <input id="height-from" class="txtbox-embed" type="number" min="140" max="220" value="150" name="height-from"> ~ <input id="height-to" class="txtbox-embed" type="number" min="140" max="220" value="170" name="height-to">
-<button class="btn item-delete">X</button>
-<button class="btn item-add">Add</button>
 </div>
 
 <div class="search-item">
 City:
 <input class="txtbox-embed" id="city1" type="text" value="Hong Kong" name="city">
-<button class="btn item-delete">X</button>
-<button class="btn item-add">Add</button>
 </div>
 
 <div class="search-item">
@@ -126,26 +96,23 @@ Occupation:
   <select name="job" class="txtbox-embed">
         <option value="unlimited" selected>Unlimited</option>
   </select>
-<button class="btn item-delete">X</button>
-<button class="btn item-add">Add</button>
 </div>
-<button id="more-condition" type="button" class="link-btn">More conditions?</button>
-</form>
-</div>
-<div id="more-condition-box">
-<div class="search-item" id="mcb1">
+
+<div class="search-item">
 Hometown:
 <input class="txtbox-embed" id="hometown1" type="text" value="Peking" name="hometown">
-<button class="btn item-delete">X</button>
-<button class="btn item-add" >Add</button>
 </div>
 
 <div class="search-item" id="mcb2">
 Monthly Income (HKD): &gt;=
 <input id="income" class="txtbox-embed" type="number" value="10000" name="income">
-<button class="btn item-delete">X</button>
-<button class="btn item-add" >Add</button>
 </div>
+</form>
+</div>
+
+
+
+
 
 <!--
 <div class="search-item">
@@ -153,7 +120,7 @@ Tags: Workaholic + Reliable
 <button class="btn item-delete">X</button>
 <button class="btn item-add">Add</button>
 </div>-->
-</div>
+
 <!--search-condition-end-->
 <!--search-result-->
 <?php
@@ -172,16 +139,6 @@ if(isset($_GET['nickname'])){
         $_SESSION['sname']=array();
     $_SESSION['suid']=array();
     $_SESSION['sphoto']=array();
-        $_SESSION['birthday']=array();
-        $_SESSION['sex']=array();
-        $_SESSION['selfintro']=array();
-        $_SESSION['city']=array();
-        $_SESSION['hometown']=array();
-        $_SESSION['height']=array();
-        $_SESSION['job']=array();
-        $_SESSION['income']=array();
-        $_SESSION['education']=array();
-        $_SESSION['email']=array();
         
         if(!empty($result)){
                 $i=0;
@@ -192,16 +149,6 @@ if(isset($_GET['nickname'])){
                         $_SESSION['suid'][$i]=$suid[$i];
                         $sphoto[$i]=$row['photo'];
                         $_SESSION['sphoto'][$i]=$sphoto[$i];
-                        $_SESSION['birthday'][$i]=$row['birthday'];
-                        $_SESSION['sex'][$i]=$row['sex'];
-                        $_SESSION['selfintro'][$i]=$row['self_intro'];
-                        $_SESSION['city'][$i]=$row['city'];
-        $_SESSION['hometown'][$i]=$row['hometown'];
-        $_SESSION['height'][$i]=$row['height'];
-        $_SESSION['job'][$i]=$row['job'];
-        $_SESSION['income'][$i]=$row['income'];
-        $_SESSION['education'][$i]=$row['education'];
-        $_SESSION['email'][$i]=$row['email'];
                         $i++;
                 }
                 $length=$i;
@@ -211,19 +158,10 @@ if(isset($_GET['nickname'])){
 else
     if(!isset($_GET['pageno'])){  
     $_SESSION['condition']=1;
+    $_SESSION['length']=0;
         $_SESSION['sname']=array();
     $_SESSION['suid']=array();
     $_SESSION['sphoto']=array();
-        $_SESSION['birthday']=array();
-        $_SESSION['sex']=array();
-        $_SESSION['selfintro']=array();
-        $_SESSION['city']=array();
-        $_SESSION['hometown']=array();
-        $_SESSION['height']=array();
-        $_SESSION['job']=array();
-        $_SESSION['income']=array();
-        $_SESSION['education']=array();
-        $_SESSION['email']=array();
                 $length=0;
         if(!empty($_POST['gender']) and $_POST['gender']!=="unlimited")
                 $gender=$_POST['gender'];
@@ -257,6 +195,7 @@ else
                 $income=intval($_POST['income']);
         else
                 $income=0;
+            echo "<script>alert('Height: $heightmin and $heightmax; Age: $agemin and $agemax; City: $city;')</script>";
         $year=intval(date("Y"));
         $yyear=$year-$agemin;
         $oyear=$year-$agemax;
@@ -301,17 +240,6 @@ else
                         $suid[$i]=$row['user_id'];
                         $_SESSION['suid'][$i]=$suid[$i];
                         $sphoto[$i]=$row['photo'];
-                        $_SESSION['sphoto'][$i]=$sphoto[$i];
-                        $_SESSION['birthday'][$i]=$row['birthday'];
-                        $_SESSION['sex'][$i]=$row['sex'];
-                        $_SESSION['selfintro'][$i]=$row['self_intro'];
-                        $_SESSION['city'][$i]=$row['city'];
-        $_SESSION['hometown'][$i]=$row['hometown'];
-        $_SESSION['height'][$i]=$row['height'];
-        $_SESSION['job'][$i]=$row['job'];
-        $_SESSION['income'][$i]=$row['income'];
-        $_SESSION['education'][$i]=$row['education'];
-        $_SESSION['email'][$i]=$row['email'];
                         $i++;
                 }
       $length=$i;
@@ -321,13 +249,14 @@ else
 }
 $length=$_SESSION['length'];
  if($length==0)
-         echo "<div id='search-result'><h2>No match is found.</h2></div>";
+         echo "<div id='search-result'><h2>No match is found.</h2></div></div>";
  else{
          echo "<div id='search-result'><h2>Here're what we have found.</h2>";
          if($length<=10){
                  for($j=1; $j<=$length;$j++){
                          $m=$j-1;
-                 echo "<div class='portrait'><img src='portrait/$sphoto[$m]'><a href='accountmgt.php?sid=$suid[$m]'>$sname[$m]</a></div>";}
+                 echo "<div class='portrait'><img src='portrait/$sphoto[$m]'><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";}
+                 echo "</div>";
                  echo "</div>";
          }
          else{
@@ -350,12 +279,12 @@ $length=$_SESSION['length'];
                          $sphoto[$m]=$_SESSION['sphoto'][$m];
                          $sname[$m]=$_SESSION['sname'][$m];
                          $suid[$m]=$_SESSION['suid'][$m];
-                 echo "<div class='portrait'><img src='portrait/$sphoto[$m]'><a href='accountmgt.php?sid=$suid[$m]'>$sname[$m]</a></div>";}
+                 echo "<div class='portrait'><img src='portrait/$sphoto[$m]'><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";}
                  echo "<br>";
                  echo "<span>Page:&nbsp";
                  for($k=1; $k<=$page;$k++)
                          echo "<a href='sresult.php?pageno=$k'>$k</a>&nbsp";
-                 echo "</div>";  
+                 echo "</div></div>";  
                  
          }
          
@@ -396,11 +325,10 @@ if(isset($_SESSION['condition'])){
                 $('#tab-by-condition').css('color','#e5004f');
                 $('#by-condition-form').fadeIn();
             $('#by-name-form').hide();
-                $('#more-condition-box').slideToggle();
-                $('#more-condition').before($('#mcb1').parent());
                  $('#age-from').val($agemin);
                            $('#age-to').val($agemax);
                            $('#height-from').val($heightmin);
+                           $('#height-to').val($heightmax);
                            $('#income').val($income);";
                 if($gender!==0)
                  echo "$('#gender1').val('$gender');";
