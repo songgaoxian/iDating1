@@ -3,7 +3,7 @@
 	$view=new UserViewController();
 	$view->show();
 ?>
-
+<!--looking-for-start-->
 <h2 class="subheading colored-txt">I'M LOOKING FOR</h2>
 <div class="section-box">
 <div class="section-box-content">
@@ -76,11 +76,14 @@
 </table>
 </div>
 </div>
-
+<!--looking-for-end-->
+<!--my-friends-start-->
 <h2 class="subheading colored-txt">MY FRIENDS</h2>
 <div class="section-box">
-<div class="section-box-content"></div>
+<div class="section-box-content">
 </div>
+</div>
+<!--my-friends-end-->
 </div>
 <!--container-end-->
 
@@ -92,6 +95,7 @@ Copyright &copy; 2015 All Rights Reserved.
 
 <!--overlay-start-->
 <div class="overlay-container">
+<!--change-pwd-box-start-->
 <div id="change-pwd-box" class="overlay" >
 <button class="close-overlay btn" type="button" id="close">X</button>
 <h2 class="colored-txt">Change Password</h2>
@@ -99,7 +103,7 @@ Copyright &copy; 2015 All Rights Reserved.
 <input class="txtbox txtbox-fill" type="password" placeholder="Old Password" required id="old_pwd"></input><br>
 <input class="txtbox txtbox-fill" type="password" placeholder="New Password" required id="new_pwd1"></input><br>
 <input class="txtbox txtbox-fill" type="password" placeholder="Enter New Password Again" required id="new_pwd2"></input><br>
-<input id="save-pwd" class="btn btn-fill" type="button" value="Save" onClick="change_pwd()">
+<input id="save-pwd" class="btn btn-fill" type="button" value="Save" onclick="change_pwd()">
 </form>
 <script type="application/x-javascript">
 	var info=['username','height','city','hometown','education','job','income'];
@@ -156,6 +160,18 @@ Copyright &copy; 2015 All Rights Reserved.
 	}
 </script>
 </div>
+<!--change-pwd-box-end-->
+<!--change-portrait-box-start-->
+<div id="change-portrait-box" class="overlay" >
+<button class="close-overlay btn" type="button" id="close">X</button>
+<h2 class="colored-txt">Change Portrait</h2>
+<form>
+<input class="txtbox txtbox-fill" type="file" required></input><br>
+<br>
+<input id="save-portrait" class="btn btn-fill" type="submit" value="Save">
+</form>
+</div>
+<!--change-portrait-box-end-->
 </div>
 <!--overlay-end-->
 </body>

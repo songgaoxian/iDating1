@@ -8,7 +8,7 @@
 	if($result){header("Location: accountmgt.php");}
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
@@ -28,10 +28,11 @@
 <!--container-start-->
 <div class="container">
 <form method="post" enctype="multipart/form-data">
+<!--about-me-start-->
 <h2 class="subheading colored-txt">ABOUT ME</h2>
 <div class="section-box">
 <div class="section-box-content">
-<label class="colored-txt">User Photo:</label><br>
+<label class="colored-txt">Portrait:</label><br>
 <input class="txtbox txtbox-fill" type="file" name="user-photo">
 <br><br>
 <label class="colored-txt">Self Description:</label><br>
@@ -100,14 +101,15 @@
 </tr>
 <tr>
   <td class="item-name colored-txt">Monthly Income: </td>
-  <td class="item-content"><input class="txtbox" id="income" type="number" min="0" name="income-me" required> HKD</td>
+  <td class="item-content"><input class="txtbox" id="income-me" type="number" min="0" name="income-me" required> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
   <td><div class="tag-item">Humorous</div></td>  
 </tr>
 </table>
 </div>
 </div>
-
+<!--about-me-end-->
+<!--looking-for-start-->
 <h2 class="subheading colored-txt">I'M LOOKING FOR</h2>
 <div class="section-box">
 <div class="section-box-content">
@@ -175,6 +177,7 @@
 
 <input id="submit-now" class="btn" type="button" value="Submit" onClick="edit()">
 </div>
+<!--looking-for-end-->
 </form>
 </div>
 <script type="application/x-javascript">
@@ -203,13 +206,12 @@
 		}
 	}
 </script>
-<!--content-end-->
+<!--container-end-->
 
 <!--footer-start-->
 <div class="footer">
 Copyright &copy; 2015 All Rights Reserved.
 </div>
-
 <!--footer-end-->
 </body>
 </html>

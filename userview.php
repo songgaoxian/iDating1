@@ -22,12 +22,22 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-	//show change password box
+	$("#portrait").height($("#portrait").width());
+	
+	//show change password dialog
     $("#change-pwd").click(function() {
 		$("body").append("<div class=\'mask\'></div>");
 		$(".overlay-container").show();
 		$("#change-pwd-box").css("margin-top",($(".overlay-container").height()*0.95-$("#change-pwd-box").height())/2);
 	    $("#change-pwd-box").slideDown();
+	});
+	
+	//show change portrait dialog
+    $("#change-portrait").click(function() {
+		$("body").append("<div class=\'mask\'></div>");
+		$(".overlay-container").show();
+		$("#change-portrait-box").css("margin-top",($(".overlay-container").height()*0.95-$("#change-portrait-box").height())/2);
+	    $("#change-portrait-box").slideDown();
 	});
 	
 	//close a overlay
@@ -40,6 +50,8 @@ $(document).ready(function() {
 	//resize
 	$(window).resize(function() {
 		$("#change-pwd-box").css("margin-top",($(".overlay-container").height()*0.95-$("#change-pwd-box").height())/2);
+		$("#change-portrait-box").css("margin-top",($(".overlay-container").height()*0.95-$("#change-portrait-box").height())/2);
+		$("#portrait").height($("#portrait").width());
     });
 	
 	$("#edit-pref").click(function(){
@@ -67,7 +79,7 @@ $(document).ready(function() {
   <li><a href="logout.php">Log Out</a>
   <li><a href="messages.php">Messages</a>
   <li><a href="moments.php">Moments</a>
-  <li><a href="calendar.html">Calendar</a>
+  <li><a href="calendar.php">Calendar</a>
   <li><a href="search.php">Search</a>
   <li><a href="accountmgt.php">My Page</a>  
 </ul>
@@ -77,21 +89,33 @@ $(document).ready(function() {
 
 <!--container-start-->
 <div class="container">
+<!--my-account-start-->
 <h2 class="subheading colored-txt">MY ACCOUNT</h2>
 <div class="section-box">
 <div class="section-box-content">
 <table>
-<tr>
-  <td class="item-name colored-txt">Email: </td>
-  <td class="item-content" id="email">'.$this->user_info['email'].'</td>';
+  <tr>
+    <td class="item-name colored-txt">Email: </td>
+    <td class="item-content" id="email">'.$this->user_info['email'].'</td>';
   if($mode==0)
   {echo '
-  <td class="item-name colored-txt">Password: </td>
-  <td class="item-content"><button id="change-pwd" type="button" class="btn btn-sml">Change Password</button></td>';}echo '
+    <td class="item-name colored-txt">Password: </td>
+    <td class="item-content"><button id="change-pwd" type="button" class="btn btn-sml">Change Password</button></td>';}echo '
+  </tr>
+  <tr>
+    <td class="item-name colored-txt">Theme: </td>
+    <td class="item-content">
+	  <select name="theme" class="txtbox" id="theme">
+        <option value="Pink" selected>Pink</option>
+        <option value="Blue">Blue</option>
+      </select>
+    </td>
+  </tr>
 </table>
 </div>
 </div>
-
+<!--my-account-end-->
+<!--about-me-start-->
 <h2 class="subheading colored-txt">ABOUT ME</h2>';
 if($mode==0){echo '
 <button id="edit-pref" type="button" class="btn btn-sml edit-hide">Edit</button>
@@ -101,12 +125,15 @@ if($mode==0){echo '
 echo'
 <div class="section-box">
 <div class="section-box-content">
-<div id="portrait">
-<img src="portrait/'.$this->user_info['photo'].'" alt="my portrait"></div>
+<div id="portrait-box">
+<div id="portrait"></div>
+<button id="change-portrait" type="button" class="btn btn-sml edit-show">Change</button>
+</div>
 
+<div id="self-intro-box">
 <p class="edit-hide" id="self_intro1">'.$this->user_info['self_intro'].'</p>
 <textarea class="txtbox edit-show" id="self_intro">'.$this->user_info['self_intro'].'</textarea>
-
+</div>
 
 <table>
 <tr>
@@ -190,7 +217,7 @@ echo'
 </table>
 <p class="edit-show">* For security reason, gender and birthday cannot be modified after registration.</p>
 </div>
-</div>';}}
+</div><!--about-me-end-->';}}
 	class UserViewController{
 		public function log_up_home(){
 			if($_SERVER["REQUEST_METHOD"]=="POST"){

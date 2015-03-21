@@ -1,17 +1,32 @@
 @charset "utf-8";
 /* CSS Document */
+#self-intro-box {
+	margin:15px 0;
+}
 .section-box p {
 	padding:0 4%;
+	margin:0;
 	line-height:180%;
 }
-#portrait {
+textarea {
+	width:85%;
+	height:100px;
+	margin:0;
+}
+#portrait-box {
 	margin:15px 20px 5px 0;
-	width:15%;
+	width:12%;
 	float:left;
 }
-#portrait img {
+#portrait {
 	width:100%;
 	border-radius:5px;
+	background:url(portrait/doge.jpg) no-repeat center;
+	background-size:cover;
+}
+#change-portrait {
+	margin-top:3px;
+	width:100%;
 }
 .btn-sml {
 	padding:5px 10px;
@@ -28,9 +43,4 @@
 }
 #age-from, #age-to, #height-from, #height-to {
 	width:33%;
-}
-textarea {
-	width:80%;
-	height:100px;
-	margin:10px 0 0 0;
 }
