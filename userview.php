@@ -42,9 +42,7 @@ $(document).ready(function() {
 	
 	//close a overlay
 	$(".close-overlay").click(function() {
-		$(".mask").remove();
-	    $(this).parent().slideUp();
-		$(".overlay-container").hide()
+		$(this).parent().slideUp("slow", function(){$(".overlay-container").hide();$(".mask").remove();});
 	});
 	
 	//resize

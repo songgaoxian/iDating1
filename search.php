@@ -8,15 +8,16 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-	var conditionCount=2;
+	var conditionCount=2;  //no of conditions in "more conditions"
+	//delete a condition
     $(".item-delete").click(function() {
 		$("#more-condition-box").append($(this).parent());
 		conditionCount+=1;
 		if (conditionCount>0) $("#more-condition").show();
 		event.preventDefault();
-		//$(this).parent().remove();
 	});
 	
+	// add a condition
 	 $(".item-add").click(function() {
 		$("#more-condition").before($(this).parent());
 		conditionCount-=1;
@@ -25,13 +26,14 @@ $(document).ready(function() {
 			$("#more-condition-box").slideToggle();
 		}
 		event.preventDefault();
-		//$(this).parent().remove();
 	});
 	
+	//show more conditions
 	$("#more-condition").click(function() {
 		$("#more-condition-box").slideToggle();
 	});
 	
+	//search by nickname
 	$("#tab-by-name").click(function() {
 		$("#tab-by-condition").css("color","black");
 		$(this).css("color","#e5004f");
@@ -39,6 +41,7 @@ $(document).ready(function() {
 	    $("#by-name-form").fadeIn();
 	});
 	
+	//search by conditions
 	$("#tab-by-condition").click(function() {
 		$("#tab-by-name").css("color","black");
 		$(this).css("color","#e5004f");
@@ -57,10 +60,9 @@ $(document).ready(function() {
 <li><a href="logout.php">Log Out</a>
   <li><a href="messages.php">Messages</a>
   <li><a href="moments.php">Moments</a>
-  <li><a href="calendar.html">Calendar</a>
+  <li><a href="calendar.php">Calendar</a>
   <li><a href="search.php">Search</a>
-  <li><a href="accountmgt.php">My Page</a>
-  
+  <li><a href="accountmgt.php">My Page</a>  
 </ul>
 <img src="img/logo_small.png" alt="iDating logo">
 </div>
@@ -96,7 +98,7 @@ Gender:
 
 <div class="search-item">
 Age:
-<input id="age-from" class="txtbox-embed" type="number" min="18" max="99" value="22" name="age-from"> ~ <input id="age-to" class="txtbox-embed" type="number"  min="18" max="99"  value="28" name="age-to">
+<input id="age-from" class="txtbox-embed" type="number" min="18" max="99" value="18" name="age-from"> ~ <input id="age-to" class="txtbox-embed" type="number"  min="18" max="99"  value="28" name="age-to">
 <button class="btn item-delete">X</button>
 <button class="btn item-add">Add</button>
 </div>
@@ -104,13 +106,6 @@ Age:
 <div class="search-item">
 Height (cm):
 <input id="height-from" class="txtbox-embed" type="number" min="140" max="220" value="150" name="height-from"> ~ <input id="height-to" class="txtbox-embed" type="number" min="140" max="220" value="170" name="height-to">
-<button class="btn item-delete">X</button>
-<button class="btn item-add">Add</button>
-</div>
-
-<div class="search-item">
-City:
-<input class="txtbox-embed" type="text" value="Hong Kong" name="city">
 <button class="btn item-delete">X</button>
 <button class="btn item-add">Add</button>
 </div>
@@ -162,8 +157,17 @@ Eduacation:
 </div>
 <button id="more-condition" type="button" class="link-btn">More conditions?</button>
 </form>
-
+</div>
+<!--search-condition-end-->
+<!--more-condition-start-->
 <div id="more-condition-box">
+<div class="search-item">
+City:
+<input class="txtbox-embed" type="text" value="Hong Kong" name="city">
+<button class="btn item-delete">X</button>
+<button class="btn item-add">Add</button>
+</div>
+
 <div class="search-item">
 Hometown:
 <input class="txtbox-embed" type="text" value="Peking" name="hometown">
@@ -185,10 +189,9 @@ Tags: Workaholic + Reliable
 <button class="btn item-add">Add</button>
 </div>-->
 </div>
+<!--more-condition-end-->
 </div>
-<!--search-condition-end-->
-</div>
-<!--content-end-->
+<!--container-end-->
 
 <!--footer-start-->
 <div class="footer">

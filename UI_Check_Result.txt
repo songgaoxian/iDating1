@@ -9,9 +9,7 @@ contact
 
 MOMENT
 <-,->
-overflow
 
 ACTMGT
-edit photo
 tag
 friends

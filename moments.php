@@ -6,40 +6,40 @@
 ?>
 <!--overlay-start-->
 <div class="overlay-container">
-<div id="upload-pic-box" class="overlay" >
+<!--upload-pic-box-start-->
+<div id="upload-pic-box" class="overlay">
 <button class="close-overlay btn" type="button">X</button>
 <h2 class="colored-txt">Upload My Moment</h2>
 <form action="moments.php" enctype="multipart/form-data" method="post">
-<input class="txtbox txtbox-fill" type="file" name="filename" required></input><br>
-<input class="txtbox txtbox-fill" type="date" name="taken-date" required></input><br>
-<input class="txtbox txtbox-fill" type="text" placeholder="title" name="title" required></input><br>
+<input class="txtbox txtbox-fill" type="file" name="filename" required><br>
+<input class="txtbox txtbox-fill" type="date" name="taken-date" required><br>
+<input class="txtbox txtbox-fill" type="text" placeholder="Title" name="title" required><br>
 <textarea class="txtbox txtbox-fill" placeholder="Comments" name="descrp"></textarea>
 <input id="upload-now" class="btn btn-fill" type="submit" value="Upload">
 </form>
 </div>
-
+<!--upload-pic-box-end-->
+<!--pic-detail-box-start-->
 <div id="pic-detail-box" class="overlay" >
 <button class="close-overlay btn" type="button">X</button>
 <h2 class="colored-txt">My Moment</h2>
 <a href="#"><img id="detail-pic" src="" alt="moment"></a>
-
+<div id="pic-details-text">
 <table>
-<tr>
-<td class="colored-txt">Taken Date: </td>
-<td id="tokendate"></td>
-</tr>
-<tr>
-<td class="colored-txt">Upload Date: </td>
-<td id="update"></td>
-</tr>
-
- </table>
+  <tr>
+    <td class="item-name colored-txt">Taken Date: </td>
+    <td class="item-content"id="takendate"></td>
+    <td class="item-name colored-txt">Upload Date: </td>
+    <td class="item-content" id="update"></td>
+  </tr>
+</table>
 <p id="p_content"></p>
+</div>
 <script type="application/javascript">
 function get_info(id){
 	var p=document.getElementById("p_content");
 	var update=document.getElementById("update");
-	var tokendate=document.getElementById("tokendate");
+	var tokendate=document.getElementById("takendate");
 	//create xmlHttpRequest and send info to login.php
 	xmlhttp=new XMLHttpRequest(); 
 		//may be not secure......
@@ -67,11 +67,12 @@ function get_info(id){
 }
 </script>
 </div>
+<!--pic-detail-box-end-->
 </div>
 <!--overlay-end-->
 
- <!--footer-start-->
- <div class="footer">
- Copyright &copy; 2015 All Rights Reserved.
- </div>
- <!--footer-end-->
+<!--footer-start-->
+<div class="footer">
+Copyright &copy; 2015 All Rights Reserved.
+</div>
+<!--footer-end-->

@@ -3,7 +3,7 @@
 #moment-wall {
 	width:100%;
 }
-table {
+#moment-wall table {
 	border-collapse:collapse;
 	border:none;
 }
@@ -77,10 +77,17 @@ table {
 	margin:10px 0;
 }
 #pic-detail-box img {
-	max-width:60%;
-	max-height:80%;
+	max-width:100%;
 }
-#pic-detail-box div {
-	padding:10px 0 0 0;
-	line-height:150%;
+#pic-detail-box table {
+	border-collapse:collapse;
+	border:none;
+	margin:10px 0;
+}
+#pic-detail-box p {
+	line-height:180%;
+	margin:0;
+}
+form {
+	margin:0;
 }

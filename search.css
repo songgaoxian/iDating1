@@ -5,13 +5,19 @@ h2 {
 	font-weight:normal;
 	font-size:16px;
 }
-select {;
+/*search-conditions-start*/
+#tabs {
+	position:relative;
+	left:-5px;
+    padding:5px 0 10px;
+}
+select {
 	background-color:transparent;
 	color:#e5004f;
 	border:1px solid transparent;
 	font:14px Verdana, Geneva, sans-serif;
 }
-select:hover,select:focus {;
+select:hover,select:focus {
 	background-color:white;
 	color:black;
 	border:1px solid silver;
@@ -23,16 +29,43 @@ select:hover,select:focus {;
 	text-align:center;
 	border:1px solid transparent;
 }
-#age-from, #age-to, #height-from, #height-to {
-	width:45px;
-}
 .txtbox-embed:hover, .txtbox-embed:focus {
 	color:black;
 	background-color:white;
 	border:1px solid silver;
 }
+#age-from, #age-to, #height-from, #height-to {
+	width:45px;
+}
 #search-condition {
 	padding:15px 4% 10px;;	
+}
+#more-condition-box {
+	display:none;
+	background-color:#eee;
+	padding:10px 4% 10px;
+	width:92%;
+}
+#more-condition {
+	margin:10px 0 0;
+}
+#by-name-form {
+	display:none;
+}
+#by-name-form > .txtbox {
+	margin:8px 0;
+	padding:0 1%;
+	width:80%;
+	height:38px;
+}
+#search-1 {
+	width:14%;
+	margin:8px 3% 8px 0;
+	height:40px;
+	background-image:url(img/search.png);
+	background-repeat:no-repeat;
+	background-position:center;
+	float:right;
 }
 #search-2{
 	float:right;
@@ -62,6 +95,8 @@ select:hover,select:focus {;
 #search-condition .item-add {
 	display:none;
 }
+/*search-conditions-end*/
+/*search-result-start*/
 #search-result  {
 	padding:10px 4% 10px;
 	width:92%;
@@ -90,35 +125,4 @@ select:hover,select:focus {;
 .portrait > img{
 	width:90%;
 }
-#more-condition-box {
-	display:none;
-	background-color:#eee;
-	padding:10px 4% 10px;
-	width:92%;
-}
-#more-condition {
-	margin:10px 0 0;
-}
-#tabs {
-	position:relative;
-	left:-5px;
-    padding:5px 0 10px;
-}
-#by-name-form {
-	display:none;
-}
-#by-name-form > .txtbox {
-	margin:8px 0;
-	padding:0 1%;
-	width:80%;
-	height:38px;
-}
-#search-1 {
-	width:14%;
-	margin:8px 3% 8px 0;
-	height:40px;
-	background-image:url(img/search.png);
-	background-repeat:no-repeat;
-	background-position:center;
-	float:right;
-}
+/*search-result-end*/

@@ -17,7 +17,7 @@ $currentid=$session->get_uid();
     $ddmonth="0$dmonth";
   else
     $ddmonth=$dmonth;
-  ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,9 +47,7 @@ $(document).ready(function() {
 	});
 	
 	$(".close-overlay").click(function() {
-		$(".mask").remove();
-	    $(this).parent().slideUp();
-		$(".overlay-container").hide();
+		$(this).parent().slideUp("slow", function(){$(".overlay-container").hide();$(".mask").remove();});
 	});
 	
 	$(".event-box").click(function() {
@@ -124,7 +122,7 @@ function send(dateid){
 </div>
 <!--header-end-->
 
-<!--content-start-->
+<!--container-start-->
 <div class="container">
 <!--calendar-start-->
 <div id="calendar">
@@ -477,9 +475,8 @@ echo "<table class='$dmonth'>";
 </table>
 </div>
 <!--calendar-end-->
-
 </div>
-<!--content-end-->
+<!--container-end-->
 
 <!--footer-start-->
 <div class="footer">
@@ -489,18 +486,20 @@ Copyright &copy; 2015 All Rights Reserved.
 
 <!--overlay-start-->
 <div class="overlay-container">
-<div id="add-event-box" class="overlay" >
+<!--add-event-box-start-->
+<div id="add-event-box" class="overlay">
 <button class="close-overlay btn" type="button">X</button>
 <h2 class="colored-txt">Add a Dating</h2>
 <form method="post" id="composer" action="composer.php">
-<input class="txtbox txtbox-fill" type="text" name="mate" placeholder="Your Partner" required></input><br>
-<input class="txtbox txtbox-fill" type="time" name="times" placeholder="Starting Time" value="00:00" required></input><br>
-<input class="txtbox txtbox-fill" type="text" name="location" placeholder="Location" required></input><br>
+<input class="txtbox txtbox-fill" type="text" name="mate" placeholder="Your Partner" required><br>
+<input class="txtbox txtbox-fill" type="time" name="times" placeholder="Starting Time" value="00:00" required><br>
+<input class="txtbox txtbox-fill" type="text" name="location" placeholder="Location" required><br>
 <textarea class="txtbox txtbox-fill" name="content" placeholder="Comments"></textarea>
 <input id="add-event" class="btn btn-fill" type="submit" value="Add">
 </form>
 </div>
-
+<!--add-event-box-end-->
+<!--event-detail-start-->
 <div id="event-detail-box" class="overlay" >
 <button class="close-overlay btn" type="button">X</button>
 <h2 class="colored-txt">Dating Details</h2>
@@ -508,6 +507,7 @@ Copyright &copy; 2015 All Rights Reserved.
   <input type='submit' value='Delete'><br>
   </form>
 </div>
+<!--event-detail-end-->
 </div>
 <!--overlay-end-->
 </body>
