@@ -13,16 +13,16 @@ $(document).ready(function() {
 		
 	//show sign in box, hide sign up box
     $("#tab-signin").click(function() {
-		$("#tab-signup").css("color","black");
-		$(this).css("color","#e5004f");
+		$("#tab-signup").removeClass("colored-txt-dark")
+		$(this).addClass("colored-txt-dark");
 		$("#signup-form").hide();
 	    $("#signin-form").fadeIn();
 	});
 	
 	//show sign up box, hide sign in box
 	$("#tab-signup").click(function() {
-		$("#tab-signin").css("color","black");
-		$(this).css("color","#e5004f");
+		$("#tab-signin").removeClass("colored-txt-dark")
+		$(this).addClass("colored-txt-dark");
 		$("#signin-form").hide();
 	    $("#signup-form").fadeIn();
 	});
@@ -87,7 +87,7 @@ $(document).ready(function() {
 <!--sign-box-start-->
 <div id="sign-box">
 <div id="tabs">
-<button id="tab-signup" class="link-btn no-line" type="button">Sign Up</button>|
+<button id="tab-signup" class="link-btn no-line colored-txt-dark" type="button">Sign Up</button>|
 <button id="tab-signin" class="link-btn no-line" type="button">Sign In</button>
 </div>
 
