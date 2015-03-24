@@ -144,6 +144,11 @@ a {text-decoration:none;}
 	top:0;
 	opacity:0.5;
 }
+.background-cover-center {
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-size:cover;
+}
 /*shared-components-end*/
 
 /*account-management, register*/
@@ -177,10 +182,4 @@ a {text-decoration:none;}
 	padding:15px 4% 2px;
 	margin:0;
 	display:inline-block;
-}
-
-.background-cover-center {
-	background-position:center center;
-	background-repeat:no-repeat;
-	background-size:cover;
 }

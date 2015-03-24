@@ -2,15 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="shortcut icon" href="icon.png"> <!--???-->
-<link rel="stylesheet" href="shared-frame.css">
-<link rel="stylesheet" href="pink-theme.css">
-<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
+<link rel="stylesheet" type="text/CSS" href="pink-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="index-m.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-	$(".author-box > div").height($(".author-box > div").width());
-		
 	//show sign in box, hide sign up box
     $("#tab-signin").click(function() {
 		$("#tab-signup").css("color","black");
@@ -39,30 +36,7 @@ $(document).ready(function() {
 		$("#tabs").show();
 		 $("#signin-form").fadeIn();
 	    $("#forget-form").hide();
-	});
-	
-	//back to top
-	$("#back2top").click(function() {
-		$("body").animate({scrollTop:0}, "slow");
-		event.preventDefault();
-	});
-	
-	//scroll to about section
-	$("#about").click(function() {
-		$("body").animate({scrollTop:660}, "slow");
-		event.preventDefault();
-	});
-	
-	//scroll to contact section
-	$("#contact").click(function() {
-		$("body").animate({scrollTop:1300}, "slow");
-		event.preventDefault();
-	});
-	
-	//resize, keep author box a circle
-	$(window).resize(function() {
-		$(".author-box > div").height($(".author-box > div").width());
-	});
+	});	
 });
 </script>
 <title>Welcome to iDating</title>
@@ -71,19 +45,13 @@ $(document).ready(function() {
 <body>
 <!--header-start-->
 <div class="header">
-<ul id="topnav">
-  <li><a id="contact" href="#contact-us">CONTACT</a></li>
-  <li><a id="about" href="#about-us">ABOUT</a></li>
-</ul>
 <img src="img/logo_small.png" alt="iDating logo">
 </div>
 <!--header-end-->
 
-<!--main-banner-start-->
-<div class="banner background-cover-center">
-<!--banner-content-start-->
-<div id="banner-content">
-<p>You're Not Alone.<br>From Today.</p>
+<!--container-start-->
+<div class="container">
+<div id="banner" class="background-cover-center"></div>
 <!--sign-box-start-->
 <div id="sign-box">
 <div id="tabs">
@@ -115,59 +83,15 @@ A randomly generated password will be sent to you after verification. You can mo
 </div>
 <!--sign-box-end-->
 </div>
-<!--banner-content-end-->
-</div>
-<!--main-banner-end-->
-
-<!--about-us-start-->
-<div id="about-us">
-<h2>ABOUT THIS WEBSITE</h2>
-<p>iDating is a one-stop platform providing a simple and convenient way to help young people find their soul mate. <br>
-Major features include personal homepage, search, dating calendar, photo-sharing and message-leaving. <br>It is presented to you by:</p>
-<!--author-holder-start-->
-<div id="author-holder">
-  <div class="author-box">
-    <div id="author-pic-1" class="background-cover-center"></div>
-    <p>Kelly Xing</p>
-  </div>
-  <div class="author-box">
-    <div id="author-pic-2" class="background-cover-center"></div>
-    <p>Roy Pan</p>
-  </div>
-  <div class="author-box">
-    <div id="author-pic-3" class="background-cover-center"></div>
-    <p>Gaoxian Song</p>
-  </div>
-  <div class="author-box">
-    <div id="author-pic-4" class="background-cover-center"></div>
-    <p>Frank Xu</p>
-  </div>
-</div>
-<!--author-holder-end-->
-</div>
-<!--about-us-end-->
-
-<!--contact-us-start-->
-<div id="contact-us">
-<h2>CONTACT US</h2>
-<form id="feedback" action="accountmgt.php">
-<textarea id="feedback-msg" class="txtbox" rows="5" cols="30" placeholder="Leave Your Message Here..." name="msg" required></textarea>
-<input id="feedback-name" class="txtbox" type="text" placeholder="Your Name" name="name" required>
-<input id="feedback-email" class="txtbox" type="text" placeholder="Your E-mail" name="email" required>
-<input id="feedback-send" class="btn btn-fill" type="submit" value="Send">
-</form>
-</div>
-<!--contact-us-end-->
-
-<a href="#"><img id="back2top" src="img/back2top.png" alt="back to top"></a>
+<!--container-end-->
 
 <!--footer-start-->
-<div class="footer">
-Copyright &copy; 2015 All Rights Reserved.
+<div>
+<p id="footer">&copy; 2015 All Rights Reserved.</p>
 </div>
 <!--footer-end-->
 
-<script type="application/javascript">
+<script>
 var record;
 function logup(){
 	var email=document.getElementById("email-adr").value.trim();
@@ -187,7 +111,7 @@ function logup(){
 		record=xmlhttp;
 		response=JSON.parse(xmlhttp.response);
 		if(response['check']=='true'){
-			window.location='registration.php?sid='+response['sid'];
+			window.location='registration-m.php?sid='+response['sid'];
 		}
 		else if(response['check']=='false'){
 			//error message needs modification
@@ -219,7 +143,8 @@ function login(){
 		record=xmlhttp;
 		response=JSON.parse(xmlhttp.response);
 		if(response['check']=='true'){
-			window.location='accountmgt.php?sid='+response['sid'];
+			console.log('accountmgt-m.php?sid='+response['sid']);
+			window.location='accountmgt-m.php?sid='+response['sid'];
 		}
 		else if(response['check']=='false'){
 			//error message needs modification
