@@ -78,9 +78,39 @@
 </div>
 <!--looking-for-end-->
 <!--my-friends-start-->
-<h2 class="subheading colored-txt">MY FRIENDS</h2>
+<h2 class="subheading colored-txt">FRIENDS</h2>
 <div class="section-box">
 <div class="section-box-content">
+<!--visit-user-page-->
+<button class="btn btn-mdm" type="button">Add as Friend</button>
+<button class="btn btn-mdm" type="button">Delete This Friend</button>
+<!--visit-my-page-->
+<div class="friend-box">
+<table>
+  <tr>
+    <td><div class="friend-portrait"></div></td>
+    <td><h3>Frank</h3>
+<p>abc@def.com</p><br><br>
+<button class="btn btn-sml" type="button">Send Message</button>
+<button class="btn btn-sml" type="button">Delete</button>
+</td>
+  </tr>
+</table>
+</div>
+
+<div class="friend-box">
+<table>
+  <tr>
+    <td><div class="friend-portrait"></div></td>
+    <td><h3>Frank</h3>
+<p>abc@def.com</p><br><br>
+<button class="btn btn-sml" type="button">Send Message</button>
+<button class="btn btn-sml" type="button">Delete</button>
+</td>
+  </tr>
+</table>
+</div>
+
 </div>
 </div>
 <!--my-friends-end-->
