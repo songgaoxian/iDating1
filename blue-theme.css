@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+/*pink theme*/
+/*shared*/
+.btn {background-color:#81ccef;}
+.btn:hover {background-color:#4eb7e8;}
+.txtbox:focus {
+	border:1px solid #4eb7e8;
+	box-shadow:0px 0px 5px #81ccef;
+}
+/*header*/
+.header {background-color:#81ccef;}
+#topnav > li > a:hover {background-color:#4eb7e8;}
+
+/*calendar*/
+.event-box {background-color:#81ccef;}
+.event-box:hover {background-color:#4eb7e8;}
+th {
+	border-bottom:3px solid  #81ccef;
+	color:#81ccef;
+}
+#calendar td:hover {
+	background-color:#e6f5fc;
+	color:#81ccef;
+}
+
+/*accountmgt*/
+.tag-item {
+	background-color:#e6f5fc;
+	border:1px solid #81ccef;
+	color:#4eb7e8;
+}
+.section-box {border-top:3px solid #81ccef;}
+.colored-txt {color:#81ccef;}
+
+/*search*/
+.search-item {
+	background-color:#fee;
+	border:1px solid #81ccef;
+	color:#4eb7e8;
+}
+/*.search-item:hover {
+	border:1px solid #4eb7e8;
+	background-color:#4eb7e8;
+	color:white;
+}*/
+
+/*index*/
+#tab-signup {color:#4eb7e8;}
+#back2top {background-color:#81ccef;}
+#back2top:hover {background-color:#4eb7e8;}
+
+#tab-by-condition {color:#4eb7e8;}
