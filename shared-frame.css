@@ -178,3 +178,9 @@ a {text-decoration:none;}
 	margin:0;
 	display:inline-block;
 }
+
+.background-cover-center {
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-size:cover;
+}

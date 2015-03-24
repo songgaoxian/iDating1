@@ -84,15 +84,18 @@
 <!--visit-user-page-->
 <button class="btn btn-mdm" type="button">Add as Friend</button>
 <button class="btn btn-mdm" type="button">Delete This Friend</button>
+<br>
 <!--visit-my-page-->
 <div class="friend-box">
 <table>
   <tr>
-    <td><div class="friend-portrait"></div></td>
+    <td><div class="friend-portrait background-cover-center"></div></td>
     <td><h3>Frank</h3>
 <p>abc@def.com</p><br><br>
+<div class="friend-btns">
 <button class="btn btn-sml" type="button">Send Message</button>
 <button class="btn btn-sml" type="button">Delete</button>
+</div>
 </td>
   </tr>
 </table>
@@ -101,11 +104,13 @@
 <div class="friend-box">
 <table>
   <tr>
-    <td><div class="friend-portrait"></div></td>
+    <td><div class="friend-portrait background-cover-center"></div></td>
     <td><h3>Frank</h3>
 <p>abc@def.com</p><br><br>
+<div class="friend-btns">
 <button class="btn btn-sml" type="button">Send Message</button>
 <button class="btn btn-sml" type="button">Delete</button>
+</div>
 </td>
   </tr>
 </table>

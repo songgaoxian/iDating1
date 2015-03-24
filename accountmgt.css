@@ -21,9 +21,7 @@ textarea {
 #portrait {
 	width:100%;
 	border-radius:5px;
-	background:url(portrait/doge.jpg);
-	background-repeat:no-repeat;
-	background-size:cover;
+	background-image:url(portrait/doge.jpg);
 }
 #change-portrait {
 	margin-top:3px;
@@ -40,27 +38,26 @@ textarea {
 .friend-box {
 	padding:10px 0;
 	border-bottom:solid silver 1px;
+	display:inline-block;
+	width:49%;
 }
 .friend-box > table {
 	width:100%;
 }
 .friend-box td:nth-child(1) {
-	width:12%;
+	width:20%;
 }
 .friend-portrait {
 	width:100%;
 	background-image:url(portrait/p1357183230.jpg);
-	background-repeat:no-repeat;
-	background-size:cover;
 	border-radius:5px;
 }
 .friend-box h3,p {
 	margin:0 0 5px 15px;
 	display:inline;
 }
-.friend-box button {
+.friend-btns {
 	margin:0 0 0 15px;
-	float:right;
 }
 .edit-show {
 	display:none;

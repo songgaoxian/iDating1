@@ -127,7 +127,7 @@ echo'
 <div class="section-box">
 <div class="section-box-content">
 <div id="portrait-box">
-<div id="portrait"></div>
+<div id="portrait" class="background-cover-center"></div>
 <button id="change-portrait" type="button" class="btn btn-sml edit-show">Change</button>
 </div>
 
