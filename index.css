@@ -7,10 +7,12 @@ body { background:white;}
 	width:100%;
 	height:600px;
 	margin:45px auto 0 auto;
-	background:url(img/banner.jpg) no-repeat center top;
+	background:url(img/banner.jpg) no-repeat center center;
+	background-size:cover;
 }
 #banner-content  {
 	width:85%;
+	max-width:1200px;
 	margin:0 auto;
 }
 #banner-content > p {
@@ -55,7 +57,7 @@ body { background:white;}
 	color:#333;
 }
 #about-us > h2 {
-	padding-top:100px;
+	padding-top:80px;
 	padding-bottom:10px;
 	text-align:center;
 	font-size:30px;
@@ -63,7 +65,7 @@ body { background:white;}
 #about-us > p{
 	padding-bottom:50px;
 	text-align:center;	
-	line-height:180%;
+	line-height:200%;
 }
 #author-holder {
 	margin-left:auto;
@@ -164,7 +166,7 @@ body { background:white;}
 	transition:background-color 0.5s ease-out;
 }
 @media screen and (max-width:1000px) {
-#feedback {width:100%;}
-#author-holder {width:100%;}
-#banner-content {width:100%;}
+	#feedback {width:100%;}
+	#author-holder {width:100%;}
+	#banner-content {width:100%;}
 }
