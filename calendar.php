@@ -525,7 +525,7 @@ Copyright &copy; 2015 All Rights Reserved.
 </body>
 <script>
 $(window).load(function(){  var additionalParams = {
-     'clientid': '480928246860-md5e151tk2n8fgjpctphhk9rl7hj6ler@developer.gserviceaccount.com',
+     'clientid': '480928246860-md5e151tk2n8fgjpctphhk9rl7hj6ler.apps.googleusercontent.com',
      'cookiepolicy': 'single_host_origin',
      'callback': 'signinCallback'
    };
@@ -538,7 +538,6 @@ $(window).load(function(){  var additionalParams = {
  function signinCallback(authResult) {
   if (authResult['status']['signed_in']) {
     document.getElementById('signinButton').setAttribute('style', 'display: none');
-    window.location.replace("sync.php");
   } else {
    console.log('Sign-in state: ' + authResult['error']);
   }
