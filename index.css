@@ -63,6 +63,7 @@ body { background:white;}
 #about-us > p{
 	padding-bottom:50px;
 	text-align:center;	
+	line-height:180%;
 }
 #author-holder {
 	margin-left:auto;
