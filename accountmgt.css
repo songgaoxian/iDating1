@@ -21,7 +21,8 @@ textarea {
 #portrait {
 	width:100%;
 	border-radius:5px;
-	background:url(portrait/doge.jpg) no-repeat center;
+	background:url(portrait/doge.jpg);
+	background-repeat:no-repeat;
 	background-size:cover;
 }
 #change-portrait {
@@ -31,6 +32,35 @@ textarea {
 .btn-sml {
 	padding:5px 10px;
 	margin-bottom:5px;
+}
+.btn-mdm {
+	padding:8px 10px;
+	margin-bottom:5px;
+}
+.friend-box {
+	padding:10px 0;
+	border-bottom:solid silver 1px;
+}
+.friend-box > table {
+	width:100%;
+}
+.friend-box td:nth-child(1) {
+	width:12%;
+}
+.friend-portrait {
+	width:100%;
+	background-image:url(portrait/p1357183230.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+	border-radius:5px;
+}
+.friend-box h3,p {
+	margin:0 0 5px 15px;
+	display:inline;
+}
+.friend-box button {
+	margin:0 0 0 15px;
+	float:right;
 }
 .edit-show {
 	display:none;

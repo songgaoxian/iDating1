@@ -23,6 +23,8 @@
 <script>
 $(document).ready(function() {
 	$("#portrait").height($("#portrait").width());
+	$(".friend-portrait").height($(".friend-portrait").width());
+	$(".friend-info").height($(".friend-portrait").width());
 	
 	//show change password dialog
     $("#change-pwd").click(function() {
@@ -50,6 +52,7 @@ $(document).ready(function() {
 		$("#change-pwd-box").css("margin-top",($(".overlay-container").height()*0.95-$("#change-pwd-box").height())/2);
 		$("#change-portrait-box").css("margin-top",($(".overlay-container").height()*0.95-$("#change-portrait-box").height())/2);
 		$("#portrait").height($("#portrait").width());
+		$(".friend-portrait").height($(".friend-portrait").width());
     });
 	
 	$("#edit-pref").click(function(){
