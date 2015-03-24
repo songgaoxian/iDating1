@@ -124,7 +124,6 @@ function send(dateid){
   <li><a href="calendar.php">Calendar</a>
   <li><a href="search.php">Search</a>
   <li><a href="accountmgt.php">My Page</a>
-  <li><button id="signinButton">Sign in with Google</button>
 </ul>
 <img src="img/logo_small.png" alt="iDating logo">
 </div>
@@ -485,6 +484,9 @@ echo "<table class='$dmonth'>";
 </div>
 </div>
 <!--calendar-end-->
+<div align="center">
+<button id="signinButton">Sync</button>
+</div>
 </div>
 <!--container-end-->
 
@@ -530,15 +532,17 @@ $(window).load(function(){  var additionalParams = {
   var signinButton = document.getElementById('signinButton');
    signinButton.addEventListener('click', function() {
      gapi.auth.signIn(additionalParams);
-     window.location.replace("sync.php"); })
+      })
 }
 )
  function signinCallback(authResult) {
   if (authResult['status']['signed_in']) {
     document.getElementById('signinButton').setAttribute('style', 'display: none');
+    window.location.replace("sync.php");
   } else {
    console.log('Sign-in state: ' + authResult['error']);
   }
+
 }
 </script>
 </html>
