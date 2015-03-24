@@ -34,7 +34,14 @@ a { text-decoration:none;}
 	background-color:#e5004f;
 	cursor:pointer;
 }
-
+.container {
+	margin-top:52px;
+	width:100%;
+}
+#footer {
+	font-size:15px;
+	text-align:center;
+}
 /*shared-components-start*/
 .btn {
 	border:none;
@@ -67,10 +74,6 @@ a { text-decoration:none;}
 	margin:5px 0;
 	padding:10px 2%;
 	width:96%;
-}
-.container {
-	margin-top:52px;
-	width:100%;
 }
 .sidebar {
 	position:fixed;
@@ -112,3 +115,35 @@ a { text-decoration:none;}
 }
 /*shared-components-end*/
 
+/*account-management, register*/
+.section-box {
+	width:100%;
+}
+.section-box-content {
+	width:92%;
+	padding:10px 4%;
+}
+.item-name {width:40%;}
+.item-content {width:60%;}
+.tag-item {
+	padding:1px 8px;
+	max-height:90%;
+	margin-right:6px;
+	display:inline-block;
+	font-size:14px;
+}
+.section-box-content > table {
+	padding:5px 0;
+	width:100%;
+	line-height:200%;
+}
+.section-box-content > table .txtbox {
+	padding:4px 3%;
+	margin:3px 0 1%;
+	width:94%;
+}
+.subheading {
+	padding:15px 4% 2px;
+	margin:0;
+	display:inline-block;
+}
