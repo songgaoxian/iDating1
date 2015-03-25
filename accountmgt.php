@@ -10,10 +10,10 @@
 <table>
 <tr>
   <td class="item-name colored-txt">Age: </td>
-  <td class="item-content edit-hide">22~35</td>
+  <td class="item-content edit-hide"><span id="age-from1">22</span> ~ <span id="age-to1">35</span></td>
   <td class="item-content edit-show"><input id="age-from" class="txtbox" type="number" min="18" max="99" name="age-from"> ~ <input id="age-to" class="txtbox" type="number"  min="18" max="99"  name="age-to"></td>
   <td class="item-name colored-txt">Height (cm): </td>
-  <td class="item-content edit-hide">170~180</td>
+  <td class="item-content edit-hide"><span id="height-from1">170</span> ~ <span id="height-to1">180</span></td>
   <td class="item-content edit-show"><input id="height-from" class="txtbox" type="number" min="140" max="220" name="height-from"> ~ <input id="height-to" class="txtbox" type="number" min="140" max="220" name="height-to"></td>
 </tr>
 <tr>
