@@ -146,21 +146,21 @@ $(document).ready(function() {
 <table>
   <tr>
     <td rowspan="2" colspan="2" class="moment moment-big"'.$content[0].'</td>
-    <td class="moment moment-sml"'.$content[1].'</td>
-    <td class="moment moment-sml"'.$content[2].'</td>
-    <td class="moment moment-sml"'.$content[3].'</td>
+    <td class="moment moment-sml background-cover-center"'.$content[1].'</td>
+    <td class="moment moment-sml background-cover-center"'.$content[2].'</td>
+    <td class="moment moment-sml background-cover-center"'.$content[3].'</td>
   </tr>
   <tr>
-    <td class="moment moment-sml"'.$content[4].'</td>
-    <td class="moment moment-sml"'.$content[5].'</td>
-    <td class="moment moment-sml"'.$content[6].'</td>
+    <td class="moment moment-sml background-cover-center"'.$content[4].'</td>
+    <td class="moment moment-sml background-cover-center"'.$content[5].'</td>
+    <td class="moment moment-sml background-cover-center"'.$content[6].'</td>
   </tr>
   <tr>
-    <td class="moment moment-sml"'.$content[7].'</td>
-    <td class="moment moment-sml"'.$content[8].'</td>
-    <td class="moment moment-sml"'.$content[9].'</td>
-    <td class="moment moment-sml"'.$content[10].'</td>
-    <td class="moment moment-sml"'.$content[11].'</td>
+    <td class="moment moment-sml background-cover-center"'.$content[7].'</td>
+    <td class="moment moment-sml background-cover-center"'.$content[8].'</td>
+    <td class="moment moment-sml background-cover-center"'.$content[9].'</td>
+    <td class="moment moment-sml background-cover-center"'.$content[10].'</td>
+    <td class="moment moment-sml background-cover-center"'.$content[11].'</td>
   </tr>
 </table>
 </div>
@@ -202,8 +202,9 @@ $(document).ready(function() {
 						$filename=uuid().'.'.$imageFileType;
 						$target_file=$target_dir.$filename;
 						$a=move_uploaded_file($_FILES["filename"]["tmp_name"],$target_file);
-							$sql='INSERT INTO `moment` (`user_id`, `pic_id`, `summary`, `upload_date`) VALUES (\''.$user_id.'\', \''.$filename.'\', \''.$_POST['title'].'\', CURRENT_TIMESTAMP);';
+							$sql='INSERT INTO `moment` (`user_id`, `pic_id`, `summary`,`take_date`, `upload_date`) VALUES (\''.$user_id.'\', \''.$filename.'\', \''.$_POST['title'].'\',\''.$_POST['take_date'].'\', CURRENT_TIMESTAMP);';
 							$result=mysqli_query($conn,$sql);
+							//echo $sql;
 							if($result){echo('<script type="text/javascript">alert("upload!")</script>');}
 							else{echo('<script type="text/javascript">alert("fail...")</script>');}
 					}
