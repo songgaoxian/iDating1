@@ -26,7 +26,8 @@ CREATE TABLE `calendar` (
   `mate_id` varchar(50) NOT NULL,
   `dat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `content` varchar(1000) NOT NULL,
-  `location` varchar(100) NOT NULL
+  `location` varchar(100) NOT NULL,
+   unique(`user_id`,`mate_id`,`dat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
