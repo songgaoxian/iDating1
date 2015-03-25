@@ -35,16 +35,16 @@ $(document).ready(function() {
 	
 	//search by nickname
 	$("#tab-by-name").click(function() {
-		$("#tab-by-condition").css("color","black");
-		$(this).css("color","#e5004f");
+		$("#tab-by-condition").removeClass("colored-txt-dark");
+		$(this).addClass("colored-txt-dark");
 		$("#by-condition-form").hide();
 	    $("#by-name-form").fadeIn();
 	});
 	
 	//search by conditions
 	$("#tab-by-condition").click(function() {
-		$("#tab-by-name").css("color","black");
-		$(this).css("color","#e5004f");
+		$("#tab-by-name").removeClass("colored-txt-dark");
+		$(this).addClass("colored-txt-dark");
 		$("#by-condition-form").fadeIn();
 	    $("#by-name-form").hide();
 	});
@@ -73,7 +73,7 @@ $(document).ready(function() {
 <!--search-condition-start-->
 <div id="search-condition">
 <div id="tabs">
-<button id="tab-by-condition" class="link-btn no-line" type="button">Search by Conditions</button>|
+<button id="tab-by-condition" class="link-btn no-line colored-txt-dark" type="button">Search by Conditions</button>|
 <button id="tab-by-name" class="link-btn no-line" type="button">Search by Nickname</button>
 </div>
 

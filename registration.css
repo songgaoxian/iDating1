@@ -11,16 +11,16 @@
 	font-size:22px;
 	font-weight:normal;
 }
-#income-me {
+#income {
 	width:65%;
 }
-#income-pref {
+#income_pref {
 	width:50%;
 }
-#age-from, #age-to, #height-from, #height-to {
+#age_f, #age_t, #height_f, #height_t {
 	width:33%;
 }
-#self-descrp {
+#self_intro {
 	height:100px;
 }
 #submit-now {

@@ -32,6 +32,7 @@ th {
 }
 .section-box {border-top:3px solid #eb6877;}
 .colored-txt {color:#eb6877;}
+.colored-txt-dark {color:#e5004f;}
 
 /*search*/
 .search-item {
@@ -39,15 +40,7 @@ th {
 	border:1px solid #eb6877;
 	color:#e5004f;
 }
-/*.search-item:hover {
-	border:1px solid #e5004f;
-	background-color:#e5004f;
-	color:white;
-}*/
 
 /*index*/
-#tab-signup {color:#e5004f;}
 #back2top {background-color:#eb6877;}
 #back2top:hover {background-color:#e5004f;}
-
-#tab-by-condition {color:#e5004f;}

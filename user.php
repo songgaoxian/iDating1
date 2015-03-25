@@ -88,6 +88,7 @@ Your password has been reset to '.$a.' .
 					else{$sql.=', '.$key.'="'.$value.'" ';}
 				}
 				$sql.='WHERE user_id="'.$this->user_id.'";';
+				//echo $sql;
 				$result=mysqli_query($conn,$sql);
 				mysqli_close($conn);
 				return($result);
