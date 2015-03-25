@@ -18,11 +18,12 @@
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <link rel="stylesheet" type="text/CSS" href="pink-theme.css">
 <link rel="stylesheet" type="text/CSS" href="accountmgt.css">
-<title>iDating - My Account</title>
+<title>iDating - My Page</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
 	$("#portrait").height($("#portrait").width());
+	$(".friend-portrait").height($(".friend-portrait").width());
 	
 	//show change password dialog
     $("#change-pwd").click(function() {
@@ -50,6 +51,7 @@ $(document).ready(function() {
 		$("#change-pwd-box").css("margin-top",($(".overlay-container").height()*0.95-$("#change-pwd-box").height())/2);
 		$("#change-portrait-box").css("margin-top",($(".overlay-container").height()*0.95-$("#change-portrait-box").height())/2);
 		$("#portrait").height($("#portrait").width());
+		$(".friend-portrait").height($(".friend-portrait").width());
     });
 	
 	$("#edit-pref").click(function(){
@@ -123,15 +125,18 @@ if($mode==0){echo '
 echo'
 <div class="section-box">
 <div class="section-box-content">
-<div id="portrait-box">
-<div id="portrait" style="background:url(portrait/'.$this->user_info['photo'].');background-size:cover;border-radius:5px;width:100%;"></div>
-<button id="change-portrait" type="button" class="btn btn-sml edit-show">Change</button>
-</div>
-
-<div id="self-intro-box">
-<p class="edit-hide" id="self_intro1">'.$this->user_info['self_intro'].'</p>
-<textarea class="txtbox edit-show" id="self_intro">'.$this->user_info['self_intro'].'</textarea>
-</div>
+<table id="portrait-intro-table">
+  <tr>
+    <td>
+	<div id="portrait" style="background:url(portrait/'.$this->user_info['photo'].');background-size:cover;border-radius:5px;width:100%;"></div>
+    <button id="change-portrait" type="button" class="btn btn-sml edit-show">Change</button>
+    </td>
+	<td>
+	<p class="edit-hide" id="self_intro1">'.$this->user_info['self_intro'].'</p>
+    <textarea class="edit-show" id="self_intro">'.$this->user_info['self_intro'].'</textarea>
+	</td>
+  </tr>
+</table>
 
 <table>
 <tr>
