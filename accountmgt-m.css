@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+.section-box p {
+	margin:0;
+	line-height:180%;
+}
+#portrait-intro-table {
+	margin-bottom:10px;
+}
+#portrait-intro-table td:nth-child(1) {
+	width:20%;
+}
+#portrait {
+	width:100%;
+	border-radius:5px;
+	background-image:url(portrait/doge.jpg);
+}
+#change-portrait {
+	margin-top:3px;
+	width:100%;
+}
+#portrait-intro-table textarea {
+	padding:10px 2%;
+	margin:0 0 0 2%;
+	width:90%;
+	height:100px;
+	border-radius:3px;
+	border:1px solid #ccc;
+	font:16px Verdana, Geneva, sans-serif;
+	box-shadow:0px 0px 2px #eee inset;
+	transition:border 0.5s ease-out;
+	outline:none;	
+}
+#portrait-intro-table p {
+	margin:0 0 0 2%;
+}
+.btn-sml {
+	padding:5px 10px;
+	margin-bottom:5px;
+}
+.btn-mdm {
+	padding:8px 10px;
+	margin-bottom:5px;
+}
+.friend-box {
+	padding:10px 0;
+	border-bottom:solid #ccc 1px;
+	display:inline-block;
+	width:100%;
+}
+.friend-box > table {
+	width:100%;
+}
+.friend-box td:nth-child(1) {
+	width:20%;
+}
+.friend-portrait {
+	width:100%;
+	background-image:url(portrait/p1357183230.jpg);
+	border-radius:5px;
+}
+.friend-box h3,p {
+	margin:0 0 5px 15px;
+	display:inline;
+}
+.friend-btns {
+	margin:0 0 0 15px;
+}
+.edit-show {
+	display:none;
+}
+#income-me {
+	width:75%;
+}
+#income-pref {
+	width:60%;
+}
+#age-from, #age-to, #height-from, #height-to {
+	width:42%;
+}

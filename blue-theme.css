@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-/*pink theme*/
+/*blue theme*/
 /*shared*/
 .btn {background-color:#81ccef;}
 .btn:hover {background-color:#4eb7e8;}
@@ -32,6 +32,7 @@ th {
 }
 .section-box {border-top:3px solid #81ccef;}
 .colored-txt {color:#81ccef;}
+.colored-txt-dark {color:#4eb7e8;}
 
 /*search*/
 .search-item {
@@ -39,15 +40,7 @@ th {
 	border:1px solid #81ccef;
 	color:#4eb7e8;
 }
-/*.search-item:hover {
-	border:1px solid #4eb7e8;
-	background-color:#4eb7e8;
-	color:white;
-}*/
 
 /*index*/
-#tab-signup {color:#4eb7e8;}
 #back2top {background-color:#81ccef;}
 #back2top:hover {background-color:#4eb7e8;}
-
-#tab-by-condition {color:#4eb7e8;}

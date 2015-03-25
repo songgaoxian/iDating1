@@ -5,7 +5,7 @@ body {
 	font-family:Verdana, Geneva, sans-serif;
 	/*background:linear-gradient(#eeeeee,#dcdcdc);*/
 	background-color:#eee;
-	min-width:775px;
+	min-width:799px;
 }
 a {text-decoration:none;}
 /*header-start*/
@@ -143,6 +143,11 @@ a {text-decoration:none;}
 	left:0;
 	top:0;
 	opacity:0.5;
+}
+.background-cover-center {
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-size:cover;
 }
 /*shared-components-end*/
 

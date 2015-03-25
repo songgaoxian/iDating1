@@ -9,7 +9,7 @@ h1 {
 }
 
 .mail-list{
-	border-top:1px solid #eee
+	border-top:1px solid #eee;
 }
 
 .mail-list li{
@@ -22,11 +22,12 @@ h1 {
 
 .pic{
 	float:left;
-	margin:0 10px 0 0
+	margin:0 10px 0 0;
 }
 
 .mail-list .pic img{
-	width:80px;height:80px
+	width:80px;
+	height:80px;
 }
 
 .mail-list .title{
@@ -34,45 +35,45 @@ h1 {
 	zoom:1;
 	word-wrap:break-word;
 	line-height:2;
-	cursor:pointer
+	cursor:pointer;
 }
 
 .mail-list .title .sender{
 	margin:-2px 20px 2px 5px;
-	color:#e5004f
+	color:#e5004f;
 }
 
 .mail-list .title .sender .time{
 	float:right;
-	color:#e5004f
+	color:#e5004f;
 }
 
 .mail-list .title p{
 	margin:0 0 0 8px;
 	width:80%;
-	line-height:1.5
+	line-height:1.5;
 }
 
 .mail-list .title p a:visited{
-	color:#666
+	color:#666;
 }
 
 .mail-list .title p a:hover{
 	color:#fff;
-	background-color: #666
+	background-color: #666;
 }
 
 .mail-list .select{
 	position:absolute;
 	right:28px;
 	bottom: 25px;
-	padding-top:30px
+	padding-top:30px;
 }
 
 .mail-list-ft{
 	padding:12px 10px 20px;
 	margin-bottom:10px;
-	text-align:right
+	text-align:right;
 }
 
 
