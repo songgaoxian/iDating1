@@ -485,7 +485,7 @@ echo "<table class='$dmonth'>";
 </div>
 <!--calendar-end-->
 <div align="center">
-<button id="signinButton">Sync</button>
+<button id="signinButton">Synchronize date addition and deletion with Google Calendar</button>
 </div>
 </div>
 <!--container-end-->
