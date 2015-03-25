@@ -87,10 +87,10 @@ body { background:white;}
 	border-radius:50%;
 	background-size:contain;
 }
-#author-pic-1 {background-image:url(portrait/pic1.jpg);}
-#author-pic-2 {background-image:url(portrait/pic6.jpg);}
-#author-pic-3 {background-image:url(portrait/pic2.jpg);}
-#author-pic-4 {background-image:url(portrait/pic3.jpg);}
+#author-pic-1 {background-image:url(portrait/pic_1.jpg);}
+#author-pic-2 {background-image:url(portrait/pic_6.jpg);}
+#author-pic-3 {background-image:url(portrait/pic_2.jpg);}
+#author-pic-4 {background-image:url(portrait/pic_3.jpg);}
 /*about-us-end*/
 
 /*contact-us-start*/

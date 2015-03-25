@@ -1,7 +1,11 @@
 <?php
 	require("userview.php");
-	$view=new UserViewController();
-	$view->show();
+	if($_SERVER["REQUEST_METHOD"]=="GET"){
+		session_id($_GET['sid']);
+	}
+	$user=new UserViewController();
+	$user->upload_picture();
+	$user->show();
 ?>
 <!--looking-for-start-->
 <h2 class="subheading colored-txt">I'M LOOKING FOR</h2>
@@ -106,7 +110,7 @@ Copyright &copy; 2015 All Rights Reserved.
 <input id="save-pwd" class="btn btn-fill" type="button" value="Save" onclick="change_pwd()">
 </form>
 <script type="application/x-javascript">
-	var info=['username','height','city','hometown','education','job','income'];
+	var info=['username','height','city','hometown','education','job','income','self_intro'];
 	function edit(){	
 		i=0;
 		content='{"';
@@ -165,8 +169,8 @@ Copyright &copy; 2015 All Rights Reserved.
 <div id="change-portrait-box" class="overlay" >
 <button class="close-overlay btn" type="button" id="close">X</button>
 <h2 class="colored-txt">Change Portrait</h2>
-<form>
-<input class="txtbox txtbox-fill" type="file" required></input><br>
+<form action="accountmgt.php" enctype="multipart/form-data" method="post">
+<input class="txtbox txtbox-fill" type="file" required name="user-photo"></input><br>
 <br>
 <input id="save-portrait" class="btn btn-fill" type="submit" value="Save">
 </form>

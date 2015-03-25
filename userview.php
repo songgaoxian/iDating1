@@ -124,7 +124,7 @@ echo'
 <div class="section-box">
 <div class="section-box-content">
 <div id="portrait-box">
-<div id="portrait"></div>
+<div id="portrait" style="background:url(portrait/'.$this->user_info['photo'].');background-size:cover;border-radius:5px;width:100%;"></div>
 <button id="change-portrait" type="button" class="btn btn-sml edit-show">Change</button>
 </div>
 
@@ -242,18 +242,19 @@ echo'
 			$conn=connect();
 			$session=new Session();
 			$user_id=$session->get_uid();
+			//if($user_id==''){header('Location: index.html');}
 			if(!$conn){return;}
 			if(isset($_FILES['user-photo'])){
 				$target_file = $target_dir.basename($_FILES["user-photo"]["name"]);
 				$imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
 				if($_SERVER["REQUEST_METHOD"]=="POST"){
 					$check = getimagesize($_FILES["user-photo"]["tmp_name"]);
-						$filename=uuid().'.'.$imageFileType;
-						$target_file=$target_dir.$filename;
-						$a=move_uploaded_file($_FILES["user-photo"]["tmp_name"],"portrait/".$target_file);
-							$sql='UPDATE user_info SET photo="'.$target_file.'" WHERE user_id="'.$user_id.'"';
-							$result=mysqli_query($conn,$sql);
-							return(true);
+					$filename=uuid().'.'.$imageFileType;
+					$target_file=$target_dir.$filename;
+					$a=move_uploaded_file($_FILES["user-photo"]["tmp_name"],"portrait/".$target_file);
+					$sql='UPDATE user_info SET photo="'.$target_file.'" WHERE user_id="'.$user_id.'"';
+					$result=mysqli_query($conn,$sql);
+					return(true);
 				}
 			}
 			return(false);

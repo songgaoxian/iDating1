@@ -1,6 +1,6 @@
 <?php
-	if($_SERVER["REQUEST_METHOD"]=="GET");
-	session_id($_GET['sid']);
+	if($_SERVER["REQUEST_METHOD"]=="GET"){
+	session_id($_GET['sid']);}
 	session_start();
 	require("userview.php");
 	$user=new UserViewController();
@@ -43,7 +43,7 @@
   <td class="item-name colored-txt">Nickname: </td>
   <td class="item-content"><input class="txtbox" type="text" name="nickname" required id="username"></td>
   <td class="item-name colored-txt">Gender: </td>
-  <td class="item-content"><input type="radio" name="sex">Male&nbsp;<input type="radio" id="sex" name="sex">Female</td>
+  <td class="item-content"><input type="radio" name="sex">Male&nbsp;<input type="radio"name="sex">Female</td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Birthday: </td>
@@ -101,7 +101,7 @@
 </tr>
 <tr>
   <td class="item-name colored-txt">Monthly Income: </td>
-  <td class="item-content"><input class="txtbox" id="income-me" type="number" min="0" name="income-me" required> HKD</td>
+  <td class="item-content"><input class="txtbox" id="income" type="number" min="0" name="income-me" required> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
   <td><div class="tag-item">Humorous</div></td>  
 </tr>
@@ -187,7 +187,14 @@
 		content='{"';
 		content+=info[0]+'":"'+document.getElementById(info[0]).value+'"';
 		for(i=1;i<info.length;i++){
-			content+=',"'+info[i]+'":"'+document.getElementById(info[i]).value+'"';
+			if(info[i]!='sex'){
+				content+=',"'+info[i]+'":"'+document.getElementById(info[i]).value+'"';
+			}
+			else{
+				temp=document.getElementsByName('sex')[0];
+				if(temp.checked==false){content+=', "sex":"Female"';}
+				else{content+=', "sex":"Male"';}
+			}
 		}
 		content+='}';
 		xmlhttp=new XMLHttpRequest(); 
