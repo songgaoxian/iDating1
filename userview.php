@@ -128,7 +128,7 @@ echo'
 <table id="portrait-intro-table">
   <tr>
     <td>
-	<div id="portrait" style="background:url(portrait/'.$this->user_info['photo'].');background-size:cover;border-radius:5px;width:100%;"></div>
+	<div id="portrait" class="background-cover-center" style="background-image:url(portrait/'.$this->user_info['photo'].')"></div>
     <button id="change-portrait" type="button" class="btn btn-sml edit-show">Change</button>
     </td>
 	<td>
