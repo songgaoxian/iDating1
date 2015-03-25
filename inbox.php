@@ -109,7 +109,7 @@
   <li><a href="logout.php">Log Out</a>
   <li><a href="messages.php">Messages</a>
   <li><a href="moments.php">Moments</a>
-  <li><a href="calendar.html">Calendar</a>
+  <li><a href="calendar.php">Calendar</a>
   <li><a href="search.php">Search</a>
   <li><a href="accountmgt.php">My Page</a>
 </ul>

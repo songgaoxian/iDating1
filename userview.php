@@ -215,7 +215,96 @@ echo'
 </table>
 <p class="edit-show">* For security reason, gender and birthday cannot be modified after registration.</p>
 </div>
-</div><!--about-me-end-->';}}
+</div><!--about-me-end-->';
+echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
+<div class="section-box">
+<div class="section-box-content">
+<table>
+<tr>
+  <td class="item-name colored-txt">Age: </td>
+  <td class="item-content edit-hide"><span id="age_f1">'.$this->user_info['age_f'].'</span>~<span id="age_t1">'.$this->user_info['age_t'].'</span></td>
+  <td class="item-content edit-show"><input id="age_f" class="txtbox" type="number" min="18" max="99" name="age-from"> ~ <input id="age_t" class="txtbox" type="number"  min="18" max="99"  name="age-to"></td>
+  <td class="item-name colored-txt">Height (cm): </td>
+  <td class="item-content edit-hide"><span id="height_f1">'.$this->user_info['height_f'].'</span>~<span id="height_t1">'.$this->user_info['height_t'].'</span></td>
+  <td class="item-content edit-show"><input id="height_f" class="txtbox" type="number" min="140" max="220" name="height-from"> ~ <input id="height_t" class="txtbox" type="number" min="140" max="220" name="height-to"></td>
+</tr>
+<tr>
+  <td class="item-name colored-txt">City: </td>
+  <td class="item-content edit-hide" id="city_pref1">'.$this->user_info['city_pref'].'</td>
+  <td class="item-content edit-show"><input class="txtbox" type="text" id="city_pref" name="city-pref"></td>
+  <td class="item-name colored-txt">Hometown: </td>
+  <td class="item-content edit-hide" id="hometown_pref1">'.$this->user_info['hometown_pref'].'</td>
+  <td class="item-content edit-show"><input class="txtbox" type="text" id="hometown_pref" name="hometown-pref"></td>
+</tr>
+<tr>
+  <td class="item-name colored-txt">Education: </td>
+  <td class="item-content edit-hide" id="education_pref1">'.$this->user_info['education_pref'].'</td>
+  <td class="item-content edit-show">
+  <select name="education-pref" class="txtbox" id="education_pref">
+    <option value="Unlimited" selected>Unlimited</option>
+    <option value="High School">High School</option>
+    <option value="Bachelor">Bachelor</option>
+    <option value="Master">Master</option>
+    <option value="PhD">PhD</option>
+  </select></td>
+  <td class="item-name colored-txt">Occupation: </td>
+  <td class="item-content edit-hide" id="job_pref1">'.$this->user_info['job_pref'].'</td>
+  <td class="item-content edit-show">
+  <select name="job-pref" class="txtbox" id="job_pref">
+    <option value="Unlimited" selected>Unlimited</option>
+  	<option value="Student">Student</option>
+    <option value="Computer Software">Computer Software</option>
+	<option value="Computer Hardware">Computer Hardware</option>
+    <option value="Telecommunications">Telecommunications</option>
+	<option value="Internet/E-commerce">Internet/E-commerce</option>
+	<option value="Accounting/Auditing">Accounting/Auditing</option>
+	<option value="Banking">Banking</option>
+	<option value="Real Estate">Real Estate</option>
+	<option value="Insurance">Insurance</option>
+	<option value="Consulting">Consulting</option>
+	<option value="Legal">Legal</option>
+	<option value="Trading/Import & Export">Trading/Import & Export</option>
+	<option value="Wholesale/Retail">Wholesale/Retail</option>
+	<option value="Apparel/Textiles">Apparel/Textiles</option>
+	<option value="Furniture/Home Appliances">Furniture/Home Appliances</option>
+	<option value="Healthcare/Medicine/Public Health">Healthcare/Medicine/Public Health</option>
+	<option value="Public Relations/Marketing">Public Relations/Marketing</option>
+	<option value="Films/Media/Arts">Films/Media/Arts</option>
+	<option value="Education/Training">Education/Training</option>
+	<option value="Science/Research">Science/Research</option>
+	<option value="Transportation/Logistic">Transportation/Logistic</option>
+	<option value="Utilities/Energy">Utilities/Energy</option>
+	<option value="Agriculture/Fishing/Forestry">Agriculture/Fishing/Forestry</option>
+	<option value="Others">Others</option>
+  </select></td>
+</tr>
+<tr>
+  <td class="item-name colored-txt">Monthly Income: </td>
+  <td class="item-content edit-hide" id="income_pref1">&gt;='.$this->user_info['income_pref'].' HKD</td>
+  <td class="item-content edit-show">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref"> HKD</td>
+  <td class="item-name colored-txt">Tags:</td>
+  <td><div class="tag-item">Romantic</div><div class="tag-item">Reliable</div></td>    
+</tr>
+</table>
+</div>
+</div>
+<!--looking-for-end-->
+<!--my-friends-start-->
+<h2 class="subheading colored-txt">MY FRIENDS</h2>
+<div class="section-box">
+<div class="section-box-content">
+</div>
+</div>
+<!--my-friends-end-->
+</div>
+<!--container-end-->
+
+<!--footer-start-->
+<div class="footer">
+Copyright &copy; 2015 All Rights Reserved.
+</div>
+<!--footer-end-->
+';}}
 	class UserViewController{
 		public function log_up_home(){
 			if($_SERVER["REQUEST_METHOD"]=="POST"){
@@ -239,6 +328,10 @@ echo'
 			}
 		}
 		public function upload_picture(){
+			if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['sid'])){
+				session_id($_GET['sid']);
+			}
+			session_start();
 			$conn=connect();
 			$session=new Session();
 			$user_id=$session->get_uid();
@@ -272,10 +365,7 @@ echo'
 			return(false);
 		}
 		public function show(){
-			if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['sid'])){
-				session_id($_GET['sid']);
-			}
-			session_start();
+			$conn=connect();
 			$session=new Session();
 			$uid=$session->get_uid();
 			if($uid==NULL){

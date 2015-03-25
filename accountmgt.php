@@ -1,101 +1,10 @@
 <?php
 	require("userview.php");
-	if($_SERVER["REQUEST_METHOD"]=="GET"){
-		session_id($_GET['sid']);
-	}
 	$user=new UserViewController();
 	$user->upload_picture();
 	$user->show();
 ?>
 <!--looking-for-start-->
-<h2 class="subheading colored-txt">I'M LOOKING FOR</h2>
-<div class="section-box">
-<div class="section-box-content">
-<table>
-<tr>
-  <td class="item-name colored-txt">Age: </td>
-  <td class="item-content edit-hide">22~35</td>
-  <td class="item-content edit-show"><input id="age-from" class="txtbox" type="number" min="18" max="99" name="age-from"> ~ <input id="age-to" class="txtbox" type="number"  min="18" max="99"  name="age-to"></td>
-  <td class="item-name colored-txt">Height (cm): </td>
-  <td class="item-content edit-hide">170~180</td>
-  <td class="item-content edit-show"><input id="height-from" class="txtbox" type="number" min="140" max="220" name="height-from"> ~ <input id="height-to" class="txtbox" type="number" min="140" max="220" name="height-to"></td>
-</tr>
-<tr>
-  <td class="item-name colored-txt">City: </td>
-  <td class="item-content edit-hide">Unlimited</td>
-  <td class="item-content edit-show"><input class="txtbox" type="text" name="city-pref"></td>
-  <td class="item-name colored-txt">Hometown: </td>
-  <td class="item-content edit-hide">Unlimited</td>
-  <td class="item-content edit-show"><input class="txtbox" type="text" name="hometown-pref"></td>
-</tr>
-<tr>
-  <td class="item-name colored-txt">Education: </td>
-  <td class="item-content edit-hide">Bachelor</td>
-  <td class="item-content edit-show">
-  <select name="education-pref" class="txtbox">
-    <option value="Unlimited" selected>Unlimited</option>
-    <option value="High School">High School</option>
-    <option value="Bachelor">Bachelor</option>
-    <option value="Master">Master</option>
-    <option value="PhD">PhD</option>
-  </select></td>
-  <td class="item-name colored-txt">Occupation: </td>
-  <td class="item-content edit-hide">Unlimited</td>
-  <td class="item-content edit-show">
-  <select name="job-pref" class="txtbox">
-    <option value="Unlimited" selected>Unlimited</option>
-  	<option value="Student">Student</option>
-    <option value="Computer Software">Computer Software</option>
-	<option value="Computer Hardware">Computer Hardware</option>
-    <option value="Telecommunications">Telecommunications</option>
-	<option value="Internet/E-commerce">Internet/E-commerce</option>
-	<option value="Accounting/Auditing">Accounting/Auditing</option>
-	<option value="Banking">Banking</option>
-	<option value="Real Estate">Real Estate</option>
-	<option value="Insurance">Insurance</option>
-	<option value="Consulting">Consulting</option>
-	<option value="Legal">Legal</option>
-	<option value="Trading/Import & Export">Trading/Import & Export</option>
-	<option value="Wholesale/Retail">Wholesale/Retail</option>
-	<option value="Apparel/Textiles">Apparel/Textiles</option>
-	<option value="Furniture/Home Appliances">Furniture/Home Appliances</option>
-	<option value="Healthcare/Medicine/Public Health">Healthcare/Medicine/Public Health</option>
-	<option value="Public Relations/Marketing">Public Relations/Marketing</option>
-	<option value="Films/Media/Arts">Films/Media/Arts</option>
-	<option value="Education/Training">Education/Training</option>
-	<option value="Science/Research">Science/Research</option>
-	<option value="Transportation/Logistic">Transportation/Logistic</option>
-	<option value="Utilities/Energy">Utilities/Energy</option>
-	<option value="Agriculture/Fishing/Forestry">Agriculture/Fishing/Forestry</option>
-	<option value="Others">Others</option>
-  </select></td>
-</tr>
-<tr>
-  <td class="item-name colored-txt">Monthly Income: </td>
-  <td class="item-content edit-hide">&gt;= 20000 HKD</td>
-  <td class="item-content edit-show">&gt;= <input id="income-pref" class="txtbox" type="number" value="" name="income-pref"> HKD</td>
-  <td class="item-name colored-txt">Tags:</td>
-  <td><div class="tag-item">Romantic</div><div class="tag-item">Reliable</div></td>    
-</tr>
-</table>
-</div>
-</div>
-<!--looking-for-end-->
-<!--my-friends-start-->
-<h2 class="subheading colored-txt">MY FRIENDS</h2>
-<div class="section-box">
-<div class="section-box-content">
-</div>
-</div>
-<!--my-friends-end-->
-</div>
-<!--container-end-->
-
-<!--footer-start-->
-<div class="footer">
-Copyright &copy; 2015 All Rights Reserved.
-</div>
-<!--footer-end-->
 
 <!--overlay-start-->
 <div class="overlay-container">
@@ -110,12 +19,13 @@ Copyright &copy; 2015 All Rights Reserved.
 <input id="save-pwd" class="btn btn-fill" type="button" value="Save" onclick="change_pwd()">
 </form>
 <script type="application/x-javascript">
-	var info=['username','height','city','hometown','education','job','income','self_intro'];
+	var info=['username','height','city','hometown','education','job','income','self_intro','height_f','height_t','age_f','age_t','city_pref','hometown_pref','job_pref','education_pref','income_pref'];
 	function edit(){	
 		i=0;
 		content='{"';
 		content+=info[0]+'":"'+document.getElementById(info[0]).value+'"';
 		for(i=1;i<info.length;i++){
+			console.log(info[i]);
 			content+=',"'+info[i]+'":"'+document.getElementById(info[i]).value+'"';
 		}
 		content+='}';
@@ -128,7 +38,9 @@ Copyright &copy; 2015 All Rights Reserved.
 		if(response['check']=='true'){
 			alert("change info success!");
 			for(i=0;i<info.length;i++){
+				console.log(info[i]+'1');
 				document.getElementById(info[i]+'1').textContent=document.getElementById(info[i]).value;
+				
 			}
 		}
 		else{
@@ -183,7 +95,7 @@ Copyright &copy; 2015 All Rights Reserved.
 <?php
 $dbc=connect();
 $session=new Session();
-$currentid=$session->get_uid;
+$currentid=$session->get_uid();
 $q="select * from calendar where user_id='$currentid'";
 $currenttime=date('Y-m-d H:i:s');
 $i=0;
