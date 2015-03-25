@@ -8,6 +8,7 @@ $currentid=$session->get_uid();
   $dmonth=date('n');
   else
     $dmonth=(int)$_GET['month'];
+  $_SESSION['month']=$dmonth;
   if($dmonth<10)
     $dates="2015-0$dmonth-01";
   else
@@ -22,13 +23,19 @@ $currentid=$session->get_uid();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="https://apis.google.com/js/client:platform.js" async defer></script>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <link rel="stylesheet" type="text/CSS" href="pink-theme.css">
 <link rel="stylesheet" type="text/CSS" href="calendar.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<meta name="google-signin-clientid" content="480928246860-md5e151tk2n8fgjpctphhk9rl7hj6ler@developer.gserviceaccount.com">
+<meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login" />
+<meta name="google-signin-requestvisibleactions" content="http://schema.org/AddAction" />
+<meta name="google-signin-cookiepolicy" content="single_host_origin" />
 <script>
 $(document).ready(function() {
+ 
     $("td").click(function() {
 		if ($("#event-detail-box").css("display")!="block") {
 		  $("body").append("<div class='mask'></div>");
@@ -190,6 +197,7 @@ if($dmonth<12){
 }
 ?>
 </div>
+<div>
 <?php
 echo "<table class='$dmonth'>";
 ?>
@@ -474,7 +482,11 @@ echo "<table class='$dmonth'>";
   ?>
 </table>
 </div>
+</div>
 <!--calendar-end-->
+<div align="center">
+<button id="signinButton">Sync</button>
+</div>
 </div>
 <!--container-end-->
 
@@ -511,5 +523,26 @@ Copyright &copy; 2015 All Rights Reserved.
 </div>
 <!--overlay-end-->
 </body>
+<script>
+$(window).load(function(){  var additionalParams = {
+     'clientid': '480928246860-md5e151tk2n8fgjpctphhk9rl7hj6ler.apps.googleusercontent.com',
+     'cookiepolicy': 'single_host_origin',
+     'callback': 'signinCallback'
+   };
+  var signinButton = document.getElementById('signinButton');
+   signinButton.addEventListener('click', function() {
+     gapi.auth.signIn(additionalParams);
+      })
+}
+)
+ function signinCallback(authResult) {
+  if (authResult['status']['signed_in']) {
+    document.getElementById('signinButton').setAttribute('style', 'display: none');
+  } else {
+   console.log('Sign-in state: ' + authResult['error']);
+  }
+
+}
+</script>
 </html>
 

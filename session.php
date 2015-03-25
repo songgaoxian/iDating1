@@ -7,7 +7,7 @@
 			//session_id(123);
 			if(session_id()){$this->session_id=session_id();}
 			else{$this->session_id=uuid();}
-			echo $this->session_id;
+			//echo $this->session_id;
 		}
 		public function get_sid(){return($this->session_id);}
 		public function get_uid(){
@@ -15,7 +15,7 @@
 			if($conn){
 				$sql='SELECT * FROM session WHERE sid="'.$this->session_id.'";';
 				$result=mysqli_query($conn,$sql);
-				echo $sql;
+				//echo $sql;
 				if(mysqli_num_rows($result)>0){
 					$uid=mysqli_fetch_array($result);
 					mysqli_close($conn);
