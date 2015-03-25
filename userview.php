@@ -220,7 +220,9 @@ echo'
 </table>
 <p class="edit-show">* For security reason, gender and birthday cannot be modified after registration.</p>
 </div>
-</div><!--about-me-end-->';
+</div>
+<!--about-me-end-->
+<!--looking-for-start-->';
 echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 <div class="section-box">
 <div class="section-box-content">
@@ -294,10 +296,46 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 </div>
 </div>
 <!--looking-for-end-->
+
 <!--my-friends-start-->
-<h2 class="subheading colored-txt">MY FRIENDS</h2>
+<h2 class="subheading colored-txt">FRIENDS</h2>
 <div class="section-box">
 <div class="section-box-content">
+<!--visit-user-page-->
+<button class="btn btn-mdm" type="button">Add as Friend</button>
+<button class="btn btn-mdm" type="button">Delete This Friend</button>
+<br>
+<!--visit-my-page-->
+<div class="friend-box">
+<table>
+  <tr>
+    <td><div class="friend-portrait background-cover-center"></div></td>
+    <td><h3>Frank</h3>
+<p>abc@def.com</p><br><br>
+<div class="friend-btns">
+<button class="btn btn-sml" type="button">Send Message</button>
+<button class="btn btn-sml" type="button">Delete</button>
+</div>
+</td>
+  </tr>
+</table>
+</div>
+
+<div class="friend-box">
+<table>
+  <tr>
+    <td><div class="friend-portrait background-cover-center"></div></td>
+    <td><h3>Frank</h3>
+<p>abc@def.com</p><br><br>
+<div class="friend-btns">
+<button class="btn btn-sml" type="button">Send Message</button>
+<button class="btn btn-sml" type="button">Delete</button>
+</div>
+</td>
+  </tr>
+</table>
+</div>
+
 </div>
 </div>
 <!--my-friends-end-->

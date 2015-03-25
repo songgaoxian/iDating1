@@ -1,6 +1,6 @@
 <?php
-	if($_SERVER["REQUEST_METHOD"]=="GET"){
-	session_id($_GET['sid']);}
+	if($_SERVER["REQUEST_METHOD"]=="GET");
+	session_id($_GET['sid']);
 	session_start();
 	require("userview.php");
 	$user=new UserViewController();
@@ -11,9 +11,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/CSS" href="shared-frame.css">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="pink-theme.css">
-<link rel="stylesheet" type="text/CSS" href="registration.css">
+<link rel="stylesheet" type="text/CSS" href="registration-m.css">
 <title>iDating - Sign Up</title>
 </head>
 
@@ -42,18 +42,24 @@
 <tr>
   <td class="item-name colored-txt">Nickname: </td>
   <td class="item-content"><input class="txtbox" type="text" name="nickname" required id="username"></td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Gender: </td>
-  <td class="item-content"><input type="radio" name="sex">Male&nbsp;<input type="radio" name="sex">Female</td>
+  <td class="item-content"><input type="radio" name="sex">Male&nbsp;<input type="radio" id="sex" name="sex">Female</td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Birthday: </td>
   <td class="item-content"><input class="txtbox" type="date" name="bday"  id="birthday"></td>
-  <td class="item-name colored-txt">Height (cm): </td>
+</tr>
+<tr>
+<td class="item-name colored-txt">Height (cm): </td>
   <td class="item-content"><input class="txtbox" type="number" min="140" max="220" id="height" name="height"></td>
 </tr>
 <tr>
   <td class="item-name colored-txt">City: </td>
   <td class="item-content"><input class="txtbox" type="text" name="city-me" required id="city"></td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Hometown: </td>
   <td class="item-content"><input class="txtbox" type="text" name="hometown-me" required id="hometown"></td>
 </tr>
@@ -68,6 +74,8 @@
     <option value="PhD">PhD</option>
   </select>
   </td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Occupation: </td>
   <td class="item-content">
   <select name="job-me" class="txtbox" id="job">
@@ -101,7 +109,9 @@
 </tr>
 <tr>
   <td class="item-name colored-txt">Monthly Income: </td>
-  <td class="item-content"><input class="txtbox" id="income" type="number" min="0" name="income-me" required> HKD</td>
+  <td class="item-content"><input class="txtbox" id="income-me" type="number" min="0" name="income-me" required> HKD</td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Tags:</td>
   <td><div class="tag-item">Humorous</div></td>  
 </tr>
@@ -116,29 +126,35 @@
 <table>
 <tr>
   <td class="item-name colored-txt">Age: </td>
-  <td class="item-content"><input id="age_f" class="txtbox" type="number" min="18" max="99" name="age-from"> ~ <input id="age_t" class="txtbox" type="number"  min="18" max="99" name="age-to"></td>
+  <td class="item-content"><input id="age-from" class="txtbox" type="number" min="18" max="99" name="age-from"> ~ <input id="age-to" class="txtbox" type="number"  min="18" max="99" name="age-to"></td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Height: </td>
-  <td class="item-content"><input id="height_f" class="txtbox" type="number" min="140" max="220" name="height-from"> ~ <input id="height_t" class="txtbox" type="number" min="140" max="220" name="height-to"></td>
+  <td class="item-content"><input id="height-from" class="txtbox" type="number" min="140" max="220" name="height-from"> ~ <input id="height-to" class="txtbox" type="number" min="140" max="220" name="height-to"></td>
 </tr>
 <tr>
   <td class="item-name colored-txt">City: </td>
-  <td class="item-content"><input class="txtbox" type="text" name="city_pref" id="city_pref"></td>
+  <td class="item-content"><input class="txtbox" type="text" name="city-pref"></td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Hometown: </td>
-  <td class="item-content"><input class="txtbox" type="text" name="hometown-pref" id="hometown_pref"></td>
+  <td class="item-content"><input class="txtbox" type="text" name="hometown-pref"></td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Education: </td>
   <td class="item-content">
-  <select name="education-pref" class="txtbox" id="education_pref">
+  <select name="education-pref" class="txtbox">
     <option value="Unlimited" selected>Unlimited</option>
     <option value="High School">High School</option>
     <option value="Bachelor">Bachelor</option>
     <option value="Master">Master</option>
     <option value="PhD">PhD</option>
   </select></td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Occupation: </td>
   <td class="item-content">
-  <select name="job-pref" class="txtbox" id="job_pref">
+  <select name="job-pref" class="txtbox">
   	<option value="Unlimited" selected>Unlimited</option>
   	<option value="Student">Student</option>
     <option value="Computer Software">Computer Software</option>
@@ -168,7 +184,9 @@
 </tr>
 <tr>
   <td class="item-name colored-txt">Monthly Income: </td>
-  <td class="item-content">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref"> HKD</td>
+  <td class="item-content">&gt;= <input id="income-pref" class="txtbox" type="number" value="" name="income-pref"> HKD</td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Tags:</td>
   <td><div class="tag-item">Romantic</div><div class="tag-item">Reliable</div></td>    
 </tr>
@@ -181,21 +199,13 @@
 </form>
 </div>
 <script type="application/x-javascript">
-	var info=['username','height','city','hometown','education','job','income','self_intro','height_f','height_t','age_f','age_t','city_pref','hometown_pref','job_pref','education_pref','income_pref'];
+	var info=['username','height','city','hometown','education','job','income','sex','birthday','self_intro'];
 	function edit(){	
 		i=0;
 		content='{"';
 		content+=info[0]+'":"'+document.getElementById(info[0]).value+'"';
 		for(i=1;i<info.length;i++){
-			if(info[i]!='sex'){
-				console.log(info[i]);
-				content+=',"'+info[i]+'":"'+document.getElementById(info[i]).value+'"';
-			}
-			else{
-				temp=document.getElementsByName('sex')[0];
-				if(temp.checked==false){content+=', "sex":"Female"';}
-				else{content+=', "sex":"Male"';}
-			}
+			content+=',"'+info[i]+'":"'+document.getElementById(info[i]).value+'"';
 		}
 		content+='}';
 		xmlhttp=new XMLHttpRequest(); 
@@ -215,10 +225,9 @@
 	}
 </script>
 <!--container-end-->
-
 <!--footer-start-->
-<div class="footer">
-Copyright &copy; 2015 All Rights Reserved.
+<div>
+<p id="footer">&copy; 2015 All Rights Reserved.</p>
 </div>
 <!--footer-end-->
 </body>

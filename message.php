@@ -122,8 +122,6 @@
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <link rel="stylesheet" type="text/CSS" href="pink-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages.css">
-
-
 <title>iDating - Messages</title>
 </head>
 
