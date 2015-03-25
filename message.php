@@ -103,10 +103,11 @@
 
 	<div class="mail-list">
 		<ul>';
-		echo'<input type="text" id="email">
-            <textarea  class="txtbox txtbox-fill" placeholder="Add new message..." id="text"></textarea>
+		echo'<span class="colored-txt">Message receiver: </span><input type="text" id="email", placeholder="Email address">
+			<br></br>
+            <textarea class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="5"></textarea>
             <span class="button-group">
-            <input name="mc_markread" type="button" class="btn btn-lg" value="Send new message" onClick="send()" style="float:right; margin-right: 30px">
+            	<input name="mc_markread" type="button" class="btn btn-lg" value="Send new message" onClick="send()">
             </span>
 		</ul>
 		<div class="mail-list-ft"> </div>
@@ -153,9 +154,9 @@
 			echo $this->draw_one($value,$photo,$username);
 		}
 		echo'<p>Email: ';echo $email.'</p>
-            <textarea  class="txtbox txtbox-fill" placeholder="Add new message..." id="text"></textarea>
+            <textarea  class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="5"></textarea>
             <span class="button-group">
-            <input name="mc_markread" type="button" class="btn btn-lg" onClick="send()" value="Send new message" style="float:right; margin-right: 30px">
+            <input name="mc_markread" type="button" class="btn btn-lg" onClick="send()" value="Send new message">
             </span>
 		</ul>
 		<div class="mail-list-ft"> </div>

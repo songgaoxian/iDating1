@@ -76,5 +76,15 @@ h1 {
 	text-align:right;
 }
 
+#text {    
+	width:91%; 
+	height:100%;
+	overflow:auto;
+    display:block;
+}
+
+br{
+	line-height:10px;
+}
 
 
