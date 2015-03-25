@@ -1,18 +1,17 @@
 @charset "utf-8";
 /* CSS Document */
 /*calendar-start*/
+.container {
+	min-height:600px;
+}
 #calendar {
-	margin-top:45px;
-	padding-top:20px;
 	width:100%;
-	height:90%;
-	min-height:620px;
-	background-color:white;
+	height:100%;
 }
 #calendar-head {
-	margin:2% 15% 1%;
+	padding:3% 15% 1%;
 	width:70%;
-	height:7%;
+	height:6%;
 	text-align:center;	
 }
 #calendar-head > h2{
@@ -67,8 +66,9 @@ th {
 table {
 	width:100%;
 	height:90%;
+	margin:0;
+	padding:0;
 	border-collapse:collapse;
-	border-bottom:1px solid #ccc;
 }
 .event-box {
 	padding:2px 0 2px 3%;

@@ -35,7 +35,7 @@ $currentid=$session->get_uid();
 <meta name="google-signin-cookiepolicy" content="single_host_origin" />
 <script>
 $(document).ready(function() {
- 
+ $(".container").height($(window).height()*0.9);
     $("td").click(function() {
 		if ($("#event-detail-box").css("display")!="block") {
 		  $("body").append("<div class='mask'></div>");
@@ -70,6 +70,7 @@ $(document).ready(function() {
 	
 	$(window).resize(function() {
         $(".overlay").css("margin-top",($(".overlay-container").height()*0.95-$(".overlay").height())/2);
+		$(".container").height($(window).height()*0.9);
     });
 });
 function send(dateid){
@@ -197,7 +198,6 @@ if($dmonth<12){
 }
 ?>
 </div>
-<div>
 <?php
 echo "<table class='$dmonth'>";
 ?>
@@ -481,7 +481,6 @@ echo "<table class='$dmonth'>";
    
   ?>
 </table>
-</div>
 </div>
 <!--calendar-end-->
 <div align="center">
