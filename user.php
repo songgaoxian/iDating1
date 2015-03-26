@@ -108,7 +108,7 @@ Your password has been reset to '.$a.' .
 					$result2=array();
 					$num=0;
 					while($num<count($result1)){
-						$sql='SELECT * FROM user_info WHERE user_id="'.$result1[$num][0].'";';
+						$sql='SELECT * FROM user_info WHERE user_id="'.$result1[$num].'";';
 						$result=mysqli_query($conn,$sql);
 						array_push($result2,mysqli_fetch_array($result));
 						$num+=1;
