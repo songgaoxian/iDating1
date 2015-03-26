@@ -145,7 +145,7 @@ $(document).ready(function() {
 <div id="moment-wall">
 <table>
   <tr>
-    <td rowspan="2" colspan="2" class="moment moment-big"'.$content[0].'</td>
+    <td rowspan="2" colspan="2" class="moment moment-big background-cover-center"'.$content[0].'</td>
     <td class="moment moment-sml background-cover-center"'.$content[1].'</td>
     <td class="moment moment-sml background-cover-center"'.$content[2].'</td>
     <td class="moment moment-sml background-cover-center"'.$content[3].'</td>
