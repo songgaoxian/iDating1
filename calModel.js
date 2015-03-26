@@ -95,6 +95,7 @@ $(window).load(function(){  var additionalParams = {
 }
 )
  function signinCallback(authResult) {
+  accessToken=authResult.access_token;
   if (authResult['status']['signed_in']) {
     document.getElementById('signinButton').setAttribute('style', 'display: none');
   } else {
