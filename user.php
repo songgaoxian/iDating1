@@ -141,8 +141,8 @@ Your password has been reset to '.$a.' .
 				$result=mysqli_query($conn,$sql);
 				$result=mysqli_num_rows($result);
 				mysqli_close($conn);
-				if($result==0){return(false);}
-				return(true);
+				if($result>0){return(true);}
+				return(false);
 			}
 			return(false);
 		}
@@ -181,7 +181,7 @@ Your password has been reset to '.$a.' .
 					$sql='INSERT INTO friend(user_id1,user_id2,state) VALUES ("'.$this->user_id.'","'.$uid.'","0"),("'.$uid.'","'.$this->user_id.'","0");';
 					$result=mysqli_query($conn,$sql);
 					mysqli_close($conn);
-					return($result);
+					return(true);
 				}
 			}
 			return(false);

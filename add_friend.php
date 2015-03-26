@@ -15,7 +15,7 @@
 			if($result){echo '{"check":"false"}';return;}
 			else{
 				$result=$user->add_friend($uid1);
-				if($result){echo '{"check":"true","uid":"'+$uid+'"}';return;}
+				if($result){echo '{"check":"true","uid":"'.$uid.'"}';return;}
 				else{echo '{"check":"false"}';return;}
 			}
 		}
