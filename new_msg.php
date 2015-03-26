@@ -4,6 +4,12 @@
 	$view->show_new();
 ?>
 <script type="application/javascript">
+	var url=document.URL;
+	email=url.split('&email=');
+	if(email.length>1){
+		email=email[1];
+		document.getElementById("email").value=email;
+	}
 	function send(){
 		content={
 			"content":document.getElementById("text").value,

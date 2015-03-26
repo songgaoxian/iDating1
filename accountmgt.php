@@ -49,6 +49,80 @@
 	}
 </script>
 <script type="application/x-javascript">
+	var url=document.URL;
+	var uid=url.split('?uid=');
+	if(uid.length>1){uid=uid[1];}
+	function del_friend(){
+		xmlhttp=new XMLHttpRequest(); 
+		content='{"user_id2":"'+uid+'"}';
+		xmlhttp.open("POST","del_friend.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(content);console.log(xmlhttp);
+		record=xmlhttp;
+		response=JSON.parse(xmlhttp.response);
+		temp=confirm("Are you sure to delete this friend?");
+		if(temp==false){return;}
+		if(response['check']=='true'){
+			alert("Delete!");
+		}
+		else{
+			alert("...?");
+		}
+		window.location.replace(url);
+	}
+	function add_friend(){
+		xmlhttp=new XMLHttpRequest(); 
+		content='{"user_id2":"'+uid+'"}';
+		xmlhttp.open("POST","add_friend.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(content);console.log(xmlhttp);
+		record=xmlhttp;
+		response=JSON.parse(xmlhttp.response);
+		if(response['check']=='true'){
+			alert("Request has been sent!");
+			uid2=response['uid'];
+			xmlhttp=new XMLHttpRequest(); 
+			content='{"with_id":"'+uid+'","content":"Hi, I hope to make friends with you. Please click on commit_friend.php?uid='+uid2+' to confirm my request."}';
+			xmlhttp.open("POST","send.php",false);
+			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xmlhttp.send(content);console.log(xmlhttp);
+		}
+		else{
+			alert("...?");
+		}
+		//window.location.replace(url);
+	}
+	function send_email(uid){
+		xmlhttp=new XMLHttpRequest(); 
+		content='{"user_id2":"'+uid+'"}';
+		xmlhttp.open("POST","send_email.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(content);console.log(xmlhttp);
+		record=xmlhttp;
+		response=JSON.parse(xmlhttp.response);
+		if(response['check']=='false'){
+			window.location.replace('new_msg?email='+response['email']);
+		}
+		else{
+			window.location.replace('read_msg.php?with='+uid);
+		}
+	}
+	function delete_friend(uid1){
+		xmlhttp=new XMLHttpRequest(); 
+		content='{"user_id2":"'+uid1+'"}';
+		xmlhttp.open("POST","del_friend.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(content);console.log(xmlhttp);
+		record=xmlhttp;
+		response=JSON.parse(xmlhttp.response);
+		if(response['check']=='true'){
+			alert("Delete!");
+		}
+		else{
+			alert("...?");
+		}
+		window.location.replace(url);
+	}
 	function change_pwd(){
 		var email=document.getElementById("email").textContent;
 		var old_pwd=document.getElementById("old_pwd").value;

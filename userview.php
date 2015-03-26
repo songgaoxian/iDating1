@@ -2,11 +2,43 @@
 	require("session.php");
 	class UserView{
 		private $user_info;
+		private $friend_info;
 		public function __construct($info){
 			$this->user_info=array();
 			foreach($info as $key=>$value){
 				$this->user_info[$key]=$value;
 			}
+		}
+		public function show_one($info){
+			return('<div class="friend-box">
+<table>
+  <tr>
+    <td><div class="friend-portrait background-cover-center" style="background-image:url(portrait/'.$info['photo'].')" onClick="window.location.replace(\'accountmgt.php?uid='.$info['user_id'].'\')"></div></td>
+    <td><h3>'.$info['username'].'</h3>
+<p>'.$info['email'].'</p><br><br>
+<div class="friend-btns">
+<button class="btn btn-sml" type="button" onClick="send_email('.$info['user_id'].')">Send Message</button>
+<button class="btn btn-sml" type="button" onClick="delete_friend('.$info['user_id'].')">Delete</button>
+</div></tr></table>');
+		}
+		public function show_all($info){
+			$i=0;
+			$num=0;
+			$result='';
+			while($num<count($info)){
+				if($i==0){
+					$result.='<tr><td>'.$this->show_one($info[$num]).'</td>';
+					$i=1;
+				}
+				else{
+					$result.='<td>'.$this->show_one($info[$num]).'</td></tr>';
+					$i=0;
+				}
+				$num+=1;
+			}
+			if($i==0){$result.='</tr>';}
+			if(count($info)==0){$result='Find a friend la~';}
+			$this->friend_info=$result;
 		}
 		public function show_info($mode){
 			echo
@@ -101,7 +133,7 @@ $(document).ready(function() {
   {echo '
     <td class="item-name colored-txt">Password: </td>
     <td class="item-content"><button id="change-pwd" type="button" class="btn btn-sml">Change Password</button></td>';}echo '
-  </tr>
+  </tr>';if($mode==0){echo'
   <tr>
     <td class="item-name colored-txt">Theme: </td>
     <td class="item-content">
@@ -110,7 +142,7 @@ $(document).ready(function() {
         <option value="Blue">Blue</option>
       </select>
     </td>
-  </tr>
+  </tr>';}echo'
 </table>
 </div>
 </div>
@@ -302,40 +334,16 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 <div class="section-box">
 <div class="section-box-content">
 <!--visit-user-page-->
-<button class="btn btn-mdm" type="button">Add as Friend</button>
-<button class="btn btn-mdm" type="button">Delete This Friend</button>
-<br>
+';if($mode==2)echo'
+<button class="btn btn-mdm" type="button" onClick="add_friend()">Add as Friend</button>';if($mode==1)echo'
+<button class="btn btn-mdm" type="button" onClick="del_friend()">Delete This Friend</button>
+<br>';if($mode==0)echo'
 <!--visit-my-page-->
 <div class="friend-box">
-<table>
-  <tr>
-    <td><div class="friend-portrait background-cover-center"></div></td>
-    <td><h3>Frank</h3>
-<p>abc@def.com</p><br><br>
-<div class="friend-btns">
-<button class="btn btn-sml" type="button">Send Message</button>
-<button class="btn btn-sml" type="button">Delete</button>
+'.$this->friend_info.'
 </div>
-</td>
-  </tr>
-</table>
+';echo'
 </div>
-
-<div class="friend-box">
-<table>
-  <tr>
-    <td><div class="friend-portrait background-cover-center"></div></td>
-    <td><h3>Frank</h3>
-<p>abc@def.com</p><br><br>
-<div class="friend-btns">
-<button class="btn btn-sml" type="button">Send Message</button>
-<button class="btn btn-sml" type="button">Delete</button>
-</div>
-</td>
-  </tr>
-</table>
-</div>
-
 </div>
 </div>
 <!--my-friends-end-->
@@ -420,12 +428,23 @@ Copyright &copy; 2015 All Rights Reserved.
 				if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['uid'])){
 					$user->set_user($_GET['uid']);
 					$userview=new UserView($user->show_info());
-					if($_GET['uid']==$uid){$userview->show_info(0);}
-					else{$userview->show_info(1);}
+					if($_GET['uid']==$uid){
+						$friend=$user->show_friends();
+						$userview->show_all($friend);
+						$userview->show_info(0);
+					}
+					else{
+						$user1=new User();
+						$user1->set_user($uid);
+						if($user1->is_friend($_GET['uid'])){$userview->show_info(1);}
+						else{$userview->show_info(2);}
+					}
 				}
 				else{
 					$user->set_user($uid);
 					$userview=new UserView($user->show_info());
+					$friend=$user->show_friends();
+					$userview->show_all($friend);
 					$userview->show_info(0);
 				}
 			}

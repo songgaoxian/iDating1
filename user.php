@@ -11,7 +11,7 @@
 	function connect(){
 		$host="localhost";
 		$user="root";
-		$pwd="";
+		$pwd="root";
 	
 		$conn=mysqli_connect($host,$user,$pwd,"project");
 		if(!$conn){die("Connection failed!");}
@@ -95,7 +95,97 @@ Your password has been reset to '.$a.' .
 			}
 			return(false);
 		}
-		
+		public function show_friends(){
+			$conn=connect();
+			if($conn){
+				$sql='SELECT * FROM friend WHERE user_id1="'.$this->user_id.'" and state="1";';
+				$result=mysqli_query($conn,$sql);
+				if(mysqli_num_rows($result)>0){
+					$result1=array();
+					while($row = mysqli_fetch_array($result)){
+						array_push($result1,$row[1]);
+					}
+					$result2=array();
+					$num=0;
+					while($num<count($result1)){
+						$sql='SELECT * FROM user_info WHERE user_id="'.$result1[$num][0].'";';
+						$result=mysqli_query($conn,$sql);
+						array_push($result2,mysqli_fetch_array($result));
+						$num+=1;
+					}
+					return($result2);
+				}
+				else{
+					mysqli_close($conn);
+					return(NULL);
+				}
+			}
+		}
+		public function del_friend($uid){
+			if($this->is_friend($uid)==true){
+				$conn=connect();
+				if($conn){
+					$sql='DELETE FROM friend WHERE (user_id1="'.$this->user_id.'" AND user_id2="'.$uid.'") OR (user_id1="'.$uid.'" AND user_id2="'.$this->user_id.'");';
+					$result=mysqli_query($conn,$sql);
+					mysqli_close($conn);
+					return($result);
+				}
+				return(false);
+			}
+			else{return(false);}
+		}
+		public function is_friend($uid){
+			$conn=connect();
+			if($conn){
+				$sql='SELECT * FROM friend WHERE user_id1="'.$this->user_id.'" AND user_id2="'.$uid.'" AND state="1";';
+				$result=mysqli_query($conn,$sql);
+				$result=mysqli_num_rows($result);
+				mysqli_close($conn);
+				if($result>0){return(true);}
+				return(false);
+			}
+			return(false);
+		}
+		public function is_friend2($uid){
+			$conn=connect();
+			if($conn){
+				$sql='SELECT * FROM friend WHERE user_id1="'.$this->user_id.'" AND user_id2="'.$uid.'";';
+				$result=mysqli_query($conn,$sql);
+				$result=mysqli_num_rows($result);
+				mysqli_close($conn);
+				if($result==0){return(false);}
+				return(true);
+			}
+			return(false);
+		}
+		public function commit_friend($uid){
+			$conn=connect();
+			if($conn){
+				$sql='SELECT * FROM friend WHERE user_id1="'.$this->user_id.'" AND user_id2="'.$uid.'" AND state="0";';
+				$result=mysqli_query($conn,$sql);
+				if($result){
+					$sql='UPDATE friend SET state="1" WHERE (user_id1="'.$this->user_id.'" AND user_id2="'.$uid.'") OR (user_id1="'.$uid.'" AND user_id2="'.$this->user_id.'");';
+					$result=mysqli_query($conn,$sql);
+					mysqli_close($conn);
+					return($result);
+				}
+				else{mysqli_close($conn);return(false);}
+			}
+			return(false);
+		}
+		public function add_friend($uid){
+			$conn=connect();
+			if($conn){
+				if($this->is_friend2($uid)){return(true);}
+				else{
+					$sql='INSERT INTO friend(user_id1,user_id2,state) VALUES ("'.$this->user_id.'","'.$uid.'","0"),("'.$uid.'","'.$this->user_id.'","0");';
+					$result=mysqli_query($conn,$sql);
+					mysqli_close($conn);
+					return(true);
+				}
+			}
+			return(false);
+		}
 		public function show_info(){
 			$conn=connect();
 			if($conn){

@@ -43,6 +43,7 @@
 				$data=$user->show_info();
 				$sql='INSERT INTO mess(from_id,to_id,mess_id,content,photo,username) VALUES("'.$this->uid.'","'.$this->with_id.'","'.uuid().'","'.$content.'","'.$data['photo'].'","'.$data['username'].'");';
 				$result=mysqli_query($conn,$sql);
+				//echo $sql;
 				return($result);
 				$this->content[$this->total]=$content;
 				$this->total+=1;
