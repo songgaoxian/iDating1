@@ -21,14 +21,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `calendar` (
-  `dating_id` varchar(20) NOT NULL,
-  `user_id` varchar(20) NOT NULL,
-  `mate_id` varchar(20) NOT NULL,
+  `dating_id` int(50) NOT NULL primary key auto_increment,
+  `user_id` varchar(50) NOT NULL,
+  `mate_id` varchar(50) NOT NULL,
   `dat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `content` varchar(1000) NOT NULL,
   `location` varchar(100) NOT NULL,
-  unique(`user_id`,`mate_id`, `dat`)
+   unique(`user_id`,`mate_id`,`dat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 
 -- --------------------------------------------------------
 
