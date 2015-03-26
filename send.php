@@ -7,7 +7,7 @@
 		$temp1=file_get_contents('php://input');
 		$temp=json_decode($temp1, true);
 		$conn=connect();
-		if(!$conn){echo '{"check":"false"}';return;}
+		if(!$conn){echo '{"check":"false6"}';return;}
 		if(isset($temp['with_id']) && $temp['with_id']!=''){
 			$msg=new Message($uid,$temp['with_id']);
 			$result=$msg->send($temp['content']);
@@ -18,9 +18,9 @@
 				$info['with_id']=$temp['with_id'];
 				$result=$inbox->new_inbox($info);
 				if($result){echo '{"check":"true"}';return;}
-				echo '{"check":"false"}';return;
+				echo '{"check":"false1"}';return;
 			}
-			else{echo '{"check":"false"}';}
+			else{echo '{"check":"false2"}';}
 			return;
 		}
 		else if(isset($temp['email']) && $temp['email']!=''){
@@ -36,12 +36,12 @@
 					$info['with_id']=$user->get_uid();
 					$result=$inbox->new_inbox($info);
 					if($result){echo '{"check":"true"}';return;}
-					echo '{"check":"false"}';return;
+					echo '{"check":"false3"}';return;
 			}
-				else{echo '{"check":"false"}';}
+				else{echo '{"check":"false4"}';}
 				return;
 			}
-			else{echo '{"check":"false"}';}
+			else{echo '{"check":"false5"}';}
 			return;
 		}
 		else{echo '{"check":"false"}';}
