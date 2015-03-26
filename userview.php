@@ -10,8 +10,7 @@
 			}
 		}
 		public function show_one($info){
-			return('<div class="friend-box">
-<table>
+			return('
   <tr>
     <td><div class="friend-portrait background-cover-center" style="background-image:url(portrait/'.$info['photo'].')" onClick="window.location.replace(\'accountmgt.php?uid='.$info['user_id'].'\')"></div></td>
     <td><h3>'.$info['username'].'</h3>
@@ -19,7 +18,7 @@
 <div class="friend-btns">
 <button class="btn btn-sml" type="button" onClick="send_email('.$info['user_id'].')">Send Message</button>
 <button class="btn btn-sml" type="button" onClick="delete_friend('.$info['user_id'].')">Delete</button>
-</div></tr></table>');
+</div></tr>');
 		}
 		public function show_all($info){
 			$i=0;
@@ -339,8 +338,8 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 <button class="btn btn-mdm" type="button" onClick="del_friend()">Delete This Friend</button>
 <br>';if($mode==0)echo'
 <!--visit-my-page-->
-<div class="friend-box">
-'.$this->friend_info.'
+<div class="friend-box"><table>
+'.$this->friend_info.'</table>
 </div>
 ';echo'
 </div>

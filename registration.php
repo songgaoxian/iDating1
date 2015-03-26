@@ -181,7 +181,7 @@
 </form>
 </div>
 <script type="application/x-javascript">
-	var info=['username','height','city','hometown','education','job','income','self_intro','height_f','height_t','age_f','age_t','city_pref','hometown_pref','job_pref','education_pref','income_pref'];
+	var info=['username','sex','birthday','height','city','hometown','education','job','income','self_intro','height_f','height_t','age_f','age_t','city_pref','hometown_pref','job_pref','education_pref','income_pref'];
 	function edit(){	
 		i=0;
 		content='{"';
