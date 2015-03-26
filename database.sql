@@ -316,8 +316,6 @@ INSERT INTO `user_info` (`user_id`, `email`, `password`, `username`, `theme`, `p
 --
 -- Indexes for table `calendar`
 --
-ALTER TABLE `calendar`
- ADD PRIMARY KEY (`dating_id`);
 
 --
 -- Indexes for table `mess`
