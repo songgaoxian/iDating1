@@ -26,7 +26,7 @@ echo "
 </div>
 
 <form id='by-name-form' method='get' action='sresult.php'>
-<input class='txtbox' type='text' placeholder='Nickname' name='nickname' required>
+<input id='nickname-input' class='txtbox' type='text' placeholder='Nickname' name='nickname' required>
 <input id='search-1' class='btn' type='submit' value=''>
 </form>
 
@@ -35,33 +35,33 @@ echo "
 
 <div class='search-item'>
 Gender: 
-<select name='gender'>
+<select id='gender1' name='gender'>
   <option value='Male'>Male</option>
   <option value='Female'>Female</option>
   <option value='unlimited' selected>Unlimited</option>
 </select>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<button id='delGender' class='btn item-delete'>X</button>
+<button id='addGender' class='btn item-add'>Add</button>
 </div>
 
 <div class='search-item'>
 Age:
 <input id='age-from' class='txtbox-embed' type='number' min='18' max='99' value='18' name='age-from'> ~ <input id='age-to' class='txtbox-embed' type='number'  min='18' max='99'  value='28' name='age-to'>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<button id='delAge' class='btn item-delete'>X</button>
+<button id='addAge' class='btn item-add'>Add</button>
 </div>
 
 <div class='search-item'>
 Height (cm):
 <input id='height-from' class='txtbox-embed' type='number' min='140' max='220' value='150' name='height-from'> ~ <input id='height-to' class='txtbox-embed' type='number' min='140' max='220' value='170' name='height-to'>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<button id='delHeight' class='btn item-delete'>X</button>
+<button id='addHeight' class='btn item-add'>Add</button>
 </div>
 
 <div class='search-item'>
 Occupation:
-  <select name='job' class='txtbox-embed'>
-  	<option value='Unlimited' selected>Unlimited</option>
+  <select id='job1' name='job' class='txtbox-embed'>
+  	<option value='unlimited' selected>Unlimited</option>
   	<option value='Student'>Student</option>
     <option value='Computer Software'>Computer Software</option>
 	<option value='Computer Hardware'>Computer Hardware</option>
@@ -87,21 +87,21 @@ Occupation:
 	<option value='Agriculture/Fishing/Forestry'>Agriculture/Fishing/Forestry</option>
 	<option value='Others'>Others</option>
   </select>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<button id='delJob' class='btn item-delete'>X</button>
+<button id='addJob' class='btn item-add'>Add</button>
 </div>
 
 <div class='search-item'>
-Eduacation:
-<select name='education' class='txtbox-embed'>
-    <option value='Unlimited' selected>Unlimited</option>
+Education:
+<select id='education1' name='education' class='txtbox-embed'>
+    <option value='unlimited' selected>Unlimited</option>
     <option value='High School'>High School</option>
     <option value='Bachelor'>Bachelor</option>
     <option value='Master'>Master</option>
     <option value='PhD'>PhD</option>
   </select></td>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<button id='delEducation' class='btn item-delete'>X</button>
+<button id='addEducation' class='btn item-add'>Add</button>
 </div>
 <button id='more-condition' type='button' class='link-btn'>More conditions?</button>
 </form>
@@ -111,23 +111,23 @@ Eduacation:
 <div id='more-condition-box'>
 <div class='search-item'>
 City:
-<input class='txtbox-embed' type='text' value='Hong Kong' name='city'>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<input id='city1' class='txtbox-embed' type='text' value='Hong Kong' name='city'>
+<button id='delCity' class='btn item-delete'>X</button>
+<button id='addCity' class='btn item-add'>Add</button>
 </div>
 
 <div class='search-item'>
 Hometown:
-<input class='txtbox-embed' type='text' value='Peking' name='hometown'>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<input id='hometown1' class='txtbox-embed' type='text' value='Peking' name='hometown'>
+<button id='delHometown' class='btn item-delete'>X</button>
+<button id='addHometown' class='btn item-add'>Add</button>
 </div>
 
 <div class='search-item'>
 Monthly Income (HKD): &gt;=
 <input id='income' class='txtbox-embed' type='number' value='10000' name='income'>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<button id='delIncome' class='btn item-delete'>X</button>
+<button id='addIncome' class='btn item-add'>Add</button>
 </div>
 
 <!--
@@ -138,14 +138,7 @@ Tags: Workaholic + Reliable
 </div>-->
 </div>
 <!--more-condition-end-->
-</div>
-<!--container-end-->
-
-<!--footer-start-->
-<div class='footer'>
-Copyright &copy; 2015 All Rights Reserved.
-</div>
-<!--footer-end-->";
+";
 	}
 } 
 ?>
