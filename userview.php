@@ -434,7 +434,9 @@ Copyright &copy; 2015 All Rights Reserved.
 						$userview->show_info(0);
 					}
 					else{
-						if($user->is_friend($_GET['uid'])){$userview->show_info(1);}
+						$user1=new User();
+						$user1->set_user($uid);
+						if($user1->is_friend($_GET['uid'])){$userview->show_info(1);}
 						else{$userview->show_info(2);}
 					}
 				}
