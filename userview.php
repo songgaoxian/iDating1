@@ -13,7 +13,7 @@
 			return('<div class="friend-box">
 <table>
   <tr>
-    <td><div class="friend-portrait background-cover-center" style="background-image:url(portrait/'.$info['photo'].')"></div></td>
+    <td><div class="friend-portrait background-cover-center" style="background-image:url(portrait/'.$info['photo'].')" onClick="window.location.replace(\'accountmgt.php?uid='.$info['user_id'].'\')"></div></td>
     <td><h3>'.$info['username'].'</h3>
 <p>'.$info['email'].'</p><br><br>
 <div class="friend-btns">
