@@ -1,6 +1,19 @@
 <?php
 class CalView{
 	public function showCal($dmonth, $ddmonth, $wkd, $dbc, $currentid){
+    $q3="select user_id2 from friend where user_id1='$currentid' and state='1'";
+    $result3=mysqli_query($dbc,$q3);
+    $flength=0;
+    $femail=array();
+    if($result3)
+    while($row3=mysqli_fetch_array($result3)){
+    $temp=$row3['user_id2'];
+    $q4="select email from user_info where user_id='$temp'";
+    $result4=mysqli_query($dbc,$q4);
+    $row4=mysqli_fetch_array($result4);
+    $femail[$flength]=$row4['email'];
+    $flength++;
+    }
 		echo "<div class='header'>
   <ul id='topnav'>
   <li><a href='messages.php'>Messages</a>
@@ -375,7 +388,16 @@ Copyright &copy; 2015 All Rights Reserved.
 <button class='close-overlay btn' type='button'>X</button>
 <h2 class='colored-txt'>Add a Dating</h2>
 <form method='post' id='composer' action='composer.php'>
-<input class='txtbox txtbox-fill' type='text' name='mate' placeholder='Your Partner' required><br>
+Your Partner: <select class='txtbox txtbox-fill' name='mate'>";
+if($flength>0)
+for($i=0;$i<$flength;$i++){
+  $temp=$femail[$i];
+  if($i==0)
+  echo "<option value='$temp' selected>$temp</option>";
+  else
+    echo "<option value='$temp'>$temp</option>";
+}
+echo "</select><br>
 <input class='txtbox txtbox-fill' type='time' name='times' placeholder='Starting Time' value='00:00' required><br>
 <input class='txtbox txtbox-fill' type='text' name='location' placeholder='Location' required><br>
 <textarea class='txtbox txtbox-fill' name='content' placeholder='Comments'></textarea>
