@@ -51,6 +51,8 @@
 <link rel="stylesheet" type="text/CSS" href="accountmgt.css">
 <title>iDating - My Page</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link href="js/jqueryUI/chosen/chosen.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/jqueryUI/chosen/chosen.jquery.js"></script>
 <script>
 $(document).ready(function() {
 	$("#portrait").height($("#portrait").width());
@@ -100,6 +102,11 @@ $(document).ready(function() {
 		$(".edit-hide").show();
 	});
 });
+
+$(function(){
+    $(".selecttags").chosen();
+});
+
 </script>
 </head>
 
@@ -241,12 +248,21 @@ echo'
   <td class="item-content edit-hide" id="income1">'.$this->user_info['income'].'HKD</td>
   <td class="item-content edit-show"><input id="income" class="txtbox" type="number" min="0" name="income-me" required value="'.$this->user_info['income'].'"> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
-  <td><div class="tag-item">';
+  <td class="item-content edit-hide"><div class="tag-item">';
   $tag=$this->user_info['tags'];
 	foreach($tag as $key=>$value){
-	  echo('<div>'.$value.'</div>');
+	  echo('<div class="tag-item">'.$value.'</div>');
 	}
    echo '</div></td>  
+   <td class="item-content edit-show">
+   		<select name="tags" style="width: 230px;" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="music">music</option>
+    		<option value="movies">movie</option>
+    		<option value="book">book</option>
+    		<option value="jog">jogging</option>
+    		<option value="cook">cooking</option>
+		</select> 
+   </td>
 </tr>
 </table>
 <p class="edit-show">* For security reason, gender and birthday cannot be modified after registration.</p>
