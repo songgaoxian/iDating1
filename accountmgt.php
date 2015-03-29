@@ -36,12 +36,57 @@
 		record=xmlhttp;
 		response=JSON.parse(xmlhttp.response);
 		if(response['check']=='true'){
-			alert("change info success!");
 			for(i=0;i<info.length;i++){
 				console.log(info[i]+'1');
 				document.getElementById(info[i]+'1').textContent=document.getElementById(info[i]).value;
-				
 			}
+		}
+		else{
+			alert("error..."); return;
+		}
+		
+		content='{"';
+		var temp=document.getElementsByClassName('chzn-choices')[0].children;
+		if(temp.length==0){return;}
+		var record1=[];
+		content+=temp[0].textContent+'":"'+temp[0].textContent+'"';
+		record1[0]=temp[0].textContent;
+		for(i=1;i<temp.length;i++){
+			content+=',"'+temp[i].textContent+'":"'+temp[i].textContent+'"';
+			record1[i]=temp[i].textContent;
+		}
+		console.log(record);
+		content+='}';
+		xmlhttp=new XMLHttpRequest(); 
+		xmlhttp.open("POST","change_tag.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(content);console.log(xmlhttp);
+		record=xmlhttp;
+		response=JSON.parse(xmlhttp.response);
+		if(response['check']=='true'){
+			alert("change info success!");
+			var tags=document.getElementById('tags');
+			var temp1=tags.children;
+			while(temp1.length>0){
+				tags.removeChild(temp1[0]);
+				tags=document.getElementById('tags');
+				console.log(tags);
+				temp1=tags.children;
+			}
+			var i=0;
+			var temp2=document.getElementsByClassName('chzn-choices')[0];
+			console.log(record1);
+			tags=document.getElementById('tags');
+			while(i<record1.length){
+				if(record1[i]!=''){
+				var temp1=document.createElement('div');
+				temp1.setAttribute('class',"tag-item");
+				temp1.textContent=record1[i];
+				console.log(record1[i]);
+				tags.appendChild(temp1);
+				}i++;
+			}
+			console.log(tags);
 		}
 		else{
 			alert("error...");

@@ -165,7 +165,7 @@ echo'
 <table id="portrait-intro-table">
   <tr>
     <td>
-	<div id="portrait" class="background-cover-center" style="background-image:url(portrait/'.$this->user_info['photo'].')"></div>
+	<div id="portrait" class="background-cover-center" style="background-image:url(\'portrait/'.$this->user_info['photo'].'\')"></div>
     <button id="change-portrait" type="button" class="btn btn-sml edit-show">Change</button>
     </td>
 	<td>
@@ -188,7 +188,7 @@ echo'
   <td class="item-content">'.$this->user_info['birthday'].'</td>
   <td class="item-name colored-txt">Height (cm): </td>
   <td class="item-content edit-hide" id="height1">'.$this->user_info['height'].'</td>
-  <td class="item-content edit-show"><input id="height" class="txtbox" type="number" min="140" max="220"  name="height"value="'.$this->user_info['height'].'"></td>
+  <td class="item-content edit-show"><input id="height" class="txtbox" type="number" min="140" max="220"  name="height" value="'.$this->user_info['height'].'"></td>
 </tr>
 <tr>
   <td class="item-name colored-txt">City: </td>
@@ -202,7 +202,7 @@ echo'
   <td class="item-name colored-txt">Education: </td>
   <td class="item-content edit-hide" id="education1">'.$this->user_info['education'].'</td>
   <td class="item-content edit-show">
-  <select name="education-me" class="txtbox" id="education">
+  <select name="education-me" class="txtbox" id="education" value="'.$this->user_info['education'].'">
     <option value="Unspecified" selected>Please Select</option>
     <option value="High School">High School</option>
     <option value="Bachelor">Bachelor</option>
@@ -213,8 +213,8 @@ echo'
   <td class="item-name colored-txt">Occupation: </td>
   <td class="item-content edit-hide" id="job1">'.$this->user_info['job'].'</td>
   <td class="item-content edit-show">
-  <select name="job-me" class="txtbox" id="job">
-    <option value="Unspecified" selected>Please Select</option>
+  <select name="job-me" class="txtbox" id="job" value="'.$this->user_info['job'].'">
+    <option value="Unspecified">Please Select</option>
   	<option value="Student">Student</option>
     <option value="Computer Software">Computer Software</option>
 	<option value="Computer Hardware">Computer Hardware</option>
@@ -247,12 +247,13 @@ echo'
   <td class="item-content edit-hide" id="income1">'.$this->user_info['income'].'HKD</td>
   <td class="item-content edit-show"><input id="income" class="txtbox" type="number" min="0" name="income-me" required value="'.$this->user_info['income'].'"> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
-  <td class="item-content edit-hide"><div class="tag-item">';
+  <td class="item-content edit-hide" id="tags">';
   $tag=$this->user_info['tags'];
 	foreach($tag as $key=>$value){
-	  echo('<div class="tag-item">'.$value.'</div>');
+		if($value!=''){
+	  echo('<div class="tag-item">'.$value.'</div>');}
 	}
-   echo '</div></td>  
+   echo '</td>  
    <td class="item-content edit-show">
    		<select name="tags" style="width: 230px;" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
     		<option value="music">music</option>
@@ -276,10 +277,10 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 <tr>
   <td class="item-name colored-txt">Age: </td>
   <td class="item-content edit-hide"><span id="age_f1">'.$this->user_info['age_f'].'</span>~<span id="age_t1">'.$this->user_info['age_t'].'</span></td>
-  <td class="item-content edit-show"><input id="age_f" class="txtbox" type="number" min="18" max="99" name="age-from"> ~ <input id="age_t" class="txtbox" type="number"  min="18" max="99"  name="age-to"></td>
+  <td class="item-content edit-show"><input id="age_f" class="txtbox" type="number" min="18" max="99" name="age-from" value="'.$this->user_info['age_f'].'"> ~ <input id="age_t" class="txtbox" type="number"  min="18" max="99"  name="age-to" value="'.$this->user_info['age_t'].'"></td>
   <td class="item-name colored-txt">Height (cm): </td>
   <td class="item-content edit-hide"><span id="height_f1">'.$this->user_info['height_f'].'</span>~<span id="height_t1">'.$this->user_info['height_t'].'</span></td>
-  <td class="item-content edit-show"><input id="height_f" class="txtbox" type="number" min="140" max="220" name="height-from"> ~ <input id="height_t" class="txtbox" type="number" min="140" max="220" name="height-to"></td>
+  <td class="item-content edit-show"><input id="height_f" class="txtbox" type="number" min="140" max="220" name="height-from" value="'.$this->user_info['height_f'].'"> ~ <input id="height_t" class="txtbox" type="number" min="140" max="220" name="height-to" value="'.$this->user_info['height_t'].'"></td>
 </tr>
 <tr>
   <td class="item-name colored-txt">City: </td>
@@ -293,7 +294,7 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
   <td class="item-name colored-txt">Education: </td>
   <td class="item-content edit-hide" id="education_pref1">'.$this->user_info['education_pref'].'</td>
   <td class="item-content edit-show">
-  <select name="education-pref" class="txtbox" id="education_pref">
+  <select name="education-pref" class="txtbox" id="education_pref" value="'.$this->user_info['education_pref'].'">
     <option value="Unlimited" selected>Unlimited</option>
     <option value="High School">High School</option>
     <option value="Bachelor">Bachelor</option>
@@ -303,7 +304,7 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
   <td class="item-name colored-txt">Occupation: </td>
   <td class="item-content edit-hide" id="job_pref1">'.$this->user_info['job_pref'].'</td>
   <td class="item-content edit-show">
-  <select name="job-pref" class="txtbox" id="job_pref">
+  <select name="job-pref" class="txtbox" id="job_pref" value="'.$this->user_info['job_pref'].'">
     <option value="Unlimited" selected>Unlimited</option>
   	<option value="Student">Student</option>
     <option value="Computer Software">Computer Software</option>
@@ -334,7 +335,7 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 <tr>
   <td class="item-name colored-txt">Monthly Income: </td>
   <td class="item-content edit-hide" id="income_pref1">&gt;='.$this->user_info['income_pref'].' HKD</td>
-  <td class="item-content edit-show">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref"> HKD</td>
+  <td class="item-content edit-show">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref" value="'.$this->user_info['income_pref'].'"> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
   <td><div class="tag-item">Romantic</div><div class="tag-item">Reliable</div></td>    
 </tr>
@@ -440,7 +441,9 @@ Copyright &copy; 2015 All Rights Reserved.
 				$user=new User();
 				if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['uid'])){
 					$user->set_user($_GET['uid']);
-					$userview=new UserView($user->show_info());
+					$result=$user->show_info();
+					$result['tags']=$user->show_tag();
+					$userview=new UserView($result);
 					if($_GET['uid']==$uid){
 						$friend=$user->show_friends();
 						$userview->show_all($friend);
@@ -455,7 +458,9 @@ Copyright &copy; 2015 All Rights Reserved.
 				}
 				else{
 					$user->set_user($uid);
-					$userview=new UserView($user->show_info());
+					$result=$user->show_info();
+					$result['tags']=$user->show_tag();
+					$userview=new UserView($result);
 					$friend=$user->show_friends();
 					$userview->show_all($friend);
 					$userview->show_info(0);
