@@ -46,7 +46,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
+<link rel="stylesheet" type="text/CSS" href="'.$this->user_info['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="accountmgt.css">
 <title>iDating - My Page</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
