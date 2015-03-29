@@ -22,7 +22,8 @@ echo "
 <div id='search-condition'>
 <div id='tabs'>
 <button id='tab-by-condition' class='link-btn no-line colored-txt-dark' type='button'>Search by Conditions</button>|
-<button id='tab-by-name' class='link-btn no-line' type='button'>Search by Nickname</button>
+<button id='tab-by-name' class='link-btn no-line' type='button'>Search by Nickname</button>|
+<button id='tab-by-distance' class='link-btn no-line' type='button'>Search by Distance</button>
 </div>
 
 <form id='by-name-form' method='get' action='sresult.php'>

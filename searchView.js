@@ -31,6 +31,7 @@ $(document).ready(function() {
 		$("#tab-by-condition").removeClass("colored-txt-dark");
 		$(this).addClass("colored-txt-dark");
 		$("#by-condition-form").hide();
+		$("#more-condition-box").hide();
 	    $("#by-name-form").fadeIn();
 	});
 	

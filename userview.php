@@ -141,10 +141,11 @@ $(function(){
   </tr>';if($mode==0){echo'
   <tr>
     <td class="item-name colored-txt">Theme: </td>
-    <td class="item-content">
+	<td class="item-content edit-hide">pink</td>
+    <td class="item-content edit-show">
 	  <select name="theme" class="txtbox" id="theme">
-        <option value="Pink" selected>Pink</option>
-        <option value="Blue">Blue</option>
+        <option value="pink" selected>pink</option>
+        <option value="blue">blue</option>
       </select>
     </td>
   </tr>';}echo'
