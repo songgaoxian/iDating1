@@ -5,7 +5,7 @@ echo "
 	<!--header-start-->
 <div class='header'>
 <ul id='topnav'>
-<li><a href='logout.php'>Log Out</a>
+  <li><a href='logout.php'>Log Out</a>
   <li><a href='messages.php'>Messages</a>
   <li><a href='moments.php'>Moments</a>
   <li><a href='calendar.php'>Calendar</a>

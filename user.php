@@ -60,7 +60,9 @@ Your password has been reset to '.$a.' .
 			if($conn){
 				$sql='INSERT INTO user_info(user_id,password,email) VALUES ("'.$this->user_id.'","'.$pass.'","'.$email.'");';
 				$result=mysqli_query($conn,$sql);
-				if($result){return(true);}
+				$sql='INSERT INTO tag(user_id) VALUES ("'.$this->user_id.'");';
+				$result=mysqli_query($conn,$sql);
+				return($result);
 			}
 			return(false);
 		}
@@ -94,6 +96,31 @@ Your password has been reset to '.$a.' .
 				return($result);
 			}
 			return(false);
+		}
+		public function set_tag($info){
+			$conn=connect();
+			if($conn){
+				$sql='DELETE FROM tag WHERE user_id="'.$this->user_id.'";';
+				//echo $sql;
+				mysqli_query($conn,$sql);
+				$sql='INSERT INTO tag(user_id) VALUES ("'.$this->user_id.'");';
+				//echo $sql; 
+				mysqli_query($conn,$sql);
+				$sql="UPDATE tag SET ";
+				$count=1;
+				foreach($info as $key=>$value){
+					if($value!=''){
+						if($count==1){$sql.=$value.'="'.$value.'" ';$count+=1;}
+						else{$sql.=', '.$value.'="'.$value.'" ';}
+					}
+				}
+				$sql.='WHERE user_id="'.$this->user_id.'";';
+				//echo $sql;
+				$result=mysqli_query($conn,$sql);
+				mysqli_close($conn);
+				return($result);
+			}
+			else{return(false);}
 		}
 		public function show_friends(){
 			$conn=connect();
@@ -185,6 +212,31 @@ Your password has been reset to '.$a.' .
 				}
 			}
 			return(false);
+		}
+		public function show_tag(){
+			$conn=connect();
+			if($conn){
+				$sql='SELECT * FROM tag WHERE user_id="'.$this->user_id.'";';
+				echo $sql;
+				$result=mysqli_query($conn,$sql);
+				if(mysqli_num_rows($result)>0){
+					//login success
+					$row = mysqli_fetch_array($result);
+					$result=array();
+					$i=1;
+					while($i<=5){
+						array_push($result,$row[$i]);
+						$i+=1;
+					}
+					mysqli_close($conn);
+					return($result);
+				}
+				else{
+					mysqli_close($conn);
+					return(NULL);
+				}
+			}
+			else{return(NULL);}
 		}
 		public function show_info(){
 			$conn=connect();

@@ -154,7 +154,7 @@ $length=$_SESSION['length'];
          if($length<=10){
                  for($j=1; $j<=$length;$j++){
                          $m=$j-1;
-                 echo "<div class='portrait'><img src='portrait/$sphoto[$m]'><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";}
+                 echo "<div class='portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";}
                  echo "</div>";
          }
          else{
