@@ -124,7 +124,7 @@ select:hover,select:focus {
 	margin:5px;
 	display:block;
 }
-.portrait > img{
+.portrait > div{
 	width:90%;
 }
 /*search-result-end*/
