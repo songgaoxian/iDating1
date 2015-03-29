@@ -171,6 +171,7 @@ $dbc=connect();
 $session=new Session();
 $currentid=$session->get_uid();
 $q="select * from calendar where user_id='$currentid'";
+date_default_timezone_set("Asia/Hong_Kong");
 $currenttime=date('Y-m-d H:i:s');
 $i=0;
 $result=mysqli_query($dbc, $q);
@@ -182,28 +183,31 @@ if(!empty($result)){
 	$i=0;
 	while($row=mysqli_fetch_array($result)){
     $dat=$row['dat'];
-    $diff=round(($dat-$currenttime)/3600);
-    if($diff<=1 and $diff>=0){
+    $currenttime=(string)$currenttime;
+    $dat1=strtotime($dat);
+    $currenttime1=strtotime($currenttime);
+    $diff=round(($dat1-$currenttime1)/3600);
+    if($diff<=2 and $diff>=0){
      $dmateid[$i]=$row['mate_id'];
      $temp=$dmateid[$i];
      $dtime[$i]=$row['dat'];
      $dlocation[$i]=$row['location'];
      $q2="select username from user_info where user_id='$temp'";
      $result1=mysqli_query($dbc, $q2);
-     $row=mysqli_fetch_array($result1);
-     $dmatename[$i]=$row['username'];
+     $row2=mysqli_fetch_array($result1);
+     $dmatename[$i]=$row2['username'];
      $i++;
     }
   }
-  if($i!==0){
-  	echo "<script>alert('";
-  	for($j=0; $j<$i; $j++){
+  if($i>0){
+  	$j=0;
+  	while($j<$i){
   		$tempname=$dmatename[$j];
   		$templo=$dlocation[$j];
   		$tempti=$dtime[$j];
-  		echo "You have a date with $tempname at $tempti in $templo ! \n";
+  		echo "<script>alert('You have a date with $tempname at $tempti in $templo !')</script>";
+  		$j++;
   	}
-  	echo "')";
-  }
+ }
 }
 ?>
