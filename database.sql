@@ -21,12 +21,13 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `calendar` (
-  `dating_id` varchar(50) NOT NULL,
+  `dating_id` int(50) primary key auto_increment,
   `user_id` varchar(50) NOT NULL,
   `mate_id` varchar(50) NOT NULL,
   `dat` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `content` varchar(1000) NOT NULL,
-  `location` varchar(100) NOT NULL
+  `location` varchar(100) NOT NULL,
+  unique(`user_id`, `dat`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -364,8 +365,6 @@ INSERT INTO `user_info` (`user_id`, `email`, `password`, `username`, `theme`, `p
 --
 -- Indexes for table `calendar`
 --
-ALTER TABLE `calendar`
- ADD PRIMARY KEY (`dating_id`);
 
 --
 -- Indexes for table `mess`
