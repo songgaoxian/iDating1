@@ -224,5 +224,51 @@ echo "error";
 header("refresh:5;url=calendar.php");
 
   }
+
+
+
+
+public function notify($dbc, $currentid){
+   $q="select * from calendar where user_id='$currentid'";
+date_default_timezone_set("Asia/Hong_Kong");
+$currenttime=date('Y-m-d H:i:s');
+$i=0;
+$result=mysqli_query($dbc, $q);
+$dmateid=array();
+$dtime=array();
+$dlocation=array();
+$dmatename=array();
+if(!empty($result)){
+	$i=0;
+	while($row=mysqli_fetch_array($result)){
+    $dat=$row['dat'];
+    $currenttime=(string)$currenttime;
+    $dat1=strtotime($dat);
+    $currenttime1=strtotime($currenttime);
+    $diff=round(($dat1-$currenttime1)/3600);
+    if($diff<=2 and $diff>=0){
+     $dmateid[$i]=$row['mate_id'];
+     $temp=$dmateid[$i];
+     $dtime[$i]=$row['dat'];
+     $dlocation[$i]=$row['location'];
+     $q2="select username from user_info where user_id='$temp'";
+     $result1=mysqli_query($dbc, $q2);
+     $row2=mysqli_fetch_array($result1);
+     $dmatename[$i]=$row2['username'];
+     $i++;
+    }
+  }
+  if($i>0){
+  	$j=0;
+  	while($j<$i){
+  		$tempname=$dmatename[$j];
+  		$templo=$dlocation[$j];
+  		$tempti=$dtime[$j];
+  		echo "<script>alert('You have a date with $tempname at $tempti in $templo !')</script>";
+  		$j++;
+  	}
+ }
+}
+  }
 }
 ?>
