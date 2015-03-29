@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var conditionCount=3;  //no of conditions in "more conditions"
+	var conditionCount=8;  //no of conditions in "more conditions"
 	$(".portrait > div").height($(".portrait > div").width());
 	
 	//delete a condition

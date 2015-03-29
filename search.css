@@ -34,6 +34,14 @@ select:hover,select:focus {
 	background-color:white;
 	border:1px solid silver;
 }
+.search-tag {
+	font:14px Verdana, Geneva, sans-serif;
+	color:#e5004f;
+	max-width:100px;
+	text-align:center;
+	border:1px solid transparent;
+	background-color:transparent;
+}
 #age-from, #age-to, #height-from, #height-to {
 	width:45px;
 }

@@ -131,12 +131,35 @@ Monthly Income (HKD): &gt;=
 <button id='addIncome' class='btn item-add'>Add</button>
 </div>
 
-<!--
 <div class='search-item'>
-Tags: Workaholic + Reliable
+<input class='search-tag' type='text' value='Music' readonly>
 <button class='btn item-delete'>X</button>
 <button class='btn item-add'>Add</button>
-</div>-->
+</div>
+
+<div class='search-item'>
+<input class='search-tag' type='text' value='Movie' readonly>
+<button class='btn item-delete'>X</button>
+<button class='btn item-add'>Add</button>
+</div>
+
+<div class='search-item'>
+<input class='search-tag' type='text' value='Book' readonly>
+<button class='btn item-delete'>X</button>
+<button class='btn item-add'>Add</button>
+</div>
+
+<div class='search-item'>
+<input class='search-tag' type='text' value='Jogging' readonly>
+<button class='btn item-delete'>X</button>
+<button class='btn item-add'>Add</button>
+</div>
+
+<div class='search-item'>
+<input class='search-tag' type='text' value='Cooking' readonly>
+<button class='btn item-delete'>X</button>
+<button class='btn item-add'>Add</button>
+</div>
 </div>
 <!--more-condition-end-->
 ";
