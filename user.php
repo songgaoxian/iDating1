@@ -212,7 +212,7 @@ Your password has been reset to '.$a.' .
 				}
 			}
 			return(false);
-		}
+		} 
 		public function show_tag(){
 			$conn=connect();
 			if($conn){
