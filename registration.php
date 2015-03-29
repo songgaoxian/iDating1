@@ -14,6 +14,15 @@
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <link rel="stylesheet" type="text/CSS" href="pink-theme.css">
 <link rel="stylesheet" type="text/CSS" href="registration.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link href="js/jqueryUI/chosen/chosen.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/jqueryUI/chosen/chosen.jquery.js"></script>
+<script>
+$(function(){
+    $(".selecttags").chosen();
+});
+</script>
+
 <title>iDating - Sign Up</title>
 </head>
 
@@ -103,7 +112,15 @@
   <td class="item-name colored-txt">Monthly Income: </td>
   <td class="item-content"><input class="txtbox" id="income" type="number" min="0" name="income-me" required> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
-  <td><div class="tag-item">Humorous</div></td>  
+  <td class="item-content">
+   		<select name="tags_me" style="width: 225px;" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="music">music</option>
+    		<option value="movies">movie</option>
+    		<option value="book">book</option>
+    		<option value="jog">jogging</option>
+    		<option value="cook">cooking</option>
+		</select> 
+   </td> 
 </tr>
 </table>
 </div>
@@ -170,7 +187,15 @@
   <td class="item-name colored-txt">Monthly Income: </td>
   <td class="item-content">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref"> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
-  <td><div class="tag-item">Romantic</div><div class="tag-item">Reliable</div></td>    
+  <td class="item-content">
+   		<select name="tags_mepref" style="width: 225px;" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="music">music</option>
+    		<option value="movies">movie</option>
+    		<option value="book">book</option>
+    		<option value="jog">jogging</option>
+    		<option value="cook">cooking</option>
+		</select> 
+   </td>   
 </tr>
 </table>
 </div>
