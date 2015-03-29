@@ -70,22 +70,30 @@
 	class InboxView{
 		public function draw_one($content){
 			return '<li><a href="read_msg.php?with='.$content['with_id'].'">
-				<div class="pic">
-        			<img src="portrait/'.$content['photo'].'" alt="portrait">
-				</div>
-				<div class="title">
-    				<div class="sender">
-      					<span class="time">'.$content['dat'].'</span>
-      					<span class="from">'.$content['username'].'</span>
-    				</div>
-                    <p>
-                        "'.$content['preview'].'"
-                    </p>
-				</div>
-  
+			<table style="width:100%">
+				<tr>
+					<td style="width:10%">
+						<div class="pic">
+        					<div style="height:80px; background-image:url(\'portrait\/'.$content['photo'].'\')" class="background-cover-center">
+						</div>
+					</td>
+					<td style="width:90%">
+						<div class="title">
+    						<div id="sender" class="colored-txt">
+      							<span class="time">'.$content['dat'].'</span>
+      							<span class="from">'.$content['username'].'</span>
+    						</div>
+                    		<p>
+                        		"'.$content['preview'].'"
+                    		</p>
+						</div>
+  					</td>
+				</tr>
+				</table>
 				<div class="select">
 					<input class="checking" type="checkbox" name="groupCheckbox" value="'.$content['with_id'].'">
-				</div></a>
+				</div>
+			</a>
 			</li>';
 		}
 		
