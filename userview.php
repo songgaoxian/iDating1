@@ -402,7 +402,7 @@ Copyright &copy; 2015 All Rights Reserved.
 			$user_id=$session->get_uid();
 			//if($user_id==''){header('Location: index.html');}
 			if(!$conn){return;}
-			if(isset($_FILES['user-photo'])){
+			if(isset($_FILES['user-photo'])){ 
 				$target_file = $target_dir.basename($_FILES["user-photo"]["name"]);
 				$imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
 				if($_SERVER["REQUEST_METHOD"]=="POST"){
