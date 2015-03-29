@@ -162,9 +162,8 @@ a {text-decoration:none;}
 .item-name {width:20%;}
 .item-content {width:30%;}
 .tag-item {
-	padding:1px 8px;
-	max-height:90%;
-	margin-right:6px;
+	padding:0 8px;
+	margin:1px 6px;
 	display:inline-block;
 	font-size:14px;
 }

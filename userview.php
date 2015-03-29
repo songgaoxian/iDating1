@@ -178,7 +178,7 @@ echo'
 
 <table>
 <tr>
-  <td class="item-name colored-txt">username: </td>
+  <td class="item-name colored-txt">Nickname: </td>
   <td class="item-content edit-hide" id="username1">'.$this->user_info['username'].'</td>
   <td class="item-content edit-show"><input class="txtbox" id="username" type="text" name="username" required value="'.$this->user_info['username'].'"></td>
   <td class="item-name colored-txt">Gender:</td>
