@@ -104,7 +104,7 @@ Your password has been reset to '.$a.' .
 				//echo $sql;
 				mysqli_query($conn,$sql);
 				$sql='INSERT INTO tag(user_id) VALUES ("'.$this->user_id.'");';
-				//echo $sql;
+				//echo $sql; 
 				mysqli_query($conn,$sql);
 				$sql="UPDATE tag SET ";
 				$count=1;
