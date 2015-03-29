@@ -223,8 +223,9 @@ public function renderCondition(){
                            $('#age-to').val($agemax);
                            $('#height-from').val($heightmin);
                            $('#height-to').val($heightmax);
-                           $('#income').val($income);
-                           $('#more-condition').before($('#addIncome').parent());
+                           $('#income').val($income);";
+                  if($income>0)
+                     echo "$('#more-condition').before($('#addIncome').parent());
                            conditionCount-=1;
                            if (conditionCount==0) {
                           $('#more-condition').hide();
@@ -232,6 +233,12 @@ public function renderCondition(){
                            }";
                 if($gender!==0)
                  echo "$('#gender1').val('$gender');";
+               else
+                echo "$('#more-condition-box').append($('#delGender').parent());
+                      conditionCount+=1;
+                      if(conditionCount>0) $('#more-condition').show();";
+
+
         if($city!==0){
           echo "$('#city1').val('$city');";
           echo "$('#more-condition').before($('#addCity').parent());
@@ -241,8 +248,6 @@ public function renderCondition(){
                           $('#more-condition-box').slideToggle();
                            };";
         }
-        else
-          echo "$('#city1').val('');";
         if($hometown!==0){
            echo "$('#hometown1').val('$hometown');";
            echo "$('#more-condition').before($('#addHometown').parent());
@@ -252,12 +257,21 @@ public function renderCondition(){
                           $('#more-condition-box').slideToggle();
                            }";
         }
-        else
-           echo "$('#hometown1').val('');"; 
+        
         if($education!==0)
           echo "$('#education1').val('$education');";
+        else
+          echo "$('#more-condition-box').append($('#delEducation').parent());
+                      conditionCount+=1;
+                      if(conditionCount>0) $('#more-condition').show();";
+
         if($job!==0)
-          echo "$('#job1').val('$job');";                   
+          echo "$('#job1').val('$job');"; 
+        else
+          echo "$('#more-condition-box').append($('#delJob').parent());
+                      conditionCount+=1;
+                      if(conditionCount>0) $('#more-condition').show();";
+
                 echo "})</script>";     
         }
 }
