@@ -54,18 +54,26 @@
 	class MessageView{
 				public function draw_one($content,$photo,$username){
 			return '<li>
-				<div class="pic">
-        			<img src="portrait/'.$content[2].'" alt="portrait">
-				</div>
-				<div class="title">
-    				<div class="sender">
-      					<span class="time">'.$content[0].'</span>
-      					<span class="from">'.$content[3].'</span>
-    				</div>
-                    <p>
-                        '.$content[1].'
-                    </p>
-				</div>
+			<table style="width:100%">
+				<tr>
+					<td style="width:10%">
+						<div class="pic">
+        					<div style="height:80px; background-image:url(\'portrait\/'.$content[2].'\')" class="background-cover-center">
+						</div>
+					</td>
+				<td style="width:90%">
+						<div class="title">
+    						<div id="sender" class="colored-txt">
+      							<span class="time">'.$content[0].'</span>
+      							<span class="from">'.$content[3].'</span>
+    						</div>
+                    		<p>
+                        		"'.$content[1].'"
+                    		</p>
+						</div>
+  					</td>
+				</tr>
+			</table>
 			</li>';
 		}
 		public function draw_new(){

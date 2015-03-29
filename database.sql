@@ -238,7 +238,11 @@ INSERT INTO `session` (`user_id`, `sid`) VALUES
 
 CREATE TABLE `tags` (
   `user_id` varchar(50) NOT NULL,
-  `tag` varchar(10) NOT NULL
+  `music` varchar(30),
+  `movie` varchar(30),
+  `book` varchar(30),
+  `jogging` varchar(30),
+  `cooking` varchar(30),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

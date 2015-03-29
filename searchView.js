@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	var conditionCount=3;  //no of conditions in "more conditions"
+	$(".portrait > div").height($(".portrait > div").width());
+	
 	//delete a condition
     $(".item-delete").click(function() {
 		$("#more-condition-box").append($(this).parent());
@@ -38,5 +40,10 @@ $(document).ready(function() {
 		$(this).addClass("colored-txt-dark");
 		$("#by-condition-form").fadeIn();
 	    $("#by-name-form").hide();
+	});
+	
+	//resize window
+	$(window).resize(function() {
+		$(".portrait > div").height($(".portrait > div").width());
 	});
 });
