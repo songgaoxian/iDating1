@@ -126,5 +126,6 @@ select:hover,select:focus {
 }
 .portrait > div{
 	width:90%;
+	margin-left:5%;
 }
 /*search-result-end*/
