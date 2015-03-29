@@ -1,6 +1,5 @@
 <?php
-require("session.php");
-session_start();
+require("themeControl.php");
 $session=new Session();
 $dbc=connect();
 $currentid=$session->get_uid();
@@ -26,7 +25,10 @@ $currentid=$session->get_uid();
 <script src="https://apis.google.com/js/client:platform.js" async defer></script>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
+<?php
+$theme=new theme();
+echo "<link rel='stylesheet' type='text/css' href='".$theme->getTheme()."-theme.css'>";
+?>
 <link rel="stylesheet" type="text/CSS" href="calendar.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <meta name="google-signin-clientid" content="480928246860-md5e151tk2n8fgjpctphhk9rl7hj6ler@developer.gserviceaccount.com">

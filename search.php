@@ -3,7 +3,11 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
+<?php
+require("themeControl.php");
+$theme=new theme();
+echo "<link rel='stylesheet' type='text/css' href='".$theme->getTheme()."-theme.css'>";
+?>
 <link rel="stylesheet" type="text/CSS" href="search.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="searchView.js"></script>
