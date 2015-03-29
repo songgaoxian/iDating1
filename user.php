@@ -11,7 +11,7 @@
 	function connect(){
 		$host="localhost";
 		$user="root";
-		$pwd="";
+		$pwd="root";
 	
 		$conn=mysqli_connect($host,$user,$pwd,"project");
 		if(!$conn){die("Connection failed!");}
