@@ -178,7 +178,7 @@ a {text-decoration:none;}
 	margin:3px 0 1%;
 	width:85%;
 }
-.section-box-content > table > td {
+.section-box-content > table td {
 	vertical-align:top;
 }
 .subheading {
