@@ -89,16 +89,16 @@ body { background:white;}
 	border-radius:50%;
 }
 #author-pic-1 {
-	background-image:url(portrait/doge.jpg);
+	background-image:url(img/author1.jpg);
 }
 #author-pic-2 {
-	background-image:url(portrait/doge.jpg);
+	background-image:url(img/author2.jpg);
 }
 #author-pic-3 {
-	background-image:url(portrait/doge.jpg);
+	background-image:url(img/author3.jpg);
 }
 #author-pic-4 {
-	background-image:url(portrait/doge.jpg);
+	background-image:url(img/author4.jpg);
 }
 /*about-us-end*/
 
