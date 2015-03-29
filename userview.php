@@ -338,7 +338,22 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
   <td class="item-content edit-hide" id="income_pref1">&gt;='.$this->user_info['income_pref'].' HKD</td>
   <td class="item-content edit-show">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref" value="'.$this->user_info['income_pref'].'"> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
-  <td><div class="tag-item">Romantic</div><div class="tag-item">Reliable</div></td>    
+  <td class="item-content edit-hide" id="tags">';
+  $tag=$this->user_info['tags'];
+	foreach($tag as $key=>$value){
+		if($value!=''){
+	  echo('<div class="tag-item">'.$value.'</div>');}
+	}
+   echo '</td>  
+   <td class="item-content edit-show">
+   		<select name="tags_pref" style="width: 230px;" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="music">music</option>
+    		<option value="movies">movie</option>
+    		<option value="book">book</option>
+    		<option value="jog">jogging</option>
+    		<option value="cook">cooking</option>
+		</select> 
+   </td>
 </tr>
 </table>
 </div>
