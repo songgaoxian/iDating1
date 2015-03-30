@@ -2,19 +2,21 @@
 /* CSS Document */
 .section-box p {
 	margin:0;
+	padding:0;
 	line-height:180%;
 }
 #portrait-intro-table {
 	margin-bottom:10px;
+	width:95%;
 }
 #portrait-intro-table td:nth-child(1) {
-	width:12%;
+	width:15%;
 }
 #portrait {
 	width:90%;
 	margin-right:10%;
 	border-radius:5px;
-	background-image:url(portrait/doge.jpg);
+	background-image:none;
 }
 #change-portrait {
 	width:90%;
@@ -22,16 +24,9 @@
 	margin-right:10%;
 }
 #portrait-intro-table textarea {
-	padding:10px 2%;
-	width:90%;
 	margin:0;
-	height:100px;
-	border-radius:3px;
-	border:1px solid #ccc;
-	font:16px Verdana, Geneva, sans-serif;
-	box-shadow:0px 0px 2px #eee inset;
-	transition:border 0.5s ease-out;
-	outline:none;	
+	height:120px;
+	width:100%;
 }
 #portrait-intro-table p {
 	margin:0;

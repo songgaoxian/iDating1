@@ -18,11 +18,10 @@
 <link href="js/jqueryUI/chosen/chosen.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jqueryUI/chosen/chosen.jquery.js"></script>
 <script>
-$(function(){
-    $(".selecttags").chosen();
+$(document).ready(function() {
+	$(".selecttags").chosen();
 });
 </script>
-
 <title>iDating - Sign Up</title>
 </head>
 
@@ -91,7 +90,7 @@ $(function(){
 	<option value="Real Estate">Real Estate</option>
 	<option value="Insurance">Insurance</option>
 	<option value="Consulting">Consulting</option>
-	<option value="Legal">Legal</option>
+	<option value="Law">Law</option>
 	<option value="Trading/Import & Export">Trading/Import & Export</option>
 	<option value="Wholesale/Retail">Wholesale/Retail</option>
 	<option value="Apparel/Textiles">Apparel/Textiles</option>
@@ -113,12 +112,12 @@ $(function(){
   <td class="item-content"><input class="txtbox" id="income" type="number" min="0" name="income-me" required> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
   <td class="item-content">
-   		<select name="tags_me" style="width: 225px;" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
-    		<option value="music">music</option>
-    		<option value="movies">movie</option>
-    		<option value="book">book</option>
-    		<option value="jog">jogging</option>
-    		<option value="cook">cooking</option>
+   		<select name="tags_me" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="Music">Music</option>
+    		<option value="Movies">Movie</option>
+    		<option value="Book">Book</option>
+    		<option value="Jogging">Jogging</option>
+    		<option value="Cooking">Cooking</option>
 		</select> 
    </td> 
 </tr>
@@ -167,7 +166,7 @@ $(function(){
 	<option value="Real Estate">Real Estate</option>
 	<option value="Insurance">Insurance</option>
 	<option value="Consulting">Consulting</option>
-	<option value="Legal">Legal</option>
+	<option value="Law">Law</option>
 	<option value="Trading/Import & Export">Trading/Import & Export</option>
 	<option value="Wholesale/Retail">Wholesale/Retail</option>
 	<option value="Apparel/Textiles">Apparel/Textiles</option>
@@ -188,12 +187,12 @@ $(function(){
   <td class="item-content">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref"> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
   <td class="item-content">
-   		<select name="tags_mepref" style="width: 225px;" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
-    		<option value="music">music</option>
-    		<option value="movies">movie</option>
-    		<option value="book">book</option>
-    		<option value="jog">jogging</option>
-    		<option value="cook">cooking</option>
+   		<select name="tags_mepref" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="Music">Music</option>
+    		<option value="Movies">Movie</option>
+    		<option value="Book">Book</option>
+    		<option value="Jogging">Jogging</option>
+    		<option value="Cooking">Cooking</option>
 		</select> 
    </td>   
 </tr>

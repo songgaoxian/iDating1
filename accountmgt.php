@@ -4,8 +4,6 @@
 	$user->upload_picture();
 	$user->show();
 ?>
-<!--looking-for-start-->
-
 <!--overlay-start-->
 <div class="overlay-container">
 <!--change-pwd-box-start-->

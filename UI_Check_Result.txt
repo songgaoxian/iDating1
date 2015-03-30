@@ -1,11 +1,17 @@
 INDEX
-shortcut icon
-alert
 input control, length
-contact
+contact us
 
 MOMENT
 <-,->
 
 ACTMGT
 tag
+É¾³ý¾Íport
+
+Reg
+Ç¶Ì×´íÎó
+$(function(){
+    $(".selecttags").chosen();
+}
+tag save

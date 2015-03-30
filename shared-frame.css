@@ -163,7 +163,7 @@ a {text-decoration:none;}
 .item-content {width:30%;}
 .tag-item {
 	padding:0 8px;
-	margin:1px 6px;
+	margin:0 3px 1px 0;
 	display:inline-block;
 	font-size:14px;
 }
@@ -185,3 +185,4 @@ a {text-decoration:none;}
 	margin:0;
 	display:inline-block;
 }
+.selecttags {width:230px;}
