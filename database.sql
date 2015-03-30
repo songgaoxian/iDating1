@@ -369,6 +369,13 @@ INSERT INTO `user_info` (`user_id`, `email`, `password`, `username`, `theme`, `p
 --
 -- Indexes for table `mess`
 --
+CREATE TABLE `user_location` (
+  `user_id` varchar(50) NOT NULL primary key,
+  `laptitude` varchar(30) NOT NULL,
+  `longitude` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 ALTER TABLE `mess`
  ADD PRIMARY KEY (`mess_id`);
 
