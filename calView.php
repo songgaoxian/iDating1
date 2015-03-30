@@ -398,7 +398,7 @@ for($i=0;$i<$flength;$i++){
     echo "<option value='$temp'>$temp</option>";
 }
 echo "</select><br>
-<input class='txtbox txtbox-fill' type='time' name='times' placeholder='Starting Time' value='00:00' required><br>
+<input class='txtbox txtbox-fill' type='time' name='times' value='00:00' required><br>
 <input class='txtbox txtbox-fill' type='text' name='location' placeholder='Location' required><br>
 <textarea class='txtbox txtbox-fill' name='content' placeholder='Comments'></textarea>
 <input id='add-event' class='btn btn-fill' type='submit' value='Add'>

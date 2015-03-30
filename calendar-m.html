@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
+<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
+<link rel="stylesheet" type="text/CSS" href="calendar-m.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(".date-portrait").height($(".date-portrait").width());
+	
+	$("#nav").click(function() {
+		$(".sidebar").slideToggle();
+	});
+	
+	$("#add").click(function() {
+		$("#add-event-box").fadeIn();   
+	});
+	
+	//close overlay
+	$(".close-overlay").click(function() {
+		$(this).parent().parent().fadeOut();
+	});
+	
+	//resize window
+	$(window).resize(function() {
+		$(".date-portrait").height($(".date-portrait").width());
+	});
+});
+</script>
+<title>iDating - Calendar</title>
+</head>
+
+<body>
+<!--header-start-->
+<div class="header">
+<div id="topnav">
+<img id="add" src="img/add.png" alt="add dating">
+</div>
+<img id="nav" src="img/nav.png" alt="navigate">
+<h1>Calendar</h1>
+</div>
+<!--header-end-->
+
+<div class="sidebar">
+<a href="accountmgt-m.html">My Page</a>
+<a href="search-m.html">Search</a>
+<a href="shake.html">Shake</a>
+<a href="calendar-m.html">Calendar</a>
+<a href="moments-m.html">Moments</a>
+<a href="messages-m.html">Messages</a>
+</div>
+
+<!--container-start-->
+<div class="container">
+<!--calendar-start-->
+<div id="calendar">
+<div id="calendar-head">
+<button id="previous" type="button" >&lt;</button>
+<h2>JANUARY 2015</h2>
+<button id="next" type="button" >&gt;</button>
+</div>
+
+<table>
+<tr>
+<th>SUN</th>
+<th>MON</th>
+<th>TUE</th>
+<th>WED</th>
+<th>THU</th>
+<th>FRI</th>
+<th>SAT</th>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td id="selected-date">10</td>
+<td>11</td>
+</tr>
+<tr>
+<td>12</td>
+<td>13</td>
+<td>14</td>
+<td>15</td>
+<td>16</td>
+<td>17</td>
+<td>18</td>
+</tr>
+<tr>
+<td>19</td>
+<td>20</td>
+<td>21</td>
+<td>22</td>
+<td>23</td>
+<td>24</td>
+<td>25</td>
+</tr>
+<tr>
+<td>26</td>
+<td>27</td>
+<td>28</td>
+<td>29</td>
+<td>30</td>
+<td>31</td>
+<td></td>
+</tr>
+</table>
+</div>
+<!--calendar-end-->
+<!--events-start-->
+<div class="date-detail">
+<table>
+  <tr>
+    <td>
+    <h3>Philip</h3>
+    <p>20:00 @ The Shangri-La</p>
+    <button class="btn btn-sml" type="button">Delete</button>
+    </td>
+    <td><div class="date-portrait background-cover-center"></div></td>
+</tr>
+</table>
+</div>
+
+<div class="date-detail">
+<table>
+  <tr>
+    <td>
+    <h3>Laurence</h3>
+    <p>12:00 @ The Peninsula</p>
+    <button class="btn btn-sml" type="button">Delete</button>
+    </td>
+    <td><div class="date-portrait background-cover-center"></div></td>
+</tr>
+</table>
+</div>
+<!--events-end-->
+</div>
+<!--container-end-->
+
+<!--overlay-start-->
+<!--add-event-box-start-->
+<div id='add-event-box' class='overlay'>
+<div class="header">
+<img class="close-overlay" src="img/close_overlay.png" alt="back">
+<h1>Add a Dating</h1>
+</div>
+<div class="overlay-content">
+<form method='post' id='composer' action='composer.php'>
+Your Partner:<br>
+<select class='txtbox txtbox-fill' name='mate'></select><br>
+<input class='txtbox txtbox-fill' type='time' name='times' value='00:00' required><br>
+<input class='txtbox txtbox-fill' type='text' name='location' placeholder='Location' required><br>
+<textarea class='txtbox txtbox-fill' name='content' placeholder='Comments'></textarea>
+<input id='add-event' class='btn btn-fill' type='submit' value='Add'>
+</form>
+</div>
+</div>
+<!--add-event-box-end-->
+<!--overlay-end-->
+</body>
+</html>

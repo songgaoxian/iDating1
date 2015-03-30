@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	//show add dating dialog
      $("td").click(function(event) {
       date11=$(this).attr('class');
       if(date11=='0'){
@@ -23,10 +24,12 @@ $(document).ready(function() {
   }
 	});
 	
+	//close overlay
 	$(".close-overlay").click(function() {
 		$(this).parent().slideUp("slow", function(){$(".overlay-container").hide();$(".mask").remove();});
 	});
 	
+	//show event details dialog
 	$(".event-box").click(function() {
 		$("body").append("<div class='mask'></div>");
 		$(".overlay-container").show();
@@ -38,6 +41,7 @@ $(document).ready(function() {
 	    
 	});
 	
+	//resize window
 	$(window).resize(function() {
         $(".overlay").css("margin-top",($(".overlay-container").height()*0.95-$(".overlay").height())/2);
     });

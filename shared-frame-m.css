@@ -7,6 +7,7 @@ body {
 a { text-decoration:none;}
 .header {
 	position:fixed;
+	z-index:990;
 	left:0;
 	top:0;
 	width:100%;
@@ -22,6 +23,9 @@ a { text-decoration:none;}
 }
 #topnav {
 	float:right;	
+}
+#topnav > img {
+	padding:0 5px;
 }
 #topnav > img:hover {
 	background-color:#e5004f;
@@ -51,7 +55,6 @@ a { text-decoration:none;}
 	font:16px Verdana, Geneva, sans-serif;	
 }
 .btn:hover {
-	background-color:#e5004f;
 	cursor:pointer;
 }
 .btn-fill {
@@ -64,10 +67,6 @@ a { text-decoration:none;}
 	border-radius:3px;
 	font:16px Verdana, Geneva, sans-serif;
 	box-shadow:0px 0px 2px #eee inset;
-}
-.txtbox:focus {
-	border:1px solid #e5004f;
-	box-shadow:0px 0px 5px #eb6877;
 	outline:none;
 }
 .txtbox-fill {
@@ -114,13 +113,27 @@ a { text-decoration:none;}
 	background-size:cover;
 }
 .overlay {
+	position:fixed;
+	left:0;
+	top:0;
+	z-index:999;
 	width:100%;
 	height:100%;
 	background-color:white;
 	display:none;
 }
-.overlay > h2 {
-	margin-top:5px;
+.overlay-content {
+	width:90%;
+	margin-top:75px;
+	padding:0 5% 0;
+	line-height:150%;
+}
+.close-overlay {
+	float:left;	
+}
+.close-overlay:hover {
+	background-color:#e5004f;
+	cursor:pointer;
 }
 /*shared-components-end*/
 
