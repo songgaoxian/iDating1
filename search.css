@@ -11,20 +11,8 @@ h2 {
 	left:-5px;
     padding:5px 0 10px;
 }
-select {
-	background-color:transparent;
-	color:#e5004f;
-	border:1px solid transparent;
-	font:14px Verdana, Geneva, sans-serif;
-}
-select:hover,select:focus {
-	background-color:white;
-	color:black;
-	border:1px solid silver;
-}
 .txtbox-embed {
 	font:14px Verdana, Geneva, sans-serif;
-	color:#e5004f;
 	max-width:100px;
 	text-align:center;
 	border:1px solid transparent;
@@ -36,7 +24,6 @@ select:hover,select:focus {
 }
 .search-tag {
 	font:14px Verdana, Geneva, sans-serif;
-	color:#e5004f;
 	max-width:100px;
 	text-align:center;
 	border:1px solid transparent;
@@ -112,7 +99,7 @@ select:hover,select:focus {
 #search-result > p {
 	margin-top:0;
 }
-.portrait {
+.search-portrait {
 	padding:10px 0;
 	margin-right:0.5%;
 	margin-bottom:15px;
@@ -123,16 +110,14 @@ select:hover,select:focus {
 	border-radius:3px;
 	box-shadow:0px 0px 3px #eee;
 }
-.portrait:hover {
-	border:1px solid #e5004f;
+.search-portrait:hover {
 	cursor:pointer;
-	background:linear-gradient(white,#fdd);
 }
-.portrait > a {
+.search-portrait > a {
 	margin:5px;
 	display:block;
 }
-.portrait > div{
+.search-portrait > div{
 	width:90%;
 	margin-left:5%;
 }

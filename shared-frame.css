@@ -151,7 +151,7 @@ a {text-decoration:none;}
 }
 /*shared-components-end*/
 
-/*account-management, register*/
+/*account-management, register-start*/
 .section-box {
 	width:100%;
 }
@@ -186,3 +186,8 @@ a {text-decoration:none;}
 	display:inline-block;
 }
 .selecttags {width:230px;}
+/*account-management, register-end*/
+
+/*search-start*/
+
+/*search-end*/

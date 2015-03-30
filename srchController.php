@@ -205,7 +205,7 @@ $length=$_SESSION['length'];
          if($length<=10){
                  for($j=1; $j<=$length;$j++){
                          $m=$j-1;
-                 echo "<div class='portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";}
+                 echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";}
                  echo "</div>";
          }
          else{
@@ -227,7 +227,7 @@ $length=$_SESSION['length'];
                         $sphoto[$m]=$_SESSION['sphoto'][$m];
                          $sname[$m]=$_SESSION['sname'][$m];
                          $suid[$m]=$_SESSION['suid'][$m];
-                 echo "<div class='portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";}
+                 echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";}
                  echo "<br>";
                  echo "<span>Page:&nbsp";
                  for($k=1; $k<=$page;$k++)
@@ -246,8 +246,8 @@ public function renderCondition(){
         if($_SESSION['condition']==0){
                 $cname=$_SESSION['cname'];
                 echo "<script>$(document).ready(function(){
-                $('#tab-by-condition').css('color','black');
-                $('#tab-by-name').css('color','#e5004f');
+                $('#tab-by-condition').removeClass('colored-txt-dark');
+                $('#tab-by-name').addClass('colored-txt-dark');
                 $('#by-condition-form').hide();
             $('#by-name-form').fadeIn();
                 $('#nickname-input').val('$cname');
@@ -271,8 +271,8 @@ public function renderCondition(){
         $rank=$_SESSION['rank'];
                 echo "<script>$(document).ready(function(){
                 var conditionCount=9;
-                $('#tab-by-name').css('color','black');
-                $('#tab-by-condition').css('color','#e5004f');
+                $('#tab-by-name').removeClass('colored-txt-dark');
+                $('#tab-by-condition').addClass('colored-txt-dark');
                 $('#by-condition-form').fadeIn();
             $('#by-name-form').hide();
                  $('#age-from').val($agemin);

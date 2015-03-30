@@ -36,8 +36,18 @@ th {
 
 /*search*/
 .search-item {
-	background-color:#fee;
+	background-color:#e6f5fc;
 	border:1px solid #81ccef;
+	color:#4eb7e8;
+}
+.search-portrait:hover {
+	border:1px solid #4eb7e8;
+	background:linear-gradient(white,#e6f5fc);
+}
+.txtbox-embed {
+	color:#4eb7e8;
+}
+.search-tag {
 	color:#4eb7e8;
 }
 

@@ -22,7 +22,7 @@ echo "
 <div id='search-condition'>
 <div id='tabs'>
 <button id='tab-by-condition' class='link-btn no-line colored-txt-dark' type='button'>Search by Conditions</button>|
-<button id='tab-by-name' class='link-btn no-line' type='button'>Search by Nickname</button>|
+<button id='tab-by-name' class='link-btn no-line' type='button'>Search by Nickname</button>
 </div>
 
 <form id='by-name-form' method='get' action='sresult.php'>
@@ -35,7 +35,7 @@ echo "
 
 <div class='search-item'>
 Gender: 
-<select id='gender1' name='gender'>
+<select id='gender1' name='gender' class='txtbox-embed'>
   <option value='Male'>Male</option>
   <option value='Female'>Female</option>
   <option value='unlimited' selected>Unlimited</option>
@@ -72,7 +72,7 @@ Occupation:
 	<option value='Real Estate'>Real Estate</option>
 	<option value='Insurance'>Insurance</option>
 	<option value='Consulting'>Consulting</option>
-	<option value='Legal'>Legal</option>
+	<option value='Law'>Law</option>
 	<option value='Trading/Import & Export'>Trading/Import & Export</option>
 	<option value='Wholesale/Retail'>Wholesale/Retail</option>
 	<option value='Apparel/Textiles'>Apparel/Textiles</option>

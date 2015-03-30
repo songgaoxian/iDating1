@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var conditionCount=9;  //no of conditions in "more conditions"
-	$(".portrait > div").height($(".portrait > div").width());
+	$(".search-portrait > div").height($(".search-portrait > div").width());
 	
 	//delete a condition
     $(".item-delete").click(function() {
@@ -45,6 +45,6 @@ $(document).ready(function() {
 	
 	//resize window
 	$(window).resize(function() {
-		$(".portrait > div").height($(".portrait > div").width());
+		$(".search-portrait > div").height($(".search-portrait > div").width());
 	});
 });

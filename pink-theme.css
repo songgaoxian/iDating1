@@ -40,7 +40,16 @@ th {
 	border:1px solid #eb6877;
 	color:#e5004f;
 }
-
+.search-portrait:hover {
+	border:1px solid #e5004f;
+	background:linear-gradient(white,#fdd);
+}
+.txtbox-embed {
+	color:#e5004f;
+}
+.search-tag {
+	color:#e5004f;
+}
 /*index*/
 #back2top {background-color:#eb6877;}
 #back2top:hover {background-color:#e5004f;}
