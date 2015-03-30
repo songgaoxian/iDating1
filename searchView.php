@@ -23,7 +23,6 @@ echo "
 <div id='tabs'>
 <button id='tab-by-condition' class='link-btn no-line colored-txt-dark' type='button'>Search by Conditions</button>|
 <button id='tab-by-name' class='link-btn no-line' type='button'>Search by Nickname</button>|
-<button id='tab-by-distance' class='link-btn no-line' type='button'>Search by Distance</button>
 </div>
 
 <form id='by-name-form' method='get' action='sresult.php'>
@@ -132,33 +131,39 @@ Monthly Income (HKD): &gt;=
 </div>
 
 <div class='search-item'>
-<input class='search-tag' type='text' value='Music' readonly>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<input class='search-tag' type='text' name='Music' value='Music' readonly>
+<button id='delMusic' class='btn item-delete'>X</button>
+<button id='addMusic' class='btn item-add'>Add</button>
 </div>
 
 <div class='search-item'>
-<input class='search-tag' type='text' value='Movie' readonly>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<input class='search-tag' type='text' name='Movie' value='Movie' readonly>
+<button id='delMovie' class='btn item-delete'>X</button>
+<button id='addMovie' class='btn item-add'>Add</button>
 </div>
 
 <div class='search-item'>
-<input class='search-tag' type='text' value='Book' readonly>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<input class='search-tag' type='text' name='Book' value='Book' readonly>
+<button id='delBook' class='btn item-delete'>X</button>
+<button id='addBook' class='btn item-add'>Add</button>
 </div>
 
 <div class='search-item'>
-<input class='search-tag' type='text' value='Jogging' readonly>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<input class='search-tag' type='text' name='Jogging' value='Jogging' readonly>
+<button id='delJogging' class='btn item-delete'>X</button>
+<button id='addJogging' class='btn item-add'>Add</button>
 </div>
 
 <div class='search-item'>
-<input class='search-tag' type='text' value='Cooking' readonly>
-<button class='btn item-delete'>X</button>
-<button class='btn item-add'>Add</button>
+<input class='search-tag' type='text' name='Cooking' value='Cooking' readonly>
+<button id='delCooking' class='btn item-delete'>X</button>
+<button id='addCooking' class='btn item-add'>Add</button>
+</div>
+
+<div class='search-item'>
+<input class='search-tag' type='text' name='By-Distance' value='By-Distance' readonly>
+<button id='delRank' class='btn item-delete'>X</button>
+<button id='addRank' class='btn item-add'>Add</button>
 </div>
 </div>
 <!--more-condition-end-->

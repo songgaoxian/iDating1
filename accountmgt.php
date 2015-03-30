@@ -208,6 +208,30 @@
 </div>
 <!--overlay-end-->
 </body>
+<script>$(document).ready(function(){
+	if(navigator.geolocation)
+		navigator.geolocation.getCurrentPosition(showPosition);
+	else 
+		alert('Geolocation is not supported');
+	function showPosition(position){
+		latitude=position.coords.latitude;
+		longitude=position.coords.longitude;
+		sendposition(latitude,longitude);
+	}
+})
+function sendposition(latitude, longitude){
+	$.ajax({
+	 dataType: 'json',
+	 data: {latitude: latitude,
+	        longitude: longitude},
+	 url: 'slocation.php',
+	 type: 'POST',
+	 success: function(result){
+	 	console.log(result);
+	 }
+	});
+}
+</script>
 </html>
 <?php
 $dbc=connect();

@@ -100,6 +100,30 @@ else
                 $income=intval($_POST['income']);
         else
                 $income=0;
+        if(!empty($_POST['Music']))
+          $music=$_POST['Music'];
+        else
+          $music=0;
+        if(!empty($_POST['Movie']))
+          $movie=$_POST['Movie'];
+        else
+          $movie=0;
+        if(!empty($_POST['Book']))
+          $book=$_POST['Book'];
+        else
+          $book=0;
+        if(!empty($_POST['Jogging']))
+          $jogging=$_POST['Jogging'];
+        else
+          $jogging=0;
+        if(!empty($_POST['Cooking']))
+          $cooking=$_POST['Cooking'];
+        else
+          $cooking=0;
+        if(!empty($_POST['By-Distance']))
+          $rank=1;
+        else
+          $rank=0;
 
         $year=intval(date("Y"));
         $yyear=$year-$agemin;
@@ -114,6 +138,12 @@ else
         $_SESSION['cincome']=$income;
         $_SESSION['cjob']=$job;
         $_SESSION['ceducation']=$education;
+        $_SESSION['cmusic']=$music;
+        $_SESSION['cmovie']=$movie;
+        $_SESSION['cbook']=$book;
+        $_SESSION['cjogging']=$jogging;
+        $_SESSION['ccooking']=$cooking;
+        $_SESSION['rank']=$rank;
         $q="select * from user_info where user_id <> '$currentid' and birthday>='$oyear' and birthday<='$yyear' and income>='$income' and height>='$heightmin' and height<='$heightmax'";
         $result=mysqli_query($dbc, $q);
         if(!empty($result)){
@@ -130,12 +160,33 @@ else
                     $pass=0;
                   if($education!==0 and $education!==$row['education'])
                     $pass=0;
+                  $temp=$row['user_id'];
+                  $qq="select * from tag where user_id='$temp'";
+                  $resultq=mysqli_query($dbc,$qq);
+                  if($music!==0 or $book!==0 or $movie!==0 or $jogging!==0 or $cooking!==0)
+                    if(!$resultq)
+                      $pass=0;
+                    else{
+                      $rowq=mysqli_fetch_array($resultq);
+                      if($music!==0 and !$rowq['music'])
+                        $pass=0;
+                      if($movie!==0 and !$rowq['movie'])
+                        $pass=0;
+                      if($jogging!==0 and !$rowq['jogging'])
+                        $pass=0;
+                      if($book!==0 and !$rowq['book'])
+                        $pass=0;
+                      if($cooking!==0 and !$rowq['cooking'])
+                        $pass=0;
+                    }
+
                   if($pass==1){
                         $sname[$i]=$row['username'];
                         $_SESSION['sname'][$i]=$sname[$i];
                         $suid[$i]=$row['user_id'];
                         $_SESSION['suid'][$i]=$suid[$i];
                         $sphoto[$i]=$row['photo'];
+                        $_SESSION['sphoto'][$i]=$sphoto[$i];
                         $i++;
                       }
                     $pass=1;
@@ -158,8 +209,7 @@ $length=$_SESSION['length'];
                  echo "</div>";
          }
          else{
-                 $page=$length/10;
-                 $page=(int)$page+1;
+                 $page=intval($length/10)+1;
                  if(!isset($_GET['pageno'])){
                          $start=1;
                          $end=10;
@@ -174,10 +224,10 @@ $length=$_SESSION['length'];
                  }
                  for($j=$start; $j<=$end; $j++){
                          $m=$j-1;
-                         $sphoto[$m]=$_SESSION['sphoto'][$m];
+                        $sphoto[$m]=$_SESSION['sphoto'][$m];
                          $sname[$m]=$_SESSION['sname'][$m];
                          $suid[$m]=$_SESSION['suid'][$m];
-                 echo "<div class='portrait'><img src='portrait/$sphoto[$m]'><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";}
+                 echo "<div class='portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";}
                  echo "<br>";
                  echo "<span>Page:&nbsp";
                  for($k=1; $k<=$page;$k++)
@@ -213,8 +263,14 @@ public function renderCondition(){
             $income=$_SESSION['cincome'];
             $job=$_SESSION['cjob'];
             $education=$_SESSION['ceducation'];
+            $music=$_SESSION['cmusic'];
+        $movie=$_SESSION['cmovie'];
+        $book=$_SESSION['cbook'];
+        $jogging=$_SESSION['cjogging'];
+        $cooking=$_SESSION['ccooking'];
+        $rank=$_SESSION['rank'];
                 echo "<script>$(document).ready(function(){
-                var conditionCount=3;
+                var conditionCount=9;
                 $('#tab-by-name').css('color','black');
                 $('#tab-by-condition').css('color','#e5004f');
                 $('#by-condition-form').fadeIn();
@@ -248,6 +304,48 @@ public function renderCondition(){
                           $('#more-condition-box').slideToggle();
                            };";
         }
+        if($music!==0)
+          echo "$('#more-condition').before($('#addMusic').parent());
+                           conditionCount-=1;
+                           if (conditionCount==0) {
+                          $('#more-condition').hide();
+                          $('#more-condition-box').slideToggle();
+                           };";
+        if($movie!==0)
+          echo "$('#more-condition').before($('#addMovie').parent());
+                           conditionCount-=1;
+                           if (conditionCount==0) {
+                          $('#more-condition').hide();
+                          $('#more-condition-box').slideToggle();
+                           };";
+        if($book!==0)
+          echo "$('#more-condition').before($('#addBook').parent());
+                           conditionCount-=1;
+                           if (conditionCount==0) {
+                          $('#more-condition').hide();
+                          $('#more-condition-box').slideToggle();
+                           };";
+        if($jogging!==0)
+          echo "$('#more-condition').before($('#addJogging').parent());
+                           conditionCount-=1;
+                           if (conditionCount==0) {
+                          $('#more-condition').hide();
+                          $('#more-condition-box').slideToggle();
+                           };";
+        if($cooking!==0)
+          echo "$('#more-condition').before($('#addCooking').parent());
+                           conditionCount-=1;
+                           if (conditionCount==0) {
+                          $('#more-condition').hide();
+                          $('#more-condition-box').slideToggle();
+                           };";
+        if($rank!==0)
+          echo "$('#more-condition').before($('#addRank').parent());
+                           conditionCount-=1;
+                           if (conditionCount==0) {
+                          $('#more-condition').hide();
+                          $('#more-condition-box').slideToggle();
+                           };";
         if($hometown!==0){
            echo "$('#hometown1').val('$hometown');";
            echo "$('#more-condition').before($('#addHometown').parent());
