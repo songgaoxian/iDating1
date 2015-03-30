@@ -1,6 +1,5 @@
 $(document).ready(function() {
- $(".container").height($(window).height()*0.9);
-    $("td").click(function(event) {
+     $("td").click(function(event) {
       date11=$(this).attr('class');
       if(date11=='0'){
         alert("chose a valid day");
@@ -41,7 +40,6 @@ $(document).ready(function() {
 	
 	$(window).resize(function() {
         $(".overlay").css("margin-top",($(".overlay-container").height()*0.95-$(".overlay").height())/2);
-		$(".container").height($(window).height()*0.9);
     });
 });
 function send(dateid){

@@ -387,7 +387,8 @@ Copyright &copy; 2015 All Rights Reserved.
 <button class='close-overlay btn' type='button'>X</button>
 <h2 class='colored-txt'>Add a Dating</h2>
 <form method='post' id='composer' action='composer.php'>
-Your Partner: <select class='txtbox txtbox-fill' name='mate'>";
+Your Partner:<br>
+<select class='txtbox txtbox-fill' name='mate'>";
 if($flength>0)
 for($i=0;$i<$flength;$i++){
   $temp=$femail[$i];
@@ -409,7 +410,7 @@ echo "</select><br>
 <button class='close-overlay btn' type='button'>X</button>
 <h2 class='colored-txt'>Dating Details</h2>
 <form method='post' action='deletec.php' id='detailc'>
-  <input type='submit' value='Delete'><br>
+  <input type='submit' value='Delete' class='btn btn-fill'><br>
   </form>
 </div>
 <!--event-detail-end-->

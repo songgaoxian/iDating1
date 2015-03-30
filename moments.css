@@ -11,7 +11,7 @@
 	position:relative;
 	margin:0;
 	padding:0;
-	background-color:black;
+	background-color:white;
 	text-align:center;
 	border:none;
 	background-image:none;
@@ -84,8 +84,5 @@
 }
 #pic-detail-box p {
 	line-height:180%;
-	margin:0;
-}
-form {
 	margin:0;
 }
