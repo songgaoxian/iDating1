@@ -111,7 +111,7 @@ $(document).ready(function() {
   <td class="item-name colored-txt">Monthly Income: </td>
   <td class="item-content"><input class="txtbox" id="income" type="number" min="0" name="income-me" required> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
-  <td class="item-content">
+  <td class="item-content" id="tag">
    		<select name="tags_me" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
     		<option value="Music">Music</option>
     		<option value="Movies">Movie</option>
@@ -186,7 +186,7 @@ $(document).ready(function() {
   <td class="item-name colored-txt">Monthly Income: </td>
   <td class="item-content">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref"> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
-  <td class="item-content">
+  <td class="item-content" id="tag1">
    		<select name="tags_mepref" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
     		<option value="Music">Music</option>
     		<option value="Movies">Movie</option>
@@ -228,10 +228,46 @@ $(document).ready(function() {
 		xmlhttp.send(content);console.log(xmlhttp);
 		record=xmlhttp;
 		console.log(record);
+		
+		content='{"';
+		var temp=document.getElementsByClassName('chzn-choices')[0].children;
+		var record1=[];
+		if(temp.length>0){
+			content+=temp[0].textContent+'":"'+temp[0].textContent+'"';
+			record1[0]=temp[0].textContent;
+		}
+		for(i=1;i<temp.length;i++){
+			content+=',"'+temp[i].textContent+'":"'+temp[i].textContent+'"';
+			record1[i]=temp[i].textContent;
+		}
+		console.log(record);
+		content+='}';
+		xmlhttp=new XMLHttpRequest(); 
+		xmlhttp.open("POST","change_tag.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(content);console.log(xmlhttp);
+		content='{"';
+		var temp=document.getElementsByClassName('chzn-choices')[1].children;
+		var record2=[];
+		if(temp.length>0){
+			content+=temp[0].textContent+'":"'+temp[0].textContent+'"';
+			record2[0]=temp[0].textContent;
+		}
+		for(i=1;i<temp.length;i++){
+			content+=',"'+temp[i].textContent+'":"'+temp[i].textContent+'"';
+			record2[i]=temp[i].textContent;
+		}
+		console.log(record);
+		content+='}';
+		xmlhttp=new XMLHttpRequest(); 
+		xmlhttp.open("POST","change_tag1.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(content);console.log(xmlhttp);
+		record=xmlhttp;
 		response=JSON.parse(xmlhttp.response);
 		if(response['check']=='true'){
-			a=document.getElementsByTagName("form")[0];
-			a.submit();
+			            a=document.getElementsByTagName("form")[0];
+						            a.submit();
 		}
 		else{
 			alert("error...");
