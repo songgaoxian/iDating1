@@ -61,7 +61,7 @@
         					<div style="height:80px; background-image:url(\'portrait\/'.$content[2].'\')" class="background-cover-center">
 						</div>
 					</td>
-				<td style="width:90%">
+					<td style="width:90%">
 						<div class="title">
     						<div id="sender" class="colored-txt">
       							<span class="time">'.$content[0].'</span>
@@ -78,11 +78,19 @@
 		}
 		public function draw_one_m($content){
 			return '<div class="message-box">
-<img src="portrait/'.$content[0].'" alt="portrait">
-<p class="message-time">'.$content[3].'</p>
-<h2>'.$content['username'].'</h2>
-<p class="message-content">"'.$content[1].'"</p><br>
-</div>';
+				<table style="width:100%">
+				<tr>
+					<td style="width:20%">
+						<img src="portrait/'.$content[2].'" alt="portrait">
+					</td>
+					<td style="width:80%">
+						<p class="message-time">'.$content[0].'</p>
+						<p id="message-from" class="colored-txt">'.$content[3].'</p>
+						<p class="message-content">"'.$content[1].'"</p>
+					</td>
+				</tr>
+				</table>
+			</div>';
 		}
 		public function draw_m($content){
 			echo'<!DOCTYPE html>
@@ -91,6 +99,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages-m.css">
 
 <title>iDating - Messages</title>

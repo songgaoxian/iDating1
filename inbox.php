@@ -97,12 +97,21 @@
 			</li>';
 		}
 		public function draw_one_m($content){
-			return '<a href="read_msg-m.php?with='.$content['with_id'].'"><div class="message-box">
-<img src="portrait/'.$content['photo'].'" alt="portrait">
-<p class="message-time">'.$content['dat'].'</p>
-<h2>'.$content['username'].'</h2>
-<p class="message-content">"'.substr($content['preview'],0,30).'"</p><br>
-</div></a>';
+			return '<a href="read_msg-m.php?with='.$content['with_id'].'">
+			<div class="message-box">
+				<table style="width:100%">
+				<tr>
+					<td style="width:20%">
+						<img src="portrait/'.$content['photo'].'" alt="portrait">
+					</td>
+					<td style="width:80%">
+						<p class="message-time">'.$content['dat'].'</p>
+						<p id="message-from" class="colored-txt">'.$content['username'].'</p>
+						<p class="message-content">"'.substr($content['preview'],0,30).'"</p>
+					</td>
+				</tr>
+				</table>
+			</div></a>';
 		}
 		
 		public function draw_inbox_m($content){
@@ -112,6 +121,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages-m.css">
 
 <title>iDating - Messages</title>

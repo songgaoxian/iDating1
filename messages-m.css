@@ -16,16 +16,16 @@
 	width:100%;
 	border-bottom:1px solid #999;
 	line-height:100%;
-	padding:8px;		
+	padding:8px;	
 }
-.message-box > h2 {
+#message-from {
 	font-size:18px;
-	color:#eb6877;
-	font-weight:normal;
+	margin-top:20px;
 }
 .message-time {
 	float:right;
 	margin-right:20px;
+	margin-top:20px;
 	color:#666;	
 	font-size:15px;	
 }
@@ -35,7 +35,7 @@
 	font-size:16px;
 	color:#666;		
 }
-.message-box > img {
+td > img {
 	float:left;
 	margin:8px 15px 0 5px;
 	width:70px;
@@ -46,4 +46,4 @@
 
 
 
-
+8
