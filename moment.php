@@ -202,7 +202,7 @@ $(document).ready(function() {
 						$filename=uuid().'.'.$imageFileType;
 						$target_file=$target_dir.$filename;
 						$a=move_uploaded_file($_FILES["filename"]["tmp_name"],$target_file);
-							$sql='INSERT INTO `moment` (`user_id`, `pic_id`, `summary`,`take_date`, `upload_date`) VALUES (\''.$user_id.'\', \''.$filename.'\', \''.$_POST['title'].'\',\''.$_POST['take_date'].'\', CURRENT_TIMESTAMP);';
+							$sql='INSERT INTO `moment` (`user_id`, `pic_id`,`title`, `summary`,`take_date`, `upload_date`) VALUES (\''.$user_id.'\', \''.$filename.'\', \''.$_POST['title'].'\', \''.$_POST['descrp'].'\',\''.$_POST['take_date'].'\', CURRENT_TIMESTAMP);';
 							$result=mysqli_query($conn,$sql);
 							//echo $sql;
 							if($result){echo('<script type="text/javascript">alert("upload!")</script>');}
@@ -239,7 +239,7 @@ $(document).ready(function() {
 				$result=mysqli_query($conn,$sql);
 				$row=mysqli_fetch_array($result);
 				$total=(int)$row[0];
-				$sql='SELECT pic_id,summary FROM moment ORDER BY upload_date DESC;';
+				$sql='SELECT pic_id,title FROM moment ORDER BY upload_date DESC;';
 				$result=mysqli_query($conn,$sql);
 				$count=0;
 				$content=array();
@@ -250,7 +250,7 @@ $(document).ready(function() {
 					if($row==false){
 						$content[$count]='"><p></p>';
 					}
-					else{$content[$count]=' onclick="get_info(\''.$row['pic_id'].'\')" style="background-image:url(portrait/'.$row['pic_id'].')"><p>'.$row['summary'].'</p>';}
+					else{$content[$count]=' onclick="get_info(\''.$row['pic_id'].'\')" style="background-image:url(portrait/'.$row['pic_id'].')"><p>'.$row['title'].'</p>';}
 					$count+=1;
 				}
 				mysqli_close($conn);
