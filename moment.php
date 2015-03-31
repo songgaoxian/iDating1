@@ -56,6 +56,57 @@
 	}
 	
 	class PictureView{
+		public function show_album_m($content){
+			echo '
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
+<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="moments-m.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(".sidebar").hide();
+	
+	$(".moment-sml").click(function() {
+		$(".moment-sml").children("p").hide();
+		$(this).children("p").fadeIn();
+	});
+	
+	$("#nav").click(function() {
+		$(".sidebar").fadeToggle();
+	});
+});
+</script>
+<title>iDating - Moments</title>
+</head>
+
+<body>
+<!--header-start-->
+<div class="header">
+<div id="topnav">
+<img id="upload" src="img/add.png" alt="upload moments">
+</div>
+<img id="nav" src="img/nav.png" alt="navigate">
+<h1>Moments</h1>
+</div>
+<!--header-end-->
+<div class="sidebar">
+<a href="accountmgt-m.php">My Page</a>
+<a href="search-m.php">Search</a>
+<a href="shake.php">Shake</a>
+<a href="calendar-m.php">Calendar</a>
+<a href="moments-m.php">Moments</a>
+<a href="messages-m.php">Messages</a>
+</div>
+<!--momentWall-start-->
+<div class="container">';
+			foreach($content as $key=>$value){
+				echo '<div class="moment-sml">'.$value.'</div>';
+			}
+		}
 		public function show_album($content,$page,$total){
 			echo '<!DOCTYPE html>
 <html lang="en">
@@ -256,6 +307,37 @@ $(document).ready(function() {
 				mysqli_close($conn);
 				$view=new PictureView();
 				$view->show_album($content,min($page,(int)($total/12+1)),(int)$total/12+1);
+			}
+		}
+		public function show_pictures_m(){
+			session_start();
+			$session=new Session();
+			if($session->get_uid()==NULL){
+				//header("Location: index.html");
+				//return;
+			}
+			$conn=connect();
+			$total=0;
+			if($conn){
+				$sql='SELECT COUNT(*) FROM moment;';
+				$result=mysqli_query($conn,$sql);
+				$row=mysqli_fetch_array($result);
+				$total=(int)$row[0];
+				$sql='SELECT pic_id,summary FROM moment ORDER BY upload_date DESC;';
+				$result=mysqli_query($conn,$sql);
+				$count=0;
+				$content=array();
+				while($count<20){
+					$row = mysqli_fetch_array($result);
+					if($row==false){
+						$content[$count]='"<p></p>';
+					}
+					else{$content[$count]='<img src="portrait/'.$row['pic_id'].'"><p>'.$row['summary'].'</p>';}
+					$count+=1;
+				}
+				mysqli_close($conn);
+				$view=new PictureView();
+				$view->show_album_m($content);
 			}
 		}
 	}
