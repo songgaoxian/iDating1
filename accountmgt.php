@@ -4,6 +4,8 @@
 	$user->upload_picture();
 	$user->show();
 ?>
+<!--looking-for-start-->
+
 <!--overlay-start-->
 <div class="overlay-container">
 <!--change-pwd-box-start-->
@@ -45,10 +47,11 @@
 		
 		content='{"';
 		var temp=document.getElementsByClassName('chzn-choices')[0].children;
-		if(temp.length==0){return;}
 		var record1=[];
-		content+=temp[0].textContent+'":"'+temp[0].textContent+'"';
-		record1[0]=temp[0].textContent;
+		if(temp.length>0){
+			content+=temp[0].textContent+'":"'+temp[0].textContent+'"';
+			record1[0]=temp[0].textContent;
+		}
 		for(i=1;i<temp.length;i++){
 			content+=',"'+temp[i].textContent+'":"'+temp[i].textContent+'"';
 			record1[i]=temp[i].textContent;
@@ -57,6 +60,23 @@
 		content+='}';
 		xmlhttp=new XMLHttpRequest(); 
 		xmlhttp.open("POST","change_tag.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(content);console.log(xmlhttp);
+		content='{"';
+		var temp=document.getElementsByClassName('chzn-choices')[1].children;
+		var record2=[];
+		if(temp.length>0){
+			content+=temp[0].textContent+'":"'+temp[0].textContent+'"';
+			record2[0]=temp[0].textContent;
+		}
+		for(i=1;i<temp.length;i++){
+			content+=',"'+temp[i].textContent+'":"'+temp[i].textContent+'"';
+			record2[i]=temp[i].textContent;
+		}
+		console.log(record);
+		content+='}';
+		xmlhttp=new XMLHttpRequest(); 
+		xmlhttp.open("POST","change_tag1.php",false);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send(content);console.log(xmlhttp);
 		record=xmlhttp;
@@ -81,6 +101,29 @@
 				temp1.setAttribute('class',"tag-item");
 				temp1.textContent=record1[i];
 				console.log(record1[i]);
+				tags.appendChild(temp1);
+				}i++;
+			}
+			
+			
+			var tags=document.getElementById('tags1');
+			var temp1=tags.children;
+			while(temp1.length>0){
+				tags.removeChild(temp1[0]);
+				tags=document.getElementById('tags1');
+				console.log(tags);
+				temp1=tags.children;
+			}
+			var i=0;
+			var temp2=document.getElementsByClassName('chzn-choices')[1];
+			console.log(record1);
+			tags=document.getElementById('tags1');
+			while(i<record2.length){
+				if(record2[i]!=''){
+				var temp1=document.createElement('div');
+				temp1.setAttribute('class',"tag-item");
+				temp1.textContent=record2[i];
+				console.log(record2[i]);
 				tags.appendChild(temp1);
 				}i++;
 			}
@@ -207,7 +250,6 @@
 <!--change-portrait-box-end-->
 </div>
 <!--overlay-end-->
-</body>
 <script>$(document).ready(function(){
 	if(navigator.geolocation)
 		navigator.geolocation.getCurrentPosition(showPosition);
@@ -232,6 +274,7 @@ function sendposition(latitude, longitude){
 	});
 }
 </script>
+</body>
 </html>
 <?php
 $dbc=connect();

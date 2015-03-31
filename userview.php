@@ -171,7 +171,7 @@ echo'
     </td>
 	<td>
 	<p class="edit-hide" id="self_intro1">'.$this->user_info['self_intro'].'</p>
-    <textarea class="edit-show txtbox" id="self_intro">'.$this->user_info['self_intro'].'</textarea>
+    <textarea class="edit-show" id="self_intro">'.$this->user_info['self_intro'].'</textarea>
 	</td>
   </tr>
 </table>
@@ -226,7 +226,7 @@ echo'
 	<option value="Real Estate">Real Estate</option>
 	<option value="Insurance">Insurance</option>
 	<option value="Consulting">Consulting</option>
-	<option value="Law">Law</option>
+	<option value="Legal">Legal</option>
 	<option value="Trading/Import & Export">Trading/Import & Export</option>
 	<option value="Wholesale/Retail">Wholesale/Retail</option>
 	<option value="Apparel/Textiles">Apparel/Textiles</option>
@@ -246,7 +246,7 @@ echo'
 <tr>
   <td class="item-name colored-txt">Monthly Income: </td>
   <td class="item-content edit-hide" id="income1">'.$this->user_info['income'].'HKD</td>
-  <td class="item-content edit-show"><input id="income" class="txtbox" type="number" min="0" name="income-me" required value="'.$this->user_info['income'].'">&nbsp;HKD</td>
+  <td class="item-content edit-show"><input id="income" class="txtbox" type="number" min="0" name="income-me" required value="'.$this->user_info['income'].'"> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
   <td class="item-content edit-hide" id="tags">';
   $tag=$this->user_info['tags'];
@@ -256,12 +256,12 @@ echo'
 	}
    echo '</td>  
    <td class="item-content edit-show">
-   		<select name="tags" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
-    		<option value="Music">Music</option>
-    		<option value="Movies">Movie</option>
-    		<option value="Book">Book</option>
-    		<option value="Jogging">Jogging</option>
-    		<option value="Cooking">Cooking</option>
+   		<select name="tags" style="width: 230px;" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="music">music</option>
+    		<option value="movies">movie</option>
+    		<option value="book">book</option>
+    		<option value="jog">jogging</option>
+    		<option value="cook">cooking</option>
 		</select> 
    </td>
 </tr>
@@ -317,7 +317,7 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 	<option value="Real Estate">Real Estate</option>
 	<option value="Insurance">Insurance</option>
 	<option value="Consulting">Consulting</option>
-	<option value="Law">Law</option>
+	<option value="Legal">Legal</option>
 	<option value="Trading/Import & Export">Trading/Import & Export</option>
 	<option value="Wholesale/Retail">Wholesale/Retail</option>
 	<option value="Apparel/Textiles">Apparel/Textiles</option>
@@ -338,20 +338,20 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
   <td class="item-content edit-hide" id="income_pref1">&gt;='.$this->user_info['income_pref'].' HKD</td>
   <td class="item-content edit-show">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref" value="'.$this->user_info['income_pref'].'"> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
-  <td class="item-content edit-hide" id="tags">';
-  $tag=$this->user_info['tags'];
-	foreach($tag as $key=>$value){
+  <td class="item-content edit-hide" id="tags1">';
+  $tag=$this->user_info['tags1'];
+foreach($tag as $key=>$value){
 		if($value!=''){
 	  echo('<div class="tag-item">'.$value.'</div>');}
 	}
    echo '</td>  
    <td class="item-content edit-show">
-   		<select name="tags_pref" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
-    		<option value="Music">Music</option>
-    		<option value="Movies">Movie</option>
-    		<option value="Book">Book</option>
-    		<option value="Jogging">Jogging</option>
-    		<option value="Cooking">Cooking</option>
+   		<select name="tags_pref" style="width: 230px;" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="music">music</option>
+    		<option value="movies">movie</option>
+    		<option value="book">book</option>
+    		<option value="jog">jogging</option>
+    		<option value="cook">cooking</option>
 		</select> 
    </td>
 </tr>
@@ -375,8 +375,8 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 ';echo'
 </div>
 </div>
-<!--my-friends-end-->
 </div>
+<!--my-friends-end-->
 </div>
 <!--container-end-->
 
@@ -459,6 +459,7 @@ Copyright &copy; 2015 All Rights Reserved.
 					$user->set_user($_GET['uid']);
 					$result=$user->show_info();
 					$result['tags']=$user->show_tag();
+					$result['tags1']=$user->show_tag1();
 					$userview=new UserView($result);
 					if($_GET['uid']==$uid){
 						$friend=$user->show_friends();
@@ -476,6 +477,7 @@ Copyright &copy; 2015 All Rights Reserved.
 					$user->set_user($uid);
 					$result=$user->show_info();
 					$result['tags']=$user->show_tag();
+					$result['tags1']=$user->show_tag1();
 					$userview=new UserView($result);
 					$friend=$user->show_friends();
 					$userview->show_all($friend);

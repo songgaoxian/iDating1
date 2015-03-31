@@ -62,6 +62,8 @@ Your password has been reset to '.$a.' .
 				$result=mysqli_query($conn,$sql);
 				$sql='INSERT INTO tag(user_id) VALUES ("'.$this->user_id.'");';
 				$result=mysqli_query($conn,$sql);
+				$sql='INSERT INTO tag1(user_id) VALUES ("'.$this->user_id.'");';
+				$result=mysqli_query($conn,$sql);
 				return($result);
 			}
 			return(false);
@@ -96,6 +98,31 @@ Your password has been reset to '.$a.' .
 				return($result);
 			}
 			return(false);
+		}
+		public function set_tag1($info){
+			$conn=connect();
+			if($conn){
+				$sql='DELETE FROM tag1 WHERE user_id="'.$this->user_id.'";';
+				//echo $sql;
+				mysqli_query($conn,$sql);
+				$sql='INSERT INTO tag1(user_id) VALUES ("'.$this->user_id.'");';
+				//echo $sql; 
+				mysqli_query($conn,$sql);
+				$sql="UPDATE tag1 SET ";
+				$count=1;
+				foreach($info as $key=>$value){
+					if($value!=''){
+						if($count==1){$sql.=$value.'="'.$value.'" ';$count+=1;}
+						else{$sql.=', '.$value.'="'.$value.'" ';}
+					}
+				}
+				$sql.='WHERE user_id="'.$this->user_id.'";';
+				//echo $sql;
+				$result=mysqli_query($conn,$sql);
+				mysqli_close($conn);
+				return($result);
+			}
+			else{return(false);}
 		}
 		public function set_tag($info){
 			$conn=connect();
@@ -217,7 +244,32 @@ Your password has been reset to '.$a.' .
 			$conn=connect();
 			if($conn){
 				$sql='SELECT * FROM tag WHERE user_id="'.$this->user_id.'";';
-				echo $sql;
+				//echo $sql;
+				$result=mysqli_query($conn,$sql);
+				if(mysqli_num_rows($result)>0){
+					//login success
+					$row = mysqli_fetch_array($result);
+					$result=array();
+					$i=1;
+					while($i<=5){
+						array_push($result,$row[$i]);
+						$i+=1;
+					}
+					mysqli_close($conn);
+					return($result);
+				}
+				else{
+					mysqli_close($conn);
+					return(NULL);
+				}
+			}
+			else{return(NULL);}
+		}
+		public function show_tag1(){
+			$conn=connect();
+			if($conn){
+				$sql='SELECT * FROM tag1 WHERE user_id="'.$this->user_id.'";';
+				//echo $sql;
 				$result=mysqli_query($conn,$sql);
 				if(mysqli_num_rows($result)>0){
 					//login success
