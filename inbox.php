@@ -96,6 +96,82 @@
 			</a>
 			</li>';
 		}
+		public function draw_one_m($content){
+			return '<a href="read_msg-m.php?with='.$content['with_id'].'"><div class="message-box">
+<img src="portrait/'.$content['photo'].'" alt="portrait">
+<p class="message-time">'.$content['dat'].'</p>
+<h2>'.$content['username'].'</h2>
+<p class="message-content">"'.substr($content['preview'],0,30).'"</p><br>
+</div></a>';
+		}
+		
+		public function draw_inbox_m($content){
+			echo'<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
+<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="messages-m.css">
+
+<title>iDating - Messages</title>
+</head>
+
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(".sidebar").hide();
+	
+	$(".moment-sml").click(function() {
+		$(".moment-sml").children("p").hide();
+		$(this).children("p").fadeIn();
+	});
+	
+	$("#nav").click(function() {
+		$(".sidebar").fadeToggle();
+	});
+});
+</script>
+
+</head>
+
+<body>
+<!--header-start-->
+<div class="header">
+<div id="topnav">
+<img id="upload" src="img/add.png" alt="upload moments">
+</div>
+<img id="nav" src="img/nav.png" alt="navigate">
+<h1>Inbox</h1>
+</div>
+<!--header-end-->
+<div class="sidebar">
+<a href="accountmgt-m.php">My Page</a>
+<a href="search-m.php">Search</a>
+<a href="shake.php">Shake</a>
+<a href="calendar-m.php">Calendar</a>
+<a href="moments-m.php">Moments</a>
+<a href="messages-m.php">Messages</a>
+</div>
+<!--header-end-->
+
+<!--content-start-->
+<div class="container">
+<!--search-condition-start-->
+
+
+<div id="messages">';
+		foreach($content as $key=>$value){
+			echo $this->draw_one_m($value);
+		}
+		echo'</div>
+	</div>
+</form>
+  
+    
+</div>';
+		}
 		
 		public function draw_inbox($content){
 			echo'<!DOCTYPE html>
@@ -178,6 +254,30 @@
 				$view->draw_inbox($content);
 			}
 			else{header('Location: indxe.html');}
+		}
+		public function show_m(){
+			session_start();
+			$conn=connect();
+			$session=new Session();
+			$user_id=$session->get_uid();
+			if($user_id==NULL){header('Location: index.html');}
+			if($conn){
+				$inbox=new Inbox($user_id);
+				$content=$inbox->get_content();
+				foreach($content as $key=>$value){
+					$sql='SELECT username, photo FROM user_info WHERE user_id="'.$value['with_id'].'";';
+					$result=mysqli_query($conn,$sql);
+					if(mysqli_num_rows($result)>0){
+						$row=mysqli_fetch_array($result);
+						$value['username']=$row[0];
+						$value['photo']=$row[1];
+					}
+					$content[$key]=$value;
+				}
+				$view=new InboxView();
+				$view->draw_inbox_m($content);
+			}
+			else{header('Location: index-m.html');}
 		}
 	}
 ?>

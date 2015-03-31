@@ -76,6 +76,81 @@
 			</table>
 			</li>';
 		}
+		public function draw_one_m($content){
+			return '<div class="message-box">
+<img src="portrait/'.$content[0].'" alt="portrait">
+<p class="message-time">'.$content[3].'</p>
+<h2>'.$content['username'].'</h2>
+<p class="message-content">"'.$content[1].'"</p><br>
+</div>';
+		}
+		public function draw_m($content){
+			echo'<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
+<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="messages-m.css">
+
+<title>iDating - Messages</title>
+</head>
+
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(".sidebar").hide();
+	
+	$(".moment-sml").click(function() {
+		$(".moment-sml").children("p").hide();
+		$(this).children("p").fadeIn();
+	});
+	
+	$("#nav").click(function() {
+		$(".sidebar").fadeToggle();
+	});
+});
+</script>
+
+</head>
+
+<body>
+<!--header-start-->
+<div class="header">
+<div id="topnav">
+<img id="upload" src="img/add.png" alt="upload moments">
+</div>
+<img id="nav" src="img/nav.png" alt="navigate">
+<h1>Massages</h1>
+</div>
+<!--header-end-->
+<div class="sidebar">
+<a href="accountmgt-m.php">My Page</a>
+<a href="search-m.php">Search</a>
+<a href="shake.php">Shake</a>
+<a href="calendar-m.php">Calendar</a>
+<a href="moments-m.php">Moments</a>
+<a href="messages-m.php">Messages</a>
+</div>
+<!--header-end-->
+
+<!--content-start-->
+<div class="container">
+<!--search-condition-start-->
+
+
+<div id="messages">';
+		foreach($content as $key=>$value){
+			echo $this->draw_one_m($value);
+		}
+		echo'</div>
+	</div>
+</form>
+  
+    
+</div>';
+		}
 		public function draw_new(){
 			echo'<!DOCTYPE html>
 <html lang="en">
@@ -186,6 +261,21 @@
 				$view->draw($mess->get_content(),$result['photo'],$result['username'],$result['email']);
 			}
 			else{header('Location: index.html');}
+		}
+		public function show_m(){
+			session_start();
+			$session=new Session();
+			$uid=$session->get_uid();
+			if($uid==NULL){header('Location: index.html');}
+			if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['with'])){
+				$mess=new Message($uid,$_GET['with']);
+				$view=new MessageView();
+				$user=new User();
+				$user->set_user($_GET['with']);
+				$result=$user->show_info();
+				$view->draw_m($mess->get_content(),$result['photo'],$result['username'],$result['email']);
+			}
+			else{header('Location: index-m.html');}
 		}
 		public function show_new(){
 			session_start();
