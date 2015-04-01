@@ -18,6 +18,29 @@
 <input class="txtbox txtbox-fill" type="password" placeholder="Enter New Password Again" required id="new_pwd2"></input><br>
 <input id="save-pwd" class="btn btn-fill" type="button" value="Save" onclick="change_pwd()">
 </form>
+<script>
+	function select_(value,children){
+		var i=0;
+		while(i<children.length){
+			if(children[i].value==value){children[i].selected=true;}
+			i=i+1;
+		}
+	}
+	var list=['education','job','education_pref','job_pref'];
+	function selection(){
+		var j=0;
+		while(j<list.length){
+			var temp1=document.getElementById(list[j]+'1');
+			var temp2=document.getElementById(list[j]);
+			temp1=temp1.textContent;
+			console.log(temp1);
+			temp2=temp2.children;
+			select_(temp1,temp2);
+			j+=1;
+		}
+	}
+	selection();
+</script>
 <script type="application/x-javascript">
 	var info=['username','height','city','hometown','education','job','income','self_intro','height_f','height_t','age_f','age_t','city_pref','hometown_pref','job_pref','education_pref','income_pref','theme'];
 	function edit(){	
@@ -34,8 +57,7 @@
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send(content);console.log(xmlhttp);
 		record=xmlhttp;
-		response=JSON.parse(xmlhttp.response);
-		if(response['check']=='true'){
+		if(true){
 			for(i=0;i<info.length;i++){
 				console.log(info[i]+'1');
 				document.getElementById(info[i]+'1').textContent=document.getElementById(info[i]).value;
@@ -62,6 +84,7 @@
 		xmlhttp.open("POST","change_tag.php",false);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 		xmlhttp.send(content);console.log(xmlhttp);
+		response=JSON.parse(xmlhttp.response);
 		content='{"';
 		var temp=document.getElementsByClassName('chzn-choices')[1].children;
 		var record2=[];
@@ -73,15 +96,13 @@
 			content+=',"'+temp[i].textContent+'":"'+temp[i].textContent+'"';
 			record2[i]=temp[i].textContent;
 		}
-		console.log(record);
 		content+='}';
 		xmlhttp=new XMLHttpRequest(); 
 		xmlhttp.open("POST","change_tag1.php",false);
 		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		xmlhttp.send(content);console.log(xmlhttp);
+		xmlhttp.send(content);
 		record=xmlhttp;
-		response=JSON.parse(xmlhttp.response);
-		if(response['check']=='true'){
+		if(true){
 			alert("change info success!");
 			var tags=document.getElementById('tags');
 			var temp1=tags.children;
@@ -128,7 +149,7 @@
 				}i++;
 			}
 			console.log(tags);
-			window.location.replace('inhex.html');
+			window.location.replace('accountmgt.php');
 		}
 		else{
 			alert("error...");
