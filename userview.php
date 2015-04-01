@@ -15,8 +15,8 @@
     <td><h3>'.$info['username'].'</h3>
 <p>'.$info['email'].'</p><br><br>
 <div class="friend-btns">
-<button class="btn btn-sml" type="button" onClick="send_email('.$info['user_id'].')">Send Message</button>
-<button class="btn btn-sml" type="button" onClick="delete_friend('.$info['user_id'].')">Delete</button>
+<button class="btn btn-sml" type="button" onClick=\'send_email("'.$info['user_id'].'")\'>Send Message</button>
+<button class="btn btn-sml" type="button" onClick=\'delete_friend("'.$info['user_id'].'")\'>Delete</button>
 </div></tr></table></div>');
 		}
 		public function show_all($info){
@@ -99,7 +99,7 @@ $(document).ready(function() {
   </tr>';if($mode==0){echo'
   <tr>
     <td class="item-name colored-txt">Theme: </td>
-	<td class="item-content edit-hide">pink</td>
+	<td class="item-content edit-hide" id="theme1">'.$this->user_info['theme'].'</td>
 </tr><tr>
     <td class="item-content edit-show">
 	  <select name="theme" class="txtbox" id="theme">
@@ -448,7 +448,7 @@ $(function(){
   </tr>';if($mode==0){echo'
   <tr>
     <td class="item-name colored-txt">Theme: </td>
-	<td class="item-content edit-hide">pink</td>
+	<td class="item-content edit-hide" id="theme1">'.$this->user_info['theme'].'</td>
     <td class="item-content edit-show">
 	  <select name="theme" class="txtbox" id="theme">
         <option value="pink" selected>pink</option>
@@ -723,7 +723,7 @@ Copyright &copy; 2015 All Rights Reserved.
 			$conn=connect();
 			$session=new Session();
 			$user_id=$session->get_uid();
-			//if($user_id==''){header('Location: index.html');}
+			//if($user_id==''){header('Location: index.php');}
 			if(!$conn){return;}
 			if(isset($_FILES['user-photo'])){ 
 				$target_file = $target_dir.basename($_FILES["user-photo"]["name"]);
@@ -757,7 +757,7 @@ Copyright &copy; 2015 All Rights Reserved.
 			$session=new Session();
 			$uid=$session->get_uid();
 			if($uid==NULL){
-				header('Location: index.html',true,302);
+				header('Location: index.php',true,302);
 				return;
 			}
 			else{
@@ -797,7 +797,7 @@ Copyright &copy; 2015 All Rights Reserved.
 			$session=new Session();
 			$uid=$session->get_uid();
 			if($uid==NULL){
-				header('Location: index.html',true,302);
+				header('Location: index.php',true,302);
 				return;
 			}
 			else{

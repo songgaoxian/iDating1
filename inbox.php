@@ -246,7 +246,7 @@ $(document).ready(function() {
 			$conn=connect();
 			$session=new Session();
 			$user_id=$session->get_uid();
-			if($user_id==NULL){header('Location: index.html');}
+			if($user_id==NULL){header('Location: index.php');}
 			if($conn){
 				$inbox=new Inbox($user_id);
 				$content=$inbox->get_content();
@@ -270,7 +270,7 @@ $(document).ready(function() {
 			$conn=connect();
 			$session=new Session();
 			$user_id=$session->get_uid();
-			if($user_id==NULL){header('Location: index.html');}
+			if($user_id==NULL){header('Location: index.php');}
 			if($conn){
 				$inbox=new Inbox($user_id);
 				$content=$inbox->get_content();

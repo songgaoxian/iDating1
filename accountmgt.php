@@ -19,7 +19,7 @@
 <input id="save-pwd" class="btn btn-fill" type="button" value="Save" onclick="change_pwd()">
 </form>
 <script type="application/x-javascript">
-	var info=['username','height','city','hometown','education','job','income','self_intro','height_f','height_t','age_f','age_t','city_pref','hometown_pref','job_pref','education_pref','income_pref'];
+	var info=['username','height','city','hometown','education','job','income','self_intro','height_f','height_t','age_f','age_t','city_pref','hometown_pref','job_pref','education_pref','income_pref','theme'];
 	function edit(){	
 		i=0;
 		content='{"';
@@ -128,6 +128,7 @@
 				}i++;
 			}
 			console.log(tags);
+			window.location.replace('inhex.html');
 		}
 		else{
 			alert("error...");
@@ -239,6 +240,7 @@
 <!--change-pwd-box-end-->
 <!--change-portrait-box-start-->
 <div id="change-portrait-box" class="overlay" >
+<form action="index.php" method="post">
 <button class="close-overlay btn" type="button" id="close">X</button>
 <h2 class="colored-txt">Change Portrait</h2>
 <form action="accountmgt.php" enctype="multipart/form-data" method="post">

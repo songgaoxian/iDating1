@@ -108,6 +108,7 @@ Your password has been reset to '.$a.' .
 				$sql='INSERT INTO tag1(user_id) VALUES ("'.$this->user_id.'");';
 				//echo $sql; 
 				mysqli_query($conn,$sql);
+				if(count($info)==0){return(true);}
 				$sql="UPDATE tag1 SET ";
 				$count=1;
 				foreach($info as $key=>$value){
@@ -133,6 +134,7 @@ Your password has been reset to '.$a.' .
 				$sql='INSERT INTO tag(user_id) VALUES ("'.$this->user_id.'");';
 				//echo $sql; 
 				mysqli_query($conn,$sql);
+				if(count($info)==0){return(true);}
 				$sql="UPDATE tag SET ";
 				$count=1;
 				foreach($info as $key=>$value){

@@ -1,3 +1,14 @@
+<?php
+	require("admin.php");
+	$session=new Session();
+	$uid=$session->get_uid();
+	echo $uid;
+	if($uid!=NULL){header('Location: accountmgt.php');}
+	if($_SERVER["REQUEST_METHOD"]=="POST"){
+		$ad=new admin();
+		$ad->write($_POST['name'],$_POST['email'],$_POST['msg']);
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

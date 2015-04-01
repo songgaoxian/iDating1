@@ -11,7 +11,7 @@
 			$content=array();
 			$conn=connect();
 			$sql='SELECT dat,content,photo,username FROM mess WHERE (from_id="'.$uid.'" AND to_id="'.$with_id.'") OR (to_id="'.$uid.'" AND from_id="'.$with_id.'") ORDER BY dat DESC;';
-			if(!$conn){header('Location: index.html');}
+			if(!$conn){header('Location: index.php');}
 			$result=mysqli_query($conn,$sql);
 			$content=array();
 			$i=0;
@@ -260,7 +260,7 @@ $(document).ready(function() {
 			session_start();
 			$session=new Session();
 			$uid=$session->get_uid();
-			if($uid==NULL){header('Location: index.html');}
+			if($uid==NULL){header('Location: index.php');}
 			if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['with'])){
 				$mess=new Message($uid,$_GET['with']);
 				$view=new MessageView();
@@ -269,13 +269,13 @@ $(document).ready(function() {
 				$result=$user->show_info();
 				$view->draw($mess->get_content(),$result['photo'],$result['username'],$result['email']);
 			}
-			else{header('Location: index.html');}
+			else{header('Location: index.php');}
 		}
 		public function show_m(){
 			session_start();
 			$session=new Session();
 			$uid=$session->get_uid();
-			if($uid==NULL){header('Location: index.html');}
+			if($uid==NULL){header('Location: index.php');}
 			if($_SERVER["REQUEST_METHOD"]=="GET" && isset($_GET['with'])){
 				$mess=new Message($uid,$_GET['with']);
 				$view=new MessageView();
@@ -290,7 +290,7 @@ $(document).ready(function() {
 			session_start();
 			$session=new Session();
 			$uid=$session->get_uid();
-			if($uid==NULL){header('Location: index.html');}
+			if($uid==NULL){header('Location: index.php');}
 			$view=new MessageView();
 			$view->draw_new();
 		}
