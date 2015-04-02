@@ -1,4 +1,5 @@
 <?php
 	session_unset();
-	header("Location: index.html");
+	session_id('');
+	header("Location: index.php");
 ?>
