@@ -35,7 +35,8 @@
 					$sql='UPDATE inbox SET dat=CURRENT_TIMESTAMP, preview="'.$info['preview'].'", type="0" WHERE user_id="'.$this->user_id.'" AND with_id="'.$info['with_id'].'";';
 					//echo $sql;
 					$result=mysqli_query($conn,$sql);
-					$sql='UPDATE inbox SET dat=CURRENT_TIMESTAMP, preview="'.$info['preview'].'", type="0" WHERE with_id="'.$info['with_id'].'" AND user_id="'.$this->user_id.'";';
+					$sql='UPDATE inbox SET dat=CURRENT_TIMESTAMP, preview="'.$info['preview'].'", type="0" WHERE user_id="'.$info['with_id'].'" AND with_id="'.$this->user_id.'";';
+					//echo $sql;
 					$result=mysqli_query($conn,$sql);
 					if($result){return(true);}
 					return(false);
