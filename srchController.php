@@ -215,7 +215,7 @@ else
                   $tempdist[$j]='max';
                 $_SESSION['distance'][$j]=$tempdist[$j];
               }
-              for($j=0;$j<$length-1;$j++){
+             for($j=0;$j<$length-1;$j++){
                 for($k=$j+1;$k<$length;$k++){
                     if($tempdist[$k]!=='max' and $tempdist[$j]!=='max' and $tempdist[$k]<$tempdist[$j]){
                         $temp=$_SESSION['sname'][$j];
@@ -245,6 +245,7 @@ else
                         $temp=$_SESSION['distance'][$j];
                         $_SESSION['distance'][$j]=$_SESSION['distance'][$k];
                         $_SESSION['distance'][$k]=$temp;
+                        
                       }
                 }
               }
@@ -269,7 +270,10 @@ $length=$_SESSION['length'];
                   $temp=round($_SESSION['distance'][$m]);
                   else
                     $temp=$_SESSION['distance'][$m];
-                  echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]: $temp meter</a></div>";
+                    $tphoto=$_SESSION['sphoto'][$m];
+                    $tuid=$_SESSION['suid'][$m];
+                    $tname=$_SESSION['sname'][$m];
+                  echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$tphoto);'></div><a href='accountmgt.php?uid=$tuid'>$tname: $temp meter</a></div>";
                  }
                  }
                  echo "</div>";
@@ -300,7 +304,10 @@ $length=$_SESSION['length'];
                   $temp=round($_SESSION['distance'][$m]);
                   else
                     $temp=$_SESSION['distance'][$m];
-                  echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]: $temp meter</a></div>";
+                    $tphoto=$_SESSION['sphoto'][$m];
+                    $tuid=$_SESSION['suid'][$m];
+                    $tname=$_SESSION['sname'][$m];
+                  echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$tphoto);'></div><a href='accountmgt.php?uid=$tuid'>$tname: $temp meter</a></div>";
                 }
                 }
                  echo "<br>";
