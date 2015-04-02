@@ -208,14 +208,7 @@ $(document).ready(function() {
 </div>';
 		}
 		public function draw($content,$photo,$username,$email){
-			echo'<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/CSS" href="shared-frame.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
-<link rel="stylesheet" type="text/CSS" href="messages.css">
-<title>iDating - Messages</title>
+			echo'
 </head>
 
 <body>
@@ -266,7 +259,18 @@ $(document).ready(function() {
 				$view=new MessageView();
 				$user=new User();
 				$user->set_user($_GET['with']);
+				$user1=new User();
+				$user1->set_user($uid);
+				$result1=$user1->show_info();
 				$result=$user->show_info();
+				echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame.css">
+<link rel="stylesheet" type="text/CSS" href="'.$result1['theme'].'-theme.css">
+<link rel="stylesheet" type="text/CSS" href="messages.css">
+<title>iDating - Messages</title>';
 				$view->draw($mess->get_content(),$result['photo'],$result['username'],$result['email']);
 			}
 			else{header('Location: index.php');}

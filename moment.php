@@ -1,5 +1,5 @@
 <?php
-	require("session.php");
+	require("userview.php");
 	class Picture{
 		private $pic_id;
 		public function __construct(){
@@ -108,13 +108,7 @@ $(document).ready(function() {
 			}
 		}
 		public function show_album($content,$page,$total){
-			echo '<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/CSS" href="shared-frame.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
-<link rel="stylesheet" type="text/CSS" href="moments.css">
+			echo '
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
@@ -306,6 +300,16 @@ $(document).ready(function() {
 				}
 				mysqli_close($conn);
 				$view=new PictureView();
+				$user=new User();
+				$user->set_user($session->get_uid());
+				$data=$user->show_info();
+				echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame.css">
+<link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
+<link rel="stylesheet" type="text/CSS" href="moments.css">';
 				$view->show_album($content,min($page,(int)($total/12+1)),(int)$total/12+1);
 			}
 		}

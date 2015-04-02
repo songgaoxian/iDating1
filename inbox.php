@@ -186,14 +186,7 @@ $(document).ready(function() {
 		}
 		
 		public function draw_inbox($content){
-			echo'<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/CSS" href="shared-frame.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
-<link rel="stylesheet" type="text/CSS" href="messages.css">
-
+			echo'
 
 <title>iDating - Messages</title>
 </head>
@@ -262,7 +255,18 @@ $(document).ready(function() {
 					}
 					$content[$key]=$value;
 				}
+				$user=new User();
+				$user->set_user($user_id);
+				$data=$user->show_info();
 				$view=new InboxView();
+				echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame.css">
+<link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
+<link rel="stylesheet" type="text/CSS" href="messages.css">
+';
 				$view->draw_inbox($content);
 			}
 			else{header('Location: indxe.html');}
