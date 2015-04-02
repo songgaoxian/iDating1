@@ -10,6 +10,12 @@
 			}
 		}
 		public function show_one($info){
+			/*$result='';
+			foreach($info as $key=>$value){
+				$result.=$key.': '.$value.'\n';
+			}
+			return($result);*/
+			if($info[24]=='1'){
 			return('<div class="friend-box"><table><tr>
     <td><div class="friend-portrait background-cover-center" style="background-image:url(portrait/'.$info['photo'].')" onClick="window.location.replace(\'accountmgt.php?uid='.$info['user_id'].'\')"></div></td>
     <td><h3>'.$info['username'].'</h3>
@@ -18,6 +24,27 @@
 <button class="btn btn-sml" type="button" onClick=\'send_email("'.$info['user_id'].'")\'>Send Message</button>
 <button class="btn btn-sml" type="button" onClick=\'delete_friend("'.$info['user_id'].'")\'>Delete</button>
 </div></tr></table></div>');
+			}
+			else if($info[24]=='0'){
+				return('<div class="friend-box"><table><tr>
+    <td><div class="friend-portrait background-cover-center" style="background-image:url(portrait/'.$info['photo'].')" onClick="window.location.replace(\'accountmgt.php?uid='.$info['user_id'].'\')"></div></td>
+    <td><h3>'.$info['username'].'</h3>
+<p>'.$info['email'].'</p><br><br>
+<div class="friend-btns">
+<button class="btn btn-sml" type="button" onClick=\'send_email("'.$info['user_id'].'")\'>Send Message</button>
+<button class="btn btn-sml" type="button" onClick="window.location.replace(\'commit_friend.php?uid='.$info['user_id'].'\')">Commit Friend</button>
+</div></tr></table></div>');
+			}
+			else{
+				return('<div class="friend-box"><table><tr>
+    <td><div class="friend-portrait background-cover-center" style="background-image:url(portrait/'.$info['photo'].')" onClick="window.location.replace(\'accountmgt.php?uid='.$info['user_id'].'\')"></div></td>
+    <td><h3>'.$info['username'].'</h3>
+<p>'.$info['email'].'</p><br><br>
+<div class="friend-btns">
+<button class="btn btn-sml" type="button" onClick=\'send_email("'.$info['user_id'].'")\'>Send Message</button>
+<button class="btn btn-sml" type="button">Waiting Reply</button>
+</div></tr></table></div>');
+			}
 		}
 		public function show_all($info){
 			$i=0;
@@ -325,9 +352,17 @@ foreach($tag as $key=>$value){
 <div class="section-box-content">
 <!--visit-user-page-->
 ';if($mode==2)echo'
-<button class="btn btn-mdm" type="button" onClick="add_friend()">Add as Friend</button>';if($mode==1)echo'
+<button class="btn btn-mdm" type="button" onClick="add_friend()">Add as Friend</button>';
+if($mode==1)echo'
 <button class="btn btn-mdm" type="button" onClick="del_friend()">Delete This Friend</button>
-<br>';if($mode==0)echo'
+<br>';
+if($mode==4)echo'
+<button class="btn btn-mdm" type="button" onClick="">Waiting for Response</button>
+<br>';
+if($mode==3)echo'
+<button class="btn btn-mdm" type="button" onClick="window.location.replace(\'commit_friend.php?uid='.$this->user_info['user_id'].'\')">Commit This Friend</button>
+<br>';
+if($mode==0)echo'
 <!--visit-my-page-->
 
 '.$this->friend_info.'
@@ -674,9 +709,17 @@ foreach($tag as $key=>$value){
 <div class="section-box-content">
 <!--visit-user-page-->
 ';if($mode==2)echo'
-<button class="btn btn-mdm" type="button" onClick="add_friend()">Add as Friend</button>';if($mode==1)echo'
+<button class="btn btn-mdm" type="button" onClick="add_friend()">Add as Friend</button>';
+if($mode==1)echo'
 <button class="btn btn-mdm" type="button" onClick="del_friend()">Delete This Friend</button>
-<br>';if($mode==0)echo'
+<br>';
+if($mode==4)echo'
+<button class="btn btn-mdm" type="button" onClick="">Waiting for Response</button>
+<br>';
+if($mode==3)echo'
+<button class="btn btn-mdm" type="button" onClick="window.location.replace(\'commit_friend.php?uid='.$this->user_info['user_id'].'\')">Commit This Friend</button>
+<br>';
+if($mode==0)echo'
 <!--visit-my-page-->
 
 '.$this->friend_info.'
@@ -777,8 +820,11 @@ Copyright &copy; 2015 All Rights Reserved.
 					else{
 						$user1=new User();
 						$user1->set_user($uid);
-						if($user1->is_friend($_GET['uid'])){$userview->show_info(1);}
-						else{$userview->show_info(2);}
+						$result=$user1->friend_sta($_GET['uid']);
+						if($result==false){$userview->show_info(2);}
+						else if($result['state']=='0'){$userview->show_info(3);}
+						else if($result['state']=='2'){$userview->show_info(4);}
+						else{$userview->show_info(1);}
 					}
 				}
 				else{
@@ -817,8 +863,11 @@ Copyright &copy; 2015 All Rights Reserved.
 					else{
 						$user1=new User();
 						$user1->set_user($uid);
-						if($user1->is_friend($_GET['uid'])){$userview->show_info(1);}
-						else{$userview->show_info_m(2);}
+						$result=$user1->friend_sta($_GET['uid']);
+						if($result==false){$userview->show_info(2);}
+						else if($result['state']=='0'){$userview->show_info(3);}
+						else if($result['state']=='2'){$userview->show_info(4);}
+						else{$userview->show_info(1);}
 					}
 				}
 				else{

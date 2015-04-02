@@ -188,12 +188,6 @@
 		response=JSON.parse(xmlhttp.response);
 		if(response['check']=='true'){
 			alert("Request has been sent!");
-			uid2=response['uid'];
-			xmlhttp=new XMLHttpRequest(); 
-			content='{"with_id":"'+uid+'","content":"Hi, I hope to make friends with you. Please click on commit_friend.php?uid='+uid2+' to confirm my request."}';
-			xmlhttp.open("POST","send.php",false);
-			xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-			xmlhttp.send(content);console.log(xmlhttp);
 		}
 		else{
 			alert("...?");

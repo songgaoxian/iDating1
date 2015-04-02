@@ -11,8 +11,8 @@
 			$temp=json_decode($temp1, true);
 			$conn=connect();
 			$uid1=$temp['user_id2'];
-			$result=$user->is_friend($uid1);
-			if($result){echo '{"check":"false"}';return;}
+			$result=$user->is_friend1($uid1);
+			if($result==true){echo '{"check":"true"}';return;}
 			else{
 				$result=$user->add_friend($uid1);
 				if($result){echo '{"check":"true","uid":"'.$uid.'"}';return;}

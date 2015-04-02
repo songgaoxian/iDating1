@@ -154,19 +154,21 @@ Your password has been reset to '.$a.' .
 		public function show_friends(){
 			$conn=connect();
 			if($conn){
-				$sql='SELECT * FROM friend WHERE user_id1="'.$this->user_id.'" and state="1";';
+				$sql='SELECT * FROM friend WHERE user_id1="'.$this->user_id.'";';
 				$result=mysqli_query($conn,$sql);
 				if(mysqli_num_rows($result)>0){
 					$result1=array();
 					while($row = mysqli_fetch_array($result)){
-						array_push($result1,$row[1]);
+						array_push($result1,$row);
 					}
 					$result2=array();
 					$num=0;
 					while($num<count($result1)){
-						$sql='SELECT * FROM user_info WHERE user_id="'.$result1[$num].'";';
+						$sql='SELECT * FROM user_info WHERE user_id="'.$result1[$num][1].'";';
 						$result=mysqli_query($conn,$sql);
-						array_push($result2,mysqli_fetch_array($result));
+						$result3=mysqli_fetch_array($result);
+						array_push($result3,$result1[$num]['state']);
+						array_push($result2,$result3);
 						$num+=1;
 					}
 					return($result2);
@@ -202,7 +204,7 @@ Your password has been reset to '.$a.' .
 			}
 			return(false);
 		}
-		public function is_friend2($uid){
+		public function is_friend1($uid){
 			$conn=connect();
 			if($conn){
 				$sql='SELECT * FROM friend WHERE user_id1="'.$this->user_id.'" AND user_id2="'.$uid.'";';
@@ -211,6 +213,18 @@ Your password has been reset to '.$a.' .
 				mysqli_close($conn);
 				if($result==0){return(false);}
 				return(true);
+			}
+			return(false);
+		}
+		public function friend_sta($uid){
+			$conn=connect();
+			if($conn){
+				$sql='SELECT * FROM friend WHERE user_id1="'.$this->user_id.'" AND user_id2="'.$uid.'";';
+				$result=mysqli_query($conn,$sql);
+				if(!$result){return($result);}
+				$result=mysqli_fetch_array($result);
+				mysqli_close($conn);
+				return($result);
 			}
 			return(false);
 		}
@@ -232,9 +246,9 @@ Your password has been reset to '.$a.' .
 		public function add_friend($uid){
 			$conn=connect();
 			if($conn){
-				if($this->is_friend2($uid)){return(true);}
+				if($this->is_friend1($uid)==true){return(true);}
 				else{
-					$sql='INSERT INTO friend(user_id1,user_id2,state) VALUES ("'.$this->user_id.'","'.$uid.'","0"),("'.$uid.'","'.$this->user_id.'","0");';
+					$sql='INSERT INTO friend(user_id1,user_id2,state) VALUES ("'.$this->user_id.'","'.$uid.'","2"),("'.$uid.'","'.$this->user_id.'","0");';
 					$result=mysqli_query($conn,$sql);
 					mysqli_close($conn);
 					return(true);
