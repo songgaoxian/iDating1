@@ -1,9 +1,9 @@
 <?php
 require("session.php");
 session_start();
-$session=new Session();
-$userid=$session->get_uid();
-$dbc=connect();
+			$dbc=connect();
+			$session=new Session();
+			$userid=$session->get_uid();
 if(isset($_POST['latitude']) and isset($_POST['longitude'])){
 	$back=array();
 	$latitude=$_POST['latitude'];
@@ -16,13 +16,13 @@ if(isset($_POST['latitude']) and isset($_POST['longitude'])){
 		 $result1=mysqli_query($dbc,$q1);
 	}
 	else{
-		$q1="update user_location set latitude='$latitude' and longitude='$longitude' where user_id='$userid'";
+		$q1="update user_location set latitude='$latitude', longitude='$longitude' where user_id='$userid'";
 		$result1=mysqli_query($dbc,$q1);
 	}
 	if($result1){
 		$back[0]="success1";
 		header('Content-Type: application/json');
-		echo json_encode($q);
+		echo json_encode($q1);
 	}
 	else {
 		$back[0]="error";
@@ -30,4 +30,5 @@ if(isset($_POST['latitude']) and isset($_POST['longitude'])){
 		echo json_encode($q1);
 	}
 }
+
 ?>

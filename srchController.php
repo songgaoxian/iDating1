@@ -15,7 +15,7 @@ if(isset($_GET['nickname'])){
         $_SESSION['sname']=array();
     $_SESSION['suid']=array();
     $_SESSION['sphoto']=array();
-        
+    $_SESSION['distance']=array();    
         if(!empty($result)){
                 $i=0;
                 while($row=mysqli_fetch_array($result)){
@@ -193,7 +193,64 @@ else
                 }
       $length=$i;
           $_SESSION['length']=$length;
-          
+          if($rank==1 and $length>0){
+            $tempdist=array();
+            $q3="select * from user_location where user_id='$currentid'";
+            $result3=mysqli_query($dbc,$q3);
+            for($j=0;$j<$length;$j++)
+              $_SESSION['distance'][$j]='max';
+            if($row3=mysqli_fetch_array($result3)){
+              $lati=(float)$row3['latitude'];
+              $longi=(float)$row3['longitude'];
+              for($j=0;$j<$length;$j++){
+                $tpuid=$_SESSION['suid'][$j];
+                $q4="select * from user_location where user_id='$tpuid'";
+                $result4=mysqli_query($dbc,$q4);
+                if($row4=mysqli_fetch_array($result4)){
+                  $tplati=(float)$row4['latitude'];
+                  $tplongi=(float)$row4['longitude'];
+                  $tempdist[$j]=sqrt(($tplati-$lati)*($tplati-$lati)+($tplongi-$longi)*($tplongi-$longi))*111000;
+                }
+                else
+                  $tempdist[$j]='max';
+                $_SESSION['distance'][$j]=$tempdist[$j];
+              }
+              for($j=0;$j<$length-1;$j++){
+                for($k=$j+1;$k<$length;$k++){
+                    if($tempdist[$k]!=='max' and $tempdist[$j]!=='max' and $tempdist[$k]<$tempdist[$j]){
+                        $temp=$_SESSION['sname'][$j];
+                        $_SESSION['sname'][$j]=$_SESSION['sname'][$k];
+                        $_SESSION['sname'][$k]=$temp;
+                        $temp=$_SESSION['suid'][$j];
+                        $_SESSION['suid'][$j]=$_SESSION['suid'][$k];
+                        $_SESSION['suid'][$k]=$temp;
+                        $temp=$_SESSION['sphoto'][$j];
+                        $_SESSION['sphoto'][$j]=$_SESSION['sphoto'][$k];
+                        $_SESSION['sphoto'][$k]=$temp;
+                        $temp=$_SESSION['distance'][$j];
+                        $_SESSION['distance'][$j]=$_SESSION['distance'][$k];
+                        $_SESSION['distance'][$k]=$temp;
+                    }
+                    else
+                      if($tempdist[$j]=='max' and $tempdist[$k]!=='max'){
+                        $temp=$_SESSION['sname'][$j];
+                        $_SESSION['sname'][$j]=$_SESSION['sname'][$k];
+                        $_SESSION['sname'][$k]=$temp;
+                        $temp=$_SESSION['suid'][$j];
+                        $_SESSION['suid'][$j]=$_SESSION['suid'][$k];
+                        $_SESSION['suid'][$k]=$temp;
+                        $temp=$_SESSION['sphoto'][$j];
+                        $_SESSION['sphoto'][$j]=$_SESSION['sphoto'][$k];
+                        $_SESSION['sphoto'][$k]=$temp;
+                        $temp=$_SESSION['distance'][$j];
+                        $_SESSION['distance'][$j]=$_SESSION['distance'][$k];
+                        $_SESSION['distance'][$k]=$temp;
+                      }
+                }
+              }
+            }
+            
+          }
         }                       
 }
 
@@ -205,7 +262,16 @@ $length=$_SESSION['length'];
          if($length<=10){
                  for($j=1; $j<=$length;$j++){
                          $m=$j-1;
-                 echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";}
+                 if($_SESSION['rank']==0)
+                 echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";
+                 else{
+                  if($_SESSION['distance'][$m]!=='max')
+                  $temp=round($_SESSION['distance'][$m]);
+                  else
+                    $temp=$_SESSION['distance'][$m];
+                  echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]: $temp meter</a></div>";
+                 }
+                 }
                  echo "</div>";
          }
          else{
@@ -227,7 +293,16 @@ $length=$_SESSION['length'];
                         $sphoto[$m]=$_SESSION['sphoto'][$m];
                          $sname[$m]=$_SESSION['sname'][$m];
                          $suid[$m]=$_SESSION['suid'][$m];
-                 echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";}
+                 if($_SESSION['rank']==0)
+                 echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";
+                 else{
+                  if($_SESSION['distance'][$m]!=='max')
+                  $temp=round($_SESSION['distance'][$m]);
+                  else
+                    $temp=$_SESSION['distance'][$m];
+                  echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]: $temp meter</a></div>";
+                }
+                }
                  echo "<br>";
                  echo "<span>Page:&nbsp";
                  for($k=1; $k<=$page;$k++)
