@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	background:linear-gradient(#FFF,#eee);
+}
+
+/*shake-start*/
+.container {
+	padding-top:25px;
+	height:590px;
+	text-align:center;
+}
+.container > p{	font-size:20px;}
+.container > img{
+	width:200px;
+	margin-top:20px;	
+}
+/*shake-end*/
+
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
+<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="shake.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(".sidebar").hide();
+		
+	$("#nav").click(function() {
+		$(".sidebar").fadeToggle();
+	});
+});
+</script>
+<title>iDating - Shake</title>
+</head>
+
+<body>
+<!--header-start-->
+<div class="header">
+<img id="nav" src="img/nav.png" alt="navigate">
+<h1>Shake</h1>
+</div>
+<!--header-end-->
+
+<div class="sidebar">
+<a href="accountmgt-m.html">My Page</a>
+<a href="search-m.html">Search</a>
+<a href="shake.html">Shake</a>
+<a href="calendar-m.html">Calendar</a>
+<a href="moments-m.html">Moments</a>
+<a href="messages-m.html">Messages</a>
+</div>
+
+<!--shake-start-->
+<div class="container">
+<p>Please Shake Your Cellphone</p>
+<img src="img/shake_bg.png" alt="shake background">
+</div>
+<!--shake-end-->
+</body>
+</html>
