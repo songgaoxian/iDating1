@@ -4,10 +4,8 @@
 		private $session_id;
 		private $user_id;
 		public function __construct(){
-			//session_id(123);
-			if(session_id()){$this->session_id=session_id();}
-			else{$this->session_id=uuid();}
-			//echo $this->session_id;
+			$this->session_id=session_id();
+			if($this->session_id==''){$this->session_id=uuid();}
 		}
 		public function get_sid(){return($this->session_id);}
 		public function get_uid(){
@@ -105,6 +103,8 @@
 			$result=$user->sign_in($email,$password);
 			if($result){
 				$session=new Session();
+				session_id($session->get_sid());
+				session_start();
 				$result=$session->set_user($user->get_uid());
 				if($result){echo '{"check":"true","sid":"'.$session->get_sid().'"}';}
 				else echo '{"check":"false"}';

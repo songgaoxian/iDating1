@@ -326,6 +326,7 @@ function sendposition(latitude, longitude){
 $dbc=connect();
 $session=new Session();
 $currentid=$session->get_uid();
+echo $currentid;
 require("calcontroller.php");
 $calnotify=new DateOps();
 $calnotify->notify($dbc,$currentid);
