@@ -212,7 +212,7 @@ echo'
 	<option value="Real Estate">Real Estate</option>
 	<option value="Insurance">Insurance</option>
 	<option value="Consulting">Consulting</option>
-	<option value="Legal">Legal</option>
+	<option value="Law">Law</option>
 	<option value="Trading/Import & Export">Trading/Import & Export</option>
 	<option value="Wholesale/Retail">Wholesale/Retail</option>
 	<option value="Apparel/Textiles">Apparel/Textiles</option>
@@ -569,7 +569,7 @@ echo'
 	<option value="Real Estate">Real Estate</option>
 	<option value="Insurance">Insurance</option>
 	<option value="Consulting">Consulting</option>
-	<option value="Legal">Legal</option>
+	<option value="Law">Law</option>
 	<option value="Trading/Import & Export">Trading/Import & Export</option>
 	<option value="Wholesale/Retail">Wholesale/Retail</option>
 	<option value="Apparel/Textiles">Apparel/Textiles</option>
@@ -660,7 +660,7 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 	<option value="Real Estate">Real Estate</option>
 	<option value="Insurance">Insurance</option>
 	<option value="Consulting">Consulting</option>
-	<option value="Legal">Legal</option>
+	<option value="Law">Law</option>
 	<option value="Trading/Import & Export">Trading/Import & Export</option>
 	<option value="Wholesale/Retail">Wholesale/Retail</option>
 	<option value="Apparel/Textiles">Apparel/Textiles</option>
