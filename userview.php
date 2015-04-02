@@ -142,7 +142,7 @@ $(document).ready(function() {
 <!--about-me-start-->
 <h2 class="subheading colored-txt">ABOUT ME</h2>';
 if($mode==0){echo '
-<button id="edit-pref" type="button" class="btn btn-sml edit-hide">Edit</button>
+<button id="edit-pref" type="button" class="btn btn-sml edit-hide" onClick="click_()">Edit</button>
 <button id="save-pref" type="button" class="btn btn-sml edit-show" onClick="edit()">Save</button>
 <button id="cancel-pref" type="button" class="btn btn-sml edit-show">Cancel</button>
 ';}
@@ -499,7 +499,7 @@ $(function(){
 <!--about-me-start-->
 <h2 class="subheading colored-txt">ABOUT ME</h2>';
 if($mode==0){echo '
-<button id="edit-pref" type="button" class="btn btn-sml edit-hide">Edit</button>
+<button id="edit-pref" type="button" class="btn btn-sml edit-hide" onClick="click_()">Edit</button>
 <button id="save-pref" type="button" class="btn btn-sml edit-show" onClick="edit()">Save</button>
 <button id="cancel-pref" type="button" class="btn btn-sml edit-show">Cancel</button>
 ';}

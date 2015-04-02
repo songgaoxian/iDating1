@@ -24,7 +24,7 @@
 		response=JSON.parse(xmlhttp.response);
 		if(response['check']=='true'){
 			for(i in dele){
-				temp=dele[i].parentNode.parentNode;
+				temp=dele[i].parentNode.parentNode.parentNode;
 				ul=temp.parentNode;
 				ul.removeChild(temp);
 			}

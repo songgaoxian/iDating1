@@ -29,10 +29,11 @@
 		public function new_inbox($info){
 			$conn=connect();
 			if($conn){
-				$sql='SELECT * FROM inbox WHERE with_id="'.$info['with_id'].'";';
+				$sql='SELECT * FROM inbox WHERE with_id="'.$info['with_id'].'" AND user_id="'.$this->user_id.'";';
 				$result=mysqli_query($conn,$sql);
 				if(mysqli_num_rows($result)>0){
 					$sql='UPDATE inbox SET dat=CURRENT_TIMESTAMP, preview="'.$info['preview'].'", type="0" WHERE user_id="'.$this->user_id.'" AND with_id="'.$info['with_id'].'";';
+					//echo $sql;
 					$result=mysqli_query($conn,$sql);
 					$sql='UPDATE inbox SET dat=CURRENT_TIMESTAMP, preview="'.$info['preview'].'", type="0" WHERE with_id="'.$info['with_id'].'" AND user_id="'.$this->user_id.'";';
 					$result=mysqli_query($conn,$sql);
@@ -40,9 +41,10 @@
 					return(false);
 				}
 				else{
-					$sql='INSERT INTO inbox(user_id,with_id,dat,preview,type) VALUES("'.$this->user_id.'","'.$info['with_id'].'",CURRENT_TIMESTAMP,"'.$info['preview'].'","1")';
+					$sql='INSERT INTO inbox(user_id,with_id,dat,preview,type) VALUES("'.$this->user_id.'","'.$info['with_id'].'",CURRENT_TIMESTAMP,"'.$info['preview'].'","1");';
+					//echo $sql;
 					$result=mysqli_query($conn,$sql);
-					$sql='INSERT INTO inbox(user_id,with_id,dat,preview,type) VALUES("'.$info['with_id'].'","'.$this->user_id.'",CURRENT_TIMESTAMP,"'.$info['preview'].'","1")';
+					$sql='INSERT INTO inbox(user_id,with_id,dat,preview,type) VALUES("'.$info['with_id'].'","'.$this->user_id.'",CURRENT_TIMESTAMP,"'.$info['preview'].'","1");';
 					$result=mysqli_query($conn,$sql);
 					if($result){return(true);}
 					return(false);
