@@ -31,8 +31,8 @@
     <td><h3>'.$info['username'].'</h3>
 <p>'.$info['email'].'</p><br><br>
 <div class="friend-btns">
-<button class="btn btn-sml" type="button" onClick=\'send_email("'.$info['user_id'].'")\'>Send Message</button>
 <button class="btn btn-sml" type="button" onClick="window.location.replace(\'commit_friend.php?uid='.$info['user_id'].'\')">Commit Friend</button>
+<button class="btn btn-sml" type="button" onClick=\'delete_friend("'.$info['user_id'].'")\'>Reject</button>
 </div></tr></table></div>');
 			}
 			else{

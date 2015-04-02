@@ -180,7 +180,7 @@ Your password has been reset to '.$a.' .
 			}
 		}
 		public function del_friend($uid){
-			if($this->is_friend($uid)==true){
+			if($this->is_friend1($uid)==true){
 				$conn=connect();
 				if($conn){
 					$sql='DELETE FROM friend WHERE (user_id1="'.$this->user_id.'" AND user_id2="'.$uid.'") OR (user_id1="'.$uid.'" AND user_id2="'.$this->user_id.'");';

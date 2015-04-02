@@ -11,7 +11,7 @@
 			$temp=json_decode($temp1, true);
 			$conn=connect();
 			$uid1=$temp['user_id2'];
-			$result=$user->is_friend($uid1);
+			$result=$user->is_friend1($uid1);
 			if(!$result){echo '{"check":"false"}';return;}
 			else{
 				$result=$user->del_friend($uid1);
