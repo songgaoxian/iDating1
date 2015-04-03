@@ -7,6 +7,17 @@
 <link rel="stylesheet" type="text/CSS" href="search-m.css">
 <script src="js/select-or-die/jquery-1.8.0.min.js"></script>
 
+<script>
+$(document).ready(function() {
+	$(".sidebar").hide();
+		
+	$("#nav").click(function() {
+		$(".sidebar").fadeToggle();
+	});
+});
+
+</script>
+
 <title>iDating - Search</title>
 </head>
 
