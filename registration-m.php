@@ -27,7 +27,7 @@
 
 <!--container-start-->
 <div class="container">
-<form method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data" action="accountmgt-m.php">
 <!--about-me-start-->
 <h2 class="subheading colored-txt">ABOUT ME</h2>
 <div class="section-box">
@@ -109,7 +109,7 @@
 </tr>
 <tr>
   <td class="item-name colored-txt">Monthly Income: </td>
-  <td class="item-content"><input class="txtbox" id="income-me" type="number" min="0" name="income-me" required> HKD</td>
+  <td class="item-content"><input class="txtbox" id="income" type="number" min="0" name="income-me" required> HKD</td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Tags:</td>
@@ -126,24 +126,24 @@
 <table>
 <tr>
   <td class="item-name colored-txt">Age: </td>
-  <td class="item-content"><input id="age-from" class="txtbox" type="number" min="18" max="99" name="age-from"> ~ <input id="age-to" class="txtbox" type="number"  min="18" max="99" name="age-to"></td>
+  <td class="item-content"><input id="age_f" class="txtbox" type="number" min="18" max="99" name="age-from"> ~ <input id="age_t" class="txtbox" type="number"  min="18" max="99" name="age-to"></td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Height: </td>
-  <td class="item-content"><input id="height-from" class="txtbox" type="number" min="140" max="220" name="height-from"> ~ <input id="height-to" class="txtbox" type="number" min="140" max="220" name="height-to"></td>
+  <td class="item-content"><input id="height_f" class="txtbox" type="number" min="140" max="220" name="height-from"> ~ <input id="height_t" class="txtbox" type="number" min="140" max="220" name="height-to"></td>
 </tr>
 <tr>
   <td class="item-name colored-txt">City: </td>
-  <td class="item-content"><input class="txtbox" type="text" name="city-pref"></td>
+  <td class="item-content"><input class="txtbox" type="text" id="city_pref"></td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Hometown: </td>
-  <td class="item-content"><input class="txtbox" type="text" name="hometown-pref"></td>
+  <td class="item-content"><input class="txtbox" type="text" id="hometown_pref"></td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Education: </td>
   <td class="item-content">
-  <select name="education-pref" class="txtbox">
+  <select name="education_pref" class="txtbox">
     <option value="Unlimited" selected>Unlimited</option>
     <option value="High School">High School</option>
     <option value="Bachelor">Bachelor</option>
@@ -154,7 +154,7 @@
 <tr>
   <td class="item-name colored-txt">Occupation: </td>
   <td class="item-content">
-  <select name="job-pref" class="txtbox">
+  <select id="job_pref" class="txtbox">
   	<option value="Unlimited" selected>Unlimited</option>
   	<option value="Student">Student</option>
     <option value="Computer Software">Computer Software</option>
@@ -184,7 +184,7 @@
 </tr>
 <tr>
   <td class="item-name colored-txt">Monthly Income: </td>
-  <td class="item-content">&gt;= <input id="income-pref" class="txtbox" type="number" value="" name="income-pref"> HKD</td>
+  <td class="item-content">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref"> HKD</td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Tags:</td>
