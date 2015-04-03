@@ -135,12 +135,17 @@ $(document).ready(function() {
 <div class="container"><!--moment-wall-start-->
 <div id="moment-wall">
 <table>
-  <tr>';
+  ';
+  $i=0;
 			foreach($content as $key=>$value){
-
-				echo '<td class="moment moment-sml background-cover-center"></td>';
+				if($i==0){
+					echo '<tr><td class="moment moment-sml background-cover-center">'.$value.'</td>';$i=1;}
+				else{
+					echo '<td class="moment moment-sml background-cover-center">'.$value.'</td></tr>';$i=0;
+				}
 			}
-			echo '</tr>
+			if($i==1){echo'</tr>';}
+			echo '
 </table>
 </div>
 <!--moment-wall-end-->
