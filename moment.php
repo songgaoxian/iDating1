@@ -63,21 +63,49 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
 <link rel="stylesheet" type="text/CSS" href="moments-m.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-	$(".sidebar").hide();
+	$(".moment-sml").height($(".moment-sml").width());
 	
+	//click a moment picture
 	$(".moment-sml").click(function() {
 		$(".moment-sml").children("p").hide();
-		$(this).children("p").fadeIn();
+		$(".pic-mask").remove();
+		$(this).children("p").fadeIn("fast");
+		$(this).prepend("<div class=\'pic-mask\'></div>");
 	});
 	
 	$("#nav").click(function() {
 		$(".sidebar").fadeToggle();
 	});
+			
+	//show upload picture dialog
+	 $("#upload").click(function() {
+		$("#upload-pic-box").fadeIn();
+	});
+	
+	//close an overlay
+	$(".close-overlay").click(function() {
+		$(this).parent()..parent().fadeOut();		
+	});	
+	
+	//show picture detail dialog
+	$(".moment").click(function() {
+		temp=$(this).css("background-image");
+		temp=temp.substr(4);
+		temp=temp.substr(0,temp.length-1);
+		$("#pic-detail-box img").attr({"src":temp});
+		$("#pic-detail-box > a").attr({"href":temp});
+		$("#pic-detail-box > h2").text($(this).children("p").text());
+		$("#pic-detail-box img").css("max-height", $(".overlay-container").height()*0.75-100);
+		$("#pic-detail-box").css("margin-top",($(".overlay-container").height()*0.95-$("#pic-detail-box").height())/2);
+		$("#pic-detail-box").fadeIn();
+		imgpadding=($("#pic-detail-box").width()-$("#pic-detail-box img").width())/2
+		$("#pic-detail-box img").css("padding-left", imgpadding);
+	});	
 });
 </script>
 <title>iDating - Moments</title>
@@ -93,6 +121,7 @@ $(document).ready(function() {
 <h1>Moments</h1>
 </div>
 <!--header-end-->
+
 <div class="sidebar">
 <a href="accountmgt-m.php">My Page</a>
 <a href="search-m.php">Search</a>
@@ -101,12 +130,24 @@ $(document).ready(function() {
 <a href="moments-m.php">Moments</a>
 <a href="messages-m.php">Messages</a>
 </div>
-<!--momentWall-start-->
-<div class="container">';
+
+<!--container-start-->
+<div class="container"><!--moment-wall-start-->
+<div id="moment-wall">
+<table>
+  <tr>';
 			foreach($content as $key=>$value){
-				echo '<div class="moment-sml">'.$value.'</div>';
+
+				echo '<td class="moment moment-sml background-cover-center"></td>';
 			}
-		}
+			echo '</tr>
+</table>
+</div>
+<!--moment-wall-end-->
+</div>
+<!--container-end-->'
+		;}
+		
 		public function show_album($content,$page,$total){
 			echo '
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
