@@ -5,8 +5,9 @@ table {
 	padding-top:20px;
 	padding-bottom:20px;
 	width:100%;
+	border-top:1px solid #CCC;
 	border-bottom:1px solid #CCC;
-	line-height:100%;					
+	line-height:100%;				
 }
 
 .singleIn{
@@ -30,7 +31,7 @@ table {
         display: inline-block;
         position: relative;
         line-height: 1;
-        width: 63px;
+        width: 61px;
         padding: 15px 10px;
         border: 3px solid #aaa;
         background: #ffffff;
@@ -55,8 +56,14 @@ table {
 	background-repeat:no-repeat;
 	background-position:center;
 }
-/*search-end*/
 
+
+#tabs {
+	margin-left:20px;
+	margin-top:60px;
+	margin-bottom:-30px;
+	height:10px;
+}
 
 
 
