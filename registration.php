@@ -265,13 +265,8 @@ $(document).ready(function() {
 		xmlhttp.send(content);console.log(xmlhttp);
 		record=xmlhttp;
 		response=JSON.parse(xmlhttp.response);
-		if(response['check']=='true'){
-			            a=document.getElementsByTagName("form")[0];
-						            a.submit();
-		}
-		else{
-			alert("error...");
-		}
+		a=document.getElementsByTagName("form")[0];
+		a.submit();
 	}
 </script>
 <!--container-end-->
