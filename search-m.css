@@ -65,5 +65,34 @@ table {
 	height:10px;
 }
 
+h2 {
+	margin:60px 0 20px 20px;
+	font-weight:normal;
+	font-size:16px;
+}
 
+.search-portrait {
+	padding:10px 0;
+	margin-left:1%;
+	margin-right:1%;
+	margin-bottom:15px;
+	width:45%;
+	height:170px;
+	display:inline-block;
+	text-align:center;
+	border:1px solid #ccc;	
+	border-radius:3px;
+	box-shadow:0px 0px 3px #eee;
+}
 
+.search-portrait:hover {
+	cursor:pointer;
+}
+.search-portrait > a {
+	margin:5px;
+	display:block;
+}
+.search-portrait > div{
+	width:90%;
+	margin-left:5%;
+}
