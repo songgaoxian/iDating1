@@ -11,8 +11,6 @@ theme
 
 ACTMGT
 tag
-É¾³ý¾Íport
-±£´æ±¨´í
 friend view page
 
 Reg
@@ -27,7 +25,8 @@ Chose a valid day
 
 Message
 Needs discussion
-theme
 
 search
 conditioncount
+by tags
+by distance
