@@ -84,8 +84,8 @@
 						<img src="portrait/'.$content[2].'" alt="portrait">
 					</td>
 					<td style="width:80%">
-						<p class="message-time">'.$content[0].'</p>
 						<p id="message-from" class="colored-txt">'.$content[3].'</p>
+						<p class="message-time">'.$content[0].'</p>
 						<p class="message-content">"'.$content[1].'"</p>
 					</td>
 				</tr>
@@ -153,7 +153,14 @@ $(document).ready(function() {
 		foreach($content as $key=>$value){
 			echo $this->draw_one_m($value);
 		}
-		echo'</div>
+		echo'
+            <textarea  class="txtbox txtbox-fill" placeholder="Add new message..." id="text-mobile" rows="4"></textarea>
+            <div class="btn-group">
+            	<input id="mail-btn1" type="button" class="btn btn-mobile" value="Send new message">
+				<input id="mail-btn2" type="button" class="btn btn-mobile" value="Return to inbox">
+            </div>
+		</ul>
+		</div>
 	</div>
 </form>
   
@@ -243,7 +250,7 @@ $(document).ready(function() {
             <input name="mc_markread" type="button" class="btn btn-lg" onClick="send()" value="Send new message">
             </span>
 		</ul>
-		<div class="mail-list-ft"> </div>
+		</div>
 	</div>
 </div>';
 		}

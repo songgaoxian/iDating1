@@ -108,8 +108,8 @@
 						<img src="portrait/'.$content['photo'].'" alt="portrait">
 					</td>
 					<td style="width:80%">
-						<p class="message-time">'.$content['dat'].'</p>
 						<p id="message-from" class="colored-txt">'.$content['username'].'</p>
+						<p class="message-time">'.$content['dat'].'</p>
 						<p class="message-content">"'.substr($content['preview'],0,30).'"</p>
 					</td>
 				</tr>

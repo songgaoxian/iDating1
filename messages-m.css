@@ -20,12 +20,10 @@
 }
 #message-from {
 	font-size:18px;
-	margin-top:20px;
+	margin-top:15px;
 }
 .message-time {
-	float:right;
-	margin-right:20px;
-	margin-top:20px;
+	margin-left:20px;
 	color:#666;	
 	font-size:15px;	
 }
@@ -44,6 +42,25 @@ td > img {
 }
 /*messages-end*/
 
+#text-mobile {    
+	width:90%; 
+	margin:20px 10px 10px 10px;
+	overflow:auto;
+    display:block;
+}
 
+.btn-mobile {
+	padding:10px;
+	display:block;
+	margin-bottom:20px;
+}
 
-8
+#mail-btn1 {
+	float:left;
+	margin-left:5px;
+}
+
+#mail-btn2 {
+	float:right;
+	margin-right:5px;
+}
