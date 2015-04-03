@@ -137,12 +137,15 @@ $(document).ready(function() {
 <table>
   ';
   $i=0;
+  $count=0;
 			foreach($content as $key=>$value){
+				$count+=1;
 				if($i==0){
 					echo '<tr><td class="moment moment-sml background-cover-center">'.$value.'</td>';$i=1;}
 				else{
 					echo '<td class="moment moment-sml background-cover-center">'.$value.'</td></tr>';$i=0;
 				}
+				if($count==20){break;}
 			}
 			if($i==1){echo'</tr>';}
 			echo '
