@@ -5,6 +5,8 @@
 ?>
 <script type="application/javascript">
 	function send(){
+		var temp=document.getElementById("text").value;
+		if(temp.length==0){return;}
 		content={
 			"content":document.getElementById("text").value,
 			"with_id":document.URL.split('=')[1]

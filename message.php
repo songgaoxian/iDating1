@@ -154,10 +154,10 @@ $(document).ready(function() {
 			echo $this->draw_one_m($value);
 		}
 		echo'
-            <textarea  class="txtbox txtbox-fill" placeholder="Add new message..." id="text-mobile" rows="4"></textarea>
+            <textarea  class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="4"></textarea>
             <div class="btn-group">
-            	<input id="mail-btn1" type="button" class="btn btn-mobile" value="Send new message">
-				<input id="mail-btn2" type="button" class="btn btn-mobile" value="Return to inbox">
+            	<input id="mail-btn1" type="button" class="btn btn-mobile" value="Send new message" onClick="send()">
+				<input id="mail-btn2" type="button" class="btn btn-mobile" value="Return to inbox" onClick=\'window.location.replace("messages-m.php")\'>
             </div>
 		</ul>
 		</div>
