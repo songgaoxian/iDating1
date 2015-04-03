@@ -148,9 +148,8 @@ a { text-decoration:none;}
 .item-name {width:40%;}
 .item-content {width:60%;}
 .tag-item {
-	padding:1px 8px;
-	max-height:90%;
-	margin-right:6px;
+	padding:0 8px;
+	margin:0 3px 1px 0;
 	display:inline-block;
 	font-size:14px;
 }
@@ -162,10 +161,11 @@ a { text-decoration:none;}
 .section-box-content > table .txtbox {
 	padding:4px 3%;
 	margin:3px 0 1%;
-	width:94%;
+	width:90%;
 }
 .subheading {
 	padding:15px 4% 2px;
 	margin:0;
 	display:inline-block;
 }
+.selecttags {width:230px;}

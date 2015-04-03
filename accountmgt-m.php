@@ -8,8 +8,11 @@
 <!--overlay-start-->
 <!--change-pwd-box-start-->
 <div id="change-pwd-box" class="overlay" >
-<button class="close-overlay btn" type="button" id="close">&lt;</button>
-<h2 class="colored-txt">Change Password</h2>
+<div class="header">
+<img class="close-overlay" src="img/close_overlay.png" alt="back">
+<h1>Change Password</h1>
+</div>
+<div class="overlay-content">
 <form>
 <input class="txtbox txtbox-fill" type="password" placeholder="Old Password" required id="old_pwd"></input><br>
 <input class="txtbox txtbox-fill" type="password" placeholder="New Password" required id="new_pwd1"></input><br>
@@ -71,16 +74,21 @@
 	}
 </script>
 </div>
+</div>
 <!--change-pwd-box-end-->
 <!--change-portrait-box-start-->
 <div id="change-portrait-box" class="overlay" >
-<button class="close-overlay btn" type="button" id="close">&lt;</button>
-<h2 class="colored-txt">Change Portrait</h2>
+<div class="header">
+<img class="close-overlay" src="img/close_overlay.png" alt="back">
+<h1>Change Portrait</h1>
+</div>
+<div class="overlay-content">
 <form>
 <input class="txtbox txtbox-fill" type="file" required></input><br>
 <br>
 <input id="save-portrait" class="btn btn-fill" type="submit" value="Save">
 </form>
+</div>
 </div>
 <!--change-portrait-box-end-->
 <!--overlay-end-->

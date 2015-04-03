@@ -72,27 +72,57 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
 <link rel="stylesheet" type="text/CSS" href="accountmgt-m.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link href="js/jqueryUI/chosen/chosen.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/jqueryUI/chosen/chosen.jquery.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$("#portrait").height($("#portrait").width());
+	$(".friend-portrait").height($(".friend-portrait").width());
+	
+	//show change password dialog
+    $("#change-pwd").click(function() {
+		$("#change-pwd-box").fadeIn();
+	});
+	
+	//show change portrait dialog
+    $("#change-portrait").click(function() {
+		$("#change-portrait-box").fadeIn();
+	});
+	
+	//close a overlay
+	$(".close-overlay").click(function() {
+		$(this).parent().parent().fadeOut();
+	});
+	
+	$("#edit-pref").click(function(){
+		$(".edit-show").show();
+		$(".edit-hide").hide();
+	});
+	
+	$("#cancel-pref").click(function(){
+		$(".edit-show").hide();
+		$(".edit-hide").show();
+	});
+	
+	$("#save-pref").click(function(){
+		$(".edit-show").hide();
+		$(".edit-hide").show();
+	});
+});
+
+$(function(){
+    $(".selecttags").chosen();
+});
+
+</script>
 <title>iDating - My Account</title>
 </head>
 
 <body>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-	$(".sidebar").hide();
-	
-	$(".moment-sml").click(function() {
-		$(".moment-sml").children("p").hide();
-		$(this).children("p").fadeIn();
-	});
-	
-	$("#nav").click(function() {
-		$(".sidebar").fadeToggle();
-	});
-});
-</script>
 <!--header-start-->
 <div class="header">
 <img id="nav" src="img/nav.png" alt="navigate">
@@ -127,7 +157,6 @@ $(document).ready(function() {
   <tr>
     <td class="item-name colored-txt">Theme: </td>
 	<td class="item-content edit-hide" id="theme1">'.$this->user_info['theme'].'</td>
-</tr><tr>
     <td class="item-content edit-show">
 	  <select name="theme" class="txtbox" id="theme">
         <option value="pink" selected>pink</option>
@@ -154,10 +183,12 @@ echo'
     <td>
 	<div id="portrait" class="background-cover-center" style="background-image:url(\'portrait/'.$this->user_info['photo'].'\')"></div>
     <button id="change-portrait" type="button" class="btn btn-sml edit-show">Change</button>
-    </td></tr><tr>
+    </td>
+  </tr>
+  <tr>
 	<td>
 	<p class="edit-hide" id="self_intro1">'.$this->user_info['self_intro'].'</p>
-    <textarea class="edit-show" id="self_intro">'.$this->user_info['self_intro'].'</textarea>
+    <textarea class="edit-show txtbox txtbox-fill" id="self_intro">'.$this->user_info['self_intro'].'</textarea>
 	</td>
   </tr>
 </table>
@@ -166,13 +197,17 @@ echo'
 <tr>
   <td class="item-name colored-txt">Nickname: </td>
   <td class="item-content edit-hide" id="username1">'.$this->user_info['username'].'</td>
-  <td class="item-content edit-show"><input class="txtbox" id="username" type="text" name="username" required value="'.$this->user_info['username'].'"></td></tr><tr>
+  <td class="item-content edit-show"><input class="txtbox" id="username" type="text" name="username" required value="'.$this->user_info['username'].'"></td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Gender:</td>
   <td class="item-content">'.$this->user_info['sex'].' </td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Birthday: </td>
-  <td class="item-content">'.$this->user_info['birthday'].'</td></tr><tr>
+  <td class="item-content">'.$this->user_info['birthday'].'</td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Height (cm): </td>
   <td class="item-content edit-hide" id="height1">'.$this->user_info['height'].'</td>
   <td class="item-content edit-show"><input id="height" class="txtbox" type="number" min="140" max="220"  name="height" value="'.$this->user_info['height'].'"></td>
@@ -180,7 +215,9 @@ echo'
 <tr>
   <td class="item-name colored-txt">City: </td>
   <td class="item-content edit-hide" id="city1">'.$this->user_info['city'].'</td>
-  <td class="item-content edit-show"><input id="city" class="txtbox" type="text" name="city-me" required value="'.$this->user_info['city'].'"></td></tr><tr>
+  <td class="item-content edit-show"><input id="city" class="txtbox" type="text" name="city-me" required value="'.$this->user_info['city'].'"></td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Hometown: </td>
   <td class="item-content edit-hide" id="hometown1">'.$this->user_info['hometown'].'</td>
   <td class="item-content edit-show"><input id="hometown" class="txtbox" type="text" name="hometown-me" required value="'.$this->user_info['hometown'].'"></td>
@@ -196,7 +233,9 @@ echo'
     <option value="Master">Master</option>
     <option value="PhD">PhD</option>
   </select>
-  </td></tr><tr>
+  </td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Occupation: </td>
   <td class="item-content edit-hide" id="job1">'.$this->user_info['job'].'</td>
   <td class="item-content edit-show">
@@ -232,7 +271,9 @@ echo'
 <tr>
   <td class="item-name colored-txt">Monthly Income: </td>
   <td class="item-content edit-hide" id="income1">'.$this->user_info['income'].'HKD</td>
-  <td class="item-content edit-show"><input id="income" class="txtbox" type="number" min="0" name="income-me" required value="'.$this->user_info['income'].'"> HKD</td></tr><tr>
+  <td class="item-content edit-show"><input id="income" class="txtbox" type="number" min="0" name="income-me" required value="'.$this->user_info['income'].'"> HKD</td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Tags:</td>
   <td class="item-content edit-hide" id="tags">';
   $tag=$this->user_info['tags'];
@@ -242,12 +283,12 @@ echo'
 	}
    echo '</td>  
    <td class="item-content edit-show">
-   		<select name="tags" style="width: 230px;" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
-    		<option value="music">music</option>
-    		<option value="movies">movie</option>
-    		<option value="book">book</option>
-    		<option value="jog">jogging</option>
-    		<option value="cook">cooking</option>
+   		<select name="tags" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="Music">Music</option>
+    		<option value="Movies">Movie</option>
+    		<option value="Book">Book</option>
+    		<option value="Jogging">Jogging</option>
+    		<option value="Cooking">Cooking</option>
 		</select> 
    </td>
 </tr>
@@ -264,7 +305,9 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 <tr>
   <td class="item-name colored-txt">Age: </td>
   <td class="item-content edit-hide"><span id="age_f1">'.$this->user_info['age_f'].'</span>~<span id="age_t1">'.$this->user_info['age_t'].'</span></td>
-  <td class="item-content edit-show"><input id="age_f" class="txtbox" type="number" min="18" max="99" name="age-from" value="'.$this->user_info['age_f'].'"> ~ <input id="age_t" class="txtbox" type="number"  min="18" max="99"  name="age-to" value="'.$this->user_info['age_t'].'"></td></tr><tr>
+  <td class="item-content edit-show"><input id="age_f" class="txtbox" type="number" min="18" max="99" name="age-from" value="'.$this->user_info['age_f'].'"> ~ <input id="age_t" class="txtbox" type="number"  min="18" max="99"  name="age-to" value="'.$this->user_info['age_t'].'"></td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Height (cm): </td>
   <td class="item-content edit-hide"><span id="height_f1">'.$this->user_info['height_f'].'</span>~<span id="height_t1">'.$this->user_info['height_t'].'</span></td>
   <td class="item-content edit-show"><input id="height_f" class="txtbox" type="number" min="140" max="220" name="height-from" value="'.$this->user_info['height_f'].'"> ~ <input id="height_t" class="txtbox" type="number" min="140" max="220" name="height-to" value="'.$this->user_info['height_t'].'"></td>
@@ -272,7 +315,9 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 <tr>
   <td class="item-name colored-txt">City: </td>
   <td class="item-content edit-hide" id="city_pref1">'.$this->user_info['city_pref'].'</td>
-  <td class="item-content edit-show"><input class="txtbox" type="text" id="city_pref" name="city-pref"></td></tr><tr>
+  <td class="item-content edit-show"><input class="txtbox" type="text" id="city_pref" name="city-pref"></td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Hometown: </td>
   <td class="item-content edit-hide" id="hometown_pref1">'.$this->user_info['hometown_pref'].'</td>
   <td class="item-content edit-show"><input class="txtbox" type="text" id="hometown_pref" name="hometown-pref"></td>
@@ -287,7 +332,10 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
     <option value="Bachelor">Bachelor</option>
     <option value="Master">Master</option>
     <option value="PhD">PhD</option>
-  </select></td></tr><tr>
+  </select>
+  </td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Occupation: </td>
   <td class="item-content edit-hide" id="job_pref1">'.$this->user_info['job_pref'].'</td>
   <td class="item-content edit-show">
@@ -303,7 +351,7 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 	<option value="Real Estate">Real Estate</option>
 	<option value="Insurance">Insurance</option>
 	<option value="Consulting">Consulting</option>
-	<option value="Legal">Legal</option>
+	<option value="Law">Law</option>
 	<option value="Trading/Import & Export">Trading/Import & Export</option>
 	<option value="Wholesale/Retail">Wholesale/Retail</option>
 	<option value="Apparel/Textiles">Apparel/Textiles</option>
@@ -322,7 +370,9 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 <tr>
   <td class="item-name colored-txt">Monthly Income: </td>
   <td class="item-content edit-hide" id="income_pref1">&gt;='.$this->user_info['income_pref'].' HKD</td>
-  <td class="item-content edit-show">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref" value="'.$this->user_info['income_pref'].'"> HKD</td></tr><tr>
+  <td class="item-content edit-show">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref" value="'.$this->user_info['income_pref'].'"> HKD</td>
+</tr>
+<tr>
   <td class="item-name colored-txt">Tags:</td>
   <td class="item-content edit-hide" id="tags1">';
   $tag=$this->user_info['tags1'];
@@ -332,12 +382,12 @@ foreach($tag as $key=>$value){
 	}
    echo '</td>  
    <td class="item-content edit-show">
-   		<select name="tags_pref" style="width: 230px;" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
-    		<option value="music">music</option>
-    		<option value="movies">movie</option>
-    		<option value="book">book</option>
-    		<option value="jog">jogging</option>
-    		<option value="cook">cooking</option>
+   		<select name="tags_pref" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="Music">Music</option>
+    		<option value="Movies">Movie</option>
+    		<option value="Book">Book</option>
+    		<option value="Jogging">Jogging</option>
+    		<option value="Cooking">Cooking</option>
 		</select> 
    </td>
 </tr>
@@ -453,7 +503,6 @@ $(function(){
 
 <body>
 <!--header-start-->
-
 <div class="header">
 <ul id="topnav">
   <li><a href="logout.php">Log Out</a>
@@ -514,7 +563,7 @@ echo'
     </td>
 	<td>
 	<p class="edit-hide" id="self_intro1">'.$this->user_info['self_intro'].'</p>
-    <textarea class="edit-show" id="self_intro">'.$this->user_info['self_intro'].'</textarea>
+    <textarea class="edit-show txtbox" id="self_intro">'.$this->user_info['self_intro'].'</textarea>
 	</td>
   </tr>
 </table>
@@ -599,12 +648,12 @@ echo'
 	}
    echo '</td>  
    <td class="item-content edit-show">
-   		<select name="tags" style="width: 230px;" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
-    		<option value="music">music</option>
-    		<option value="movies">movie</option>
-    		<option value="book">book</option>
-    		<option value="jog">jogging</option>
-    		<option value="cook">cooking</option>
+   		<select name="tags" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="Music">Music</option>
+    		<option value="Movies">Movie</option>
+    		<option value="Book">Book</option>
+    		<option value="Jogging">Jogging</option>
+    		<option value="Cooking">Cooking</option>
 		</select> 
    </td>
 </tr>
@@ -689,12 +738,12 @@ foreach($tag as $key=>$value){
 	}
    echo '</td>  
    <td class="item-content edit-show">
-   		<select name="tags_pref" style="width: 230px;" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
-    		<option value="music">music</option>
-    		<option value="movies">movie</option>
-    		<option value="book">book</option>
-    		<option value="jog">jogging</option>
-    		<option value="cook">cooking</option>
+   		<select name="tags_pref" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="Music">Music</option>
+    		<option value="Movies">Movie</option>
+    		<option value="Book">Book</option>
+    		<option value="Jogging">Jogging</option>
+    		<option value="Cooking">Cooking</option>
 		</select> 
    </td>
 </tr>
