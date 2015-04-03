@@ -255,10 +255,10 @@
 <!--change-pwd-box-end-->
 <!--change-portrait-box-start-->
 <div id="change-portrait-box" class="overlay" >
-<form action="index.php" method="post">
+<form action="accountmgt.php" enctype="multipart/form-data" method="post">
 <button class="close-overlay btn" type="button" id="close">X</button>
 <h2 class="colored-txt">Change Portrait</h2>
-<form action="accountmgt.php" enctype="multipart/form-data" method="post">
+
 <input class="txtbox txtbox-fill" type="file" required name="user-photo"></input><br>
 <br>
 <input id="save-portrait" class="btn btn-fill" type="submit" value="Save">

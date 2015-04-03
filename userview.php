@@ -770,14 +770,15 @@ Copyright &copy; 2015 All Rights Reserved.
 			//if($user_id==''){header('Location: index.php');}
 			if(!$conn){return;}
 			if(isset($_FILES['user-photo'])){ 
-				$target_file = $target_dir.basename($_FILES["user-photo"]["name"]);
+				$target_dir = "";
+				$target_file = $target_dir.basename($_FILES['user-photo']["name"]);
 				$imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
 				if($_SERVER["REQUEST_METHOD"]=="POST"){
 					$check = getimagesize($_FILES["user-photo"]["tmp_name"]);
 					$filename=uuid().'.'.$imageFileType;
 					$target_file=$target_dir.$filename;
 					$a=move_uploaded_file($_FILES["user-photo"]["tmp_name"],"portrait/".$target_file);
-					$sql='UPDATE user_info SET photo="'.$target_file.'" WHERE user_id="'.$user_id.'"';
+					$sql='UPDATE user_info SET photo="'.$filename.'" WHERE user_id="'.$user_id.'"';
 					$result=mysqli_query($conn,$sql);
 					return(true);
 				}
