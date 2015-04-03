@@ -141,9 +141,9 @@ $(document).ready(function() {
 			foreach($content as $key=>$value){
 				$count+=1;
 				if($i==0){
-					echo '<tr><td class="moment moment-sml background-cover-center">'.$value.'</td>';$i=1;}
+					echo '<tr>'.$value;$i=1;}
 				else{
-					echo '<td class="moment moment-sml background-cover-center">'.$value.'</td></tr>';$i=0;
+					echo $value.'</tr>';$i=0;
 				}
 				if($count==20){break;}
 			}
@@ -385,7 +385,7 @@ $(document).ready(function() {
 					if($row==false){
 						$content[$count]='"<p></p>';
 					}
-					else{$content[$count]='<img src="portrait/'.$row['pic_id'].'"><p>'.$row['summary'].'</p>';}
+					else{$content[$count]='<td class="moment moment-sml background-cover-center" style=\'background-image:url(portrait/'.$row['pic_id'].')\'><p>123123'.$row['title'].'</p></td>';}
 					$count+=1;
 				}
 				mysqli_close($conn);
