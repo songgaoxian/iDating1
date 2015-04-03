@@ -96,3 +96,14 @@ h2 {
 	width:90%;
 	margin-left:5%;
 }
+
+.btn-mobile {
+	padding:10px;
+	display:block;
+	margin-bottom:20px;
+}
+
+#return-btn {
+	margin:auto;
+	width:70%;
+}
