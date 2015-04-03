@@ -31,7 +31,7 @@
 <!--content-end-->
 
 <!--footer-start-->
-<div class="footer">
+<div id="footer">
 <a href="index.html#about-us">About Us</a>
 &nbsp;|&nbsp;
 <a href="index.html#contact-us">Contact Us</a>
