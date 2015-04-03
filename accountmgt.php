@@ -26,7 +26,7 @@
 			i=i+1;
 		}
 	}
-	var list=['education','job','education_pref','job_pref'];
+	var list=['education','job','education_pref','job_pref','theme'];
 	function selection(){
 		var j=0;
 		while(j<list.length){
