@@ -287,41 +287,9 @@
 <?php
 $dbc=connect();
 $session=new Session();
-$currentid=$session->get_uid;
-$q="select * from calendar where user_id='$currentid'";
-$currenttime=date('Y-m-d H:i:s');
-$i=0;
-$result=mysqli_query($dbc, $q);
-$dmateid=array();
-$dtime=array();
-$dlocation=array();
-$dmatename=array();
-if(!empty($result)){
-	$i=0;
-	while($row=mysqli_fetch_array($result)){
-    $dat=$row['dat'];
-    $diff=round(($dat-$currenttime)/3600);
-    if($diff<=1 and $diff>=0){
-     $dmateid[$i]=$row['mate_id'];
-     $temp=$dmateid[$i];
-     $dtime[$i]=$row['dat'];
-     $dlocation[$i]=$row['location'];
-     $q2="select username from user_info where user_id='$temp'";
-     $result1=mysqli_query($dbc, $q2);
-     $row=mysqli_fetch_array($result1);
-     $dmatename[$i]=$row['username'];
-     $i++;
-    }
-  }
-  if($i!==0){
-  	echo "<script>alert('";
-  	for($j=0; $j<$i; $j++){
-  		$tempname=$dmatename[$j];
-  		$templo=$dlocation[$j];
-  		$tempti=$dtime[$j];
-  		echo "You have a date with $tempname at $tempti in $templo ! \n";
-  	}
-  	echo "')";
-  }
-}
+$currentid=$session->get_uid();
+echo $currentid;
+require("calcontroller.php");
+$calnotify=new DateOps();
+$calnotify->notify($dbc,$currentid);
 ?>
