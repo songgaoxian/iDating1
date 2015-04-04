@@ -70,12 +70,24 @@ function get_info(id){
 	else{//if !$conn in login.php
 		alert("System is busy. Please try again!");
 	}
-}
+} var left=1;
+	$('#nav').click(
+	function() {
+		if(left==1){
+			$('#B').animate({left: 200});left=0;
+			$('#C').css('overflow','hidden');
+		}
+	    else{
+			$('#B').animate({left: 0});left=1;
+			$('#C').css('overflow','scroll');
+		}
+	});
 </script>
 </div>
 </div>
 <!--pic-detail-box-end-->
 <!--overlay-end-->
-
+</div>
+</div>
 </body>
 </html>

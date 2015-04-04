@@ -3,6 +3,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
 <link rel="stylesheet" type="text/CSS" href="search-m.css">
 <link rel="stylesheet" type="text/css" href="js/select-or-die/selectordie.css" />
 <link rel="stylesheet" href="js/switchery/switchery.css" />
@@ -22,6 +23,22 @@ $(document).ready(function() {
 		$(".sidebar").fadeToggle();
 	});
 	
+	$("#by-name-form").hide();
+	
+	$("#tab-by-name").click(function() {
+		$("#tab-by-condition").removeClass("colored-txt-dark");
+		$(this).addClass("colored-txt-dark");
+		$("#by-condition-form").hide();
+	    $("#by-name-form").fadeIn();
+	});
+	
+	//search by conditions
+	$("#tab-by-condition").click(function() {
+		$("#tab-by-name").removeClass("colored-txt-dark");
+		$(this).addClass("colored-txt-dark");
+		$("#by-condition-form").fadeIn();
+	    $("#by-name-form").hide();
+	});
 });
 
 </script>
@@ -49,9 +66,28 @@ $(document).ready(function() {
 
 <!--search-start-->
 
-<div class="container">
-<form>
+<div class='container'>
+<!--search-condition-start-->
+<div id='tabs'>
+    Search by: 
+    <button id='tab-by-condition' class='link-btn no-line colored-txt-dark' type='button'>Conditions</button>|
+    <button id='tab-by-name' class='link-btn no-line' type='button'>Nickname</button>
+</div>
 
+<div class="container">
+<form id='by-name-form' method='get' action='sresult.php'>
+<table>
+	<tr>
+		<td style="width:40%"><label class="item-name">Nickname</label></td>
+		<td style="width:60%">
+    		<input class="singleIn">
+    	</td>
+	</tr>
+</table>
+<input id="search-now" class="btn btn-fill" type="submit" value="">
+</form>
+
+<form id='by-condition-form' method='post' action='sresult.php'>
 <table>
 <tr>
 	<td style="width:40%"><label class="item-name">Gender</label></td>
@@ -123,7 +159,7 @@ $(document).ready(function() {
 
 <table>
 <tr>
-	<td style="width:40%"><label class="item-name">Monthly Income</label></td>
+	<td style="width:40%"><label class="item-name">Salary</label></td>
 	<td style="width:60%">
     <input class="doubleIn"> ~ <input class="doubleIn">
     </td>

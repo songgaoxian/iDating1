@@ -43,6 +43,7 @@ a { text-decoration:none;}
 	width:100%;
 }
 #footer {
+	clear:both;
 	font-size:15px;
 	text-align:center;
 }

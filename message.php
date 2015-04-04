@@ -84,8 +84,8 @@
 						<img src="portrait/'.$content[2].'" alt="portrait">
 					</td>
 					<td style="width:80%">
-						<p class="message-time">'.$content[0].'</p>
 						<p id="message-from" class="colored-txt">'.$content[3].'</p>
+						<p class="message-time">'.$content[0].'</p>
 						<p class="message-content">"'.$content[1].'"</p>
 					</td>
 				</tr>
@@ -93,16 +93,9 @@
 			</div>';
 		}
 		public function draw_m($content){
-			echo'<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
-<link rel="stylesheet" type="text/CSS" href="messages-m.css">
-
+			echo'
 <title>iDating - Messages</title>
+<link rel="stylesheet" type="text/CSS" href="sidebar.css">
 </head>
 
 <body>
@@ -124,8 +117,19 @@ $(document).ready(function() {
 
 </head>
 
-<body>
+<body><div id="C">
 <!--header-start-->
+<div id="A">
+<ul>
+<li><a href="accountmgt-m.php">My Page</a></li>
+<li><a href="search-m.php">Search</a></li>
+<li><a href="shake.php">Shake</a></li>
+<li><a href="calendar-m.php">Calendar</a></li>
+<li><a href="moments-m.php">Moments</a></li>
+<li><a href="messages-m.php">Messages</a></li>
+<li><a href="logout1.php">Log Out</a></li>
+</ul>
+</div><div id="B">
 <div class="header">
 <div id="topnav">
 <img id="upload" src="img/add.png" alt="upload moments">
@@ -134,14 +138,6 @@ $(document).ready(function() {
 <h1>Massages</h1>
 </div>
 <!--header-end-->
-<div class="sidebar">
-<a href="accountmgt-m.php">My Page</a>
-<a href="search-m.php">Search</a>
-<a href="shake.php">Shake</a>
-<a href="calendar-m.php">Calendar</a>
-<a href="moments-m.php">Moments</a>
-<a href="messages-m.php">Messages</a>
-</div>
 <!--header-end-->
 
 <!--content-start-->
@@ -153,23 +149,20 @@ $(document).ready(function() {
 		foreach($content as $key=>$value){
 			echo $this->draw_one_m($value);
 		}
-		echo'</div>
+		echo'
+            <textarea  class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="4"></textarea>
+            <div class="btn-group">
+            	<input id="mail-btn1" type="button" class="btn btn-mobile" value="Send new message" onClick="send()">
+				<input id="mail-btn2" type="button" class="btn btn-mobile" value="Return to inbox" onClick=\'window.location.replace("messages-m.php")\'>
+            </div>
+		</ul>
+		</div>
 	</div>
 </form>
-  
-    
-</div>';
+';
 		}
 		public function draw_new(){
-			echo'<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/CSS" href="shared-frame.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
-<link rel="stylesheet" type="text/CSS" href="messages.css">
-
-
+			echo'
 <title>iDating - Messages</title>
 </head>
 
@@ -243,7 +236,7 @@ $(document).ready(function() {
             <input name="mc_markread" type="button" class="btn btn-lg" onClick="send()" value="Send new message">
             </span>
 		</ul>
-		<div class="mail-list-ft"> </div>
+		</div>
 	</div>
 </div>';
 		}
@@ -286,6 +279,16 @@ $(document).ready(function() {
 				$user=new User();
 				$user->set_user($_GET['with']);
 				$result=$user->show_info();
+				echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
+<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="'.$result['theme'].'-theme.css">
+<link rel="stylesheet" type="text/CSS" href="messages-m.css">
+
+';
 				$view->draw_m($mess->get_content(),$result['photo'],$result['username'],$result['email']);
 			}
 			else{header('Location: index-m.html');}

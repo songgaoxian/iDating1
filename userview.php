@@ -72,14 +72,17 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
+<link rel="stylesheet" type="text/CSS" href="'.$this->user_info['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="accountmgt-m.css">
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link href="js/jqueryUI/chosen/chosen.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jqueryUI/chosen/chosen.jquery.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/CSS" href="sidebar.css">
+
 <script>
 $(document).ready(function() {
+
 	$("#portrait").height($("#portrait").width());
 	$(".friend-portrait").height($(".friend-portrait").width());
 	
@@ -122,23 +125,24 @@ $(function(){
 <title>iDating - My Account</title>
 </head>
 
-<body>
-<!--header-start-->
+<body><div id="C">
+<div id="A">
+<ul>
+<li><a href="accountmgt-m.php">My Page</a></li>
+<li><a href="search-m.php">Search</a></li>
+<li><a href="shake.php">Shake</a></li>
+<li><a href="calendar-m.php">Calendar</a></li>
+<li><a href="moments-m.php">Moments</a></li>
+<li><a href="messages-m.php">Messages</a></li>
+<li><a href="logout1.php">Log Out</a></li>
+</ul>
+</div>
+<!--header-start--><div id="B">
 <div class="header">
-<img id="nav" src="img/nav.png" alt="navigate">
+<nav><img id="nav" src="img/nav.png" alt="navigate"/></nav>
 <h1>My Page</h1>
 </div>
 <!--header-end-->
-
-<div class="sidebar">
-<a href="accountmgt-m.php">My Page</a>
-<a href="search-m.php">Search</a>
-<a href="shake.php">Shake</a>
-<a href="calendar-m.php">Calendar</a>
-<a href="moments-m.php">Moments</a>
-<a href="messages-m.php">Messages</a>
-</div>
-
 <!--container-start-->
 <div class="container">
 <!--my-account-start-->

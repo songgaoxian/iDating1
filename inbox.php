@@ -108,8 +108,8 @@
 						<img src="portrait/'.$content['photo'].'" alt="portrait">
 					</td>
 					<td style="width:80%">
-						<p class="message-time">'.$content['dat'].'</p>
 						<p id="message-from" class="colored-txt">'.$content['username'].'</p>
+						<p class="message-time">'.$content['dat'].'</p>
 						<p class="message-content">"'.substr($content['preview'],0,30).'"</p>
 					</td>
 				</tr>
@@ -118,15 +118,7 @@
 		}
 		
 		public function draw_inbox_m($content){
-			echo'<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
-<link rel="stylesheet" type="text/CSS" href="messages-m.css">
-
+			echo'
 <title>iDating - Messages</title>
 </head>
 
@@ -151,6 +143,18 @@ $(document).ready(function() {
 
 <body>
 <!--header-start-->
+<div id="C">
+<div id="A">
+<ul>
+<li><a href="accountmgt-m.php">My Page</a></li>
+<li><a href="search-m.php">Search</a></li>
+<li><a href="shake.php">Shake</a></li>
+<li><a href="calendar-m.php">Calendar</a></li>
+<li><a href="moments-m.php">Moments</a></li>
+<li><a href="messages-m.php">Messages</a></li>
+<li><a href="logout1.php">Log Out</a></li>
+</ul>
+</div><div id="B">
 <div class="header">
 <div id="topnav">
 <img id="upload" src="img/add.png" alt="upload moments">
@@ -159,14 +163,6 @@ $(document).ready(function() {
 <h1>Inbox</h1>
 </div>
 <!--header-end-->
-<div class="sidebar">
-<a href="accountmgt-m.php">My Page</a>
-<a href="search-m.php">Search</a>
-<a href="shake.php">Shake</a>
-<a href="calendar-m.php">Calendar</a>
-<a href="moments-m.php">Moments</a>
-<a href="messages-m.php">Messages</a>
-</div>
 <!--header-end-->
 
 <!--content-start-->
@@ -180,10 +176,7 @@ $(document).ready(function() {
 		}
 		echo'</div>
 	</div>
-</form>
-  
-    
-</div>';
+</form>';
 		}
 		
 		public function draw_inbox($content){
@@ -291,6 +284,19 @@ $(document).ready(function() {
 					}
 					$content[$key]=$value;
 				}
+				$user=new User();
+				$user->set_user($user_id);
+				$data=$user->show_info();
+				echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
+<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
+<link rel="stylesheet" type="text/CSS" href="messages-m.css">
+<link rel="stylesheet" type="text/CSS" href="sidebar.css">
+';
 				$view=new InboxView();
 				$view->draw_inbox_m($content);
 			}
