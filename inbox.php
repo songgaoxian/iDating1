@@ -118,15 +118,7 @@
 		}
 		
 		public function draw_inbox_m($content){
-			echo'<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
-<link rel="stylesheet" type="text/CSS" href="messages-m.css">
-
+			echo'
 <title>iDating - Messages</title>
 </head>
 
@@ -291,6 +283,18 @@ $(document).ready(function() {
 					}
 					$content[$key]=$value;
 				}
+				$user=new User();
+				$user->set_user($user_id);
+				$data=$user->show_info();
+				echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
+<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
+<link rel="stylesheet" type="text/CSS" href="messages-m.css">
+';
 				$view=new InboxView();
 				$view->draw_inbox_m($content);
 			}

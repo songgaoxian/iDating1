@@ -72,7 +72,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
+<link rel="stylesheet" type="text/CSS" href="'.$this->user_info['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="accountmgt-m.css">
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -179,6 +179,7 @@ $(function(){
 <li><a href="calendar-m.php">Calendar</a></li>
 <li><a href="moments-m.php">Moments</a></li>
 <li><a href="messages-m.php">Messages</a></li>
+<li><a href="logout1.php">Log Out</a></li>
 </ul>
 </div>
 <!--header-start--><div id="B">

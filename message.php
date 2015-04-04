@@ -93,15 +93,7 @@
 			</div>';
 		}
 		public function draw_m($content){
-			echo'<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
-<link rel="stylesheet" type="text/CSS" href="messages-m.css">
-
+			echo'
 <title>iDating - Messages</title>
 </head>
 
@@ -168,15 +160,7 @@ $(document).ready(function() {
 </div>';
 		}
 		public function draw_new(){
-			echo'<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/CSS" href="shared-frame.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
-<link rel="stylesheet" type="text/CSS" href="messages.css">
-
-
+			echo'
 <title>iDating - Messages</title>
 </head>
 
@@ -293,6 +277,16 @@ $(document).ready(function() {
 				$user=new User();
 				$user->set_user($_GET['with']);
 				$result=$user->show_info();
+				echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
+<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="'.$result['theme'].'-theme.css">
+<link rel="stylesheet" type="text/CSS" href="messages-m.css">
+
+';
 				$view->draw_m($mess->get_content(),$result['photo'],$result['username'],$result['email']);
 			}
 			else{header('Location: index-m.html');}

@@ -58,15 +58,6 @@
 	class PictureView{
 		public function show_album_m($content){
 			echo '
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
-<link rel="stylesheet" type="text/CSS" href="moments-m.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>
 $(document).ready(function() {
 	$(".moment-sml").height($(".moment-sml").width());
 	
@@ -389,6 +380,18 @@ $(document).ready(function() {
 					$count+=1;
 				}
 				mysqli_close($conn);
+				$user=new User();
+				$user->set_user($session->get_uid());
+				$data=$user->show_info();
+				echo '<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
+<link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
+<link rel="stylesheet" type="text/CSS" href="moments-m.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>';
 				$view=new PictureView();
 				$view->show_album_m($content);
 			}
