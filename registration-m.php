@@ -11,6 +11,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="pink-theme.css">
@@ -29,7 +30,6 @@ $(document).ready(function() {
 <body>
 <!--header-start-->
 <div class="header">
-<img src="img/logo_small.png" alt="iDating logo">
 <h1>Sign Up</h1>
 </div>
 <!--header-end-->
@@ -259,10 +259,5 @@ $(document).ready(function() {
 	}
 </script>
 <!--container-end-->
-<!--footer-start-->
-<div>
-<p id="footer">&copy; 2015 All Rights Reserved.</p>
-</div>
-<!--footer-end-->
 </body>
 </html>
