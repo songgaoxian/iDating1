@@ -13,6 +13,7 @@
 #topnav > li > a:hover {background-color:#e5004f;}
 #topnav > img:hover {background-color:#e5004f;}
 #nav:hover {background-color:#e5004f;}
+.close-overlay:hover {background-color:#e5004f;}
 
 /*calendar*/
 .event-box {background-color:#eb6877;}

@@ -11,20 +11,20 @@
 	font-size:22px;
 	font-weight:normal;
 }
-#income-me {
-	width:75%;
+#income {
+	width:65%;
 }
-#income-pref {
-	width:60%;
+#income_pref {
+	width:50%;
 }
-#age-from, #age-to, #height-from, #height-to {
-	width:41%;
+#age_f, #age_t, #height_f, #height_t {
+	width:33%;
 }
 #self-descrp {
 	height:100px;
 }
 #submit-now {
-	width:40%;
-	margin:20px 30%;
+	width:90%;
+	margin:20px 5%;
 	padding:10px 0;
 }

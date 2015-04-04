@@ -4,7 +4,7 @@ body {
 	font-family:Verdana, Geneva, sans-serif;
 	margin:0;
 }
-a { text-decoration:none;}
+a {text-decoration:none;}
 .header {
 	position:fixed;
 	z-index:990;
@@ -20,12 +20,8 @@ a { text-decoration:none;}
 	font-size:24px;
 	font-weight:normal;
 }
-#topnav {
-	float:right;	
-}
-#topnav > img {
-	padding:0 5px;
-}
+#topnav {float:right;}
+#topnav > img {padding:0 5px;}
 #topnav > img:hover {cursor:pointer;}
 #nav {float:left;}
 #nav:hover {cursor:pointer;}
@@ -38,6 +34,49 @@ a { text-decoration:none;}
 	font-size:15px;
 	text-align:center;
 }
+/*sidebar-start*/
+html, body {
+    padding:0;
+    border:0;
+}
+#A {
+	position:fixed;
+    top: 52px;
+    width: 150px;
+    bottom:0;
+}
+#C{
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+#B {
+	position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	min-width: 360px;
+}
+#A ul{
+	list-style-type: none;
+	padding:0;
+}
+#A li + li {
+    margin-top: 12px; 
+}
+#A li a{
+	padding: 4px 10px;
+    display: block;
+    color: #eb6877;
+}
+#A li a:hover {
+   background-color: white; 
+}
+/*sidebar-end*/
+
 /*shared-components-start*/
 .btn {
 	border:none;
@@ -46,9 +85,7 @@ a { text-decoration:none;}
 	color:white;
 	font:16px Verdana, Geneva, sans-serif;	
 }
-.btn:hover {
-	cursor:pointer;
-}
+.btn:hover {cursor:pointer;}
 .btn-fill {
 	margin:10px 0;
 	padding:10px 0;
@@ -96,9 +133,7 @@ a { text-decoration:none;}
 	text-decoration:underline;
 	cursor:pointer;	
 }
-.no-line:hover {
-	text-decoration:none;
-}
+.no-line:hover {text-decoration:none;}
 .background-cover-center {
 	background-position:center center;
 	background-repeat:no-repeat;
@@ -120,13 +155,8 @@ a { text-decoration:none;}
 	padding:0 5% 0;
 	line-height:150%;
 }
-.close-overlay {
-	float:left;	
-}
-.close-overlay:hover {
-	background-color:#e5004f;
-	cursor:pointer;
-}
+.close-overlay {float:left;}
+.close-overlay:hover {cursor:pointer;}
 /*shared-components-end*/
 
 /*account-management, register*/
@@ -153,11 +183,11 @@ a { text-decoration:none;}
 .section-box-content > table .txtbox {
 	padding:4px 3%;
 	margin:3px 0 1%;
-	width:90%;
+	width:94%;
 }
 .subheading {
 	padding:15px 4% 2px;
 	margin:0;
 	display:inline-block;
 }
-.selecttags {width:230px;}
+.selecttags {width:180px;}
