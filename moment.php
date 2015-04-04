@@ -350,7 +350,7 @@ $(document).ready(function() {
 					else if(!isset($row['pic_id'])){
 						$content[$count]='"<p></p>';
 					}
-					else if(!isset($row['title'])){
+					else if(!isset($row[''])){
 						$content[$count]='"<p></p>';
 					}
 					else{$content[$count]=' onclick="get_info(\''.$row['pic_id'].'\')" style="background-image:url(portrait/'.$row['pic_id'].')"><p>'.$row['title'].'</p>';}
@@ -385,20 +385,20 @@ $(document).ready(function() {
 				$result=mysqli_query($conn,$sql);
 				$row=mysqli_fetch_array($result);
 				$total=(int)$row[0];
-				$sql='SELECT pic_id,summary FROM moment ORDER BY upload_date DESC;';
+				$sql='SELECT pic_id,title FROM moment ORDER BY upload_date DESC;';
 				$result=mysqli_query($conn,$sql);
 				$count=0;
 				$content=array();
 				while($count<20){
 					$row = mysqli_fetch_array($result);
 					if($row==false){
-						$content[$count]='"<p></p>';
+						$content[$count]='<p></p>';
 					}
 					else if(!isset($row['pic_id'])){
-						$content[$count]='"<p></p>';
+						$content[$count]='<p></p>';
 					}
 					else if(!isset($row['title'])){
-						$content[$count]='"<p></p>';
+						$content[$count]='<p></p>';
 					}
 					else{$content[$count]='<td class="moment moment-sml background-cover-center" style=\'background-image:url(portrait/'.$row['pic_id'].')\'><p>123123'.$row['title'].'</p></td>';}
 					$count+=1;
