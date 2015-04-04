@@ -46,7 +46,7 @@ class searchView{
 	<td style='width:40%'><label class='item-name'>Gender</label></td>
 	<td style='width:60%'>
     	Male
-        <input type='checkbox' name='gender' value='Male' class='js-switch' checked />
+        <input type='checkbox' name='gender' value='Female' class='js-switch' checked />
             <script>
                 var elem = document.querySelector('.js-switch');
                 var init = new Switchery(elem, {color: '#eb6877', secondaryColor: '#81ccef'});
@@ -70,7 +70,7 @@ class searchView{
 <tr>
 	<td style='width:40%'><label class='item-name'>Height</label></td>
 	<td style='width:60%'>
-    <input class='doubleIn' type='number' name='age-from'> ~ <input class='doubleIn' type='number' name='age-to'>
+    <input class='doubleIn' type='number' name='height-from'> ~ <input class='doubleIn' type='number' name='height-to'>
     </td>
 </tr>
 </table>
@@ -157,11 +157,11 @@ class searchView{
 	<td style='width:40%'><label class='item-name'>Tags</label></td>
 	<td style='width:60%'>
     	<select class='selectify' id='tags' multiple='multiple' name='tags[]'>
-    		<option value='Music'>Music</option>
-    		<option value='Movies'>Movie</option>
-    		<option value='Book'>Book</option>
-    		<option value='Jogging'>Jogging</option>
-    		<option value='Cooking'>Cooking</option>
+    		<option value='music'>Music</option>
+    		<option value='movie'>Movie</option>
+    		<option value='book'>Book</option>
+    		<option value='jogging'>Jogging</option>
+    		<option value='cooking'>Cooking</option>
         </select>
     </td>
 </tr>
