@@ -347,6 +347,12 @@ $(document).ready(function() {
 					if($row==false){
 						$content[$count]='"><p></p>';
 					}
+					else if(isset($row['pic_id'])){
+						$content[$count]='"<p></p>';
+					}
+					else if(isset($row['title'])){
+						$content[$count]='"<p></p>';
+					}
 					else{$content[$count]=' onclick="get_info(\''.$row['pic_id'].'\')" style="background-image:url(portrait/'.$row['pic_id'].')"><p>'.$row['title'].'</p>';}
 					$count+=1;
 				}
@@ -386,6 +392,12 @@ $(document).ready(function() {
 				while($count<20){
 					$row = mysqli_fetch_array($result);
 					if($row==false){
+						$content[$count]='"<p></p>';
+					}
+					else if(isset($row['pic_id'])){
+						$content[$count]='"<p></p>';
+					}
+					else if(isset($row['title'])){
 						$content[$count]='"<p></p>';
 					}
 					else{$content[$count]='<td class="moment moment-sml background-cover-center" style=\'background-image:url(portrait/'.$row['pic_id'].')\'><p>123123'.$row['title'].'</p></td>';}
