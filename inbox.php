@@ -295,7 +295,6 @@ $(document).ready(function() {
 <link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
 <link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages-m.css">
-<link rel="stylesheet" type="text/CSS" href="sidebar.css">
 ';
 				$view=new InboxView();
 				$view->draw_inbox_m($content);
