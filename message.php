@@ -226,16 +226,17 @@ $(document).ready(function() {
 <div class="container">
 <!--search-condition-start-->
 
-	<div class="mail-list">
-		<ul>';
-		echo'<span class="colored-txt">Message receiver: </span><input type="text" id="email", placeholder="Email address">
-			<br></br>
-            <textarea class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="5"></textarea>
-            <span class="button-group">
-            	<input name="mc_markread" type="button" class="btn btn-lg" value="Send new message" onClick="send()">
-            </span>
-		</ul>
-		<div class="mail-list-ft"> </div>
+	<div>';
+		echo'<br>
+			<div id="newmes">
+				<span class="colored-txt">Message receiver: </span><input type="text" id="email", placeholder="Email address" style="width:50%;margin-bottom:10px;height:20px">
+            	<textarea class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="5"></textarea>
+				<div class="button-group">
+					<input id="mail-btn1" type="button" class="btn btn-mobile" value="Send new message" onClick="send()">
+					<input id="mail-btn2" type="button" class="btn btn-mobile" value="Return to inbox" onClick=\'window.location.replace("messages-m.php")\'>
+				</div>
+			</div>
+	 </div>
 	</div>
 </div>';
 		}
