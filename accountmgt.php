@@ -149,7 +149,7 @@
 				}i++;
 			}
 			console.log(tags);
-			window.location.replace('accountmgt.php');
+			window.location.replace('accountmgt-m.php');
 		}
 		else{
 			alert("error...");
@@ -203,10 +203,10 @@
 		record=xmlhttp;
 		response=JSON.parse(xmlhttp.response);
 		if(response['check']=='false'){
-			window.location.replace('new_msg?email='+response['email']);
+			window.location.replace('new_msg_m?email='+response['email']);
 		}
 		else{
-			window.location.replace('read_msg.php?with='+uid);
+			window.location.replace('read_msg-m.php?with='+uid);
 		}
 	}
 	function delete_friend(uid1){
