@@ -242,6 +242,8 @@ function login(){
 		}
 	}
 }
+var uagent = navigator.userAgent.toLowerCase();
+if (uagent.search("iphone") > -1){window.location.replace('index-m.html');}
 </script>
 </body>
 </html>
