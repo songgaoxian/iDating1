@@ -82,13 +82,17 @@ $(document).ready(function() {
 	//show picture detail dialog
 	$(".moment").click(function() {
 		temp=$(this).css("background-image");
-		if(temp.length==none){return;}
-		temp=temp.substr(4);
-		temp=temp.substr(0,temp.length-1);
-		$("#pic-detail-box img").attr({"src":temp});
-		$("#pic-detail-box > a").attr({"href":temp});
-		$("#pic-detail-box > h2").text($(this).children("p").text());
-		$("#pic-detail-box").fadeIn();
+		if(temp.length==""){
+			event.preventDefault();
+		}
+		else {
+			temp=temp.substr(4);
+			temp=temp.substr(0,temp.length-1);
+			$("#pic-detail-box img").attr({"src":temp});
+			$("#pic-detail-box > a").attr({"href":temp});
+			$("#pic-detail-box > h2").text($(this).children("p").text());
+			$("#pic-detail-box").fadeIn();
+		}
 	});	
 	
 	//resize
@@ -186,7 +190,9 @@ $(document).ready(function() {
 	//show picture detail dialog
 	$(".moment").click(function() {
 		temp=$(this).css("background-image");
-		if(temp==none){return;}
+		if(temp==""){
+			event.preventDefault();
+		}
 		else{
 			temp=temp.substr(4);
 			temp=temp.substr(0,temp.length-1);
@@ -341,6 +347,12 @@ $(document).ready(function() {
 					if($row==false){
 						$content[$count]='"><p></p>';
 					}
+					else if(!isset($row['pic_id'])){
+						$content[$count]='"<p></p>';
+					}
+					else if(!isset($row['title'])){
+						$content[$count]='"<p></p>';
+					}
 					else{$content[$count]=' onclick="get_info(\''.$row['pic_id'].'\')" style="background-image:url(portrait/'.$row['pic_id'].')"><p>'.$row['title'].'</p>';}
 					$count+=1;
 				}
@@ -353,6 +365,7 @@ $(document).ready(function() {
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="moments.css">';
@@ -372,16 +385,22 @@ $(document).ready(function() {
 				$result=mysqli_query($conn,$sql);
 				$row=mysqli_fetch_array($result);
 				$total=(int)$row[0];
-				$sql='SELECT pic_id,summary FROM moment ORDER BY upload_date DESC;';
+				$sql='SELECT pic_id,title FROM moment ORDER BY upload_date DESC;';
 				$result=mysqli_query($conn,$sql);
 				$count=0;
 				$content=array();
 				while($count<20){
 					$row = mysqli_fetch_array($result);
 					if($row==false){
-						$content[$count]='"<p></p>';
+						$content[$count]='<p></p>';
 					}
-					else{$content[$count]='<td class="moment moment-sml background-cover-center" style=\'background-image:url(portrait/'.$row['pic_id'].')\'><p>123123'.$row['title'].'</p></td>';}
+					else if(!isset($row['pic_id'])){
+						$content[$count]='<p></p>';
+					}
+					else if(!isset($row['title'])){
+						$content[$count]='<p></p>';
+					}
+					else{$content[$count]='<td class="moment moment-sml background-cover-center" style=\'background-image:url(portrait/'.$row['pic_id'].')\'><p>'.$row['title'].'</p></td>';}
 					$count+=1;
 				}
 				mysqli_close($conn);
