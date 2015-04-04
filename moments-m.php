@@ -74,7 +74,7 @@ function get_info(id){
 	$('#nav').click(
 	function() {
 		if(left==1){
-			$('#B').animate({left: 200});left=0;
+			$('#B').animate({left: 150});left=0;
 			$('#C').css('overflow','hidden');
 		}
 	    else{

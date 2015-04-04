@@ -15,7 +15,7 @@
 	background-color:white;
 	text-align:center;
 	border:none;
-	background-image:none;
+	background-image:url(img/No_pic.png);
 }
 .moment-sml {
 	width:195px;
