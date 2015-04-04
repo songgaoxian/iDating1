@@ -250,8 +250,7 @@
 			}
 		}
 		close1.click();
-	}
- var left=1;
+	} var left=1;
 	$('#nav').click(
 	function() {
 		if(left==1){

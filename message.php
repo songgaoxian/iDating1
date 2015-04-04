@@ -95,6 +95,7 @@
 		public function draw_m($content){
 			echo'
 <title>iDating - Messages</title>
+<link rel="stylesheet" type="text/CSS" href="sidebar.css">
 </head>
 
 <body>
@@ -116,8 +117,19 @@ $(document).ready(function() {
 
 </head>
 
-<body>
+<body><div id="C">
 <!--header-start-->
+<div id="A">
+<ul>
+<li><a href="accountmgt-m.php">My Page</a></li>
+<li><a href="search-m.php">Search</a></li>
+<li><a href="shake.php">Shake</a></li>
+<li><a href="calendar-m.php">Calendar</a></li>
+<li><a href="moments-m.php">Moments</a></li>
+<li><a href="messages-m.php">Messages</a></li>
+<li><a href="logout1.php">Log Out</a></li>
+</ul>
+</div><div id="B">
 <div class="header">
 <div id="topnav">
 <img id="upload" src="img/add.png" alt="upload moments">
@@ -126,14 +138,6 @@ $(document).ready(function() {
 <h1>Massages</h1>
 </div>
 <!--header-end-->
-<div class="sidebar">
-<a href="accountmgt-m.php">My Page</a>
-<a href="search-m.php">Search</a>
-<a href="shake.php">Shake</a>
-<a href="calendar-m.php">Calendar</a>
-<a href="moments-m.php">Moments</a>
-<a href="messages-m.php">Messages</a>
-</div>
 <!--header-end-->
 
 <!--content-start-->
@@ -155,9 +159,7 @@ $(document).ready(function() {
 		</div>
 	</div>
 </form>
-  
-    
-</div>';
+';
 		}
 		public function draw_new(){
 			echo'
