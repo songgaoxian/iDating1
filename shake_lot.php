@@ -1,5 +1,6 @@
 <?php 
 	require('session.php');
+		session_start();
 		$session=new Session();
 		$uid=$session->get_uid();
 		if($uid==''){header('Location: index-m.html');}
