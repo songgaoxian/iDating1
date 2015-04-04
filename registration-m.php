@@ -206,7 +206,7 @@ $(document).ready(function() {
 <tr>
   <td class="item-name colored-txt">Tags:</td>
   <td class="item-content" id="tag">
-   		<select name="tags_me" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
+   		<select name="tags_pref" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
     		<option value="Music">Music</option>
     		<option value="Movies">Movie</option>
     		<option value="Book">Book</option>
