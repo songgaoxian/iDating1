@@ -68,10 +68,6 @@ $(document).ready(function() {
 		$(this).children("p").fadeIn("fast");
 		$(this).prepend("<div class=\'pic-mask\'></div>");
 	});
-	
-	$("#nav").click(function() {
-		$(".sidebar").fadeToggle();
-	});
 			
 	//show upload picture dialog
 	 $("#upload").click(function() {
@@ -80,7 +76,7 @@ $(document).ready(function() {
 	
 	//close an overlay
 	$(".close-overlay").click(function() {
-		$(this).parent()..parent().fadeOut();		
+		$(this).parent().parent().fadeOut();		
 	});	
 	
 	//show picture detail dialog
@@ -103,9 +99,10 @@ $(document).ready(function() {
 <title>iDating - Moments</title>
 </head>
 
-<body><div id="C">
-<!--header-start-->
+<body>
+<div id="C">
 <div id="A">
+<!--sidebar-start-->
 <ul>
 <li><a href="accountmgt-m.php">My Page</a></li>
 <li><a href="search-m.php">Search</a></li>
@@ -115,7 +112,10 @@ $(document).ready(function() {
 <li><a href="messages-m.php">Messages</a></li>
 <li><a href="logout1.php">Log Out</a></li>
 </ul>
-</div><div id="B">
+<!--sidebar-end-->
+</div>
+<div id="B">
+<!--header-start-->
 <div class="header">
 <div id="topnav">
 <img id="upload" src="img/add.png" alt="upload moments">
@@ -126,7 +126,8 @@ $(document).ready(function() {
 <!--header-end-->
 
 <!--container-start-->
-<div class="container"><!--moment-wall-start-->
+<div class="container">
+<!--moment-wall-start-->
 <div id="moment-wall">
 <table>
   ';
@@ -393,7 +394,6 @@ $(document).ready(function() {
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="moments-m.css">
-<link rel="stylesheet" type="text/CSS" href="sidebar.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>';
 				$view=new PictureView();
