@@ -132,7 +132,7 @@ $(document).ready(function() {
 </div><div id="B">
 <div class="header">
 <div id="topnav">
-<img id="upload" src="img/add.png" alt="upload moments">
+<img id="upload" src="img/add.png" alt="upload moments" onClick="">
 </div>
 <img id="nav" src="img/nav.png" alt="navigate">
 <h1>Massages</h1>
@@ -206,6 +206,7 @@ $(document).ready(function() {
 <title>iDating - Messages</title>
 </head>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <body><div id="C">
 <!--header-start-->
 <div id="A">
@@ -221,12 +222,9 @@ $(document).ready(function() {
 </div><div id="B">
 <div class="header">
 <div id="topnav">
-<img id="upload" src="img/add.png" alt="upload moments">
-</div>
+</div><img id="nav" src="img/nav.png" alt="navigate"><h1 class="colored-txt">New Message</h1></div>
 <div class="container">
 <!--search-condition-start-->
-
-<h1 class="colored-txt">My Message Inbox</h1>
 
 	<div class="mail-list">
 		<ul>';
@@ -329,6 +327,7 @@ $(document).ready(function() {
 <link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
 <link rel="stylesheet" type="text/CSS" href="'.$result['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages-m.css">
+<link rel="stylesheet" type="text/CSS" href="sidebar.css">
 
 ';
 				$view->draw_m($mess->get_content(),$result['photo'],$result['username'],$result['email']);
@@ -349,10 +348,32 @@ $(document).ready(function() {
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <link rel="stylesheet" type="text/CSS" href="'.$result1['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages.css">
+<link rel="stylesheet" type="text/CSS" href="sidebar.css">
 <title>iDating - Messages</title>';
-			if($uid==NULL){header('Location: index.php');}
+			if($uid==NULL){header('Location: index-m.html');}
 			$view=new MessageView();
 			$view->draw_new();
+		}
+		public function show_new1(){
+			session_start();
+			$session=new Session();
+			$uid=$session->get_uid();
+			$user1=new User();
+			$user1->set_user($uid);
+			$result1=$user1->show_info();
+			echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
+<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="'.$result1['theme'].'-theme.css">
+<link rel="stylesheet" type="text/CSS" href="messages-m.css">
+<link rel="stylesheet" type="text/CSS" href="sidebar.css">
+';
+			if($uid==NULL){header('Location: index-m.html');}
+			$view=new MessageView();
+			$view->draw_new_m();
 		}
 	}
 ?>

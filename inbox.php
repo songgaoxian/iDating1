@@ -157,7 +157,7 @@ $(document).ready(function() {
 </div><div id="B">
 <div class="header">
 <div id="topnav">
-<img id="upload" src="img/add.png" alt="upload moments">
+<img id="upload" src="img/add.png" alt="upload moments" onClick=\'window.location.replace("new_msg_m.php")\'>
 </div>
 <img id="nav" src="img/nav.png" alt="navigate">
 <h1>Inbox</h1>
