@@ -4,7 +4,7 @@ body {
 	font-family:Verdana, Geneva, sans-serif;
 	margin:0;
 }
-a { text-decoration:none;}
+a {text-decoration:none;}
 .header {
 	position:fixed;
 	z-index:990;
@@ -20,12 +20,8 @@ a { text-decoration:none;}
 	font-size:24px;
 	font-weight:normal;
 }
-#topnav {
-	float:right;	
-}
-#topnav > img {
-	padding:0 5px;
-}
+#topnav {float:right;}
+#topnav > img {padding:0 5px;}
 #topnav > img:hover {cursor:pointer;}
 #nav {float:left;}
 #nav:hover {cursor:pointer;}
@@ -46,9 +42,7 @@ a { text-decoration:none;}
 	color:white;
 	font:16px Verdana, Geneva, sans-serif;	
 }
-.btn:hover {
-	cursor:pointer;
-}
+.btn:hover {cursor:pointer;}
 .btn-fill {
 	margin:10px 0;
 	padding:10px 0;
@@ -96,9 +90,7 @@ a { text-decoration:none;}
 	text-decoration:underline;
 	cursor:pointer;	
 }
-.no-line:hover {
-	text-decoration:none;
-}
+.no-line:hover {text-decoration:none;}
 .background-cover-center {
 	background-position:center center;
 	background-repeat:no-repeat;
@@ -120,13 +112,8 @@ a { text-decoration:none;}
 	padding:0 5% 0;
 	line-height:150%;
 }
-.close-overlay {
-	float:left;	
-}
-.close-overlay:hover {
-	background-color:#e5004f;
-	cursor:pointer;
-}
+.close-overlay {float:left;}
+.close-overlay:hover {cursor:pointer;}
 /*shared-components-end*/
 
 /*account-management, register*/

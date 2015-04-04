@@ -13,6 +13,7 @@
 #topnav > li > a:hover {background-color:#4eb7e8;}
 #topnav > img:hover {background-color:#4eb7e8;}
 #nav:hover {background-color:#4eb7e8;}
+.close-overlay:hover {background-color::#4eb7e8;}
 
 /*calendar*/
 .event-box {background-color:#81ccef;}
@@ -46,12 +47,8 @@ th {
 	border:1px solid #4eb7e8;
 	background:linear-gradient(white,#e6f5fc);
 }
-.txtbox-embed {
-	color:#4eb7e8;
-}
-.search-tag {
-	color:#4eb7e8;
-}
+.txtbox-embed {color:#4eb7e8;}
+.search-tag {color:#4eb7e8;}
 
 /*index*/
 #back2top {background-color:#81ccef;}

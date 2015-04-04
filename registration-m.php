@@ -11,9 +11,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="pink-theme.css">
 <link rel="stylesheet" type="text/CSS" href="registration-m.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link href="js/jqueryUI/chosen/chosen.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/jqueryUI/chosen/chosen.jquery.js"></script>
+<script>
+$(document).ready(function() {
+	$(".selecttags").chosen();
+});
+</script>
 <title>iDating - Sign Up</title>
 </head>
 
@@ -90,7 +99,7 @@
 	<option value="Real Estate">Real Estate</option>
 	<option value="Insurance">Insurance</option>
 	<option value="Consulting">Consulting</option>
-	<option value="Legal">Legal</option>
+	<option value="Law">Law</option>
 	<option value="Trading/Import & Export">Trading/Import & Export</option>
 	<option value="Wholesale/Retail">Wholesale/Retail</option>
 	<option value="Apparel/Textiles">Apparel/Textiles</option>
@@ -113,7 +122,15 @@
 </tr>
 <tr>
   <td class="item-name colored-txt">Tags:</td>
-  <td><div class="tag-item">Humorous</div></td>  
+  <td class="item-content" id="tag">
+   		<select name="tags_me" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="Music">Music</option>
+    		<option value="Movies">Movie</option>
+    		<option value="Book">Book</option>
+    		<option value="Jogging">Jogging</option>
+    		<option value="Cooking">Cooking</option>
+		</select> 
+   </td> 
 </tr>
 </table>
 </div>
@@ -166,7 +183,7 @@
 	<option value="Real Estate">Real Estate</option>
 	<option value="Insurance">Insurance</option>
 	<option value="Consulting">Consulting</option>
-	<option value="Legal">Legal</option>
+	<option value="Law">Law</option>
 	<option value="Trading/Import & Export">Trading/Import & Export</option>
 	<option value="Wholesale/Retail">Wholesale/Retail</option>
 	<option value="Apparel/Textiles">Apparel/Textiles</option>
@@ -188,7 +205,15 @@
 </tr>
 <tr>
   <td class="item-name colored-txt">Tags:</td>
-  <td><div class="tag-item">Romantic</div><div class="tag-item">Reliable</div></td>    
+  <td class="item-content" id="tag">
+   		<select name="tags_me" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
+    		<option value="Music">Music</option>
+    		<option value="Movies">Movie</option>
+    		<option value="Book">Book</option>
+    		<option value="Jogging">Jogging</option>
+    		<option value="Cooking">Cooking</option>
+		</select> 
+   </td>   
 </tr>
 </table>
 </div>
