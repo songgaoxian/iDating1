@@ -15,7 +15,7 @@ $(document).ready(function() {
 		$(".overlay-container").show();
 		$("#waiting-box").css("margin-top",($(".overlay-container").height()-$("#waiting-box").height())/2);
     	$("#waiting-box").fadeIn();
-		setTimeout(window.location.replace('shake_lot.php'),3000);
+		setTimeout(window.location.replace('shake_lot.php'),5000);
 	});
 });
 </script>
@@ -77,11 +77,10 @@ $(document).ready(function() {
 		document.getElementById("doDirection").innerHTML = Math.round(count);
 		var temp=document.getElementById('123');
 		temp.text=count;
-		if(count>2000 && count1==0){
+		if(count>3000 && count1==0){
 			count1=1;
 			alert("123");
-			var but=document.getElementById('shake');
-			but.click();
+			$('#shake').click();
 		}
     }
 </script>
