@@ -86,6 +86,7 @@ $(document).ready(function() {
 	//show picture detail dialog
 	$(".moment").click(function() {
 		temp=$(this).css("background-image");
+		if(temp.length==none){return;}
 		temp=temp.substr(4);
 		temp=temp.substr(0,temp.length-1);
 		$("#pic-detail-box img").attr({"src":temp});
@@ -183,18 +184,20 @@ $(document).ready(function() {
 	//show picture detail dialog
 	$(".moment").click(function() {
 		temp=$(this).css("background-image");
-		temp=temp.substr(4);
-		temp=temp.substr(0,temp.length-1);
-		$("body").append("<div class=\'mask\'></div>");
-		$(".overlay-container").show();
-		$("#pic-detail-box img").attr({"src":temp});
-		$("#pic-detail-box > a").attr({"href":temp});
-		$("#pic-detail-box > h2").text($(this).children("p").text());
-		$("#pic-detail-box img").css("max-height", $(".overlay-container").height()*0.75-100);
-		$("#pic-detail-box").css("margin-top",($(".overlay-container").height()*0.95-$("#pic-detail-box").height())/2);
-		$("#pic-detail-box").slideDown();
-		imgpadding=($("#pic-detail-box").width()-$("#pic-detail-box img").width())/2
-		$("#pic-detail-box img").css("padding-left", imgpadding);
+		if(temp==none){return;}
+		else{
+			temp=temp.substr(4);
+			temp=temp.substr(0,temp.length-1);
+			$("body").append("<div class=\'mask\'></div>");
+			$(".overlay-container").show();
+			$("#pic-detail-box img").attr({"src":temp});
+			$("#pic-detail-box > a").attr({"href":temp});
+			$("#pic-detail-box > h2").text($(this).children("p").text());
+			$("#pic-detail-box img").css("max-height", $(".overlay-container").height()*0.75-100);
+			$("#pic-detail-box").css("margin-top",($(".overlay-container").height()*0.95-$("#pic-detail-box").height())/2);
+			$("#pic-detail-box").slideDown();
+			imgpadding=($("#pic-detail-box").width()-$("#pic-detail-box img").width())/2
+			$("#pic-detail-box img").css("padding-left", imgpadding);}
 	});	
 	
 	//resize
