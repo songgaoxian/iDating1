@@ -919,7 +919,7 @@ Copyright &copy; 2015 All Rights Reserved.
 			$session=new Session();
 			$uid=$session->get_uid();
 			if($uid==NULL){
-				header('Location: index.php',true,302);
+				header('Location: index-m.html',true,302);
 				return;
 			}
 			else{
