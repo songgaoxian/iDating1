@@ -2,50 +2,25 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
+<link rel="stylesheet" type="text/CSS" href="pink-theme.css">
 <link rel="stylesheet" type="text/CSS" href="shake.css">
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-	$(".sidebar").hide();
-		
-	$("#nav").click(function() {
-		$(".sidebar").fadeToggle();
+	$("#shake").click(function() {
+		$("body").append("<div class='mask'></div>");
+		$(".overlay-container").show();
+		$("#waiting-box").css("margin-top",($(".overlay-container").height()-$("#waiting-box").height())/2);
+    $("#waiting-box").fadeIn();   
 	});
 });
 </script>
-  
 <title>iDating - Shake</title>
 </head>
 
 <body>
-<!--header-start-->
-<div class="header">
-<img id="nav" src="img/nav.png" alt="navigate">
-<h1>Shake</h1>
-<div id="doEvent"></div>
-      <table>
-        <tr>
-          <td>Event Supported</td>
-          <td id="doEvent"></td>
-        </tr>
-        <tr>
-          <td>Tilt Left/Right [gamma]</td>
-          <td id="doTiltLR"></td>
-        </tr>
-        <tr>
-          <td>Tilt Front/Back [beta]</td>
-          <td id="doTiltFB"></td>
-        </tr>
-        <tr>
-          <td>Direction [alpha]</td>
-          <td id="doDirection"></td>
-        </tr>
-      </table>
-</div>
-<!--header-end-->
 <script>
     init();
     var count = 0;
@@ -87,7 +62,17 @@ $(document).ready(function() {
     // Some other fun rotations to try...
     //var rotation = "rotate3d(0,1,0, "+ (tiltLR*-1)+"deg) rotate3d(1,0,0, "+ (tiltFB*-1)+"deg)";
     //var rotation = "rotate("+ tiltLR +"deg) rotate3d(0,1,0, "+ (tiltLR*-1)+"deg) rotate3d(1,0,0, "+ (tiltFB*-1)+"deg)";
-  </script>
+</script>
+<!--header-start-->
+<div class="header">
+<div id='topnav'>
+<img id='shake' src='img/add.png' alt='sjake'>
+</div>
+<img id="nav" src="img/nav.png" alt="navigate">
+<h1>Shake</h1>
+</div>
+<!--header-end-->
+
 <div class="sidebar">
 <a href="accountmgt-m.html">My Page</a>
 <a href="search-m.html">Search</a>
@@ -99,9 +84,40 @@ $(document).ready(function() {
 
 <!--shake-start-->
 <div class="container">
+<div id="doEvent">
+      <table>
+        <tr>
+          <td>Event Supported</td>
+          <td id="doEvent"></td>
+        </tr>
+        <tr>
+          <td>Tilt Left/Right [gamma]</td>
+          <td id="doTiltLR"></td>
+        </tr>
+        <tr>
+          <td>Tilt Front/Back [beta]</td>
+          <td id="doTiltFB"></td>
+        </tr>
+        <tr>
+          <td>Direction [alpha]</td>
+          <td id="doDirection"></td>
+        </tr>
+      </table>
+</div>
 <p>Please Shake Your Cellphone</p>
 <img src="img/shake_bg.png" alt="shake background">
 </div>
 <!--shake-end-->
+
+<!--overlay-start-->
+<div class="overlay-container">
+<!--waiting-box-start-->
+<div id="waiting-box" class="overlay-sml">
+<img src="img/waiting.gif" alt="waiting">
+<h2>Interpreting...</h2>
+</div>
+<!--waiting-box-end-->
+</div>
+<!--overlay-end-->
 </body>
 </html>
