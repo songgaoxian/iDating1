@@ -350,7 +350,7 @@ $(document).ready(function() {
 					else if(!isset($row['pic_id'])){
 						$content[$count]='"<p></p>';
 					}
-					else if(!isset($row[''])){
+					else if(!isset($row['title'])){
 						$content[$count]='"<p></p>';
 					}
 					else{$content[$count]=' onclick="get_info(\''.$row['pic_id'].'\')" style="background-image:url(portrait/'.$row['pic_id'].')"><p>'.$row['title'].'</p>';}
@@ -400,7 +400,7 @@ $(document).ready(function() {
 					else if(!isset($row['title'])){
 						$content[$count]='<p></p>';
 					}
-					else{$content[$count]='<td class="moment moment-sml background-cover-center" style=\'background-image:url(portrait/'.$row['pic_id'].')\'><p>123123'.$row['title'].'</p></td>';}
+					else{$content[$count]='<td class="moment moment-sml background-cover-center" style=\'background-image:url(portrait/'.$row['pic_id'].')\'><p>'.$row['title'].'</p></td>';}
 					$count+=1;
 				}
 				mysqli_close($conn);
