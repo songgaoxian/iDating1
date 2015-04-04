@@ -82,13 +82,17 @@ $(document).ready(function() {
 	//show picture detail dialog
 	$(".moment").click(function() {
 		temp=$(this).css("background-image");
-		if(temp.length==none){return;}
-		temp=temp.substr(4);
-		temp=temp.substr(0,temp.length-1);
-		$("#pic-detail-box img").attr({"src":temp});
-		$("#pic-detail-box > a").attr({"href":temp});
-		$("#pic-detail-box > h2").text($(this).children("p").text());
-		$("#pic-detail-box").fadeIn();
+		if(temp.length==""){
+			event.preventDefault();
+		}
+		else {
+			temp=temp.substr(4);
+			temp=temp.substr(0,temp.length-1);
+			$("#pic-detail-box img").attr({"src":temp});
+			$("#pic-detail-box > a").attr({"href":temp});
+			$("#pic-detail-box > h2").text($(this).children("p").text());
+			$("#pic-detail-box").fadeIn();
+		}
 	});	
 	
 	//resize
@@ -186,7 +190,9 @@ $(document).ready(function() {
 	//show picture detail dialog
 	$(".moment").click(function() {
 		temp=$(this).css("background-image");
-		if(temp==none){return;}
+		if(temp==""){
+			event.preventDefault();
+		}
 		else{
 			temp=temp.substr(4);
 			temp=temp.substr(0,temp.length-1);
@@ -353,6 +359,7 @@ $(document).ready(function() {
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="moments.css">';
