@@ -59,6 +59,7 @@ else
         $_SESSION['sname']=array();
     $_SESSION['suid']=array();
     $_SESSION['sphoto']=array();
+    $_SESSION['distance']=array(); 
                 $length=0;
          if(!empty($_POST['age-from']) and !is_numeric($_POST['age-from'])){
           echo "<script>alert('Age info is invalid')</script>";
