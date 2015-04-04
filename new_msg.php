@@ -1,7 +1,7 @@
 <?php
 	require("message.php");
 	$view=new MessageViewController();
-	$view->show_new1();
+	$view->show_new();
 ?>
 <script type="application/javascript">
 	var url=document.URL;
