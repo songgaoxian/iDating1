@@ -55,5 +55,15 @@ body {
 	opacity:0.5;
 }
 
+#lot {
+	width:100%;
+}
 
+.btn-shake {
+	padding:10px;
+	display:block;
+	margin-bottom:20px;
+	width:92%;
+	margin:auto;
+}
 
