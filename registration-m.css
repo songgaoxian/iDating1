@@ -12,19 +12,19 @@
 	font-weight:normal;
 }
 #income {
-	width:75%;
+	width:70%;
 }
 #income_pref {
-	width:60%;
+	width:55%;
 }
 #age_f, #age_t, #height_f, #height_t {
-	width:41%;
+	width:40%;
 }
 #self-descrp {
 	height:100px;
 }
 #submit-now {
-	width:40%;
-	margin:20px 30%;
+	width:90%;
+	margin:20px 5%;
 	padding:10px 0;
 }
