@@ -13,7 +13,15 @@
 #topnav > li > a:hover {background-color:#4eb7e8;}
 #topnav > img:hover {background-color:#4eb7e8;}
 #nav:hover {background-color:#4eb7e8;}
-.close-overlay:hover {background-color::#4eb7e8;}
+.close-overlay:hover {background-color:#4eb7e8;}
+
+/*sidebar*/
+#A {background-color:#e6f5fc;}
+#A li a{color:#81ccef;}
+#A li a:hover{
+	background-color: white;
+	color:#4eb7e8;
+}
 
 /*calendar*/
 .event-box {background-color:#81ccef;}

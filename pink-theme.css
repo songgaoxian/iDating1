@@ -15,6 +15,14 @@
 #nav:hover {background-color:#e5004f;}
 .close-overlay:hover {background-color:#e5004f;}
 
+/*sidebar*/
+#A {background-color:fee;}
+#A li a{color:#eb6877;}
+#A li a:hover{
+	background-color: white;
+	color:#e5004f;
+}
+
 /*calendar*/
 .event-box {background-color:#eb6877;}
 .event-box:hover {background-color:#e5004f;}

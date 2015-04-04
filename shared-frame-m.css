@@ -4,6 +4,7 @@ body {
 	font-family:Verdana, Geneva, sans-serif;
 	margin:0;
 }
+div {background-color:white;}
 a {text-decoration:none;}
 .header {
 	position:fixed;
@@ -65,15 +66,11 @@ html, body {
 	padding:0;
 }
 #A li + li {
-    margin-top: 12px; 
+    margin-top: 8px; 
 }
 #A li a{
-	padding: 4px 10px;
+	padding: 10px 10px;
     display: block;
-    color: #eb6877;
-}
-#A li a:hover {
-   background-color: white; 
 }
 /*sidebar-end*/
 
