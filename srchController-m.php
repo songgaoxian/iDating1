@@ -117,7 +117,7 @@ else
               	$book='book';
               if($value=='jogging')
               	$jogging='jogging';
-              if($value='cooking')
+              if($value=='cooking')
               	$cooking='cooking';
         	}
         }
@@ -129,7 +129,9 @@ else
         if(mysqli_num_rows($result)>0){
                 $i=0;
                 $pass=1;
+                $k=0;
                 while($row=mysqli_fetch_array($result)) {
+                  $k++;
                   if($gender!==$row['sex'])
                     $pass=0;
                   if($city!==0 and $city!==$row['city'])
@@ -146,19 +148,25 @@ else
                   if($music!==0 or $book!==0 or $movie!==0 or $jogging!==0 or $cooking!==0)
                     if(mysqli_num_rows($resultq)==0){
                       $pass=0;
+                      echo "error";
                      }
                     else{
                       $rowq=mysqli_fetch_array($resultq);
-                      if($music!==0 and !$rowq['music'])
-                        $pass=0;
-                      if($movie!==0 and !$rowq['movie'])
-                        $pass=0;
-                      if($jogging!==0 and !$rowq['jogging'])
-                        $pass=0;
-                      if($book!==0 and !$rowq['book'])
-                        $pass=0;
-                      if($cooking!==0 and !$rowq['cooking'])
-                        $pass=0;
+                      if($music!==0 and $rowq['music']!=='music')
+                        {$pass=0;
+                          }
+                      if($movie!==0 and $rowq['movie']!=='movie')
+                        {$pass=0;
+                          }
+                      if($jogging!==0 and $rowq['jogging']!=='jogging')
+                        {$pass=0;
+                          }
+                      if($book!==0 and $rowq['book']!=='book')
+                        {$pass=0;
+                          }
+                      if($cooking!==0 and $rowq['cooking']!=='cooking')
+                        {$pass=0;
+                          }
                     }
 
                   if($pass==1){
