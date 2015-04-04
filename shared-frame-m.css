@@ -34,6 +34,49 @@ a {text-decoration:none;}
 	font-size:15px;
 	text-align:center;
 }
+/*sidebar-start*/
+html, body {
+    padding:0;
+    border:0;
+}
+#A {
+	position:fixed;
+    top: 52px;
+    width: 150px;
+    bottom:0;
+}
+#C{
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+#B {
+	position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+	min-width: 360px;
+}
+#A ul{
+	list-style-type: none;
+	padding:0;
+}
+#A li + li {
+    margin-top: 12px; 
+}
+#A li a{
+	padding: 4px 10px;
+    display: block;
+    color: #eb6877;
+}
+#A li a:hover {
+   background-color: white; 
+}
+/*sidebar-end*/
+
 /*shared-components-start*/
 .btn {
 	border:none;

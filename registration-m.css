@@ -12,13 +12,13 @@
 	font-weight:normal;
 }
 #income {
-	width:70%;
+	width:65%;
 }
 #income_pref {
-	width:55%;
+	width:50%;
 }
 #age_f, #age_t, #height_f, #height_t {
-	width:40%;
+	width:33%;
 }
 #self-descrp {
 	height:100px;
