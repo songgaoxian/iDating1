@@ -24,7 +24,7 @@
 		console.log(record);
 		response=JSON.parse(xmlhttp.response);
 		if(response['check']=='true'){
-			window.location="messages.php";
+			window.location="messages-m.php";
 		}
 		else{
 			alert("error...");
