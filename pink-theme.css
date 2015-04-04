@@ -11,6 +11,8 @@
 /*header*/
 .header {background-color:#eb6877;}
 #topnav > li > a:hover {background-color:#e5004f;}
+#topnav > img:hover {background-color:#e5004f;}
+#nav:hover {background-color:#e5004f;}
 
 /*calendar*/
 .event-box {background-color:#eb6877;}

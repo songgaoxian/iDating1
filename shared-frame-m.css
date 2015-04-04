@@ -12,7 +12,6 @@ a { text-decoration:none;}
 	top:0;
 	width:100%;
 	height:52px;
-	background-color:#eb6877;
 	box-shadow:0 -1px 5px #666;
 }
 .header > h1 {
@@ -27,17 +26,9 @@ a { text-decoration:none;}
 #topnav > img {
 	padding:0 5px;
 }
-#topnav > img:hover {
-	background-color:#e5004f;
-	cursor:pointer;
-}
-#nav {
-	float:left;	
-}
-#nav:hover {
-	background-color:#e5004f;
-	cursor:pointer;
-}
+#topnav > img:hover {cursor:pointer;}
+#nav {float:left;}
+#nav:hover {cursor:pointer;}
 .container {
 	margin-top:52px;
 	width:100%;
