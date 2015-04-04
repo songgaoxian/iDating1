@@ -333,9 +333,10 @@ $length=$_SESSION['length'];
                 }
                 }
                  echo "<br>";
-                 echo "<span>Page:&nbsp";
+                 echo "<div style='text-align:center'>Page:&nbsp";
                  for($k=1; $k<=$page;$k++)
                          echo "<a href='sresult.php?pageno=$k'>$k</a>&nbsp";
+                  echo "</div>";
                  echo "</div>";  
                  
          }
