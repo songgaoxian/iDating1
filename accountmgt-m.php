@@ -262,6 +262,33 @@
 			$('#C').css('overflow','scroll');
 		}
 	});
+	var init=0;
+	function click_(){
+		if(init>0){return;}
+		var a=document.getElementById("selecttags_chzn");
+		var a_list=document.getElementById("tags");
+		var b=document.getElementById("selecttags1_chzn");
+		var b_list=document.getElementById("tags1");
+		function select__(node,values){
+			var temp=values.children;
+			var value=[];
+			var i=0;
+			while(i<temp.length){
+				value[i]=temp[i].textContent;
+				i+=1;
+			}
+			console.log(node);
+			var node=node.children[1].children[0].children;
+			i=0;
+			while(i<node.length){
+				if(value.indexOf(node[i].textContent)!=-1){node[i].click();}
+				i+=1;
+			}
+		}
+		select__(a,a_list);
+		select__(b,b_list);
+		init+=1;
+	}
 </script>
 </div>
 </div>
