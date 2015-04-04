@@ -113,12 +113,16 @@ h2 {
 .search-portrait:hover {
 	cursor:pointer;
 }
-.search-portrait > a {
+.portrait-name {
 	margin:5px;
+	height:25px;
+	max-height:25px;
+	overflow:hidden;
 	display:block;
 }
-.search-portrait > div{
+.portrait-pic{
 	width:90%;
 	margin-left:5%;
+	display:block;
 }
 /*search-result-end*/

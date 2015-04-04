@@ -286,7 +286,7 @@ $length=$_SESSION['length'];
                  for($j=1; $j<=$length;$j++){
                          $m=$j-1;
                  if($_SESSION['rank']==0)
-                 echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";
+                 echo "<div class='search-portrait'><a class='background-cover-center portrait-pic' href='accountmgt.php?uid=$suid[$m]' style='background-image:url(portrait/$sphoto[$m]);'></a><a class='portrait-name' href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";
                  else{
                   if($_SESSION['distance'][$m]!=='unknown')
                   $temp=round($_SESSION['distance'][$m]);
@@ -295,7 +295,7 @@ $length=$_SESSION['length'];
                     $tphoto=$_SESSION['sphoto'][$m];
                     $tuid=$_SESSION['suid'][$m];
                     $tname=$_SESSION['sname'][$m];
-                  echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$tphoto);'></div><a href='accountmgt.php?uid=$tuid'>$tname: $temp meter</a></div>";
+                  echo "<div class='search-portrait'><a class='background-cover-center portrait-pic' href='accountmgt.php?uid=$tuid' style='background-image:url(portrait/$tphoto);'></a><a class='portrait-name' href='accountmgt.php?uid=$tuid'>$tname: $temp meter</a></div>";
                  }
                  }
                  echo "</div>";
@@ -320,7 +320,7 @@ $length=$_SESSION['length'];
                          $sname[$m]=$_SESSION['sname'][$m];
                          $suid[$m]=$_SESSION['suid'][$m];
                  if($_SESSION['rank']==0)
-                 echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";
+                 echo "<div class='search-portrait'><a class='background-cover-center portrait-pic' href='accountmgt.php?uid=$suid[$m]' style='background-image:url(portrait/$sphoto[$m]);'></a><a class='portrait-name' href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";
                  else{
                   if($_SESSION['distance'][$m]!=='unknown')
                   $temp=round($_SESSION['distance'][$m]);
@@ -329,7 +329,7 @@ $length=$_SESSION['length'];
                     $tphoto=$_SESSION['sphoto'][$m];
                     $tuid=$_SESSION['suid'][$m];
                     $tname=$_SESSION['sname'][$m];
-                  echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$tphoto);'></div><a href='accountmgt.php?uid=$tuid'>$tname: $temp meter</a></div>";
+                  echo "<div class='search-portrait'><a class='background-cover-center portrait-pic' href='accountmgt.php?uid=$tuid' style='background-image:url(portrait/$tphoto);'></a><a class='portrait-name' href='accountmgt.php?uid=$tuid'>$tname: $temp meter</a></div>";
                 }
                 }
                  echo "<br>";

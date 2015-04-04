@@ -8,7 +8,7 @@ ACTMGT
 friend view page
 
 
-Calendar
+Calendar-m
 
 Message
 Needs discussion

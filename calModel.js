@@ -3,7 +3,7 @@ $(document).ready(function() {
      $("td").click(function(event) {
       date11=$(this).attr('class');
       if(date11=='0'){
-        alert("chose a valid day");
+        alert("Please choose a valid day.");
         event.preventDefault();
       }
     else{
@@ -60,28 +60,14 @@ function send(dateid){
         location1=result[3];
         dtid1=result[4];
         mateid1=result[5];
-        if($("[name=dateid1]").length>0)
-          $("[name=dateid1]").remove();
-        if($("[name=mname1]").length>0)
-          $("[name=mname1]").remove();
-        if($("[name=dat1]").length>0)
-          $("[name=dat1]").remove();
-        if($("[name=content1]").length>0)
-          $("[name=content1]").remove();
-        if($("[name=location1]").length>0)
-          $("[name=location1]").remove();
-        if($("[name=mateid1]").length>0)
-          $("[name=mateid1]").remove();
-         $("#detailc").append("<input type='hidden' name='dateid1' value='"+dtid1+"'>");
-         $("#detailc").append("<input type='hidden' name='mateid1' value='"+mateid1+"'>");
-        $("#detailc").append("<input type='text' readonly=true name='mname1' size='30' value='Date mate: "+matename1+"'>");
-        $("#detailc").append("<input type='text' readonly=true name='dat1' size='30' value='"+dat1+"'>");
-        $("#detailc").append("<br name='dat1'>");
-        $("#detailc").append("<input type='text' readonly=true name='content1' size='30' value='Content: "+content1+"'>");
-    
-        $("#detailc").append("<input type='text' readonly=true name='location1' size='30' value='Location: "+location1+"'>");
-        $("#detailc").append("<br name='location1'>");
-       }
+        if($("#detail-table").length>0)
+          $("#detail-table").remove();
+		  if($("#detail-p").length>0)
+          $("#detail-p").remove();
+        	  
+		  $("#detailc").before("<table id='detail-table'><tr><td class='item-name colored-txt'>Date Partner:</td><td class='item-content'>"+matename1+"</td></tr><tr><td class='item-name colored-txt'>Time:</td><td class='item-content'>"+dat1+"</td></tr><tr><td class='item-name colored-txt'>Location:</td><td class='item-content'>"+location1+"</td></tr></table>");
+		  $("#detailc").before("<p id='detail-p'>"+content1+"</p>");
+         }
     });
 }
 
