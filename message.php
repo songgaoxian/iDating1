@@ -200,6 +200,48 @@ $(document).ready(function() {
 	</div>
 </div>';
 		}
+		
+		public function draw_new_m(){
+			echo'
+<title>iDating - Messages</title>
+</head>
+
+<body><div id="C">
+<!--header-start-->
+<div id="A">
+<ul>
+<li><a href="accountmgt-m.php">My Page</a></li>
+<li><a href="search-m.php">Search</a></li>
+<li><a href="shake.php">Shake</a></li>
+<li><a href="calendar-m.php">Calendar</a></li>
+<li><a href="moments-m.php">Moments</a></li>
+<li><a href="messages-m.php">Messages</a></li>
+<li><a href="logout1.php">Log Out</a></li>
+</ul>
+</div><div id="B">
+<div class="header">
+<div id="topnav">
+<img id="upload" src="img/add.png" alt="upload moments">
+</div>
+<div class="container">
+<!--search-condition-start-->
+
+<h1 class="colored-txt">My Message Inbox</h1>
+
+	<div class="mail-list">
+		<ul>';
+		echo'<span class="colored-txt">Message receiver: </span><input type="text" id="email", placeholder="Email address">
+			<br></br>
+            <textarea class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="5"></textarea>
+            <span class="button-group">
+            	<input name="mc_markread" type="button" class="btn btn-lg" value="Send new message" onClick="send()">
+            </span>
+		</ul>
+		<div class="mail-list-ft"> </div>
+	</div>
+</div>';
+		}
+		
 		public function draw($content,$photo,$username,$email){
 			echo'
 </head>
@@ -297,6 +339,17 @@ $(document).ready(function() {
 			session_start();
 			$session=new Session();
 			$uid=$session->get_uid();
+			$user1=new User();
+			$user1->set_user($uid);
+			$result1=$user1->show_info();
+			echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/CSS" href="shared-frame.css">
+<link rel="stylesheet" type="text/CSS" href="'.$result1['theme'].'-theme.css">
+<link rel="stylesheet" type="text/CSS" href="messages.css">
+<title>iDating - Messages</title>';
 			if($uid==NULL){header('Location: index.php');}
 			$view=new MessageView();
 			$view->draw_new();

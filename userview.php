@@ -918,10 +918,10 @@ Copyright &copy; 2015 All Rights Reserved.
 						$user1=new User();
 						$user1->set_user($uid);
 						$result=$user1->friend_sta($_GET['uid']);
-						if($result==false){$userview->show_info(2);}
-						else if($result['state']=='0'){$userview->show_info(3);}
-						else if($result['state']=='2'){$userview->show_info(4);}
-						else{$userview->show_info(1);}
+						if($result==false){$userview->show_info_m(2);}
+						else if($result['state']=='0'){$userview->show_info_m(3);}
+						else if($result['state']=='2'){$userview->show_info_m(4);}
+						else{$userview->show_info_m(1);}
 					}
 				}
 				else{
