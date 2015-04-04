@@ -46,6 +46,7 @@ $(document).ready(function() {
 <script>
 	init();
 	var count = 0;
+	var count1=0;
 	var init_=[0,0,0];
     function init() {
       if (window.DeviceOrientationEvent) {
@@ -76,8 +77,9 @@ $(document).ready(function() {
 		document.getElementById("doDirection").innerHTML = Math.round(count);
 		var temp=document.getElementById('123');
 		temp.text=count;
-		if(count>2000 && count==0){
-			count=1;
+		if(count>2000 && count1==0){
+			count1=1;
+			alert("123");
 			var but=document.getElementById('shake');
 			but.click();
 		}

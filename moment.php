@@ -94,6 +94,11 @@ $(document).ready(function() {
 		imgpadding=($("#pic-detail-box").width()-$("#pic-detail-box img").width())/2
 		$("#pic-detail-box img").css("padding-left", imgpadding);
 	});	
+	
+	//resize
+	$(window).resize(function() {
+		$(".moment-sml").height($(".moment-sml").width());	
+    });
 });
 </script>
 <title>iDating - Moments</title>

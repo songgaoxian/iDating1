@@ -79,19 +79,17 @@
 		public function show_info_m($mode){
 			echo'
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="'.$this->user_info['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="accountmgt-m.css">
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link href="js/jqueryUI/chosen/chosen.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jqueryUI/chosen/chosen.jquery.js"></script>
-<link rel="stylesheet" type="text/CSS" href="sidebar.css">
-
 <script>
 $(document).ready(function() {
 	$("#portrait").height($("#portrait").width());
