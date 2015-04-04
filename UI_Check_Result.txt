@@ -19,3 +19,5 @@ by tags
 by distance
 
 z-index
+
+shake theme

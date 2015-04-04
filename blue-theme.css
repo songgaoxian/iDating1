@@ -66,3 +66,10 @@ th {
 /*index*/
 #back2top {background-color:#81ccef;}
 #back2top:hover {background-color:#4eb7e8;}
+
+/*shake*/
+#shake-bg {
+	background-image:url(img/shake_bg_blue.png);
+	background-repeat:no-repeat;
+	background-size:contain;
+}

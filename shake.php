@@ -17,13 +17,56 @@ $(document).ready(function() {
     	$("#waiting-box").fadeIn();
 		setTimeout(window.location.replace('shake_lot.php'),5000);
 	});
+	
+	var left=1;
+	$('#nav').click(function() {
+		if(left==1){
+			$('#B').animate({left: 150});left=0;
+			$('#C').css('overflow','hidden');
+		}
+	    else{
+			$('#B').animate({left: 0});left=1;
+			$('#C').css('overflow','scroll');
+		}
+	});
 });
 </script>
 <title>iDating - Shake</title>
 </head>
 
 <body>
-<div id="doEvent"></div>
+<div id="C">
+<div id="A">
+<!--sidebar-start-->
+<ul>
+<li><a href="accountmgt-m.php">My Page</a></li>
+<li><a href="search-m.php">Search</a></li>
+<li><a href="shake.php">Shake</a></li>
+<li><a href="calendar-m.php">Calendar</a></li>
+<li><a href="moments-m.php">Moments</a></li>
+<li><a href="messages-m.php">Messages</a></li>
+<li><a href="logout1.php">Log Out</a></li>
+</ul>
+<!--sidebar-end-->
+</div>
+
+<div id="B">
+<!--header-start-->
+<div class="header">
+<div id='topnav'>
+<img id='shake' src='img/add.png' alt='shake'>
+</div>
+<img id="nav" src="img/nav.png" alt="navigate">
+<h1>Shake</h1>
+</div>
+<!--header-end-->
+<!--container-start-->
+<div class="container">
+<p>Please Shake Your Cellphone</p>
+<p id="123"></p>
+<div id="shake-bg"></div>
+
+<div id="doEvent">
       <table>
         <tr>
           <td>Event Supported</td>
@@ -66,7 +109,7 @@ $(document).ready(function() {
           deviceOrientationHandler(tiltLR, tiltFB, dir);
           }, false);
       } else {
-        document.getElementById("doEvent").innerHTML = "Not supported on your device or browser.  Sorry."
+        document.getElementById("doEvent").innerHTML = "Not supported on your device or browser. Sorry."
       }
     }
     function deviceOrientationHandler(tiltLR, tiltFB, dir) {
@@ -84,23 +127,10 @@ $(document).ready(function() {
 		}
     }
 </script>
-<!--header-start-->
-<div class="header">
-<div id='topnav'>
-<img id='shake' src='img/add.png' alt='shake'">
 </div>
-<img id="nav" src="img/nav.png" alt="navigate">
-<h1>Shake</h1>
+<!--container-end-->
 </div>
-<!--header-end-->
-
-<!--shake-start-->
-<div class="container">
-<p>Please Shake Your Cellphone</p>
-<p id="123"></p>
-<img src="img/shake_bg.png" alt="shake background">
 </div>
-<!--shake-end-->
 
 <!--overlay-start-->
 <div class="overlay-container">

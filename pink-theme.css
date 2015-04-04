@@ -69,3 +69,11 @@ th {
 /*index*/
 #back2top {background-color:#eb6877;}
 #back2top:hover {background-color:#e5004f;}
+
+/*shake*/
+#shake-bg {
+	background-image:url(img/shake_bg_pink.png);
+	background-repeat:no-repeat;
+	background-size:contain;
+}
+	
