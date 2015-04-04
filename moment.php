@@ -106,6 +106,7 @@ $(document).ready(function() {
 <li><a href="logout1.php">Log Out</a></li>
 </ul>
 <!--sidebar-end-->
+
 </div>
 <div id="B">
 <!--header-start-->
@@ -117,7 +118,6 @@ $(document).ready(function() {
 <h1>Moments</h1>
 </div>
 <!--header-end-->
-
 <!--container-start-->
 <div class="container">
 <!--moment-wall-start-->
@@ -282,10 +282,10 @@ $(document).ready(function() {
 				if($_SERVER["REQUEST_METHOD"]=="POST"){
 					$check = getimagesize($_FILES["filename"]["tmp_name"]);
 					if(!$check){
-						echo('<script type="text/javascript">alert("file is not an image! please try again!")</script>');
+						echo('<script type="text/javascript">alert("File is not an image! Please try again!")</script>');
 					}
 					else if($_FILES["filename"]["size"] > 5000000){
-						echo('<script type="text/javascript">alert("file is too big!")</script>');
+						echo('<script type="text/javascript">alert("File is too big!")</script>');
 					}
 					else{
 						$filename=uuid().'.'.$imageFileType;
@@ -294,8 +294,8 @@ $(document).ready(function() {
 							$sql='INSERT INTO `moment` (`user_id`, `pic_id`,`title`, `summary`,`take_date`, `upload_date`) VALUES (\''.$user_id.'\', \''.$filename.'\', \''.$_POST['title'].'\', \''.$_POST['descrp'].'\',\''.$_POST['take_date'].'\', CURRENT_TIMESTAMP);';
 							$result=mysqli_query($conn,$sql);
 							//echo $sql;
-							if($result){echo('<script type="text/javascript">alert("upload!")</script>');}
-							else{echo('<script type="text/javascript">alert("fail...")</script>');}
+							if($result){echo('<script type="text/javascript">alert("Uploaded!")</script>');}
+							else{echo('<script type="text/javascript">alert("Failed...")</script>');}
 					}
 				}
 			}
