@@ -291,8 +291,9 @@ echo'
 <tr>
   <td class="item-name colored-txt">Tags:</td>
   <td class="item-content edit-hide" id="tags">';
-  if(count($tag)>0){
+  
   $tag=$this->user_info['tags'];
+  if(count($tag)>0){
 	foreach($tag as $key=>$value){
 		if($value!=''){
 	  echo('<div class="tag-item">'.$value.'</div>');}
