@@ -72,7 +72,7 @@
 				$result.='<tr><td>'.$this->show_one($info[$num]).'</td></tr>';
 				$num+=1;
 			}
-			if($i==0){$result.='</tr>';}
+			if($num==0){$result.='</tr>';}
 			if(count($info)==0){$result='Find a friend la~';}
 			$this->friend_info=$result;
 		}
