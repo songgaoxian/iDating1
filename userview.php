@@ -74,12 +74,60 @@
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="pink-theme.css">
 <link rel="stylesheet" type="text/CSS" href="accountmgt-m.css">
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link href="js/jqueryUI/chosen/chosen.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="js/jqueryUI/chosen/chosen.jquery.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<style type="text/css">
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+div{background:white;}
+#A {
+	position:fixed;
+    top: 52px;
+    width: 150px;
+    bottom:0px;
+    background:pink;
+}
+#C{
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+}
+#B {
+	position:absolute;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    bottom: 0px;
+	background:white;
+	min-width: 400px;
+}
+ul{
+	list-style-type: none;
+	padding:0;
+}
+li + li {
+    margin-top: 12px; 
+}
+li a{
+	 padding: 4px 10px;
+    display: block;
+    color: #eb6877;
+}
+li a:hover {
+      background-color: white; 
+}
+</style>
 <script>
+
 $(document).ready(function() {
+
 	$("#portrait").height($("#portrait").width());
 	$(".friend-portrait").height($(".friend-portrait").width());
 	
@@ -122,23 +170,23 @@ $(function(){
 <title>iDating - My Account</title>
 </head>
 
-<body>
-<!--header-start-->
+<body><div id="C">
+<div id="A">
+<ul>
+<li><a href="accountmgt-m.php">My Page</a></li>
+<li><a href="search-m.php">Search</a></li>
+<li><a href="shake.php">Shake</a></li>
+<li><a href="calendar-m.php">Calendar</a></li>
+<li><a href="moments-m.php">Moments</a></li>
+<li><a href="messages-m.php">Messages</a></li>
+</ul>
+</div>
+<!--header-start--><div id="B">
 <div class="header">
-<img id="nav" src="img/nav.png" alt="navigate">
+<nav><img id="nav" src="img/nav.png" alt="navigate"/></nav>
 <h1>My Page</h1>
 </div>
 <!--header-end-->
-
-<div class="sidebar">
-<a href="accountmgt-m.php">My Page</a>
-<a href="search-m.php">Search</a>
-<a href="shake.php">Shake</a>
-<a href="calendar-m.php">Calendar</a>
-<a href="moments-m.php">Moments</a>
-<a href="messages-m.php">Messages</a>
-</div>
-
 <!--container-start-->
 <div class="container">
 <!--my-account-start-->

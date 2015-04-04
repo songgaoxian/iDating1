@@ -251,6 +251,18 @@
 		}
 		close1.click();
 	}
+ var left=1;
+	$('#nav').click(
+	function() {
+		if(left==1){
+			$('#B').animate({left: 200});left=0;
+			$('#C').css('overflow','hidden');
+		}
+	    else{
+			$('#B').animate({left: 0});left=1;
+			$('#C').css('overflow','scroll');
+		}
+	});
 </script>
 </div>
 </div>
@@ -262,15 +274,15 @@
 <h1>Change Portrait</h1>
 </div>
 <div class="overlay-content">
-<form>
-<input class="txtbox txtbox-fill" type="file" required></input><br>
+<form enctype="multipart/form-data" method="post" action="accountmgt-m.php">
+<input class="txtbox txtbox-fill" type="file" required name="user-photo"></input><br>
 <br>
 <input id="save-portrait" class="btn btn-fill" type="submit" value="Save">
 </form>
 </div>
 </div>
 <!--change-portrait-box-end-->
-<!--overlay-end-->
+<!--overlay-end--></div></div>
 </body>
 </html>
 <?php
