@@ -1,10 +1,31 @@
 <?php
+function distanceGeoPoints ($lat1, $lng1, $lat2, $lng2) {
+
+    $earthRadius = 3958.75;
+
+    $dLat = deg2rad($lat2-$lat1);
+    $dLng = deg2rad($lng2-$lng1);
+
+
+    $a = sin($dLat/2) * sin($dLat/2) +
+       cos(deg2rad($lat1)) * cos(deg2rad($lat2)) *
+       sin($dLng/2) * sin($dLng/2);
+    $c = 2 * atan2(sqrt($a), sqrt(1-$a));
+    $dist = $earthRadius * $c;
+
+    // from miles
+    $meterConversion = 1609;
+    $geopointDistance = $dist * $meterConversion;
+
+    return $geopointDistance;
+}
 class Result{
 public function render($dbc, $currentid){
 $sname=array();
 $suid=array();
 $sphoto=array();
 if(isset($_GET['nickname'])){
+       $_SESSION['rank']=0;
         $_SESSION['condition']=0;
         $_SESSION['length']=0;
         $length=0;
@@ -198,7 +219,7 @@ else
             $q3="select * from user_location where user_id='$currentid'";
             $result3=mysqli_query($dbc,$q3);
             for($j=0;$j<$length;$j++)
-              $_SESSION['distance'][$j]='max';
+              $_SESSION['distance'][$j]='unknown';
             if($row3=mysqli_fetch_array($result3)){
               $lati=(float)$row3['latitude'];
               $longi=(float)$row3['longitude'];
@@ -209,15 +230,15 @@ else
                 if($row4=mysqli_fetch_array($result4)){
                   $tplati=(float)$row4['latitude'];
                   $tplongi=(float)$row4['longitude'];
-                  $tempdist[$j]=sqrt(($tplati-$lati)*($tplati-$lati)+($tplongi-$longi)*($tplongi-$longi))*111000;
+                  $tempdist[$j]=distanceGeoPoints($lati,$longi,$tplati,$tplongi);
                 }
                 else
-                  $tempdist[$j]='max';
+                  $tempdist[$j]='unknown';
                 $_SESSION['distance'][$j]=$tempdist[$j];
               }
              for($j=0;$j<$length-1;$j++){
                 for($k=$j+1;$k<$length;$k++){
-                    if($tempdist[$k]!=='max' and $tempdist[$j]!=='max' and $tempdist[$k]<$tempdist[$j]){
+                    if($tempdist[$k]!=='unknown' and $tempdist[$j]!=='unknown' and $tempdist[$k]<$tempdist[$j]){
                         $temp=$_SESSION['sname'][$j];
                         $_SESSION['sname'][$j]=$_SESSION['sname'][$k];
                         $_SESSION['sname'][$k]=$temp;
@@ -232,7 +253,7 @@ else
                         $_SESSION['distance'][$k]=$temp;
                     }
                     else
-                      if($tempdist[$j]=='max' and $tempdist[$k]!=='max'){
+                      if($tempdist[$j]=='unknown' and $tempdist[$k]!=='unknown'){
                         $temp=$_SESSION['sname'][$j];
                         $_SESSION['sname'][$j]=$_SESSION['sname'][$k];
                         $_SESSION['sname'][$k]=$temp;
@@ -266,7 +287,7 @@ $length=$_SESSION['length'];
                  if($_SESSION['rank']==0)
                  echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";
                  else{
-                  if($_SESSION['distance'][$m]!=='max')
+                  if($_SESSION['distance'][$m]!=='unknown')
                   $temp=round($_SESSION['distance'][$m]);
                   else
                     $temp=$_SESSION['distance'][$m];
@@ -300,7 +321,7 @@ $length=$_SESSION['length'];
                  if($_SESSION['rank']==0)
                  echo "<div class='search-portrait'><div class='background-cover-center' style='background-image:url(portrait/$sphoto[$m]);'></div><a href='accountmgt.php?uid=$suid[$m]'>$sname[$m]</a></div>";
                  else{
-                  if($_SESSION['distance'][$m]!=='max')
+                  if($_SESSION['distance'][$m]!=='unknown')
                   $temp=round($_SESSION['distance'][$m]);
                   else
                     $temp=$_SESSION['distance'][$m];
