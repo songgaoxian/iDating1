@@ -104,11 +104,11 @@
 			<div class="message-box">
 				<table style="width:100%">
 				<tr>
-					<td style="width:20%">
+					<td style="width:25%">
 						<img src="portrait/'.$content['photo'].'" alt="portrait">
 					</td>
-					<td style="width:80%">
-						<p id="message-from" class="colored-txt">'.$content['username'].'</p>
+					<td style="width:75%">
+						<h3 id="message-from" class="colored-txt">'.$content['username'].'</h3>
 						<p class="message-time">'.$content['dat'].'</p>
 						<p class="message-content">"'.substr($content['preview'],0,30).'"</p>
 					</td>
@@ -120,29 +120,10 @@
 		public function draw_inbox_m($content){
 			echo'
 <title>iDating - Messages</title>
-</head>
-
-<body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-	$(".sidebar").hide();
-	
-	$(".moment-sml").click(function() {
-		$(".moment-sml").children("p").hide();
-		$(this).children("p").fadeIn();
-	});
-	
-	$("#nav").click(function() {
-		$(".sidebar").fadeToggle();
-	});
-});
-</script>
-
 </head>
 
 <body>
-<!--header-start-->
 <div id="C">
 <div id="A">
 <ul>
@@ -154,7 +135,10 @@ $(document).ready(function() {
 <li><a href="messages-m.php">Messages</a></li>
 <li><a href="logout1.php">Log Out</a></li>
 </ul>
-</div><div id="B">
+</div>
+
+<div id="B">
+<!--header-start-->
 <div class="header">
 <div id="topnav">
 <img id="upload" src="img/add.png" alt="upload moments" onClick=\'window.location.replace("new_msg_m.php")\'>
@@ -163,19 +147,16 @@ $(document).ready(function() {
 <h1>Inbox</h1>
 </div>
 <!--header-end-->
-<!--header-end-->
 
-<!--content-start-->
+<!--container-start-->
 <div class="container">
-<!--search-condition-start-->
-
-
+<!--messages-start-->
 <div id="messages">';
 		foreach($content as $key=>$value){
 			echo $this->draw_one_m($value);
 		}
 		echo'</div>
-	</div>
+	</div><!--messages-end-->
 </form>';
 		}
 		
@@ -257,6 +238,7 @@ $(document).ready(function() {
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages.css">
@@ -291,8 +273,9 @@ $(document).ready(function() {
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
 <link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages-m.css">
 ';

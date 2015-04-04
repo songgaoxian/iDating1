@@ -32,13 +32,11 @@
 	}
 	
 </script>
-<!--content-end-->
+<!--container-end-->
 
 <!--footer-start-->
 <div class="footer">
 Copyright &copy; 2015 All Rights Reserved.
-</div>
-</div>
 </div>
 <!--footer-end-->
 </body>

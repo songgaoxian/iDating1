@@ -80,10 +80,10 @@
 			return '<div class="message-box">
 				<table style="width:100%">
 				<tr>
-					<td style="width:20%">
+					<td style="width:25%">
 						<img src="portrait/'.$content[2].'" alt="portrait">
 					</td>
-					<td style="width:80%">
+					<td style="width:75%">
 						<p id="message-from" class="colored-txt">'.$content[3].'</p>
 						<p class="message-time">'.$content[0].'</p>
 						<p class="message-content">"'.$content[1].'"</p>
@@ -95,30 +95,13 @@
 		public function draw_m($content){
 			echo'
 <title>iDating - Messages</title>
-<link rel="stylesheet" type="text/CSS" href="sidebar.css">
+</head>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 
 <body>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-	$(".sidebar").hide();
-	
-	$(".moment-sml").click(function() {
-		$(".moment-sml").children("p").hide();
-		$(this).children("p").fadeIn();
-	});
-	
-	$("#nav").click(function() {
-		$(".sidebar").fadeToggle();
-	});
-});
-</script>
-
-</head>
-
-<body><div id="C">
-<!--header-start-->
+<div id="C">
 <div id="A">
 <ul>
 <li><a href="accountmgt-m.php">My Page</a></li>
@@ -129,28 +112,28 @@ $(document).ready(function() {
 <li><a href="messages-m.php">Messages</a></li>
 <li><a href="logout1.php">Log Out</a></li>
 </ul>
-</div><div id="B">
+</div>
+
+<div id="B">
+<!--header-start-->
 <div class="header">
 <div id="topnav">
 <img id="upload" src="img/add.png" alt="upload moments" onClick="">
 </div>
 <img id="nav" src="img/nav.png" alt="navigate">
-<h1>Massages</h1>
+<h1>Messages</h1>
 </div>
 <!--header-end-->
-<!--header-end-->
 
-<!--content-start-->
+<!--container-start-->
 <div class="container">
-<!--search-condition-start-->
-
-
+<!--messages-start-->
 <div id="messages">';
 		foreach($content as $key=>$value){
 			echo $this->draw_one_m($value);
 		}
 		echo'
-            <textarea  class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="4"></textarea>
+            <textarea class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="4"></textarea>
             <div class="btn-group">
             	<input id="mail-btn1" type="button" class="btn btn-mobile" value="Send new message" onClick="send()">
 				<input id="mail-btn2" type="button" class="btn btn-mobile" value="Return to inbox" onClick=\'window.location.replace("messages-m.php")\'>
@@ -158,6 +141,7 @@ $(document).ready(function() {
 		</ul>
 		</div>
 	</div>
+	<!--messages-end-->
 </form>
 ';
 		}
@@ -328,7 +312,6 @@ $(document).ready(function() {
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
 <link rel="stylesheet" type="text/CSS" href="'.$result1['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages-m.css">
 <link rel="stylesheet" type="text/CSS" href="sidebar.css">

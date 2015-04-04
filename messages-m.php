@@ -17,9 +17,8 @@
 		}
 	});
 </script>
+<!--container-end-->
 </div>
 </div>
-
-<!--messages-end-->
 </body>
 </html>
