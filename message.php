@@ -320,13 +320,16 @@ $(document).ready(function() {
 				$user=new User();
 				$user->set_user($_GET['with']);
 				$result=$user->show_info();
+				$user1=new User();
+				$user1->set_user($uid);
+				$result1=$user1->show_info();
 				echo '<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
-<link rel="stylesheet" type="text/CSS" href="'.$result['theme'].'-theme.css">
+<link rel="stylesheet" type="text/CSS" href="'.$result1['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages-m.css">
 <link rel="stylesheet" type="text/CSS" href="sidebar.css">
 

@@ -88,11 +88,7 @@ $(document).ready(function() {
 		$("#pic-detail-box img").attr({"src":temp});
 		$("#pic-detail-box > a").attr({"href":temp});
 		$("#pic-detail-box > h2").text($(this).children("p").text());
-		$("#pic-detail-box img").css("max-height", $(".overlay-container").height()*0.75-100);
-		$("#pic-detail-box").css("margin-top",($(".overlay-container").height()*0.95-$("#pic-detail-box").height())/2);
 		$("#pic-detail-box").fadeIn();
-		imgpadding=($("#pic-detail-box").width()-$("#pic-detail-box img").width())/2
-		$("#pic-detail-box img").css("padding-left", imgpadding);
 	});	
 	
 	//resize
@@ -396,6 +392,8 @@ $(document).ready(function() {
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="moments-m.css">
