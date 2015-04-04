@@ -264,10 +264,11 @@ Your password has been reset to '.$a.' .
 				while(1){
 					$sql='SELECT * FROM user_info WHERE sex <> "'.$sex.'" AND user_id <> "'.$this->user_id.'" ORDER BY RAND() LIMIT 1;';
 					$result=mysqli_query($conn,$sql);
-					$result=mysqli_fetch_row($result);
-					if(!$this->is_friend1($result['user_id'])){
+					$row=mysqli_fetch_row($result);
+					echo $row['user_id'];
+					if(!$this->is_friend1($row['user_id'])){
 						mysqli_close($conn);
-						return($result['user_id']);
+						return($row['user_id']);
 					}
 				}
 			}

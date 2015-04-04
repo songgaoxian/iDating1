@@ -50,7 +50,7 @@ $(document).ready(function() {
 </div>
 
 <div class='container'>
-	<img id="lot" src="lucky_draw/lot<?php echo round(1,6);?>.jpg">
+	<img id="lot" src="lucky_draw/lot<?php echo rand(1,9);?>.jpg">
     <div style="display:block; margin-top:10px">
     	<input name="recommend" type="button" class="btn btn-shake" value="Check our recommendations for you!" onclick='window.location.replace("accountmgt-m.php?uid="<?php echo $uid;?>)'>
     </div>
