@@ -34,8 +34,7 @@ public function add($dbc){
 			}";
 	$q="select user_id from user_info where email='$mateemail'";
 	$result=mysqli_query($dbc, $q);
-	if($result){
-		$row=mysqli_fetch_array($result);
+	if($row=mysqli_fetch_array($result)) {
 		$mateid=$row['user_id'];
 	$q1="insert into calendar (user_id, mate_id, dat, content, location)
 	                  values('$uid', '$mateid', '$dat', '$content','$location')";
@@ -137,7 +136,10 @@ public function delete($dbc, $uid){
 	}
 	else{
 		echo "error";
+		if(!isset($_POST['mobile']))
 		header("refresh:1; url=calendar.php");
+	    else
+	    	header("refresh:1; url=calendar-m.php");
 	}
 	$dtime=$_POST['dat1'];
 	$tarray=array();
@@ -221,7 +223,10 @@ public function delete($dbc, $uid){
 }
 else
 echo "error";
-header("refresh:5;url=calendar.php");
+if(!isset($_POST['mobile']))
+		header("refresh:1; url=calendar.php");
+	    else
+	    	header("refresh:1; url=calendar-m.php");
 
   }
 

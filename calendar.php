@@ -11,7 +11,7 @@ $currentid=$session->get_uid();
   if($dmonth<10)
     $dates="2015-0$dmonth-01";
   else
-    $dates="2015-$month-01";
+    $dates="2015-$dmonth-01";
   $wkd=date('w',strtotime($dates));
   if($dmonth<10)
     $ddmonth="0$dmonth";

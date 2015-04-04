@@ -114,6 +114,7 @@ echo "<table class='$dmonth'>
         echo "<tr class='odd-row'>";
       else
         echo "<tr class='even-row'>";}
+
     $temp=$k+1;
         if($k<10)
           $temp1="0$k";
@@ -123,6 +124,7 @@ echo "<table class='$dmonth'>
           $temp2="0$temp";
         else
           $temp2=$temp;
+        
     if($k==1){
       if($wkd==0){
         echo "<td class='$k'>$k";
