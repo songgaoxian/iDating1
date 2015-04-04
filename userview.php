@@ -449,8 +449,8 @@ if($mode==0)echo'
 </div>
 </div>
 <!--my-friends-end-->
-<!--container-end-->
 </div>
+<!--container-end-->
 ';}
 		public function show_info($mode){
 			echo
@@ -798,7 +798,6 @@ if($mode==0)echo'
 
 '.$this->friend_info.'
 ';echo'
-</div>
 </div>
 </div>
 <!--my-friends-end-->

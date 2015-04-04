@@ -1,27 +1,14 @@
 INDEX
 input control, length
-contact us
 
 MOMENT
-<-,->
-description
 upload后每一次清空
-empty table?
-theme
 
 ACTMGT
-tag
 friend view page
 
-Reg
-嵌套错误
-$(function(){
-    $(".selecttags").chosen();
-}
-tag save
 
 Calendar
-Chose a valid day
 
 Message
 Needs discussion
