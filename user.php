@@ -256,6 +256,23 @@ Your password has been reset to '.$a.' .
 			}
 			return(false);
 		} 
+		public function rand_(){
+			$conn=connect();
+			$data=$this->show_info();
+			$sex=$data['sex'];
+			if($conn){
+				while(1){
+					$sql='SELECT * FROM user_info WHERE sex <> "'.$sex.'" AND user_id <> "'.$this->user_id.'" ORDER BY RAND() LIMIT 1;';
+					$result=mysqli_query($conn,$sql);
+					$row=mysqli_fetch_row($result);
+					if(!$this->is_friend1($row[0])){
+						mysqli_close($conn);
+						return($row[0]);
+					}
+				}
+			}
+			else{return(false);}
+		}
 		public function show_tag(){
 			$conn=connect();
 			if($conn){

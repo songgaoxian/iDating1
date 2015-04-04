@@ -1,24 +1,30 @@
 <?php
 class searchView{
 	public function showCriteria(){
-		echo "<!--header-start-->
+		echo "<div id='C'>
+<div id='A'>
+<!--sidebar-start-->
+<ul>
+<li><a href='accountmgt-m.php'>My Page</a></li>
+<li><a href='search-m.php'>Search</a></li>
+<li><a href='shake.php'>Shake</a></li>
+<li><a href='calendar-m.php'>Calendar</a></li>
+<li><a href='moments-m.php'>Moments</a></li>
+<li><a href='messages-m.php'>Messages</a></li>
+<li><a href='logout1.php'>Log Out</a></li>
+</ul>
+<!--sidebar-end-->
+</div>
+
+<div id='B'>
+<!--header-start-->
 <div class='header'>
 <img id='nav' src='img/nav.png' alt='navigate'>
 <h1>Search</h1>
 </div>
 <!--header-end-->
 
-<div class='sidebar'>
-<a href='accountmgt-m.php'>My Page</a>
-<a href='search-m.php'>Search</a>
-<a href='shake.php'>Shake</a>
-<a href='calendar-m.php'>Calendar</a>
-<a href='moments-m.php'>Moments</a>
-<a href='messages-m.php'>Messages</a>
-</div>
-
 <!--search-start-->
-
 <div class='container'>
 <!--search-condition-start-->
 <div id='tabs'>
@@ -171,7 +177,7 @@ class searchView{
 <input id='search-now' class='btn btn-fill' type='submit' value=''>
 </form>
 </div>
-<!--search-end-->";
+<!--search-end--></div>";
 	}
 }
 ?>

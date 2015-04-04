@@ -82,6 +82,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="'.$this->user_info['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="accountmgt-m.css">
@@ -93,7 +94,6 @@
 
 <script>
 $(document).ready(function() {
-
 	$("#portrait").height($("#portrait").width());
 	$(".friend-portrait").height($(".friend-portrait").width());
 	
@@ -126,6 +126,12 @@ $(document).ready(function() {
 		$(".edit-show").hide();
 		$(".edit-hide").show();
 	});
+	
+	//resize the window
+	$(window).resize(function(){
+		$("#portrait").height($("#portrait").width());
+		$(".friend-portrait").height($(".friend-portrait").width());
+	});
 });
 
 $(function(){
@@ -136,8 +142,10 @@ $(function(){
 <title>iDating - My Account</title>
 </head>
 
-<body><div id="C">
+<body>
+<div id="C">
 <div id="A">
+<!--sidebar-start-->
 <ul>
 <li><a href="accountmgt-m.php">My Page</a></li>
 <li><a href="search-m.php">Search</a></li>
@@ -147,13 +155,17 @@ $(function(){
 <li><a href="messages-m.php">Messages</a></li>
 <li><a href="logout1.php">Log Out</a></li>
 </ul>
+<!--sidebar-end-->
 </div>
-<!--header-start--><div id="B">
+
+<div id="B">
+<!--header-start-->
 <div class="header">
-<nav><img id="nav" src="img/nav.png" alt="navigate"/></nav>
+<img id="nav" src="img/nav.png" alt="navigate"/>
 <h1>My Page</h1>
 </div>
 <!--header-end-->
+
 <!--container-start-->
 <div class="container">
 <!--my-account-start-->
@@ -439,14 +451,8 @@ if($mode==0)echo'
 </div>
 </div>
 <!--my-friends-end-->
-</div>
 <!--container-end-->
-
-<!--footer-start-->
-<div class="footer">
-Copyright &copy; 2015 All Rights Reserved.
 </div>
-<!--footer-end-->
 ';}
 		public function show_info($mode){
 			echo
@@ -455,6 +461,7 @@ Copyright &copy; 2015 All Rights Reserved.
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <link rel="stylesheet" type="text/CSS" href="'.$this->user_info['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="accountmgt.css">

@@ -14,7 +14,25 @@ class CalView{
     $femail[$flength]=$row4['email'];
     $flength++;
     }
-echo "<div class='header'>
+echo "
+<div id='C'>
+<div id='A'>
+<!--sidebar-start-->
+<ul>
+<li><a href='accountmgt-m.php'>My Page</a></li>
+<li><a href='search-m.php'>Search</a></li>
+<li><a href='shake.php'>Shake</a></li>
+<li><a href='calendar-m.php'>Calendar</a></li>
+<li><a href='moments-m.php'>Moments</a></li>
+<li><a href='messages-m.php'>Messages</a></li>
+<li><a href='logout1.php'>Log Out</a></li>
+</ul>
+<!--sidebar-end-->
+</div>
+
+<div id='B'>
+<div class='header'>
+<!--header-start-->
 <div id='topnav'>
 <img id='add' src='img/add.png' alt='add dating'>
 </div>
@@ -22,16 +40,6 @@ echo "<div class='header'>
 <h1>Calendar</h1>
 </div>
 <!--header-end-->
-
-<div class='sidebar'>
-<a href='accountmgt-m.php'>My Page</a>
-<a href='search-m.php'>Search</a>
-<a href='shake.php'>Shake</a>
-<a href='calendar-m.php'>Calendar</a>
-<a href='moments-m.php'>Moments</a>
-<a href='messages-m.php'>Messages</a>
-</div>
-
 <!--container-start-->
 <div class='container'>
 <!--calendar-start-->
@@ -208,6 +216,7 @@ echo "<!--events-start-->
 
 echo "</div>
 <!--container-end-->
+</div>
 <!--overlay-start-->
 <!--add-event-box-start-->
 <div id='add-event-box' class='overlay'>

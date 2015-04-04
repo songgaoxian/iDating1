@@ -213,6 +213,7 @@ $(document).ready(function() {
 		content+=info[0]+'":"'+document.getElementById(info[0]).value+'"';
 		for(i=1;i<info.length;i++){
 			if(info[i]!='sex'){
+				if(document.getElementById(info[i]).value==''){alert('please fill in all inputs!');return;}
 				console.log(info[i]);
 				content+=',"'+info[i]+'":"'+document.getElementById(info[i]).value+'"';
 			}

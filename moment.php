@@ -68,10 +68,6 @@ $(document).ready(function() {
 		$(this).children("p").fadeIn("fast");
 		$(this).prepend("<div class=\'pic-mask\'></div>");
 	});
-	
-	$("#nav").click(function() {
-		$(".sidebar").fadeToggle();
-	});
 			
 	//show upload picture dialog
 	 $("#upload").click(function() {
@@ -80,12 +76,13 @@ $(document).ready(function() {
 	
 	//close an overlay
 	$(".close-overlay").click(function() {
-		$(this).parent()..parent().fadeOut();		
+		$(this).parent().parent().fadeOut();		
 	});	
 	
 	//show picture detail dialog
 	$(".moment").click(function() {
 		temp=$(this).css("background-image");
+		if(temp.length==none){return;}
 		temp=temp.substr(4);
 		temp=temp.substr(0,temp.length-1);
 		$("#pic-detail-box img").attr({"src":temp});
@@ -102,9 +99,10 @@ $(document).ready(function() {
 <title>iDating - Moments</title>
 </head>
 
-<body><div id="C">
-<!--header-start-->
+<body>
+<div id="C">
 <div id="A">
+<!--sidebar-start-->
 <ul>
 <li><a href="accountmgt-m.php">My Page</a></li>
 <li><a href="search-m.php">Search</a></li>
@@ -114,7 +112,10 @@ $(document).ready(function() {
 <li><a href="messages-m.php">Messages</a></li>
 <li><a href="logout1.php">Log Out</a></li>
 </ul>
-</div><div id="B">
+<!--sidebar-end-->
+</div>
+<div id="B">
+<!--header-start-->
 <div class="header">
 <div id="topnav">
 <img id="upload" src="img/add.png" alt="upload moments">
@@ -125,7 +126,8 @@ $(document).ready(function() {
 <!--header-end-->
 
 <!--container-start-->
-<div class="container"><!--moment-wall-start-->
+<div class="container">
+<!--moment-wall-start-->
 <div id="moment-wall">
 <table>
   ';
@@ -183,18 +185,20 @@ $(document).ready(function() {
 	//show picture detail dialog
 	$(".moment").click(function() {
 		temp=$(this).css("background-image");
-		temp=temp.substr(4);
-		temp=temp.substr(0,temp.length-1);
-		$("body").append("<div class=\'mask\'></div>");
-		$(".overlay-container").show();
-		$("#pic-detail-box img").attr({"src":temp});
-		$("#pic-detail-box > a").attr({"href":temp});
-		$("#pic-detail-box > h2").text($(this).children("p").text());
-		$("#pic-detail-box img").css("max-height", $(".overlay-container").height()*0.75-100);
-		$("#pic-detail-box").css("margin-top",($(".overlay-container").height()*0.95-$("#pic-detail-box").height())/2);
-		$("#pic-detail-box").slideDown();
-		imgpadding=($("#pic-detail-box").width()-$("#pic-detail-box img").width())/2
-		$("#pic-detail-box img").css("padding-left", imgpadding);
+		if(temp==none){return;}
+		else{
+			temp=temp.substr(4);
+			temp=temp.substr(0,temp.length-1);
+			$("body").append("<div class=\'mask\'></div>");
+			$(".overlay-container").show();
+			$("#pic-detail-box img").attr({"src":temp});
+			$("#pic-detail-box > a").attr({"href":temp});
+			$("#pic-detail-box > h2").text($(this).children("p").text());
+			$("#pic-detail-box img").css("max-height", $(".overlay-container").height()*0.75-100);
+			$("#pic-detail-box").css("margin-top",($(".overlay-container").height()*0.95-$("#pic-detail-box").height())/2);
+			$("#pic-detail-box").slideDown();
+			imgpadding=($("#pic-detail-box").width()-$("#pic-detail-box img").width())/2
+			$("#pic-detail-box img").css("padding-left", imgpadding);}
 	});	
 	
 	//resize
@@ -311,7 +315,6 @@ $(document).ready(function() {
 			}
 		}
 		public function show_pictures(){
-			session_start();
 			$page=1;
 			$session=new Session();
 			if($session->get_uid()==NULL){
@@ -356,7 +359,6 @@ $(document).ready(function() {
 			}
 		}
 		public function show_pictures_m(){
-			session_start();
 			$session=new Session();
 			if($session->get_uid()==NULL){
 				//header("Location: index.html");
@@ -392,7 +394,6 @@ $(document).ready(function() {
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="moments-m.css">
-<link rel="stylesheet" type="text/CSS" href="sidebar.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>';
 				$view=new PictureView();

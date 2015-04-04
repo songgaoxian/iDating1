@@ -6,6 +6,7 @@
 #moment-wall table {
 	border-collapse:collapse;
 	border:none;
+	width:100%;
 }
 .moment {
 	position:relative;

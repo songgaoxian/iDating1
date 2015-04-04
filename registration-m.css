@@ -1,15 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
-.header > img {
-	float:left;
-	margin-right:10px;
-}
 .header > h1 {
-	margin:8px 0 0 0;
-	padding:0;
-	color:white;
-	font-size:22px;
-	font-weight:normal;
+	margin-left:10px;
 }
 #income {
 	width:65%;
@@ -20,7 +12,7 @@
 #age_f, #age_t, #height_f, #height_t {
 	width:33%;
 }
-#self-descrp {
+#self_intro {
 	height:100px;
 }
 #submit-now {

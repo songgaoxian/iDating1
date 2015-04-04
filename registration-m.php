@@ -11,6 +11,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="pink-theme.css">
@@ -29,7 +30,6 @@ $(document).ready(function() {
 <body>
 <!--header-start-->
 <div class="header">
-<img src="img/logo_small.png" alt="iDating logo">
 <h1>Sign Up</h1>
 </div>
 <!--header-end-->
@@ -160,7 +160,7 @@ $(document).ready(function() {
 <tr>
   <td class="item-name colored-txt">Education: </td>
   <td class="item-content">
-  <select name="education_pref" class="txtbox">
+  <select name="education_pref" class="txtbox" id="education_pref">
     <option value="Unlimited" selected>Unlimited</option>
     <option value="High School">High School</option>
     <option value="Bachelor">Bachelor</option>
@@ -171,7 +171,7 @@ $(document).ready(function() {
 <tr>
   <td class="item-name colored-txt">Occupation: </td>
   <td class="item-content">
-  <select id="job_pref" class="txtbox">
+  <select id="job_pref" class="txtbox" id="job_pref">
   	<option value="Unlimited" selected>Unlimited</option>
   	<option value="Student">Student</option>
     <option value="Computer Software">Computer Software</option>
@@ -225,12 +225,13 @@ $(document).ready(function() {
 </div>
 <script type="application/x-javascript">
 	var info=['username','sex','birthday','height','city','hometown','education','job','income','self_intro','height_f','height_t','age_f','age_t','city_pref','hometown_pref','job_pref','education_pref','income_pref'];
-	function edit(){	
+	 function edit(){	
 		i=0;
 		content='{"';
 		content+=info[0]+'":"'+document.getElementById(info[0]).value+'"';
 		for(i=1;i<info.length;i++){
 			if(info[i]!='sex'){
+				if(document.getElementById(info[i]).value==''){alert('please fill in all inputs!');return;}
 				console.log(info[i]);
 				content+=',"'+info[i]+'":"'+document.getElementById(info[i]).value+'"';
 			}
@@ -247,21 +248,47 @@ $(document).ready(function() {
 		xmlhttp.send(content);console.log(xmlhttp);
 		record=xmlhttp;
 		console.log(record);
+		
+		content='{"';
+		var temp=document.getElementsByClassName('chzn-choices')[0].children;
+		var record1=[];
+		if(temp.length>0){
+			content+=temp[0].textContent+'":"'+temp[0].textContent+'"';
+			record1[0]=temp[0].textContent;
+		}
+		for(i=1;i<temp.length;i++){
+			content+=',"'+temp[i].textContent+'":"'+temp[i].textContent+'"';
+			record1[i]=temp[i].textContent;
+		}
+		console.log(record);
+		content+='}';
+		xmlhttp=new XMLHttpRequest(); 
+		xmlhttp.open("POST","change_tag.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(content);console.log(xmlhttp);
+		content='{"';
+		var temp=document.getElementsByClassName('chzn-choices')[1].children;
+		var record2=[];
+		if(temp.length>0){
+			content+=temp[0].textContent+'":"'+temp[0].textContent+'"';
+			record2[0]=temp[0].textContent;
+		}
+		for(i=1;i<temp.length;i++){
+			content+=',"'+temp[i].textContent+'":"'+temp[i].textContent+'"';
+			record2[i]=temp[i].textContent;
+		}
+		console.log(record);
+		content+='}';
+		xmlhttp=new XMLHttpRequest(); 
+		xmlhttp.open("POST","change_tag1.php",false);
+		xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xmlhttp.send(content);console.log(xmlhttp);
+		record=xmlhttp;
 		response=JSON.parse(xmlhttp.response);
-		if(response['check']=='true'){
-			a=document.getElementsByTagName("form")[0];
-			a.submit();
-		}
-		else{
-			alert("error...");
-		}
+		a=document.getElementsByTagName("form")[0];
+		a.submit();
 	}
 </script>
 <!--container-end-->
-<!--footer-start-->
-<div>
-<p id="footer">&copy; 2015 All Rights Reserved.</p>
-</div>
-<!--footer-end-->
 </body>
 </html>
