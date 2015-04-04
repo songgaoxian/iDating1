@@ -1,3 +1,15 @@
+<?php 
+	require('session.php');
+		session_start();
+		$session=new Session();
+		$uid=$session->get_uid();
+		if($uid==''){header('Location: index-m.html');}
+		else{
+			$user=new User();
+			$user->set_user($uid);
+			$uid=$user->rand_();
+		}
+?>
 <!DOCTYPE html>
 <html><head>
 <meta charset="utf-8">
@@ -38,9 +50,9 @@ $(document).ready(function() {
 </div>
 
 <div class='container'>
-	<img id="lot" src="lucky_draw/lot3.jpg">
+	<img id="lot" src="lucky_draw/lot<?php echo round(1,6);?>.jpg">
     <div style="display:block; margin-top:10px">
-    	<input name="recommend" type="submit" class="btn btn-shake" value="Check our recommendations for you!">
+    	<input name="recommend" type="button" class="btn btn-shake" value="Check our recommendations for you!" onclick='window.location.replace("accountmgt-m.php?uid="<?php echo $uid;?>)'>
     </div>
 </div>
 
