@@ -19,7 +19,7 @@
 			return('<div class="friend-box"><table><tr>
     <td><div class="friend-portrait background-cover-center" style="background-image:url(portrait/'.$info['photo'].')" onClick="window.location.replace(\'accountmgt.php?uid='.$info['user_id'].'\')"></div></td>
     <td><h3>'.$info['username'].'</h3>
-<p>'.$info['email'].'</p><br><br>
+<p>'.$info['email'].'</p>
 <div class="friend-btns">
 <button class="btn btn-sml" type="button" onClick=\'send_email("'.$info['user_id'].'")\'>Send Message</button>
 <button class="btn btn-sml" type="button" onClick=\'delete_friend("'.$info['user_id'].'")\'>Delete</button>
@@ -29,7 +29,7 @@
 				return('<div class="friend-box"><table><tr>
     <td><div class="friend-portrait background-cover-center" style="background-image:url(portrait/'.$info['photo'].')" onClick="window.location.replace(\'accountmgt.php?uid='.$info['user_id'].'\')"></div></td>
     <td><h3>'.$info['username'].'</h3>
-<p>'.$info['email'].'</p><br><br>
+<p>'.$info['email'].'</p>
 <div class="friend-btns">
 <button class="btn btn-sml" type="button" onClick="window.location.replace(\'commit_friend.php?uid='.$info['user_id'].'\')">Commit Friend</button>
 <button class="btn btn-sml" type="button" onClick=\'delete_friend("'.$info['user_id'].'")\'>Reject</button>
@@ -39,7 +39,7 @@
 				return('<div class="friend-box"><table><tr>
     <td><div class="friend-portrait background-cover-center" style="background-image:url(portrait/'.$info['photo'].')" onClick="window.location.replace(\'accountmgt.php?uid='.$info['user_id'].'\')"></div></td>
     <td><h3>'.$info['username'].'</h3>
-<p>'.$info['email'].'</p><br><br>
+<p>'.$info['email'].'</p>
 <div class="friend-btns">
 <button class="btn btn-sml" type="button" onClick=\'send_email("'.$info['user_id'].'")\'>Send Message</button>
 <button class="btn btn-sml" type="button">Waiting Reply</button>
@@ -447,10 +447,10 @@ if($mode==0)echo'
 ';echo'
 </div>
 </div>
-</div>
 <!--my-friends-end-->
 </div>
 <!--container-end-->
+</div>
 ';}
 		public function show_info($mode){
 			echo

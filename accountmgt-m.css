@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-.section-box p {
+.section-box-content > p {
 	margin:0;
 	padding:0;
 	line-height:180%;
@@ -36,7 +36,7 @@
 	padding:10px 0;
 	border-bottom:solid #ccc 1px;
 	display:inline-block;
-	width:49%;
+	width:100%;
 }
 .friend-box > table {
 	width:100%;
@@ -49,9 +49,12 @@
 	background-image:url(portrait/p1357183230.jpg);
 	border-radius:5px;
 }
-.friend-box h3,p {
+.friend-box h3 {
 	margin:0 0 5px 15px;
-	display:inline;
+}
+.friend-box p {
+	margin:0 0 15px 15px;
+	max-width:200px;
 }
 .friend-btns {
 	margin:0 0 0 15px;
