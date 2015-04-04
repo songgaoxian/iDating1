@@ -1,14 +1,3 @@
-<?php
-	require("admin.php");
-	$session=new Session();
-	$uid=$session->get_uid();
-	echo $uid;
-	if($uid!=NULL){header('Location: accountmgt.php');}
-	if($_SERVER["REQUEST_METHOD"]=="POST"){
-		$ad=new admin();
-		$ad->write($_POST['name'],$_POST['email'],$_POST['msg']);
-	}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -155,13 +144,21 @@ Major features include personal homepage, search, dating calendar, photo-sharing
   </div>
 </div>
 <!--author-holder-end-->
-</div>
+</div><script><?php
+	if($_SERVER["REQUEST_METHOD"]=="GET"){
+		if(isset($_GET['suc'])){
+			if($_GET['suc']=='1'){
+				echo 'alert("Thank you for your advice!")';
+			}
+		}
+	}?>
+</script>
 <!--about-us-end-->
 
 <!--contact-us-start-->
 <div id="contact-us">
 <h2>CONTACT US</h2>
-<form id="feedback" action="accountmgt.php">
+<form id="feedback" action="admin.php" method="post">
 <textarea id="feedback-msg" class="txtbox" rows="5" cols="30" placeholder="Leave Your Message Here..." name="msg" required></textarea>
 <input id="feedback-name" class="txtbox" type="text" placeholder="Your Name" name="name" required>
 <input id="feedback-email" class="txtbox" type="text" placeholder="Your E-mail" name="email" required>
