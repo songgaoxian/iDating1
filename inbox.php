@@ -76,26 +76,17 @@
 			<table style="width:100%">
 				<tr>
 					<td style="width:10%">
-						<div class="pic">
-        					<div style="height:80px; background-image:url(\'portrait\/'.$content['photo'].'\')" class="background-cover-center">
-						</div>
+						<div class="msg-portrait background-cover-center" style="background-image:url(\'portrait\/'.$content['photo'].'\')"></div>
 					</td>
 					<td style="width:90%">
 						<div class="title">
-    						<div id="sender" class="colored-txt">
-      							<span class="time">'.$content['dat'].'</span>
-      							<span class="from">'.$content['username'].'</span>
-    						</div>
-                    		<p>
-                        		"'.$content['preview'].'"
-                    		</p>
+    						<p class="msg-time">'.$content['dat'].'</p>
+      						<h3 class="msg-from colored-txt">'.$content['username'].'</h3>
+    						<p class="msg-content">"'.$content['preview'].'"</p>
 						</div>
   					</td>
 				</tr>
 				</table>
-				<div class="select">
-					<input class="checking" type="checkbox" name="groupCheckbox" value="'.$content['with_id'].'">
-				</div>
 			</a>
 			</li>';
 		}
@@ -121,6 +112,16 @@
 			echo'
 <title>iDating - Messages</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(".msg-portrait").height($(".msg-portrait").width());
+	
+	//resize the window
+	$(window).resize(function(){
+		$(".msg-portrait").height($(".msg-portrait").width());		
+	});
+});
+</script>
 </head>
 
 <body>
@@ -141,7 +142,7 @@
 <!--header-start-->
 <div class="header">
 <div id="topnav">
-<img id="upload" src="img/add.png" alt="upload moments" onClick=\'window.location.replace("new_msg_m.php")\'>
+<img id="add" src="img/add.png" alt="add message" onClick=\'window.location.replace("new_msg_m.php")\'>
 </div>
 <img id="nav" src="img/nav.png" alt="navigate">
 <h1>Inbox</h1>
@@ -156,14 +157,23 @@
 			echo $this->draw_one_m($value);
 		}
 		echo'</div>
-	</div><!--messages-end-->
-</form>';
+<!--messages-end-->';
 		}
 		
 		public function draw_inbox($content){
 			echo'
-
 <title>iDating - Messages</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(".msg-portrait").height($(".msg-portrait").width());
+	
+	//resize the window
+	$(window).resize(function(){
+		$(".msg-portrait").height($(".msg-portrait").width());		
+	});
+});
+</script>
 </head>
 
 <body>
@@ -181,32 +191,23 @@
 </div>
 <!--header-end-->
 
-<!--content-start-->
+<!--container-start-->
 <div class="container">
-<!--search-condition-start-->
-
 <h1 class="colored-txt">My Message Inbox</h1>
-
-
+<!--messages-start-->
 	<div class="mail-list">
 		<ul>';
 		foreach($content as $key=>$value){
 			echo $this->draw_one($value);
 		}
 		echo'
-            <form id="mail-form" action="new_msg.php">
-            <span class="button-group">
-            <input name="mc_delete" type="button" onClick="del()" class="btn btn-lg" value="Delete selected messages">
-            <input name="mc_markread" type="button" onClick="msg_read()" class="btn btn-lg" value="Mark as read">
-            <input name="mc_markread" type="submit" class="btn btn-lg" value="Start new conversation" style="float:right; margin-right: 30px">
-            </span>
-		</ul>
-		<div class="mail-list-ft"> </div>
+        </ul>
 	</div>
-</form>
-  
-    
-</div>';
+	<!--messages-end-->
+<form id="mail-form" action="new_msg.php">
+            <button id="msg-new" type="submit" class="btn btn-lg">Start New Conversation</button>
+</form> 
+</div><!--container-end-->';
 		}
 	}
 	
@@ -245,7 +246,7 @@
 ';
 				$view->draw_inbox($content);
 			}
-			else{header('Location: indxe.html');}
+			else{header('Location: index.html');}
 		}
 		public function show_m(){
 			session_start();

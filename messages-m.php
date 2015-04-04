@@ -17,8 +17,8 @@
 		}
 	});
 </script>
-<!--container-end-->
 </div>
+<!--container-end-->
 </div>
 </body>
 </html>

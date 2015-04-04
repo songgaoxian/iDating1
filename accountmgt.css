@@ -42,7 +42,7 @@
 .friend-box {
 	padding:10px 0;
 	margin:0 1% 0 0;
-	border-bottom:solid #ccc 1px;
+	border-bottom:solid #eee 1px;
 	display:inline-block;
 	width:48.5%;
 }
@@ -57,6 +57,7 @@
 	background-image:none;
 	border-radius:5px;
 }
+.friend-portrait:hover {cursor:pointer;}
 .friend-box h3 {
 	margin:0 0 5px 15px;
 }

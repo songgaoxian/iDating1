@@ -1,6 +1,5 @@
 @charset "utf-8";
 /* CSS Document */
-
 /*messages-start*/
 .message-box {
 	width:100%;
@@ -30,31 +29,20 @@ td > img {
 }
 /*messages-end*/
 
-#text-mobile {    
-	width:90%; 
-	margin:20px 10px 10px 10px;
+textarea {    
+	margin:20px 0 20px;
 	overflow:auto;
-    display:block;
 }
-
-.btn-mobile {
+.btn {
 	padding:10px;
 	display:block;
 	margin-bottom:20px;
 }
 
-#mail-btn1 {
-	float:left;
-	margin-left:5px;
-}
-
 #mail-btn2 {
 	float:right;
-	margin-right:5px;
 }
-
-#newmes {
-	width:94%;
-	margin-left:3%;
-	margin-right:3%;
+#new-msg-details {
+	width:92%;
+	margin:0 4%;
 }

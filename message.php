@@ -57,21 +57,15 @@
 			<table style="width:100%">
 				<tr>
 					<td style="width:10%">
-						<div class="pic">
-        					<div style="height:80px; background-image:url(\'portrait\/'.$content[2].'\')" class="background-cover-center">
-						</div>
+						<div style="background-image:url(\'portrait\/'.$content[2].'\')" class="msg-portrait background-cover-center">					</div>
 					</td>
 					<td style="width:90%">
 						<div class="title">
-    						<div id="sender" class="colored-txt">
-      							<span class="time">'.$content[0].'</span>
-      							<span class="from">'.$content[3].'</span>
-    						</div>
-                    		<p>
-                        		"'.$content[1].'"
-                    		</p>
+    						<p class="msg-time">'.$content[0].'</p>
+      						<h3 class="msg-from colored-txt">'.$content[3].'</h3>
+    						<p class="msg-content">"'.$content[1].'"</p>
 						</div>
-  					</td>
+					</td>
 				</tr>
 			</table>
 			</li>';
@@ -95,9 +89,17 @@
 		public function draw_m($content){
 			echo'
 <title>iDating - Messages</title>
-</head>
-<body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(".msg-portrait").height($(".msg-portrait").width());
+	
+	//resize the window
+	$(window).resize(function(){
+		$(".msg-portrait").height($(".msg-portrait").width());		
+	});
+});
+</script>
 </head>
 
 <body>
@@ -118,7 +120,7 @@
 <!--header-start-->
 <div class="header">
 <div id="topnav">
-<img id="upload" src="img/add.png" alt="upload moments" onClick="">
+<img id="add" src="img/add.png" alt="add message" onClick="">
 </div>
 <img id="nav" src="img/nav.png" alt="navigate">
 <h1>Messages</h1>
@@ -132,22 +134,19 @@
 		foreach($content as $key=>$value){
 			echo $this->draw_one_m($value);
 		}
-		echo'
-            <textarea class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="4"></textarea>
-            <div class="btn-group">
-            	<input id="mail-btn1" type="button" class="btn btn-mobile" value="Send new message" onClick="send()">
-				<input id="mail-btn2" type="button" class="btn btn-mobile" value="Return to inbox" onClick=\'window.location.replace("messages-m.php")\'>
-            </div>
+		echo'    
 		</ul>
-		</div>
-	</div>
-	<!--messages-end-->
-</form>
+</div>
+<!--messages-end-->
+<div id="new-msg-details">
+	<textarea class="txtbox txtbox-fill" placeholder="Leave your message here..." id="text" rows="4"></textarea>
+    <button id="mail-btn2" type="button" class="btn onClick=\'window.location.replace("messages-m.php")\'>Return to Inbox</button>
+	<button id="mail-btn1" type="button" class="btn" onClick="send()">Send Message</button>
+</div>
 ';
 		}
 		public function draw_new(){
 			echo'
-<title>iDating - Messages</title>
 </head>
 
 <body>
@@ -165,33 +164,31 @@
 </div>
 <!--header-end-->
 
-<!--content-start-->
+<!--container-start-->
 <div class="container">
-<!--search-condition-start-->
-
 <h1 class="colored-txt">My Message Inbox</h1>
-
+	<!--messages-start-->
 	<div class="mail-list">
-		<ul>';
-		echo'<span class="colored-txt">Message receiver: </span><input type="text" id="email", placeholder="Email address">
-			<br></br>
-            <textarea class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="5"></textarea>
-            <span class="button-group">
-            	<input name="mc_markread" type="button" class="btn btn-lg" value="Send new message" onClick="send()">
-            </span>
-		</ul>
-		<div class="mail-list-ft"> </div>
+		<form>
+			<br>Message Receiver: <br>
+			<input type="email" id="email" placeholder="Email Address" class="txtbox txtbox-fill">			<br>
+            <textarea class="txtbox txtbox-fill" placeholder="Leave your message here..." id="text" rows="5"></textarea>
+            <button id="msg-send-new" type="button" class="btn btn-lg" onClick="send()">Send Message</button>            
+		</form>
 	</div>
-</div>';
+	<!--messages-end-->
+</div>
+<!--container-end-->';
 		}
 		
 		public function draw_new_m(){
 			echo'
 <title>iDating - Messages</title>
 </head>
-
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<body><div id="C">
+
+<body>
+<div id="C">
 <!--header-start-->
 <div id="A">
 <ul>
@@ -203,30 +200,39 @@
 <li><a href="messages-m.php">Messages</a></li>
 <li><a href="logout1.php">Log Out</a></li>
 </ul>
-</div><div id="B">
+</div>
+
+<div id="B">
 <div class="header">
 <div id="topnav">
 </div><img id="nav" src="img/nav.png" alt="navigate"><h1 class="colored-txt">New Message</h1></div>
+
 <div class="container">
 <!--search-condition-start-->
-
-	<div>';
-		echo'<br>
-			<div id="newmes">
-				<span class="colored-txt">Message receiver: </span><input type="text" id="email", placeholder="Email address" style="width:50%;margin-bottom:10px;height:20px">
-            	<textarea class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="5"></textarea>
-				<div class="button-group">
-					<input id="mail-btn1" type="button" class="btn btn-mobile" value="Send new message" onClick="send()">
-					<input id="mail-btn2" type="button" class="btn btn-mobile" value="Return to inbox" onClick=\'window.location.replace("messages-m.php")\'>
-				</div>
+			<div id="new-msg-details">
+				<br>Message Receiver:<br>
+				<input type="email" id="email" placeholder="Email Address" class="txtbox txtbox-fill">
+            	<textarea class="txtbox txtbox-fill" placeholder="Leave your message here..." id="text" rows="5"></textarea>
+				<button id="mail-btn2" type="button" class="btn" onClick=\'window.location.replace("messages-m.php")\'>Return to Inbox</button><button id="mail-btn1" type="button" class="btn" onClick="send()">Send Message</button>
 			</div>
-	 </div>
+	 
 	</div>
 </div>';
 		}
 		
 		public function draw($content,$photo,$username,$email){
 			echo'
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(".msg-portrait").height($(".msg-portrait").width());
+	
+	//resize the window
+	$(window).resize(function(){
+		$(".msg-portrait").height($(".msg-portrait").width());		
+	});
+});
+</script>
 </head>
 
 <body>
@@ -244,26 +250,23 @@
 </div>
 <!--header-end-->
 
-<!--content-start-->
+<!--container-start-->
 <div class="container">
-<!--search-condition-start-->
-
 <h1 class="colored-txt">My Message Inbox</h1>
-
+	<!--messages-start-->
 	<div class="mail-list">
 		<ul>';
 		foreach($content as $key=>$value){
 			echo $this->draw_one($value,$photo,$username);
 		}
-		echo'<p>Email: ';echo $email.'</p>
-            <textarea  class="txtbox txtbox-fill" placeholder="Add new message..." id="text" rows="5"></textarea>
-            <span class="button-group">
-            <input name="mc_markread" type="button" class="btn btn-lg" onClick="send()" value="Send new message">
-            </span>
-		</ul>
-		</div>
+		echo'</ul>
+		<p>Email: ';echo $email.'</p>
+        <textarea  class="txtbox txtbox-fill" placeholder="Leave your message here..." id="text" rows="5"></textarea>
+        <button id="msg-send-new" type="button" class="btn btn-lg" onClick="send()">Send Message</button>
 	</div>
-</div>';
+	<!--messages-end-->
+</div>
+<!--container-end-->';
 		}
 	}
 	class MessageViewController{
@@ -285,6 +288,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <link rel="stylesheet" type="text/CSS" href="'.$result1['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages.css">
@@ -311,10 +315,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
 <link rel="stylesheet" type="text/CSS" href="'.$result1['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages-m.css">
-<link rel="stylesheet" type="text/CSS" href="sidebar.css">
 
 ';
 				$view->draw_m($mess->get_content(),$result['photo'],$result['username'],$result['email']);
@@ -332,10 +337,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <link rel="stylesheet" type="text/CSS" href="'.$result1['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages.css">
-<link rel="stylesheet" type="text/CSS" href="sidebar.css">
 <title>iDating - Messages</title>';
 			if($uid==NULL){header('Location: index-m.html');}
 			$view=new MessageView();
@@ -352,11 +358,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
 <link rel="stylesheet" type="text/CSS" href="'.$result1['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages-m.css">
-<link rel="stylesheet" type="text/CSS" href="sidebar.css">
 ';
 			if($uid==NULL){header('Location: index-m.html');}
 			$view=new MessageView();

@@ -34,7 +34,7 @@
 }
 .friend-box {
 	padding:10px 0;
-	border-bottom:solid #ccc 1px;
+	border-bottom:solid #eee 1px;
 	display:inline-block;
 	width:100%;
 }
@@ -49,6 +49,7 @@
 	background-image:url(portrait/p1357183230.jpg);
 	border-radius:5px;
 }
+.friend-portrait:hover {cursor:pointer;}
 .friend-box h3 {
 	margin:0 0 5px 15px;
 }
