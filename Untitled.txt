@@ -239,8 +239,18 @@ CREATE TABLE `tag` (
 
 INSERT INTO `tag` (`user_id`, `movie`, `book`, `music`, `jogging`, `cooking`) VALUES
 ('3', 'movie', 'book', '', '', ''),
-('1', 'movie', '', '', '', ''),
-('1', '', '', '', '', '');
+(‘2’, 'movie', '', '', '', ''),
+('1', '', '', '', '', ‘’),
+('02d4185e-c63e-9f0a-0f66-f645bf3ec23b', 'movie', 'book', ‘book’, '', ''),
+('0e181f11-415e-9417-17d4-28997a1d2879', 'movie', 'book', ‘’, ‘music’, ‘’),
+('1c58f526-b859-19d4-4221-8c487f060451', 'movie', 'book', ‘’, ‘music’, ‘’),
+('30ed47bb-d6c2-bfad-ef5f-2f8094b4c52a', 'movie', 'book', ‘’, ‘music’, ‘’),
+('92c00635-7728-61ff-20a2-1a639bfc3210', 'movie', 'book', ‘’, ‘music’, ‘’),
+('94b21c99-ca2c-9cbb-3dee-f3c27266a9b4', 'movie', 'book', ‘’, ‘music’, ‘’),
+('9bdbe1d1-d37e-cd3d-956f-511376482fef', 'movie', 'book', ‘’, ‘music’, ‘’),
+('b05b19b4-c2e1-3c99-cf4e-c7688cfc7e0e', 'movie', 'book', ‘’, ‘music’, ‘’),
+('c0d00915-df02-bce4-06fc-fc4b2bdac94b', 'movie', 'book', ‘’, ‘music’, ‘’),
+('f7f0530b-3895-870a-7842-f6662090f9e2', 'movie', 'book', ‘’, ‘music’, ‘’);
 
 -- --------------------------------------------------------
 
@@ -263,7 +273,18 @@ CREATE TABLE `tag1` (
 
 INSERT INTO `tag1` (`user_id`, `movie`, `book`, `music`, `jogging`, `cooking`) VALUES
 ('3', 'movie', 'book', '', '', ''),
-('1', '', '', 'music', '', 'cooking');
+(‘2’, 'movie', '', '', '', ''),
+('1', '', '', '', '', ‘cooking’),
+('02d4185e-c63e-9f0a-0f66-f645bf3ec23b', 'movie', 'book', ‘book’, '', ''),
+('0e181f11-415e-9417-17d4-28997a1d2879', 'movie', 'book', ‘’, ‘music’, ‘’),
+('1c58f526-b859-19d4-4221-8c487f060451', 'movie', 'book', ‘’, ‘music’, ‘’),
+('30ed47bb-d6c2-bfad-ef5f-2f8094b4c52a', 'movie', 'book', ‘’, ‘music’, ‘’),
+('92c00635-7728-61ff-20a2-1a639bfc3210', 'movie', 'book', ‘’, ‘music’, ‘’),
+('94b21c99-ca2c-9cbb-3dee-f3c27266a9b4', 'movie', 'book', ‘’, ‘music’, ‘’),
+('9bdbe1d1-d37e-cd3d-956f-511376482fef', 'movie', 'book', ‘’, ‘music’, ‘’),
+('b05b19b4-c2e1-3c99-cf4e-c7688cfc7e0e', 'movie', 'book', ‘’, ‘music’, ‘’),
+('c0d00915-df02-bce4-06fc-fc4b2bdac94b', 'movie', 'book', ‘’, ‘music’, ‘’),
+('f7f0530b-3895-870a-7842-f6662090f9e2', 'movie', 'book', ‘’, ‘music’, ‘’);
 -- --------------------------------------------------------
 
 
