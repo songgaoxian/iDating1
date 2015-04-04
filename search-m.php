@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html><head>
+<html lang="en"><head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
 <?php
 require("themeControl.php");
 $theme=new theme();
@@ -21,10 +20,17 @@ echo "<link rel='stylesheet' type='text/css' href='".$theme->getTheme()."-theme.
 $(document).ready(function() {
 	$(".basic").selectOrDie();
 	$(".selectify").selectify();
-	$(".sidebar").hide();
-		
-	$("#nav").click(function() {
-		$(".sidebar").fadeToggle();
+			
+	var left=1;
+	$('#nav').click(function() {
+		if(left==1){
+			$('#B').animate({left: 150});left=0;
+			$('#C').css('overflow','hidden');
+		}
+	    else{
+			$('#B').animate({left: 0});left=1;
+			$('#C').css('overflow','scroll');
+		}
 	});
 	
 	$("#by-name-form").hide();

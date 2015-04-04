@@ -145,6 +145,7 @@ $(function(){
 <body>
 <div id="C">
 <div id="A">
+<!--sidebar-start-->
 <ul>
 <li><a href="accountmgt-m.php">My Page</a></li>
 <li><a href="search-m.php">Search</a></li>
@@ -154,6 +155,7 @@ $(function(){
 <li><a href="messages-m.php">Messages</a></li>
 <li><a href="logout1.php">Log Out</a></li>
 </ul>
+<!--sidebar-end-->
 </div>
 
 <div id="B">
