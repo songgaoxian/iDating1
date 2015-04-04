@@ -160,7 +160,7 @@ $(document).ready(function() {
 <tr>
   <td class="item-name colored-txt">Education: </td>
   <td class="item-content">
-  <select name="education_pref" class="txtbox">
+  <select name="education_pref" class="txtbox" id="education_pref">
     <option value="Unlimited" selected>Unlimited</option>
     <option value="High School">High School</option>
     <option value="Bachelor">Bachelor</option>
@@ -171,7 +171,7 @@ $(document).ready(function() {
 <tr>
   <td class="item-name colored-txt">Occupation: </td>
   <td class="item-content">
-  <select id="job_pref" class="txtbox">
+  <select id="job_pref" class="txtbox" id="job_pref">
   	<option value="Unlimited" selected>Unlimited</option>
   	<option value="Student">Student</option>
     <option value="Computer Software">Computer Software</option>
