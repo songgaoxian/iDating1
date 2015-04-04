@@ -65,6 +65,17 @@
 			if(count($info)==0){$result='Find a friend la~';}
 			$this->friend_info=$result;
 		}
+		public function show_all1($info){
+			$num=0;
+			$result='';
+			while($num<count($info)){
+				$result.='<tr><td>'.$this->show_one($info[$num]).'</td></tr>';
+				$num+=1;
+			}
+			if($i==0){$result.='</tr>';}
+			if(count($info)==0){$result='Find a friend la~';}
+			$this->friend_info=$result;
+		}
 		public function show_info_m($mode){
 			echo'
 <!DOCTYPE html>
@@ -319,12 +330,12 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 <tr>
   <td class="item-name colored-txt">City: </td>
   <td class="item-content edit-hide" id="city_pref1">'.$this->user_info['city_pref'].'</td>
-  <td class="item-content edit-show"><input class="txtbox" type="text" id="city_pref" name="city-pref"></td>
+  <td class="item-content edit-show"><input class="txtbox" type="text" id="city_pref" value="'.$this->user_info['city_pref'].'" name="city-pref"></td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Hometown: </td>
   <td class="item-content edit-hide" id="hometown_pref1">'.$this->user_info['hometown_pref'].'</td>
-  <td class="item-content edit-show"><input class="txtbox" type="text" id="hometown_pref" name="hometown-pref"></td>
+  <td class="item-content edit-show"><input class="txtbox" type="text" id="hometown_pref"  value="'.$this->user_info['hometown_pref'].'" name="hometown-pref"></td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Education: </td>
@@ -374,7 +385,7 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 <tr>
   <td class="item-name colored-txt">Monthly Income: </td>
   <td class="item-content edit-hide" id="income_pref1">&gt;='.$this->user_info['income_pref'].' HKD</td>
-  <td class="item-content edit-show">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref" value="'.$this->user_info['income_pref'].'"> HKD</td>
+  <td class="item-content edit-show">&gt;= <input id="income_pref" class="txtbox" type="number" name="income-pref" value="'.$this->user_info['income_pref'].'"> HKD</td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Tags:</td>
@@ -682,10 +693,10 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 <tr>
   <td class="item-name colored-txt">City: </td>
   <td class="item-content edit-hide" id="city_pref1">'.$this->user_info['city_pref'].'</td>
-  <td class="item-content edit-show"><input class="txtbox" type="text" id="city_pref" name="city-pref"></td>
+  <td class="item-content edit-show"><input class="txtbox" type="text" id="city_pref" name="city-pref" value="'.$this->user_info['city_pref'].'"></td>
   <td class="item-name colored-txt">Hometown: </td>
   <td class="item-content edit-hide" id="hometown_pref1">'.$this->user_info['hometown_pref'].'</td>
-  <td class="item-content edit-show"><input class="txtbox" type="text" id="hometown_pref" name="hometown-pref"></td>
+  <td class="item-content edit-show"><input class="txtbox" type="text" id="hometown_pref" name="hometown-pref" value="'.$this->user_info['hometown_pref'].'"></td>
 </tr>
 <tr>
   <td class="item-name colored-txt">Education: </td>
@@ -732,7 +743,7 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
 <tr>
   <td class="item-name colored-txt">Monthly Income: </td>
   <td class="item-content edit-hide" id="income_pref1">&gt;='.$this->user_info['income_pref'].' HKD</td>
-  <td class="item-content edit-show">&gt;= <input id="income_pref" class="txtbox" type="number" value="" name="income-pref" value="'.$this->user_info['income_pref'].'"> HKD</td>
+  <td class="item-content edit-show">&gt;= <input id="income_pref" class="txtbox" type="number" name="income-pref" value="'.$this->user_info['income_pref'].'"> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
   <td class="item-content edit-hide" id="tags1">';
   $tag=$this->user_info['tags1'];
@@ -911,7 +922,7 @@ Copyright &copy; 2015 All Rights Reserved.
 					$userview=new UserView($result);
 					if($_GET['uid']==$uid){
 						$friend=$user->show_friends();
-						$userview->show_all($friend);
+						$userview->show_all1($friend);
 						$userview->show_info_m(0);
 					}
 					else{
@@ -931,7 +942,7 @@ Copyright &copy; 2015 All Rights Reserved.
 					$result['tags1']=$user->show_tag1();
 					$userview=new UserView($result);
 					$friend=$user->show_friends();
-					$userview->show_all($friend);
+					$userview->show_all1($friend);
 					$userview->show_info_m(0);
 				}
 			}
