@@ -224,13 +224,21 @@ $(document).ready(function() {
 </form>
 </div>
 <script type="application/x-javascript">
-	var info=['username','height','city','hometown','education','job','income','sex','birthday','self_intro'];
+	var info=['username','sex','birthday','height','city','hometown','education','job','income','self_intro','height_f','height_t','age_f','age_t','city_pref','hometown_pref','job_pref','education_pref','income_pref'];
 	function edit(){	
 		i=0;
 		content='{"';
 		content+=info[0]+'":"'+document.getElementById(info[0]).value+'"';
 		for(i=1;i<info.length;i++){
-			content+=',"'+info[i]+'":"'+document.getElementById(info[i]).value+'"';
+			if(info[i]!='sex'){
+				console.log(info[i]);
+				content+=',"'+info[i]+'":"'+document.getElementById(info[i]).value+'"';
+			}
+			else{
+				temp=document.getElementsByName('sex')[0];
+				if(temp.checked==false){content+=', "sex":"Female"';}
+				else{content+=', "sex":"Male"';}
+			}
 		}
 		content+='}';
 		xmlhttp=new XMLHttpRequest(); 
