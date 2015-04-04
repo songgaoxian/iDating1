@@ -11,7 +11,7 @@
 <script>
 $(document).ready(function() {
 	$("#shake").click(function() {
-		$("body").append("<div class='mask' id='bbq'></div>");
+		$("body").append("<div class='mask'></div>");
 		$(".overlay-container").show();
 		$("#waiting-box").css("margin-top",($(".overlay-container").height()-$("#waiting-box").height())/2);
     $("#waiting-box").fadeIn();   
@@ -22,47 +22,69 @@ $(document).ready(function() {
 </head>
 
 <body>
+<div id="doEvent"></div>
+      <table>
+        <tr>
+          <td>Event Supported</td>
+          <td id="doEvent"></td>
+        </tr>
+        <tr>
+          <td>Tilt Left/Right [gamma]</td>
+          <td id="doTiltLR"></td>
+        </tr>
+        <tr>
+          <td>Tilt Front/Back [beta]</td>
+          <td id="doTiltFB"></td>
+        </tr>
+        <tr>
+          <td>Direction [alpha]</td>
+          <td id="doDirection"></td>
+        </tr>
+      </table>
+</div>
 <script>
-	init();
-	var count = 0;
+    init();
+    var count = 0;
 	var init_=[0,0,0];
     function init() {
       if (window.DeviceOrientationEvent) {
-		  init_[0]=eventData.gamma;
-		  init_[1]=eventData.beta;
-		  init_[2]=eventData.alpha;
+        document.getElementById("doEvent").innerHTML = "DeviceOrientation";
         // Listen for the deviceorientation event and handle the raw data
         window.addEventListener('deviceorientation', function(eventData) {
           // gamma is the left-to-right tilt in degrees, where right is positive
           var tiltLR = eventData.gamma;
+          
           // beta is the front-to-back tilt in degrees, where front is positive
           var tiltFB = eventData.beta;
+          
           // alpha is the compass direction the device is facing in degrees
-          var dir = eventData.alpha;
+          var dir = eventData.alpha
+          
           // call our orientation event handler
           deviceOrientationHandler(tiltLR, tiltFB, dir);
           }, false);
+      } else {
+        document.getElementById("doEvent").innerHTML = "Not supported on your device or browser.  Sorry."
       }
     }
-  
-    function deviceOrientationHandler(a,b,c) {
-		count+=Math.sqrt(Math.pow(a-init_[0],2)+Math.pow(b-init_[1],2)+Math.pow(c-init_[2],2));
-		init_[0]=a;
-		init_[1]=b;
-		init_[2]=c;
+    function deviceOrientationHandler(tiltLR, tiltFB, dir) {
+		count+=Math.sqrt(Math.pow(tiltLR-init_[0],2)+Math.pow(tiltFB-init_[1],2)+Math.pow(dir-init_[2],2));
+		init_[0]=tiltLR;
+		init_[1]=tiltFB;
+		init_[2]=dir;
+		document.getElementById("doDirection").innerHTML = Math.round(count);
 		var temp=document.getElementById('123');
 		temp.text=count;
-		if(count>10){
-			var but=document.getElementById('bbq');
+		if(count>3000){
+			var but=document.getElementById('shake');
 			but.click();
 		}
     }
 </script>
 <!--header-start-->
-<p id="123"></p>
 <div class="header">
 <div id='topnav'>
-<img id='shake' src='img/add.png' alt='sjake'>
+<img id='shake' src='img/add.png' alt='shake'">
 </div>
 <img id="nav" src="img/nav.png" alt="navigate">
 <h1>Shake</h1>
@@ -81,6 +103,7 @@ $(document).ready(function() {
 <!--shake-start-->
 <div class="container">
 <p>Please Shake Your Cellphone</p>
+<p id="123"></p>
 <img src="img/shake_bg.png" alt="shake background">
 </div>
 <!--shake-end-->
