@@ -24,6 +24,7 @@ $currentid=$session->get_uid();
 <head>
 <script src="https://apis.google.com/js/client:platform.js" async defer></script>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <?php
 $theme=new theme();
