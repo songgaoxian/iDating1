@@ -311,7 +311,6 @@ $(document).ready(function() {
 			}
 		}
 		public function show_pictures(){
-			session_start();
 			$page=1;
 			$session=new Session();
 			if($session->get_uid()==NULL){
@@ -356,7 +355,6 @@ $(document).ready(function() {
 			}
 		}
 		public function show_pictures_m(){
-			session_start();
 			$session=new Session();
 			if($session->get_uid()==NULL){
 				//header("Location: index.html");
