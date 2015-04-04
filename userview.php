@@ -291,11 +291,12 @@ echo'
 <tr>
   <td class="item-name colored-txt">Tags:</td>
   <td class="item-content edit-hide" id="tags">';
+  if(count($tag)>0){
   $tag=$this->user_info['tags'];
 	foreach($tag as $key=>$value){
 		if($value!=''){
 	  echo('<div class="tag-item">'.$value.'</div>');}
-	}
+	}}
    echo '</td>  
    <td class="item-content edit-show">
    		<select name="tags" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
@@ -391,10 +392,11 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
   <td class="item-name colored-txt">Tags:</td>
   <td class="item-content edit-hide" id="tags1">';
   $tag=$this->user_info['tags1'];
+  if(count($tag)>0){
 foreach($tag as $key=>$value){
 		if($value!=''){
 	  echo('<div class="tag-item">'.$value.'</div>');}
-	}
+	}}
    echo '</td>  
    <td class="item-content edit-show">
    		<select name="tags_pref" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
@@ -657,10 +659,11 @@ echo'
   <td class="item-name colored-txt">Tags:</td>
   <td class="item-content edit-hide" id="tags">';
   $tag=$this->user_info['tags'];
+  if(count($tag)>0){
 	foreach($tag as $key=>$value){
 		if($value!=''){
 	  echo('<div class="tag-item">'.$value.'</div>');}
-	}
+	}}
    echo '</td>  
    <td class="item-content edit-show">
    		<select name="tags" id="selecttags" class="selecttags" multiple="multiple" size="5"> 
@@ -746,11 +749,12 @@ echo '<h2 class="subheading colored-txt">I\'M LOOKING FOR</h2>
   <td class="item-content edit-show">&gt;= <input id="income_pref" class="txtbox" type="number" name="income-pref" value="'.$this->user_info['income_pref'].'"> HKD</td>
   <td class="item-name colored-txt">Tags:</td>
   <td class="item-content edit-hide" id="tags1">';
+  if(count($tag)>0){
   $tag=$this->user_info['tags1'];
 foreach($tag as $key=>$value){
 		if($value!=''){
 	  echo('<div class="tag-item">'.$value.'</div>');}
-	}
+	}}
    echo '</td>  
    <td class="item-content edit-show">
    		<select name="tags_pref" id="selecttags1" class="selecttags" multiple="multiple" size="5"> 
