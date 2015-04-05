@@ -403,17 +403,17 @@ echo "</select><br>
 <input class='txtbox txtbox-fill' type='time' name='times' value='00:00' required><br>
 <input class='txtbox txtbox-fill' type='text' name='location' placeholder='Location' required><br>
 <textarea class='txtbox txtbox-fill' name='content' placeholder='Comments'></textarea>
-<input id='add-event' class='btn btn-fill' type='submit' value='Add'>
+<button id='add-event' class='btn btn-fill' type='submit'>Add</button>
 </form>
 </div>
 <!--add-event-box-end-->
 <!--event-detail-start-->
 <div id='event-detail-box' class='overlay' >
 <button class='close-overlay btn' type='button'>X</button>
-<h2 class='colored-txt'>Dating Details</h2>
+<h2 class='colored-txt' id='insert-pos'>Dating Details</h2>
 <form method='post' action='deletec.php' id='detailc'>
-  <input type='submit' value='Delete' class='btn btn-fill'><br>
-  </form>
+  <button type='submit' class='btn btn-fill'>Delete</button><br>
+</form>
 </div>
 <!--event-detail-end-->
 </div>

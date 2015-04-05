@@ -15,7 +15,7 @@
 <input class="txtbox txtbox-fill" type="date" name="take_date" required><br>
 <input class="txtbox txtbox-fill" type="text" placeholder="Title" name="title" required><br>
 <textarea class="txtbox txtbox-fill" placeholder="Comments" name="descrp"></textarea>
-<input id="upload-now" class="btn btn-fill" type="submit" value="Upload">
+<button id="upload-now" class="btn btn-fill" type="submit">Upload</button>
 </form>
 </div>
 <!--upload-pic-box-end-->

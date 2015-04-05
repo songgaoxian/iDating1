@@ -79,8 +79,8 @@ $(document).ready(function() {
 Please enter your email address:
 <input id="email-adr-3" class="txtbox txtbox-fill"  type="email" placeholder="Your Email" name="email" required><br><br>
 A randomly generated password will be sent to you after verification. You can modify it later on.<br>
-<button id="forget-back" class="btn btn-fill">Back</button>
-<button id="forget-send" class="btn btn-fill" onClick='$("#forget-form").submit()'>Send Email</button>
+<button id="forget-back" class="btn btn-fill" type="button">Back</button>
+<button id="forget-send" class="btn btn-fill" type="submit">Send Email</button>
 </form>
 </div>
 <!--sign-box-end-->
@@ -100,7 +100,7 @@ function logup(){
 	var pwd=document.getElementById("pwd").value;
 	var pwd1=document.getElementById("pwd-confirm").value;
 	if(email.length==0 || pwd.length==0){return;}
-	else if(!(pwd==pwd1)){alert("passwords should be the same!");}
+	else if(!(pwd==pwd1)){alert("Passwords should be the same!");}
 	else{
 		xmlhttp=new XMLHttpRequest(); 
 			//may be not secure......

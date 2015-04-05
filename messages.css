@@ -1,90 +1,54 @@
 @charset "utf-8";
 /* CSS Document */
 h1 {
-	margin:30px 0 10px;
+	margin:0 0 10px;
 	font-weight:normal;
 	font-size:24px;
-	padding:20px 4% 10px;;
+	padding:20px 0 10px 4%;;
 }
-
 .mail-list{
+	width:92%;
+	padding:0 4%;
 	border-top:1px solid #eee;
 }
-
+.mail-list ul {
+	margin:0;
+	padding:0;
+}
 .mail-list li{
 	position:relative;
 	overflow:hidden;
 	zoom:1;
-	padding:0px 10px 10px;
-	margin-bottom:10px;
-	margin-top:-20px;
+	padding:10px 0;
 	border-bottom:1px solid #eee
 }
-
-.pic{
-	float:left;
-	margin:0 10px 0 0;
-	width: 80px;
-}
-
-.mail-list .pic img{
-	width:80px;
-	height:80px;
-}
-
 .mail-list .title{
 	overflow:hidden;
 	zoom:1;
 	word-wrap:break-word;
-	line-height:2;
 	cursor:pointer;
 }
-
-.mail-list .title #sender{
-	margin:-2px 20px 2px 5px;
+.mail-list h3{
+	margin:0 0 10px 15px;
+	font-size:22px;
 }
-
-.mail-list .title #sender .time{
+.msg-time {
 	float:right;
-}
-
-.mail-list .title p{
-	margin:0 0 0 8px;
-	width:100%;
-	line-height:1.5;
-}
-
-.mail-list .title p a:visited{
+	margin:0 0 10px;
 	color:#666;
 }
-
-.mail-list .title p a:hover{
-	color:#fff;
-	background-color: #666;
+.msg-content {
+	margin:0 0 0 15px;
+	width:100%;
+	line-height:150%;
+	color:#666;
 }
-
-.mail-list .select{
-	position:absolute;
-	right:28px;
-	bottom: 25px;
-	padding-top:30px;
+td {vertical-align:top;}
+#msg-new {
+	margin:20px 0 30px 4%;
 }
-
-.mail-list-ft{
-	padding:12px 10px 20px;
-	margin-bottom:10px;
-	text-align:right;
-}
-
-#text {    
-	width:91%; 
-	height:100%;
-	overflow:auto;
-    display:block;
-}
-
-br{
-	line-height:10px;
+#msg-send-new {
+	margin:15px 0 30px 0;
 }
 
 

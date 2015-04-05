@@ -76,26 +76,17 @@
 			<table style="width:100%">
 				<tr>
 					<td style="width:10%">
-						<div class="pic">
-        					<div style="height:80px; background-image:url(\'portrait\/'.$content['photo'].'\')" class="background-cover-center">
-						</div>
+						<div class="msg-portrait background-cover-center" style="background-image:url(\'portrait\/'.$content['photo'].'\')"></div>
 					</td>
 					<td style="width:90%">
 						<div class="title">
-    						<div id="sender" class="colored-txt">
-      							<span class="time">'.$content['dat'].'</span>
-      							<span class="from">'.$content['username'].'</span>
-    						</div>
-                    		<p>
-                        		"'.$content['preview'].'"
-                    		</p>
+    						<p class="msg-time">'.$content['dat'].'</p>
+      						<h3 class="msg-from colored-txt">'.$content['username'].'</h3>
+    						<p class="msg-content">"'.$content['preview'].'"</p>
 						</div>
   					</td>
 				</tr>
 				</table>
-				<div class="select">
-					<input class="checking" type="checkbox" name="groupCheckbox" value="'.$content['with_id'].'">
-				</div>
 			</a>
 			</li>';
 		}
@@ -104,11 +95,11 @@
 			<div class="message-box">
 				<table style="width:100%">
 				<tr>
-					<td style="width:20%">
+					<td style="width:25%">
 						<img src="portrait/'.$content['photo'].'" alt="portrait">
 					</td>
-					<td style="width:80%">
-						<p id="message-from" class="colored-txt">'.$content['username'].'</p>
+					<td style="width:75%">
+						<h3 id="message-from" class="colored-txt">'.$content['username'].'</h3>
 						<p class="message-time">'.$content['dat'].'</p>
 						<p class="message-content">"'.substr($content['preview'],0,30).'"</p>
 					</td>
@@ -120,29 +111,20 @@
 		public function draw_inbox_m($content){
 			echo'
 <title>iDating - Messages</title>
-</head>
-
-<body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $(document).ready(function() {
-	$(".sidebar").hide();
+	$(".msg-portrait").height($(".msg-portrait").width());
 	
-	$(".moment-sml").click(function() {
-		$(".moment-sml").children("p").hide();
-		$(this).children("p").fadeIn();
-	});
-	
-	$("#nav").click(function() {
-		$(".sidebar").fadeToggle();
+	//resize the window
+	$(window).resize(function(){
+		$(".msg-portrait").height($(".msg-portrait").width());		
 	});
 });
 </script>
-
 </head>
 
 <body>
-<!--header-start-->
 <div id="C">
 <div id="A">
 <ul>
@@ -154,35 +136,44 @@ $(document).ready(function() {
 <li><a href="messages-m.php">Messages</a></li>
 <li><a href="logout1.php">Log Out</a></li>
 </ul>
-</div><div id="B">
+</div>
+
+<div id="B">
+<!--header-start-->
 <div class="header">
 <div id="topnav">
-<img id="upload" src="img/add.png" alt="upload moments" onClick=\'window.location.replace("new_msg_m.php")\'>
+<img id="add" src="img/add.png" alt="add message" onClick=\'window.location.replace("new_msg_m.php")\'>
 </div>
 <img id="nav" src="img/nav.png" alt="navigate">
 <h1>Inbox</h1>
 </div>
 <!--header-end-->
-<!--header-end-->
 
-<!--content-start-->
+<!--container-start-->
 <div class="container">
-<!--search-condition-start-->
-
-
+<!--messages-start-->
 <div id="messages">';
 		foreach($content as $key=>$value){
 			echo $this->draw_one_m($value);
 		}
 		echo'</div>
-	</div>
-</form>';
+<!--messages-end-->';
 		}
 		
 		public function draw_inbox($content){
 			echo'
-
 <title>iDating - Messages</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(".msg-portrait").height($(".msg-portrait").width());
+	
+	//resize the window
+	$(window).resize(function(){
+		$(".msg-portrait").height($(".msg-portrait").width());		
+	});
+});
+</script>
 </head>
 
 <body>
@@ -200,32 +191,23 @@ $(document).ready(function() {
 </div>
 <!--header-end-->
 
-<!--content-start-->
+<!--container-start-->
 <div class="container">
-<!--search-condition-start-->
-
 <h1 class="colored-txt">My Message Inbox</h1>
-
-
+<!--messages-start-->
 	<div class="mail-list">
 		<ul>';
 		foreach($content as $key=>$value){
 			echo $this->draw_one($value);
 		}
 		echo'
-            <form id="mail-form" action="new_msg.php">
-            <span class="button-group">
-            <input name="mc_delete" type="button" onClick="del()" class="btn btn-lg" value="Delete selected messages">
-            <input name="mc_markread" type="button" onClick="msg_read()" class="btn btn-lg" value="Mark as read">
-            <input name="mc_markread" type="submit" class="btn btn-lg" value="Start new conversation" style="float:right; margin-right: 30px">
-            </span>
-		</ul>
-		<div class="mail-list-ft"> </div>
+        </ul>
 	</div>
-</form>
-  
-    
-</div>';
+	<!--messages-end-->
+<form id="mail-form" action="new_msg.php">
+            <button id="msg-new" type="submit" class="btn btn-lg">Start New Conversation</button>
+</form> 
+</div><!--container-end-->';
 		}
 	}
 	
@@ -257,13 +239,14 @@ $(document).ready(function() {
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame.css">
 <link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages.css">
 ';
 				$view->draw_inbox($content);
 			}
-			else{header('Location: indxe.html');}
+			else{header('Location: index.html');}
 		}
 		public function show_m(){
 			session_start();
@@ -291,11 +274,11 @@ $(document).ready(function() {
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="shortcut icon" href="img/icon.png">
 <link rel="stylesheet" type="text/CSS" href="shared-frame-m.css">
-<link rel="stylesheet" type="text/CSS" href="shared-theme-m.css">
 <link rel="stylesheet" type="text/CSS" href="'.$data['theme'].'-theme.css">
 <link rel="stylesheet" type="text/CSS" href="messages-m.css">
-<link rel="stylesheet" type="text/CSS" href="sidebar.css">
 ';
 				$view=new InboxView();
 				$view->draw_inbox_m($content);

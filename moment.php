@@ -65,8 +65,12 @@ $(document).ready(function() {
 	$(".moment-sml").click(function() {
 		$(".moment-sml").children("p").hide();
 		$(".pic-mask").remove();
-		$(this).children("p").fadeIn("fast");
-		$(this).prepend("<div class=\'pic-mask\'></div>");
+		temp=$(this).css("background-image");
+		temp=temp.substr(temp.length-11);
+		if(temp!="No_pic.png)"){
+			$(this).children("p").fadeIn("fast");
+			$(this).prepend("<div class=\'pic-mask\'></div>");
+		}		
 	});
 			
 	//show upload picture dialog
@@ -77,22 +81,6 @@ $(document).ready(function() {
 	//close an overlay
 	$(".close-overlay").click(function() {
 		$(this).parent().parent().fadeOut();		
-	});	
-	
-	//show picture detail dialog
-	$(".moment").click(function() {
-		temp=$(this).css("background-image");
-		if(temp.length==""){
-			event.preventDefault();
-		}
-		else {
-			temp=temp.substr(4);
-			temp=temp.substr(0,temp.length-1);
-			$("#pic-detail-box img").attr({"src":temp});
-			$("#pic-detail-box > a").attr({"href":temp});
-			$("#pic-detail-box > h2").text($(this).children("p").text());
-			$("#pic-detail-box").fadeIn();
-		}
 	});	
 	
 	//resize
@@ -118,6 +106,7 @@ $(document).ready(function() {
 <li><a href="logout1.php">Log Out</a></li>
 </ul>
 <!--sidebar-end-->
+
 </div>
 <div id="B">
 <!--header-start-->
@@ -129,7 +118,6 @@ $(document).ready(function() {
 <h1>Moments</h1>
 </div>
 <!--header-end-->
-
 <!--container-start-->
 <div class="container">
 <!--moment-wall-start-->
@@ -166,8 +154,12 @@ $(document).ready(function() {
 	
 	//hover a moment picture
 	$(".moment").hover(function() {
-		$(this).children("p").fadeIn("fast");
-		$(this).prepend("<div class=\'pic-mask\'></div>");
+		temp=$(this).css("background-image");
+		temp=temp.substr(temp.length-11);
+		if(temp!="No_pic.png)"){
+			$(this).children("p").fadeIn("fast");
+			$(this).prepend("<div class=\'pic-mask\'></div>");
+		}
 	},
 	function() {
 		$(this).children("p").hide();
@@ -190,10 +182,8 @@ $(document).ready(function() {
 	//show picture detail dialog
 	$(".moment").click(function() {
 		temp=$(this).css("background-image");
-		if(temp==""){
-			event.preventDefault();
-		}
-		else{
+		temp2=temp.substr(temp.length-11);
+		if(temp2!="No_pic.png)"){
 			temp=temp.substr(4);
 			temp=temp.substr(0,temp.length-1);
 			$("body").append("<div class=\'mask\'></div>");
@@ -204,8 +194,9 @@ $(document).ready(function() {
 			$("#pic-detail-box img").css("max-height", $(".overlay-container").height()*0.75-100);
 			$("#pic-detail-box").css("margin-top",($(".overlay-container").height()*0.95-$("#pic-detail-box").height())/2);
 			$("#pic-detail-box").slideDown();
-			imgpadding=($("#pic-detail-box").width()-$("#pic-detail-box img").width())/2
-			$("#pic-detail-box img").css("padding-left", imgpadding);}
+			imgpadding=($("#pic-detail-box").width()-$("#pic-detail-box img").width())/2;
+			$("#pic-detail-box img").css("padding-left", imgpadding);
+		}
 	});	
 	
 	//resize
@@ -291,10 +282,10 @@ $(document).ready(function() {
 				if($_SERVER["REQUEST_METHOD"]=="POST"){
 					$check = getimagesize($_FILES["filename"]["tmp_name"]);
 					if(!$check){
-						echo('<script type="text/javascript">alert("file is not an image! please try again!")</script>');
+						echo('<script type="text/javascript">alert("File is not an image! Please try again!")</script>');
 					}
 					else if($_FILES["filename"]["size"] > 5000000){
-						echo('<script type="text/javascript">alert("file is too big!")</script>');
+						echo('<script type="text/javascript">alert("File is too big!")</script>');
 					}
 					else{
 						$filename=uuid().'.'.$imageFileType;
@@ -303,8 +294,8 @@ $(document).ready(function() {
 							$sql='INSERT INTO `moment` (`user_id`, `pic_id`,`title`, `summary`,`take_date`, `upload_date`) VALUES (\''.$user_id.'\', \''.$filename.'\', \''.$_POST['title'].'\', \''.$_POST['descrp'].'\',\''.$_POST['take_date'].'\', CURRENT_TIMESTAMP);';
 							$result=mysqli_query($conn,$sql);
 							//echo $sql;
-							if($result){echo('<script type="text/javascript">alert("upload!")</script>');}
-							else{echo('<script type="text/javascript">alert("fail...")</script>');}
+							if($result){echo('<script type="text/javascript">alert("Uploaded!")</script>');}
+							else{echo('<script type="text/javascript">alert("Failed...")</script>');}
 					}
 				}
 			}
@@ -345,13 +336,13 @@ $(document).ready(function() {
 				while($count<12){
 					$row = mysqli_fetch_array($result);
 					if($row==false){
-						$content[$count]='"><p></p>';
+						$content[$count]='><p></p>';
 					}
 					else if(!isset($row['pic_id'])){
-						$content[$count]='"<p></p>';
+						$content[$count]='><p></p>';
 					}
 					else if(!isset($row['title'])){
-						$content[$count]='"<p></p>';
+						$content[$count]='><p></p>';
 					}
 					else{$content[$count]=' onclick="get_info(\''.$row['pic_id'].'\')" style="background-image:url(portrait/'.$row['pic_id'].')"><p>'.$row['title'].'</p>';}
 					$count+=1;
@@ -392,13 +383,13 @@ $(document).ready(function() {
 				while($count<20){
 					$row = mysqli_fetch_array($result);
 					if($row==false){
-						$content[$count]='<p></p>';
+						$content[$count]='<td><p></p></td>';
 					}
 					else if(!isset($row['pic_id'])){
-						$content[$count]='<p></p>';
+						$content[$count]='<td><p></p></td>';
 					}
 					else if(!isset($row['title'])){
-						$content[$count]='<p></p>';
+						$content[$count]='<td><p></p></td>';
 					}
 					else{$content[$count]='<td class="moment moment-sml background-cover-center" style=\'background-image:url(portrait/'.$row['pic_id'].')\'><p>'.$row['title'].'</p></td>';}
 					$count+=1;

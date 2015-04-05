@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-.section-box p {
+.section-box-content > p {
 	margin:0;
 	padding:0;
 	line-height:180%;
@@ -41,9 +41,10 @@
 }
 .friend-box {
 	padding:10px 0;
-	border-bottom:solid #ccc 1px;
+	margin:0 1% 0 0;
+	border-bottom:solid #eee 1px;
 	display:inline-block;
-	width:49%;
+	width:48.5%;
 }
 .friend-box > table {
 	width:100%;
@@ -53,12 +54,16 @@
 }
 .friend-portrait {
 	width:100%;
-	background-image:url(portrait/p1357183230.jpg);
+	background-image:none;
 	border-radius:5px;
 }
-.friend-box h3,p {
+.friend-portrait:hover {cursor:pointer;}
+.friend-box h3 {
 	margin:0 0 5px 15px;
-	display:inline;
+}
+.friend-box p {
+	margin:0 0 15px 15px;
+	max-width:280px;
 }
 .friend-btns {
 	margin:0 0 0 15px;

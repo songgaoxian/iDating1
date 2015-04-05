@@ -58,15 +58,11 @@
 	}	
 	
 </script>
-<!--content-end-->
-
 <!--footer-start-->
 <div class="footer">
 Copyright &copy; 2015 All Rights Reserved.
 </div>
 <!--footer-end-->
-
-
 
 </body>
 </html>

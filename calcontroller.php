@@ -109,7 +109,7 @@ public function add($dbc){
 	}
 }
 else{
-	echo "<script>alert('Please give all valid inputs')</script>";
+	echo "<script>alert('Please give all valid inputs.')</script>";
 }
 
 if(isset($month))
@@ -209,7 +209,7 @@ public function delete($dbc, $uid){
 						});
 						request1.execute(function(resp1){
 							console.log(resp1);
-							alert('successfully synchronized deletion in Google Calendar');
+							alert('Successfully synchronized deletion in Google Calendar.');
 						})
 					});
 				});

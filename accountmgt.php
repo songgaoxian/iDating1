@@ -4,8 +4,6 @@
 	$user->upload_picture();
 	$user->show();
 ?>
-<!--looking-for-start-->
-
 <!--overlay-start-->
 <div class="overlay-container">
 <!--change-pwd-box-start-->
@@ -16,7 +14,7 @@
 <input class="txtbox txtbox-fill" type="password" placeholder="Old Password" required id="old_pwd"></input><br>
 <input class="txtbox txtbox-fill" type="password" placeholder="New Password" required id="new_pwd1"></input><br>
 <input class="txtbox txtbox-fill" type="password" placeholder="Enter New Password Again" required id="new_pwd2"></input><br>
-<input id="save-pwd" class="btn btn-fill" type="button" value="Save" onclick="change_pwd()">
+<button id="save-pwd" class="btn btn-fill" type="button"onclick="change_pwd()">Save</button>
 </form>
 <script>
 	function select_(value,children){
@@ -103,7 +101,7 @@
 		xmlhttp.send(content);
 		record=xmlhttp;
 		if(true){
-			alert("change info success!");
+			alert("Information is changed successfully!");
 			var tags=document.getElementById('tags');
 			var temp1=tags.children;
 			while(temp1.length>0){
@@ -171,7 +169,7 @@
 		temp=confirm("Are you sure to delete this friend?");
 		if(temp==false){return;}
 		if(response['check']=='true'){
-			alert("Delete!");
+			alert("Deleted!");
 		}
 		else{
 			alert("...?");
@@ -203,10 +201,10 @@
 		record=xmlhttp;
 		response=JSON.parse(xmlhttp.response);
 		if(response['check']=='false'){
-			window.location.replace('new_msg_m?email='+response['email']);
+			window.location.replace('new_msg?email='+response['email']);
 		}
 		else{
-			window.location.replace('read_msg-m.php?with='+uid);
+			window.location.replace('read_msg.php?with='+uid);
 		}
 	}
 	function delete_friend(uid1){
@@ -218,7 +216,7 @@
 		record=xmlhttp;
 		response=JSON.parse(xmlhttp.response);
 		if(response['check']=='true'){
-			alert("Delete!");
+			alert("Deleted!");
 		}
 		else{
 			alert("...?");
@@ -231,8 +229,8 @@
 		var new_pwd=document.getElementById("new_pwd1").value;
 		var new_pwd1=document.getElementById("new_pwd2").value;
 		var close1=document.getElementById("close");
-		if(new_pwd!=new_pwd1){alert("new passwords should match!");return;}
-		else if(new_pwd.length==0 || old_pwd.length==0){alert("please enter password!")}
+		if(new_pwd!=new_pwd1){alert("New passwords should match!");return;}
+		else if(new_pwd.length==0 || old_pwd.length==0){alert("Please enter password!")}
 		else{
 			xmlhttp=new XMLHttpRequest(); 
 			content='{"email":"'+email+'","old":"'+old_pwd+'","new":"'+new_pwd+'"}';
@@ -242,10 +240,10 @@
 			record=xmlhttp;
 			response=JSON.parse(xmlhttp.response);
 			if(response['check']=='true'){
-				alert("change password success!");
+				alert("Password is changed successfully!");
 			}
 			else{
-				alert("old password wrong!");
+				alert("Old password is wrong!");
 			}
 		}
 		close1.click();
@@ -261,7 +259,7 @@
 
 <input class="txtbox txtbox-fill" type="file" required name="user-photo"></input><br>
 <br>
-<input id="save-portrait" class="btn btn-fill" type="submit" value="Save">
+<button id="save-portrait" class="btn btn-fill" type="submit">Save</button>
 </form>
 </div>
 <!--change-portrait-box-end-->

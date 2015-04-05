@@ -11,7 +11,8 @@
 		}
 ?>
 <!DOCTYPE html>
-<html><head>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="shortcut icon" href="img/icon.png">
@@ -22,42 +23,52 @@
 
 <script>
 $(document).ready(function() {
-	$(".sidebar").hide();
-		
-	$("#nav").click(function() {
-		$(".sidebar").fadeToggle();
+	var left=1;
+	$('#nav').click(function() {
+		if(left==1){
+			$('#B').animate({left: 150});left=0;
+			$('#C').css('overflow','hidden');
+		}
+	    else{
+			$('#B').animate({left: 0});left=1;
+			$('#C').css('overflow','scroll');
+		}
 	});
 });
-
 </script>
-
 <title>iDating - Shake</title>
 </head>
 
 <body>
+<div id="C">
+<div id="A">
+<!--sidebar-start-->
+<ul>
+<li><a href="accountmgt-m.php">My Page</a></li>
+<li><a href="search-m.php">Search</a></li>
+<li><a href="shake.php">Shake</a></li>
+<li><a href="calendar-m.php">Calendar</a></li>
+<li><a href="moments-m.php">Moments</a></li>
+<li><a href="messages-m.php">Messages</a></li>
+<li><a href="logout1.php">Log Out</a></li>
+</ul>
+<!--sidebar-end-->
+</div>
+
+<div id="B">
 <!--header-start-->
 <div class="header">
 <img id="nav" src="img/nav.png" alt="navigate">
 <h1>Shake</h1>
 </div>
 <!--header-end-->
-
-<div class="sidebar">
-<a href="accountmgt-m.html">My Page</a>
-<a href="search-m.html">Search</a>
-<a href="shake.html">Shake</a>
-<a href="calendar-m.html">Calendar</a>
-<a href="moments-m.html">Moments</a>
-<a href="messages-m.html">Messages</a>
-</div>
-
+<!--container-start-->
 <div class='container'>
 	<img id="lot" src="lucky_draw/lot<?php echo rand(1,9);?>.jpg">
-    <div style="display:block; margin-top:10px">
-    	<input name="recommend" type="button" class="btn btn-shake" value="Check our recommendations for you!" onclick='window.location.replace("accountmgt-m.php?uid=<?php echo $uid;?>")'>
-    </div>
+    <button id="recommend" name="recommend" type="button" class="btn" onclick='window.location.replace("accountmgt-m.php?uid=<?php echo $uid;?>")'>Check our recommendations for you!</button>
 </div>
-
-
+<!--container-end-->
+</div>
+</div>
 </body>
 </html>

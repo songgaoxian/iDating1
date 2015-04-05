@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	var conditionCount=9;  //no of conditions in "more conditions"
-	$(".search-portrait > div").height($(".search-portrait > div").width());
-	
+	$(".portrait-pic").height($(".portrait-pic").width());
+		
 	//delete a condition
     $(".item-delete").click(function() {
 		$("#more-condition-box").append($(this).parent());
@@ -45,6 +45,6 @@ $(document).ready(function() {
 	
 	//resize window
 	$(window).resize(function() {
-		$(".search-portrait > div").height($(".search-portrait > div").width());
+		$(".portrait-pic").height($(".portrait-pic").width());
 	});
 });
