@@ -309,6 +309,30 @@
 </div>
 <!--change-portrait-box-end-->
 <!--overlay-end--></div></div>
+<script>$(document).ready(function(){
+	if(navigator.geolocation)
+		navigator.geolocation.getCurrentPosition(showPosition);
+	else 
+		alert('Geolocation is not supported');
+	function showPosition(position){
+		latitude=position.coords.latitude;
+		longitude=position.coords.longitude;
+		sendposition(latitude,longitude);
+	}
+})
+function sendposition(latitude, longitude){
+	$.ajax({
+	 dataType: 'json',
+	 data: {latitude: latitude,
+	        longitude: longitude},
+	 url: 'slocation.php',
+	 type: 'POST',
+	 success: function(result){
+	 	console.log(result);
+	 }
+	});
+}
+</script>
 </body>
 </html>
 <?php
