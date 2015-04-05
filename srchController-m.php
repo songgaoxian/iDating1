@@ -16,7 +16,7 @@ if(isset($_GET['nickname'])){
         $_SESSION['sname']=array();
     $_SESSION['suid']=array();
     $_SESSION['sphoto']=array();   
-        if(!empty($result)){
+        if(mysqli_num_rows($result)>0){
                 $i=0;
                 while($row=mysqli_fetch_array($result)){
                         $sname[$i]=$row['username'];

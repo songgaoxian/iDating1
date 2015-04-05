@@ -130,16 +130,16 @@ public function delete($dbc, $uid){
 	$mateid=$_POST['mateid1'];
 	$q2="select email from user_info where user_id='$mateid'";
 	$result2=mysqli_query($dbc, $q2);
-	if($result2){
+	if(mysqli_num_rows($result2)>0){
 		$row=mysqli_fetch_array($result2);
 		$mateemail=$row['email'];
 	}
 	else{
 		echo "error";
 		if(!isset($_POST['mobile']))
-		header("refresh:1; url=calendar.php");
+		header("refresh:5; url=calendar.php");
 	    else
-	    	header("refresh:1; url=calendar-m.php");
+	    	header("refresh:5; url=calendar-m.php");
 	}
 	$dtime=$_POST['dat1'];
 	$tarray=array();
@@ -224,9 +224,9 @@ public function delete($dbc, $uid){
 else
 echo "error";
 if(!isset($_POST['mobile']))
-		header("refresh:1; url=calendar.php");
+		header("refresh:5; url=calendar.php");
 	    else
-	    	header("refresh:1; url=calendar-m.php");
+	    	header("refresh:5; url=calendar-m.php");
 
   }
 
@@ -243,7 +243,7 @@ $dmateid=array();
 $dtime=array();
 $dlocation=array();
 $dmatename=array();
-if(!empty($result)){
+if(mysqli_num_rows($result)>0){
 	$i=0;
 	while($row=mysqli_fetch_array($result)){
     $dat=$row['dat'];

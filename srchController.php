@@ -37,7 +37,7 @@ if(isset($_GET['nickname'])){
     $_SESSION['suid']=array();
     $_SESSION['sphoto']=array();
     $_SESSION['distance']=array();    
-        if(!empty($result)){
+        if(mysqli_num_rows($result)>0) {
                 $i=0;
                 while($row=mysqli_fetch_array($result)){
                         $sname[$i]=$row['username'];
@@ -168,7 +168,7 @@ else
         $_SESSION['rank']=$rank;
         $q="select * from user_info where user_id <> '$currentid' and birthday>='$oyear' and birthday<='$yyear' and income>='$income' and height>='$heightmin' and height<='$heightmax'";
         $result=mysqli_query($dbc, $q);
-        if(!empty($result)){
+        if(mysqli_num_rows($result)>0){
                 $i=0;
                 $pass=1;
                 while($row=mysqli_fetch_array($result)) {
